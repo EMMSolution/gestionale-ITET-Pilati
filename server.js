@@ -10,30 +10,16 @@ const impostazioniDB1 = {
     database: "gestionalePilati"
 };
 
-var database1 = mysql.createConnection(impostazioniDB1);
+var database1 = mysql.createPool(impostazioniDB1);
 
 var webServer = http.createServer(function(req, res){
-
-    fs.readFile("home.html", function(err, data){
-        if(err) throw err;
-        res.writeHeader(200, {"Content-Type": "text/html"});
-        res.write(data)
-        res.end();
+    database1.query("USE gestionalePilati;", function(err, result){
+        fs.readFile('/home/pi/gestionale-ITET-Pilati/sito/home.html', function(err, data) {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.write(data);
+            return res.end();
+          });
     })
-
-    /*
-    database1.connect(function(err){
-        console.log("serverAcceso");
-        if(err) throw err;
-        console.log("database acceso");
-        database1.query("USE gestionalePilati;", function(err, result){
-        if(err) throw err;
-            console.log(result);
-            res.write(result)
-            res.end();
-        })
-    });
-    */
 });
 
 webServer.listen(8000);

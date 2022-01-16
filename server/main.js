@@ -1,10 +1,3 @@
-// databases
-import * as db from 'db/db.js';
-// web server
-import * as ws from 'web/webServer.js';
-// mail authentication
-import * as ma from 'mail/mailAuth.js';
-
 // modules
 const http = require("http");
 const mysql = require("mysql");
@@ -13,6 +6,15 @@ const fs = require("fs");
 // variables
 var query1;
 var homeHTML;
+
+// create db1
+const impDB1 = {
+    host     :  "192.168.1.154",
+    user     :  "berta",
+    password :  "SERVER2006berta",
+    database :  "gestionalePilati"
+}
+var connDB1 = mysql.createConnection(impDB1);
 
 // read 'home.html' file
 fs.readFile('../sito/home.html', function(err, data){
@@ -23,15 +25,28 @@ fs.readFile('../sito/home.html', function(err, data){
 });
 
 // send a query to the db1
-database1.connect(function(err){});
-database1.query("SELECT * FROM elaborati", function (err, result, fields) {
+connDB1.connect(function(err){});
+connDB1.query("SELECT * FROM elaborati", function (err, result, fields) {
     if(err){
         console.log(err);
     }
     query1 = result;
 });
 
+// put the data into webserver function
+
+function serverData(err, req, res){
+    res.writeHead(200, {'Content-Type': 'text/html'})
+    res.write(homeHTML);
+    console.log(query1);
+    res.end();
+}
+
+// create the web server
+var webServer = http.createServer(serverData);
+
 // listen the webserver at port 8000
-webServer.listen(8000);
-console.log("server web acceso");
+webServer.listen(8000, function(){
+    console.log("server web acceso");
+});
 

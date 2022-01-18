@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+html,body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-color: #4f4d4d;
+}
+a{
+    color: white;
+}
+.flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.centrato{
+    padding-top: 20px;
+    position: absolute;
+    vertical-align: center;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -600px;
+    height: 600px;
+    width: 1200px;
+    /* border: 2px solid white; */
+}
+.scritte1{
+    direction: flex;
+    flex-direction: column;
+    right: 0;
+    top: 40px;
+    position: absolute;
+    height: 400px;
+    width: 700px;
+    padding-left: 30px;
+}
+.e404-1{
+    font-size: 65px;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+    margin-right: 40px;
+}
+.e404-2{
+    font-size: 65px;
+    font-weight: 400;
+    font-family: 'Rubik', sans-serif;
+}
+.scritte1 div{
+    height: 50px;
+    width: 10px;
+    background-color: transparent;
+}
+.descrizione{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Rubik', sans-serif;
+}
+.linkHome{
+    font-size: 40px;
+    font-weight: 300;
+    font-family: 'Rubik', sans-serif;
+}
+.returnHome{
+    font-size: 25px;
+    font-weight: 300;
+    font-family: 'Rubik', sans-serif;
+    height: 60px;
+    width: 180px;
+    background-color: #3a3a3a;
+    color: white;
+    border: 0;
+    margin-top: 20px;
+}
+.eggMan{
+    height: 400px;
+    position: relative;
+}
+footer{
+    height: 80px;
+    width: 100%;
+    position: relative;
+    background: rgb(36, 36, 36);
+    display: flex;
+    align-items: center;
+    margin-top: -80px;
+}
+footer a{
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: light;
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(218, 218, 218);
+}
+.immagineLogo{
+    height: 36px;
+    margin-left: 10px;
+    z-index: 2; 
+}
+.copyright{
+    right: 15px;
+    position: absolute;
+}

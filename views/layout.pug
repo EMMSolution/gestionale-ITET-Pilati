@@ -1,7 +1,15 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='../stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		// css per index - login - register
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		// csss per error
+		link(rel='stylesheet', href='/stylesheets/pagina404.css')
+	body
+		block content
+		footer
+			a Powered by 
+			img.immagineLogo(src='/public/images/logoEggs/logoNoSfondo.png')
+			a.copyright &copy; 2022 EggSolution, Inc. All rights reserved.
+

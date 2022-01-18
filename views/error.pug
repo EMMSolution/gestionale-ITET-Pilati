@@ -1,6 +1,18 @@
 extends layout
 
 block content
-	h1= message
-	h2= error.status
-	pre #{error.stack}
+.flex
+  	.centrato
+    	img.eggMan(src='/public/images/logoEggs/eggManNb.png')
+    	.scritte1
+      	a.e404-1 Oh no!
+      	a.e404-2(href='https://en.wikipedia.org/wiki/HTTP_404')
+			h2= error.status
+      	br
+      	div
+      	a.descrizione Egg man can&apos;t find the page you&apos;re looking for
+      	br
+      	div
+      	a.linkHome Do you want to go back to the home?
+      	br
+      	button.returnHome(onclick='redirectHome()') Click me!

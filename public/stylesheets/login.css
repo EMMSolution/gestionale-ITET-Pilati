@@ -8,7 +8,7 @@ html {
     height: 100%;
 }
 body {
-    background-color: #ba26ff;
+    background-color: #65108b;
     width: 100%;
     height: 100%;
 }
@@ -73,15 +73,27 @@ body {
 }
 .help {
     padding-left: 4px;
+    padding-right: 4px;
     margin-top: 6px;
     width: 344px;
     display: flex;
-    align-items: left;
 }
 .passDim {
+    text-align: left;
+    position: aboslute;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     color: #d476ff;
+    font-size: 12px;
+}
+.errore {
+    text-align: right;
+    position: aboslute;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #cf0000;
     font-size: 12px;
 }
 .invio {

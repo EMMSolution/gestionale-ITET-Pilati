@@ -4,11 +4,26 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var db1 = require('../database/db1');
 
 var indexRouter = require('./routes/index');
 var dashRouter = require('./routes/dashboard');
 
 var app = express();
+
+
+
+db1.query(query, function(err, result, fields){
+  console.log(result);
+  if(err){
+    console.log("ciaoooooooo "+err);
+    //res.render('login', {errore: true});
+  } else {
+    console.log(result + "2");
+    //res.render('dashboard', {title: "Dashboard"});
+  }
+});
+
 
 //parse requests
 app.use(bodyParser.urlencoded({ extended: true }));

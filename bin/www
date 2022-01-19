@@ -7,8 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('gestionale-itet-pilati:server');
 var http = require('http');
-
-// import database1
 var db1 = require('../database/db1');
 
 /**

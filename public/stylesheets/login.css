@@ -8,25 +8,95 @@ html {
     height: 100%;
 }
 body {
-    background-color: #222222;
+    background-color: #ba26ff;
     width: 100%;
     height: 100%;
 }
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&family=Yantramanav:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+.fromNode {
+    height: 100%;
+    width: 100%;
+}
 .mainFlex {
     width: 100%;
     height: 100%;
 }
 .form {
-    top: calc(50% - 200px/2);
-    left: calc(50% - 300px/2);
-    height: 200px;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: calc(50% - 420px/2 - 20px);
+    left: calc(50% - 450px/2);
+    height: 420px;
+    width: 450px;
     position: relative;
-    background-color: white;
+    background-color: #222222;
+    border-radius: 40px;
+    padding-top: 50px;
 }
-footer{
+.titolo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 30px;
+}
+.flex-form {
+    display: flex;
+    flex-direction: column;
+}
+.emailI,
+.passI {
+    margin-top: 60px;
+    margin-left: 2px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+    color: white;
+}
+.passI {
+    margin-top: 30px;
+}
+.input1,
+.input2 {
+    padding: 12px;
+    margin-top: 10px;
+    height: 25px;
+    width: 320px;
+    background-color: #e0b8ff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #222222;
+    font-size: 17px;
+    border: solid 0;
+    border-radius: 10px;
+}
+.help {
+    padding-left: 4px;
+    margin-top: 6px;
+    width: 344px;
+    display: flex;
+    align-items: left;
+}
+.passDim {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #d476ff;
+    font-size: 12px;
+}
+.invio {
+    height: 40px;
+    width: 110px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #222222;
+    font-size: 17px;
+    background-color: #e0b8ff;
+    border: solid 0;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+footer {
     top: 100%;
     height: 60px;
     width: 100%;
@@ -35,21 +105,21 @@ footer{
     display: flex;
     align-items: center;
 }
-.poweredBy{
+.poweredBy {
     font-family: 'Yantramanav', sans-serif;
     font-weight: light;
     font-size: 16px;
     margin-left: 20px;
     color: white;
 }
-.immagineLogo{
+.immagineLogo {
     height: 30px;
     margin-left: 10px;
     z-index: 2; 
 }
-.copyright{
+.copyright {
     font-size: 15px;
-    font-family: 'Spartan', sans-serif;
+    font-family: 'Roboto', sans-serif;
     right: 15px;
     color: white;
     position: absolute;

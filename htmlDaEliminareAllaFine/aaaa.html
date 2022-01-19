@@ -5,9 +5,21 @@
     </head>
     <body>
         <div class="mainFlex">
-            <div class="form">
-
-            </div>
+            <form class="fromNode" action="/login" method="POST">
+                <div class="form">
+                    <a class="titolo">Login:</a>
+                    <div class="flex-form">
+                        <a class="emailI">E-mail:</a>
+                        <input type="email" name="email" class="input1">
+                        <a class="passI">Password:</a>
+                        <input type="password" name="password" class="input2">
+                    </div>
+                    <div class="help">
+                        <a href="#" class="passDim">Password dimenticata?</a>
+                    </div>
+                    <button type="submit" class="invio">Accedi</button>
+                </div>
+            </form>
         </div>
 		<footer>
 			<a class="poweredBy">Powered by </a>

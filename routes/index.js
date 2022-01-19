@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db1 = require('../database/db1');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,12 +19,16 @@ router.post('/login', function (req, res, next) {
 	console.log("email: " + email);
 	console.log("pass: " + password);
 
-	if(email === "bertagnollimarco999@gmail.com" && password === "ciao") {
-		res.render('dashboard', {title: 'Dashboard'});
-	} else {
-		console.log("accesso effetuato");
-		res.render('login', {errore: 'credenziali'});
-	}
+	db1.query("SELECT * FROM user WHERE email="+email+"AND password="+password, function(err, result, fields){
+		if(err){
+			console.log(err);
+			res.render('login', {errore: 'Credenziali'});
+		} else {
+			res.render('dashboard', {title: 'Dashboard'});
+			console.log(result);
+		}
+	})
+
 });
 
 router.get('/dashboard', function(req, res, next) {

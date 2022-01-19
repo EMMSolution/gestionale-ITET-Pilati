@@ -5,6 +5,11 @@ html
 		// css per index - login - register
 		link(href='/stylesheets/style.css', rel="stylesheet", type="text/css")
 	body
+		script.
+			function move() {
+				window.location.href = '/login'
+			}
+
 		.headerI
 			.menu-dI
 				img.logoI(href='#' src='/images/logoEggs/logoNoSfondo.png')
@@ -13,8 +18,8 @@ html
 					a.scritteMenuI(href='#') Elaborati
 					a.scritteMenuI(href='#') Contattaci
 			.menu-sI
-				button.bottoniMenuI(href='127.0.0.1/login') Log-in
-				button.bottoniMenuI(href='/register') Sig-in
+				button(onclick="move()").bottoniMenuI1 Login
+				button.bottoniMenuI2 Register
 		main.mainI
 			a ciao
 		footer

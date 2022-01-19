@@ -11,14 +11,6 @@ var http = require('http');
 // import database1
 var db1 = require('../database/db1');
 
-db1.query("SELECT * FROM elaborati", function (err, result, fields) {
-    if (err){
-		console.log(err);
-	} else {
-    	console.log(result);
-	}
-});
-
 /**
  * Get port from environment and store in Express.
  */

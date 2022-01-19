@@ -3,18 +3,19 @@ html
     head
         title= title
         link(rel='stylesheet' href='stylesheets/login.css')
-    .mainFlex
-        form.fromNode(action='/login' method='POST')
-            .form
-                a.titolo Login:
-                .flex-form
-                    a.emailI E-mail:
-                    input.input1(type='email' name='email')
-                    a.passI Password:
-                    input.input2(type='password' name='password')
-                .help
-                    a.passDim(href='#') Password dimenticata?
-                button.invio(type='submit') Accedi
+    body
+        .mainFlex
+            form.fromNode(action='/login' method='POST')
+                .form
+                    a.titolo Login:
+                    .flex-form
+                        a.emailI E-mail:
+                        input.input1(type='email' name='email')
+                        a.passI Password:
+                        input.input2(type='password' name='password')
+                    .help
+                        a.passDim(href='#') Password dimenticata?
+                    button.invio(type='submit') Accedi
     footer
         a.poweredBy Powered by 
         img.immagineLogo(src='../public/images/logoEggs/logoNoSfondo.png')

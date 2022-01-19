@@ -19,7 +19,7 @@ router.post('/login', function (req, res, next) {
 	console.log("email: " + email);
 	console.log("pass: " + password);
 
-	var query = "SELECT * FROM user WHERE email="+email+" AND password="+password;
+	var query = eval("SELECT * FROM user WHERE email='"+email+"' AND password='"+password+"'");
 	console.log(query);
 
 	db1.query(query, function(err, result, fields){

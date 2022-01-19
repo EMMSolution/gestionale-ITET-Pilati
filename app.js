@@ -14,7 +14,7 @@ var app = express();
 var email = "eggsolution1@gmail.com";
 var password = "admin";
 
-var query = eval("SELECT * FROM user WHERE email='" + email + "' AND password='" + password + "';");
+var query = eval('SELECT * FROM user WHERE email="' + email + '" AND password="' + password + '";');
 
 db1.query("SELECT * FROM user;", function(err, result, fields){
   console.log(result);

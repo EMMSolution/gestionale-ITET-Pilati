@@ -19,7 +19,10 @@ router.post('/login', function (req, res, next) {
 	console.log("email: " + email);
 	console.log("pass: " + password);
 
-	db1.query("SELECT * FROM user WHERE email="+email+" AND password="+password, function(err, result, fields){
+	var query = "SELECT * FROM user WHERE email="+email+" AND password="+password;
+	console.log(query);
+
+	db1.query(query, function(err, result, fields){
 		if(err){
 			console.log(err);
 			res.render('login', {errore: 'Credenziali'});

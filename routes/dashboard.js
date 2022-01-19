@@ -12,17 +12,20 @@ router.post('/', function(req, res, next){
 	const password = req.body.password;
     
 	var query = eval("SELECT * FOROM user WHERE email='" + email + "' AND password='" + password + "'");
-	console.log(query);
+	console.log("\n\n" + query + "\n\n");
 
 	db1.query(query, function(err, result, fields){
 		console.log(result);
-		if(err){
+		/*
+        if(err){
 			console.log(err);
             res.render('login', {errore: true});
 		} else {
 			res.render('dashboard', {title: "Dashboard"});
 		}
+        */
 	});
+    res.render('dashboard', {title: "Dashboard"});
 });
 
 module.exports = router;

@@ -1,18 +1,25 @@
-extends layout
-
-block content
-.flex
-	.centrato
-		img.eggMan(src='/public/images/logoEggs/eggManNb.png')
-		.scritte1
-		a.e404-1 Oh no!
-		a.e404-2(href='https://en.wikipedia.org/wiki/HTTP_404')
-			h2= error.status
-		br
-		div
-		a.descrizione Egg man cant find the page youre looking for
-		br
-		div
-		a.linkHome Do you want to go back to the home?
-		br
-		button.returnHome(onclick='redirectHome()') Click me!
+doctype html
+html
+	head
+		title= title
+		link(href='/stylesheets/pagina404.css', rel="stylesheet", type="text/css")
+	body
+		.flex
+			.centrato
+				img.eggMan(src='/images/logoEggs/eggManNb.png')
+				.scritte1
+					a.e404-1 Oh no!
+					a.e404-2(href='https://en.wikipedia.org/wiki/HTTP_404')
+						h2= error.status
+					br
+					.scritte1Div
+					a.descrizione Egg man cant find the page youre looking for
+					br
+					.scritte1Div
+					a.linkHome Do you want to go back to the home?
+					br
+					button.returnHome(onclick='redirectHome()') Click me!
+		footer
+			a.poweredBy Powered by 
+			img.immagineLogo(src='/images/logoEggs/logoNoSfondo.png')
+			a.copyright &copy; 2022 EggSolution, Inc. All rights reserved.

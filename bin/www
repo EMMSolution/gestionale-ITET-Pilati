@@ -8,6 +8,17 @@ var app = require('../app');
 var debug = require('debug')('gestionale-itet-pilati:server');
 var http = require('http');
 
+// import database1
+var db1 = require('../database/db1');
+
+db1.query("SELECT * FROM elaborati", function (err, result, fields) {
+    if (err){
+		console.log(err);
+	} else {
+    	console.log(result);
+	}
+});
+
 /**
  * Get port from environment and store in Express.
  */
@@ -25,7 +36,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(80);
 server.on('error', onError);
 server.on('listening', onListening);
 

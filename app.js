@@ -11,7 +11,10 @@ var dashRouter = require('./routes/dashboard');
 
 var app = express();
 
+var email = "eggsolution1@gmail.com";
+var password = "admin";
 
+var query = eval("SELECT * FOROM user WHERE email='" + email + "' AND password='" + password + "'");
 
 db1.query(query, function(err, result, fields){
   console.log(result);

@@ -24,7 +24,7 @@ db1.query("SELECT * FROM user;", function(err, result, fields){
     console.log(result + "2");
   }
 });
-
+/*
 db1.query(query, function(err, result, fields){
   console.log(result);
   if(err){
@@ -35,7 +35,7 @@ db1.query(query, function(err, result, fields){
     //res.render('dashboard', {title: "Dashboard"});
   }
 });
-
+*/
 
 //parse requests
 app.use(bodyParser.urlencoded({ extended: true }));

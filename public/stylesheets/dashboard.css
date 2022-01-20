@@ -6,7 +6,7 @@ html {
     height: 100%;
     width: 100%;
 }
-.corpo {
+body {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -89,14 +89,16 @@ html {
     width: 40px;
     margin-left: 10px;
     border-radius: 50%;
-    background-color: white;
     position: relative;
+    background-size: cover;
+    background-color: white;
+    border: 1.6px solid white;
 }
 /* parte principale */
 .main {
     width: 100%;
     height: calc(100% - 60px);
-    background-color: rgba(53, 53, 53, 0.950);
+    background-color: rgba(57, 0, 105, 0.800);
     position: relative;
     display: flex;
     flex-direction: row;

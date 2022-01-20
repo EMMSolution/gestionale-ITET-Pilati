@@ -1,7 +1,19 @@
 doctype html
 html
     head
-        title= title
         link(rel='stylesheet' href='stylesheets/dashboard.css')
     body
-        a dashboard
+        .menu-l
+            img.logo(src='images/logoEggs/normale.jpg')
+            img(src='')
+            .iconeCentrali
+            .iconeBasse
+        .destra
+            .manu-s
+                .account(href='#')
+                    a.nomeAccount= nomeUtente
+                    .immagneAccount(style="background-image: url('images/user/noUserImg.png');")
+
+            .main
+                .sezionePrincipale
+                .sezioneLaterale

@@ -6,8 +6,17 @@ html
 		link(href='/stylesheets/style.css', rel="stylesheet", type="text/css")
 	body
 		script.
-			function move() {
-				window.location.href = '/login'
+			function move(dove) {
+				switch(dove){
+					case "login":
+						window.location.href = '/login'
+						break;
+					case "register":
+						window.location.href = '/register'
+						break;
+					default:
+						alert('redirect error')
+				}
 			}
 		.headerI
 			.menu-dI
@@ -17,8 +26,8 @@ html
 					a.scritteMenuI(href='#') Elaborati
 					a.scritteMenuI(href='#') Contattaci
 			.menu-sI
-				button(onclick="move()").bottoniMenuI1 Login
-				button.bottoniMenuI2 Register
+				button(onclick="move('login')").bottoniMenuI1 Login
+				button(onclick="move('register')").bottoniMenuI2 Register
 		main.mainI
 			a ciao
 		footer

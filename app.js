@@ -14,29 +14,6 @@ var app = express();
 var email = "eggsolution1@gmail.com";
 var password = "admin";
 
-var query = eval(String('SELECT * FROM `user` WHERE email="' + email + '" AND password="' + password + '";'));
-
-db1.query("SELECT * FROM user;", function(err, result, fields){
-  console.log(result);
-  if(err){
-    console.log("ciaoooooooo "+err);
-  } else {
-    console.log(result + "2");
-  }
-});
-/*
-db1.query(query, function(err, result, fields){
-  console.log(result);
-  if(err){
-    console.log("ciaoooooooo "+err);
-    //res.render('login', {errore: true});
-  } else {
-    console.log(result + "2");
-    //res.render('dashboard', {title: "Dashboard"});
-  }
-});
-*/
-
 //parse requests
 app.use(bodyParser.urlencoded({ extended: true }));
 

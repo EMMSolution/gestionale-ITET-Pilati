@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+.corpo {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&family=Yantramanav:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+/* VIOLA  98, 5, 147 */
+/* GRIGIO 34, 34, 34 */
+
+/* menu di lato */
+.menu-l{
+    height: 100%;
+    width: 90px;
+    position: relative;
+    background-color: rgba(34, 34, 34, 1.000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo {
+    width: 60px;
+    margin-top: 8px;
+}
+.iconeCentrali {
+    top: calc(50% - 170px/2 - 60px);
+    width: 90px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    position: absolute;
+}
+.iconeBasse {
+    bottom: 0;
+    width: 90px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    position: absolute;
+}
+.destra {
+    height: 100%;
+    width: calc(100% - 90px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+/* menu sinistra */
+.manu-s {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(34, 34, 34, 0.938);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.account {
+    height: 50px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 15px;
+    position: absolute;
+}
+.nomeAccount {
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 4px;
+    color: white;
+    position: relative;
+}
+.immagneAccount {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+}
+/* parte principale */
+.main {
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: rgba(53, 53, 53, 0.950);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+/* sezione Principale */
+.sezionePrincipale {
+    height: calc(100% - 40px);
+    margin: 20px;
+    width: calc(70% - 50px);
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+}
+
+/* sezione laterale statica */
+.sezioneLaterale {
+    height: calc(100% - 40px);
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 20px;
+    width: calc(30% - 20px);
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+}

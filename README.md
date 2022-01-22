@@ -1,3 +1,3 @@
-# gestionale-ITET-Pilati
+# gestionale per elaborati
 
-gestionale scritto principalmente in nodeJS per l'ITET Pilati
+gestionale scritto principalmente in nodeJS 

@@ -73,6 +73,15 @@ body {
 .passI2 {
     margin-top: 30px;
 }
+.errore {
+    text-align: right;
+    position: aboslute;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color: #cf0000;
+    font-size: 12px;
+}
 .input1,
 .input2 {
     padding: 12px;

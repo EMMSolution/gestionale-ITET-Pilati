@@ -3,7 +3,7 @@ html
     head
         title= title
         link(rel='stylesheet' href='stylesheets/register.css')
-        script(src='javascripts/register.js')
+        script(src='javascripts/slideRegister.js')
     body
         .mainFlex
             form.fromNode(action='/register' method='POST')
@@ -16,6 +16,7 @@ html
                                 input.input1(type='text' name='nome')
                                 a.emailI Email:
                                 input.input2(type='email' name='email')
+                                a.errore= errore
                             .bottoni1
                                 button.invio(type="button" onclick="animazione('avanti')") Avanti
                         .parte2

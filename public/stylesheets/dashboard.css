@@ -23,7 +23,7 @@ body {
     height: 100%;
     width: 90px;
     position: relative;
-    background-color: rgba(34, 34, 34, 1.000);
+    background-color: rgb(38, 26, 49);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,6 +50,56 @@ body {
     background-color: transparent;
     position: absolute;
 }
+/* icone */
+.indicatore {
+    height: 37px;
+    width: 4px;
+    position: relative;
+    margin-right: calc(90px - 10px);
+    background-color: white;
+    border-radius: 0 8px 8px 0;
+    transition: 1s;
+    top: 175px;
+}
+.bottoneL1,
+.bottoneL2 {
+    border: 0 solid;
+    background: transparent;
+}
+.logo1,
+.logo2 {
+    padding-left: 30px;
+    margin-top: 10px;
+    height: 40px;
+    width: 90px;
+    position: relative;
+}
+.logo2 {
+    margin-top: 30px;
+}
+.homeLogo,
+.graLogo {
+    height: 22px;
+}
+.loguotDiv,
+.impostazioniDiv {
+    padding-left: 30px;
+    height: 60px;
+    width: 90px;
+    position: relative;
+}
+.impostazioniDiv {
+    height: 40px;
+    width: 90px;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+}
+.logout,
+.impostazioni {
+    height: 25px;
+}
+/* ---- */
 .destra {
     height: 100%;
     width: calc(100% - 90px);
@@ -57,11 +107,11 @@ body {
     display: flex;
     flex-direction: column;
 }
-/* menu sinistra */
+/* menu sopra */
 .manu-s {
     width: 100%;
     height: 60px;
-    background-color: rgba(34, 34, 34, 0.938);
+    background-color: rgb(60, 41, 77);
     position: relative;
     display: flex;
     flex-direction: row;
@@ -91,9 +141,10 @@ body {
     border-radius: 50%;
     position: relative;
     background-size: cover;
-    background-color: white;
-    border: 1.6px solid white;
+    background-color: rgb(37, 37, 37);
+    border: 1.6px solid rgb(37, 37, 37);
 }
+
 /* parte principale */
 .main {
     width: 100%;

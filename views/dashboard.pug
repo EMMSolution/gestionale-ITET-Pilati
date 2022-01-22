@@ -2,17 +2,29 @@ doctype html
 html
     head
         link(rel='stylesheet' href='stylesheets/dashboard.css')
+        script(src='javascripts/redirectVari.js')
+        script(src='javascripts/menuDash.js')   
     body
         .menu-l
             img.logo(src='images/logoEggs/normale.jpg')
-            img(src='')
+            .indicatore
             .iconeCentrali
+                .logo1
+                    button.bottoneL1(onclick="menu('home')")
+                        img(class="homeLogo" src="images/dashboard/home.svg")
+                .logo2
+                    button.bottoneL2(onclick="menu('home')")
+                        img(class="graLogo" src="images/dashboard/grafico2.svg")
             .iconeBasse
+                .impostazioniDiv
+                    img(class="impostazioni" onclick="move('dashImpo')" src="images/dashboard/impostazioni.svg")
+                .loguotDiv
+                    img(class="logout" onclick="move('home')" src="images/dashboard/logout.svg")
         .destra
             .manu-s
                 .account(href='#')
                     a.nomeAccount= nomeUtente
-                    .immagneAccount(style="background-image: url('images/user/noUserImg.png');")
+                    .immagneAccount(style="background-image: url('images/user/noUserImg.svg');")
 
             .main
                 .sezionePrincipale

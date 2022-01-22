@@ -5,19 +5,7 @@ html
 		// css per index - login - register
 		link(href='/stylesheets/style.css', rel="stylesheet", type="text/css")
 	body
-		script.
-			function move(dove) {
-				switch(dove){
-					case "login":
-						window.location.href = '/login'
-						break;
-					case "register":
-						window.location.href = '/register'
-						break;
-					default:
-						alert('redirect error')
-				}
-			}
+		script(src="javascripts/redirectVari.js")
 		.headerI
 			.menu-dI
 				img.logoI(href='#' src='/images/logoEggs/logoNoSfondo.png')

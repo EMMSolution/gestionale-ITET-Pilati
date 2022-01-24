@@ -2,19 +2,27 @@ doctype html
 html
     head
         link(rel='stylesheet' href='stylesheets/dashboard.css')
+        script(src='javascripts/menuDash.js')
         script(src='javascripts/redirectVari.js')
-        script(src='javascripts/menuDash.js')   
+        // DA SISTEMARE
+        link(rel="icon" href="/images/logoEggs/normale.jpg")
     body
         .menu-l
             img.logo(src='images/logoEggs/normale.jpg')
-            .indicatore
+            .indicatore(style='top: 100px')
             .iconeCentrali
                 .logo1
-                    button.bottoneL1(onclick="menu('home')")
+                    button.bottoneL1(onclick="menu(1)")
                         img(class="homeLogo" src="images/dashboard/home.svg")
                 .logo2
-                    button.bottoneL2(onclick="menu('home')")
+                    button.bottoneL2(onclick="menu(2)")
                         img(class="graLogo" src="images/dashboard/grafico2.svg")
+                .logo3
+                    button.bottoneL3(onclick="menu(3)")
+                        img(class="tabLogo" src="images/dashboard/elaborati.svg")
+                .logo4
+                    button.bottoneL4(onclick="menu(4)")
+                        img(class="aggTabLogo" src="images/dashboard/aggElaborati.svg")
             .iconeBasse
                 .impostazioniDiv
                     img(class="impostazioni" onclick="move('dashImpo')" src="images/dashboard/impostazioni.svg")
@@ -25,7 +33,32 @@ html
                 .account(href='#')
                     a.nomeAccount= nomeUtente
                     .immagneAccount(style="background-image: url('images/user/noUserImg.svg');")
-
             .main
-                .sezionePrincipale
+                .sezioni
+                    .sezionePrincipale
+                        .titoloDiv
+                            a.titolo Home:
+                    .sezioneInfo
+                        .titoloDiv
+                            a.titolo Info:
+                    .sezioneElaborati
+                        .titoloDiv
+                            a.titolo Elaborati:
+                        table.tabellaElaborati
+                            tr.tbe1
+                                th.tbe2h Nome:
+                                th.tbe2h Autore:
+                                th.tbe2h File:
+                                th.tbe2h Data upload:
+                            each i in elaborati
+                                tr.tbe1
+                                    td.tbe2= i.name
+                                    td.tbe2= i.creator
+                                    td.tbe2
+                                        a.tbeFile(href="${i.filePath}") elaborato
+                                    td.tbe2= i.uploadDate
+                    .sezioneAgg
+                        .titoloDiv
+                            a.titolo Aggiungi elaborati:
+                        
                 .sezioneLaterale

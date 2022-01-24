@@ -11,6 +11,7 @@ body {
     flex-direction: row;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&family=Yantramanav:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
@@ -27,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 3;
 }
 .logo {
     width: 60px;
@@ -58,27 +60,34 @@ body {
     margin-right: calc(90px - 10px);
     background-color: white;
     border-radius: 0 8px 8px 0;
-    transition: 1s;
-    top: 175px;
+    transition: 0.3s;
 }
 .bottoneL1,
-.bottoneL2 {
+.bottoneL2,
+.bottoneL3,
+.bottoneL4 {
     border: 0 solid;
     background: transparent;
 }
 .logo1,
-.logo2 {
+.logo2,
+.logo3,
+.logo4 {
     padding-left: 30px;
     margin-top: 10px;
     height: 40px;
     width: 90px;
     position: relative;
 }
-.logo2 {
+.logo2,
+.logo3,
+.logo4 {
     margin-top: 30px;
 }
 .homeLogo,
-.graLogo {
+.graLogo,
+.tabLogo,
+.aggTabLogo {
     height: 22px;
 }
 .loguotDiv,
@@ -101,7 +110,7 @@ body {
 }
 /* ---- */
 .destra {
-    height: 100%;
+    height: auto;
     width: calc(100% - 90px);
     position: relative;
     display: flex;
@@ -115,6 +124,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
+    z-index: 3;
 }
 .account {
     height: 50px;
@@ -154,14 +164,6 @@ body {
     display: flex;
     flex-direction: row;
 }
-/* sezione Principale */
-.sezionePrincipale {
-    height: calc(100% - 40px);
-    margin: 20px;
-    width: calc(70% - 50px);
-    background-color: rgba(34, 34, 34, 0.568);
-    border-radius: 35px;
-}
 
 /* sezione laterale statica */
 .sezioneLaterale {
@@ -172,4 +174,96 @@ body {
     width: calc(30% - 20px);
     background-color: rgba(34, 34, 34, 0.568);
     border-radius: 35px;
+}
+
+.sezioni {
+    display: flex;
+    flex-direction: column;
+    width: calc(70% - 50px);
+    height: calc(400% - 40px);
+    margin: 20px;
+    transition: 1s;
+}
+.titoloDiv {
+    width: 100%;
+    height: 40px;
+    transform: translateY(35px);
+}
+.titolo {
+    font-size: 34px;
+    font-family: 'Roboto', sans-serif;
+    margin-right: 100px;
+    color: white;
+    position: absolute;
+    transform: translateX(60px);
+}
+
+/* sezione Principale */
+.sezionePrincipale {
+    height: calc(100% - 40px);
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+    margin-bottom: 30px;
+}
+
+/* sezione Info */
+.sezioneInfo {
+    height: calc(100% - 40px);
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+    margin-bottom: 30px;
+}
+
+/* sezione Elaborati */
+.sezioneElaborati {
+    height: calc(100% - 40px);
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+    margin-bottom: 30px;
+}
+.tabellaElaborati {
+    border: none;
+    border-collapse: collapse;
+    position: absolute;
+    width: calc(100% - 120px);
+    max-height: calc(100% - 135px - 30px);
+    transform: translateY(100px);
+    margin-left: 60px;
+    margin-right: 60px;
+    overflow-y: visible;
+}
+.tbe1,
+.tbe2
+.tbe2h {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    color: white;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.tbe2{
+    padding-top: 40px;
+}
+.tbe2h {
+    border-bottom: solid 2px rgba(255, 255, 255, 1);
+    width: 24%;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.tbeFile {
+    color: white;
+}
+
+/* sezione Laterale */
+.sezioneAgg {
+    height: calc(100% - 40px);
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.568);
+    border-radius: 35px;
+    margin-bottom: 30px;
 }

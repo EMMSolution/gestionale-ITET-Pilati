@@ -1,6 +1,3 @@
-const indicatore = document.querySelector(".indicatore");
-console.log(indicatore.top);
-
 function move(dove) {
     switch(dove){
         case "login":

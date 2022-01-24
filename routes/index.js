@@ -17,20 +17,26 @@ router.get("/register", function(req, res){
 });
 
 router.post('/dashboard', function(req, res){
+	
+	var tabellaEdb;
 
+	db1.query('SELECT * FROM elaborati', function(err, result, fields){
+		tabellaEdb = result;
+	});
 	const email = req.body.email;
 	const password = req.body.password;
 
 	var query = 'SELECT * FROM user WHERE email="' + email + '" AND password="' + password + '"';
 	db1.query(query, function(err, result, fields){
+		var nomeU = result[0].name;
 		if(err){
 			console.log(err);
 		} else {
 			if(result == ""){
 				res.render('login', {title: "Login error", errore: true});
 			} else {
-				console.log(result[0].name)
-				res.render('dashboard', {title: "Dashboard", nomeUtente: result[0].name});
+				console.log(nomeU + " si è loggato")
+				res.render('dashboard', {title: "Dashboard", nomeUtente: nomeU, elaborati: tabellaEdb});
 			}
 		}
 	});
@@ -44,28 +50,12 @@ router.post('/register', function(req, res){
 	const password2 = req.body.pass2;
 	var enUsata = false;
 
-	/*
-	db1.query("SELECT * FROM user WHERE email='"+email+"' OR name='"+nome+"'", function(err, result){
-		if(err){
-			console.log(err);
-		} else {
-			if(result[0].id != undefined){
-				enUsata = true;
-			} else {
-				enUsata = false;
-			}
-		}
-	});
-	*/
-
 	// da sistemare gli errori non arrivano in modo ordinato
 	if (password1 === password2){
 		if(enUsata == false){
 			if(nome != "" || email != "" || password1 != "" || password2 != ""){
-				var data = new Date();
-				var dataFormattata = data.getDay()+"/"+data.getMonth()+"/"+data.getFullYear();
 					
-				var query = "INSERT INTO user (name, privileges, data, password, email) VALUE ('"+nome+"',"+1+",'"+dataFormattata+"','"+password2+"','"+email+"')";
+				var query = "INSERT INTO user (name, privileges, password, email) VALUE ('"+nome+"',"+1+",'"+password2+"','"+email+"')";
 				db1.query(query, function(err, result, fields){
 					if(err){
 						console.log(err);

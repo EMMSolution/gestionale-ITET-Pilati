@@ -1,21 +1,40 @@
-window.onload = function(){
-    function menu(sezione){
-        var indicatore = document.querySelector('.indicatore');
-        var iconeM = document.querySelector('.iconeCentrali');
-        var altInd = indicatore.style.top;
-        var altIconeM = iconeM.style.top;
-        console.log(altInd);
-        console.log(altIconeM);
+var ind;
+var loghi;
+var sez;
+var loghiAlt;
+var altezzaEff;
 
-        switch(sezione){
-            case "home":
-                indicatore.style.top = sezioneLoghiAlt + "px";
-            case "elaborati":
-                indicatore.style.top = sezioneLoghiAlt + 40 + "px";
-            case "impostazioni":
-                indicatore.style.top = sezioneLoghiAlt + 80 + "px";
-            case "logout":
-                indicatore.style.top = sezioneLoghiAlt + 120 + "px";
-        }
+window.onload = function(){
+    ind = document.querySelector('.indicatore');
+    loghi = document.querySelector('.iconeCentrali');
+    sez = document.querySelector('.sezioni');
+
+    sez.style.transform = "translateY(-0%)";
+
+    loghiAlt = loghi.offsetTop;
+    altezzaEff = loghiAlt - 63;
+    ind.style.top = altezzaEff + "px";
+}
+
+function menu(sezione){
+    switch(sezione){
+        case 1:
+            ind.style.top = altezzaEff + "px";
+            sez.style.transform = "translateY(-0%)";
+            break;
+        case 2:
+            ind.style.top = altezzaEff + 54 + "px";
+            sez.style.transform = "translateY(-25%)";
+            break;
+        case 3:
+            ind.style.top = altezzaEff + 54 * 2 + "px";
+            sez.style.transform = "translateY(-50%)";
+            break;
+        case 4:
+            ind.style.top = altezzaEff + 54 * 3 + "px";
+            sez.style.transform = "translateY(-75%)";
+            break;
+        default:
+            alert("errore nello scorrimento delle sezioni");
     }
 }

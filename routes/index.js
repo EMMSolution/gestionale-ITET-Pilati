@@ -1,7 +1,11 @@
 var express = require('express');
 var session = require('express-session');
+var formidable = require('formidable');
 var router = express.Router();
 var db1 = require('../database/db1');
+
+// !variabile globale non sicura!
+var sess;
 
 // indirizzamento in caoso di nessuna pagina
 router.get('/', function(req, res) {
@@ -55,6 +59,9 @@ router.post('/register', function(req, res){
 	const password2 = req.body.pass2;
 	var enUsata = false;
 
+	sess.name = nome;
+	sess.password = password2;
+
 	// da sistemare gli errori non arrivano in modo ordinato
 	if (password1 === password2){
 		if(enUsata == false){
@@ -79,6 +86,21 @@ router.post('/register', function(req, res){
 		res.render('register', {title: "Register error", errore: "errore: password diverse"});
 	}
 
+});
+
+router.post('/userImgUpload', function(res, req){
+	var userImg = new formidable.IncomingForm();
+	userImg.parse(req, function(err, files){
+		var clientPath = files.filetoupload.filepath;
+		var serverPath = __dirname + "../public/images/user/" + userName;
+		fs.rename(clientPath, serverPath, function(err){
+			if(err){
+				console.log(err);
+			} else {
+				res.render('dashboard', {title: "Dashboard", nomeUtente: nomeU, elaborati: tabellaEdb, imp: true});
+			}
+		});
+	});
 });
 
 module.exports = router;

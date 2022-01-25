@@ -107,6 +107,10 @@ body {
 .logout,
 .impostazioni {
     height: 25px;
+    transition: 0.2s;
+}
+.impostazioni:hover {
+    transform: rotate(-45deg);
 }
 /* ---- */
 .destra {

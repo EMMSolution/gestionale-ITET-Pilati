@@ -2,13 +2,13 @@ doctype html
 html
     head
         link(rel='stylesheet' href='stylesheets/dashboard.css')
+        link(rel="icon" href="/images/dashboard/logoEgg.svg")
         script(src='javascripts/menuDash.js')
         script(src='javascripts/redirectVari.js')
-        // DA SISTEMARE
-        link(rel="icon" href="/images/logoEggs/normale.jpg")
+        title= title
     body
         .menu-l
-            img.logo(src='images/logoEggs/normale.jpg')
+            img.logo(src='images/dashboard/logoEgg-SCRITTA.svg')
             .indicatore(style='top: 100px')
             .iconeCentrali
                 .logo1
@@ -36,6 +36,11 @@ html
                     button(onclick="menu(5)").chiudi
                         hr.linea1
                         hr.linea2
+                .impSinistra
+                    a.impNomeAccount= nomeUtente
+                    .impImmagneAccount(style="background-image: url('images/user/noUserImg.svg');")
+                .impDestra
+                    
             .manu-s
                 .account(href='#')
                     a.nomeAccount= nomeUtente

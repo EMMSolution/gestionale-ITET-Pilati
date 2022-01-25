@@ -6,6 +6,7 @@
 
 var app = require('../app');
 var debug = require('debug')('gestionale-itet-pilati:server');
+var session = require('express-session');
 var http = require('http');
 var db1 = require('../database/db1');
 

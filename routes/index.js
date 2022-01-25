@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var router = express.Router();
 var db1 = require('../database/db1');
 
@@ -14,6 +15,10 @@ router.get('/login', function(req, res) {
 
 router.get("/register", function(req, res){
 	res.render('register', {title: 'Register'});
+});
+
+router.get("/dashboard", function(res, req){
+	
 });
 
 router.post('/dashboard', function(req, res){

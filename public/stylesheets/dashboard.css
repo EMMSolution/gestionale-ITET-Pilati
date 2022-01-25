@@ -182,12 +182,16 @@ body {
     width: calc(70% - 50px);
     height: calc(400% - 40px);
     margin: 20px;
-    transition: 1s;
+    transition: 0.6s;
 }
-.titoloDiv {
+.titoloDiv,
+.titoloDivImp {
     width: 100%;
     height: 40px;
     transform: translateY(35px);
+}
+.titoloDivImp {
+    width: 50px;
 }
 .titolo {
     font-size: 34px;
@@ -233,6 +237,7 @@ body {
     transform: translateY(100px);
     margin-left: 60px;
     margin-right: 60px;
+    margin-top: 40px;
     overflow-y: visible;
 }
 .tbe1,
@@ -247,7 +252,7 @@ body {
     padding-right: 10px;
 }
 .tbe2{
-    padding-top: 40px;
+    padding-top: 20px;
 }
 .tbe2h {
     border-bottom: solid 2px rgba(255, 255, 255, 1);
@@ -266,4 +271,54 @@ body {
     background-color: rgba(34, 34, 34, 0.568);
     border-radius: 35px;
     margin-bottom: 30px;
+}
+
+/* IMPOSTAZIONI */
+.imp {
+    height: calc(100% - 100px);
+    width: calc(100% - 50px);
+    border-radius: 35px;
+    position: absolute;
+    background-color: #261a31;
+    margin-left: 20px;
+    margin-top: calc(40px + 40px);
+    transition: 0.2s;
+}
+.header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.chiudi {
+    height: 40px;
+    width: 40px;
+    margin-top: 35px;
+    right: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    background-color: transparent;
+    border: 0 solid;
+}
+.chiudi:hover {
+    transform: rotate(90deg);
+}
+.linea1 {
+    transform: rotate(45deg);
+    height: 6px;
+    width: 35px;
+    position: absolute;
+    border: solid 0;
+    background-color: white;
+}
+.linea2 {
+    transform: rotate(-45deg);
+    height: 6px;
+    width: 35px;
+    position: absolute;
+    border: solid 0;
+    background-color: white;
 }

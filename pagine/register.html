@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="style/register.css">
+    <script src="script/slideRegister.js"></script>
+</head>
+<body>
+    <div class="mainFlex">
+        <form class="fromNode" action="/register" method="POST">
+            <div class="form"><a class="titolo">Register:</a>
+                <div class="slide">
+                    <div class="parte1">
+                        <div class="flex-form">
+                            <a class="nomeI">Nome:</a>
+                            <input class="input1" type="text" name="nome">
+                            <a class="emailI">Email:</a>
+                            <input class="input2" type="email" name="email">
+                            <a class="errore"></a>
+                        </div>
+                        <div class="bottoni1">
+                            <button class="invio" type="button" onclick="animazione('avanti')">Avanti</button>
+                        </div>
+                    </div>
+                    <div class="parte2">
+                        <div class="flex-form"><a class="passI1">Password:</a>
+                            <input class="input1" type="password" name="pass1">
+                            <a class="passI2">Conferma password:</a>
+                            <input class="input2" type="password" name="pass2">
+                        </div>
+                        <div class="bottoni2">
+                            <button class="invio2" type="button" onclick="animazione('indietro')">Indietro</button>
+                            <button class="invio1" type="submit">Fine</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <a class="poweredBy">Powered by </a>
+        <img class="immagineLogo" src="/images/logoEggs/logoNoSfondo.png">
+        <a class="copyright">&copy; 2022 EggSolution, Inc. All rights reserved.</a>
+    </footer>
+</body>
+</html>

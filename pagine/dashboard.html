@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style/dashboard.css">
+    <link rel="icon" href="media/dashboard/logoEgg.svg">
+    <script src="script/menuDash.js"></script>
+    <script src="script/redirectVari.js"></script>
+    <title></title>
+</head>
+<body>
+    <div class="menu-l">
+        <img class="logo" src="images/dashboard/logoEgg-SCRITTA.svg">
+        <div class="indicatore" style="top: 100px"></div>
+        <div class="iconeCentrali">
+            <div class="logo1">
+            <button class="bottoneL1" onclick="menu(1)">
+                <img class="homeLogo" src="images/dashboard/home.svg">
+            </button>
+            </div>
+            <div class="logo2">
+            <button class="bottoneL2" onclick="menu(2)"><img class="graLogo" src="images/dashboard/grafico2.svg"></button>
+            </div>
+            <div class="logo3">
+            <button class="bottoneL3" onclick="menu(3)"><img class="tabLogo" src="images/dashboard/elaborati.svg"></button>
+            </div>
+            <div class="logo4">
+            <button class="bottoneL4" onclick="menu(4)"><img class="aggTabLogo" src="images/dashboard/aggElaborati.svg"></button>
+            </div>
+        </div>
+        <div class="iconeBasse">
+            <div class="impostazioniDiv"><img class="impostazioni" onclick="menu(5)" src="images/dashboard/impostazioni.svg"></div>
+            <div class="loguotDiv"><img class="logout" onclick="move('home')" src="images/dashboard/logout.svg"></div>
+        </div>
+    </div>
+    <div class="destra">
+        <div class="imp">
+            <header class="header">
+            <div class="titoloDivImp"><a class="titolo">Impostazioni:</a></div>
+            <button class="chiudi" onclick="menu(5)">
+                <hr class="linea1">
+                <hr class="linea2">
+            </button>
+            </header>
+            <div class="impSinistra"><a class="impNomeAccount"></a>
+            <div class="impImmagneAccount" style="background-image: url('images/user/noUserImg.svg');"></div>
+            </div>
+            <div class="impDestra"></div>
+        </div>
+        <div class="manu-s">
+            <div class="account" href="#"><a class="nomeAccount"></a>
+            <div class="immagneAccount" style="background-image: url('images/user/noUserImg.svg');"></div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sezioni">
+            <div class="sezionePrincipale">
+                <div class="titoloDiv"><a class="titolo">Home:</a></div>
+            </div>
+            <div class="sezioneInfo">
+                <div class="titoloDiv"><a class="titolo">Info:</a></div>
+            </div>
+            <div class="sezioneElaborati">
+                <div class="titoloDiv"><a class="titolo">Elaborati:</a></div>
+                <table class="tabellaElaborati">
+                <tr class="tbe1">
+                    <th class="tbe2h">Nome:</th>
+                    <th class="tbe2h">Autore:</th>
+                    <th class="tbe2h">File:</th>
+                    <th class="tbe2h">Data upload:</th>
+                </tr>
+                <!-- for che ogni elemento della query ritorna una row con le varie cose -->
+
+                </table>
+            </div>
+            <div class="sezioneAgg">
+                <div class="titoloDiv"><a class="titolo">Aggiungi elaborati:</a></div>
+            </div>
+            </div>
+            <div class="sezioneLaterale"></div>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,9 +1,7 @@
-package main
+package webserver
 
 import (
- "fmt"
+	_"fmt"
 )
 
-func server(){
-  fmt.Println("servereerse")
-}
+var Webserver = "ciaosda"

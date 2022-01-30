@@ -1,1 +1,5 @@
-package main
+package database
+
+import (
+	_"fmt"
+)

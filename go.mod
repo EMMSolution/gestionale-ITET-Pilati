@@ -1,3 +1,3 @@
-module webserver/webserver
+module gestionaleElaborati/moduli
 
 go 1.17

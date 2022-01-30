@@ -1,1 +1,5 @@
-package main
+package webserver
+
+import (
+	_"fmt"
+)

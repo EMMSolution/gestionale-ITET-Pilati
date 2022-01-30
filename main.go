@@ -8,5 +8,6 @@ import (
 
 func main(){
 	fmt.Println("ciao");
-	fmt.Println("ciao2");
+	fmt.Println("ciao " + ws.Webserver);
+	fmt.Println("ciao " + db.Database);
 }

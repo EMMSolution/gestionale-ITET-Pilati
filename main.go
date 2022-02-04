@@ -33,15 +33,18 @@ func menu(){
 	2. Ricconetti a database     4. Impostazioni
 
 	`)
-	fmt.Print(">")
+	fmt.Print("> ")
 	fmt.Scanln(&scelta)
 	switch scelta {
 		case 1:
 			fmt.Println("webserver in accensione")
 			cls()
-			fmt.Println("Log webserver: \n")
+			fmt.Print(imp.Banner)
+			fmt.Println("\nLog webserver: \n")
 			db.Database()
 			ws.Webserver()
+
+			defer menu()
 		case 2:
 			fmt.Println("Riconnessione db")
 			cls()

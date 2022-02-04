@@ -11,7 +11,15 @@ func Webserver() {
 	// chiamo gli instradamenti
 	Routes()
 
-	// avvio il server
-	fmt.Println("Webserver acceso")
+/*
+	var porta int
+	porta = 80
+
+	var portaStr string
+	portaStr  = ":%d", porta
+*/
+
+	// server in ascolto
+	fmt.Println("Webserver acceso a porta: " + "80" + "\n")
 	log.Fatal(http.ListenAndServe(":80", nil))
 }

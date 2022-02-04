@@ -37,15 +37,10 @@ func menu(){
 	fmt.Scanln(&scelta)
 	switch scelta {
 		case 1:
-			var esci string
 			fmt.Println("webserver in accensione")
 			cls()
 			fmt.Println("Log webserver: \n")
 			db.Database()
-			fmt.Scanln(&esci)
-			if esci == "/e"{
-				menu()
-			}
 			ws.Webserver()
 		case 2:
 			fmt.Println("Riconnessione db")

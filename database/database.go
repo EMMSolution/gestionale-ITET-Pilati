@@ -1,7 +1,9 @@
 package database
 
 import (
-	_"fmt"
+	"fmt"
 )
 
-var Database = "Dasdfkjbalsfib"
+func Database(){
+	fmt.Println("Database connesso"+"\n")
+}

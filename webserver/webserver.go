@@ -1,7 +1,17 @@
 package webserver
 
-import (
-	_"fmt"
-)
+ import (
+	"fmt"
+	"log"
+	"net/http"
+	//db "gestionaleElaborati/moduli/database"
+ )
 
-var Webserver = "ciaosda"
+func Webserver() {
+	// chiamo gli instradamenti
+	Routes()
+
+	// avvio il server
+	fmt.Println("Webserver acceso")
+	log.Fatal(http.ListenAndServe(":80", nil))
+}

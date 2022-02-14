@@ -1,14 +1,15 @@
 package main
 
 import (
+	"os"
 	"fmt"
 	_"log"
-	"os"
 	"os/exec"
 	_"net/http"
-	ws "gestionaleElaborati/moduli/webserver"
-	db "gestionaleElaborati/moduli/database"
-	imp "gestionaleElaborati/moduli/imp"
+	_"html/template"
+	ws "github.com/EggSolution/gestionale-ITET-Pilati/moduli/webserver"
+	db "github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
+	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func cls(){
@@ -18,6 +19,7 @@ func cls(){
 }
 
 func main(){
+	// start menu
 	menu()
 }
 
@@ -43,8 +45,6 @@ func menu(){
 			fmt.Println("\nLog webserver: \n")
 			db.Database()
 			ws.Webserver()
-
-			defer menu()
 		case 2:
 			fmt.Println("Riconnessione db")
 			cls()

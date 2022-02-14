@@ -7,8 +7,11 @@ import (
     _"github.com/go-sql-driver/mysql"
 )
 
-func Database(){
+func main(){
 
+}
+
+func Database(){
 
 
 	fmt.Println("Database connesso"+"\n")

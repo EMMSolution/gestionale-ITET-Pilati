@@ -2,10 +2,15 @@ package webserver
 
 import (
 	"os"
-	"fmt"
+	_"fmt"
 	"net/http"
+	template "html/template"
  	_"database/sql"
 )
+
+func main(){
+
+}
 
 func Routes(){
 	// routes
@@ -15,58 +20,62 @@ func Routes(){
 	http.HandleFunc("/dashboard", dashboard)
 }
 
+// all page function
 func index(w http.ResponseWriter, r *http.Request){
-	file, err := os.OpenFile("./index.html", os.O_RDWR, 0644)
-
+	// get current working directory
+	Cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println("errore nel aprire un file")
+		panic(err)
 	}
-
-	fmt.Println(file)
-
-	fmt.Fprint(w, file)
-	fmt.Println("utente connesso a '/'"+"\n")
-
-	defer file.Close()
+	// execute html template
+	template, err := template.ParseFiles(Cwd + "\\pagine\\index.html")
+	if err != nil {
+		panic(err)
+	}
+	template.Execute(w,"")
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
-	file, err := os.OpenFile("./login.html", os.O_RDWR, 0644)
-
+	// get current working directory
+	Cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println("errore nel aprire un file")
+		panic(err)
 	}
+	// execute html template
+	template, err := template.ParseFiles(Cwd + "\\pagine\\login.html")
+	if err != nil {
+		panic(err)
+	}
+	template.Execute(w,"")
 
-	fmt.Println(file)
-
-	fmt.Fprint(w, file)
-	fmt.Println("utente connesso a '/login'"+"\n")
-
-	defer file.Close()
 }
 
 func register(w http.ResponseWriter, r *http.Request) {
-	file, err := os.OpenFile("./register.html", os.O_RDWR, 0644)
-
+	// get current working directory
+	Cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println("errore nel aprire un file")
+		panic(err)
 	}
+	// execute html template
+	template, err := template.ParseFiles(Cwd + "\\pagine\\regiter.html")
+	if err != nil {
+		panic(err)
+	}
+	template.Execute(w,"")
 
-	fmt.Fprint(w, file)
-	fmt.Println("utente connesso a '/register'"+"\n")
-
-	defer file.Close()
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
-	file, err := os.OpenFile("./dashboard.html", os.O_RDWR, 0644)
-
+	// get current working directory
+	Cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println("errore nel aprire un file")
+		panic(err)
 	}
+	// execute html template
+	template, err := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
+	if err != nil {
+		panic(err)
+	}
+	template.Execute(w,"")
 
-	fmt.Fprint(w, file)
-	fmt.Println("utente connesso a '/dashboard'"+"\n")
-
-	defer file.Close()
 }

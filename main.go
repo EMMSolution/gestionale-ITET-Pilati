@@ -27,6 +27,7 @@ func menu(){
 	cls()
 
 	var scelta int
+	var passDb string
 
 	fmt.Print(imp.Banner)
 	fmt.Print(`
@@ -37,18 +38,40 @@ func menu(){
 	`)
 	fmt.Print("> ")
 	fmt.Scanln(&scelta)
+
 	switch scelta {
 		case 1:
-			fmt.Println("webserver in accensione")
 			cls()
 			fmt.Print(imp.Banner)
+
+			passDb = ""
+
+			if imp.DbDefPass == true {
+				passDb = imp.DbPass
+			} else {
+				fmt.Println(`
+				Inserisci la password del database:
+				`)
+				fmt.Print(`> `)
+				fmt.Scanln(&passDb)
+			}
+
 			fmt.Println("\nLog webserver: \n")
-			db.Database()
+			db.Database(passDb)
 			ws.Webserver()
+
 		case 2:
-			fmt.Println("Riconnessione db")
+			// reset password
+			passDB := ""
+			fmt.Print(`
+	Inserisci la password del database:
+
+	`)
+			fmt.Println(`    > `)
+			fmt.Scanln(&passDB)
+			db.Database(passDB)
+			fmt.Println("Riconnessione db" + "\n")
 			cls()
-			db.Database()
 			menu()
 	}
 

@@ -13,6 +13,8 @@ func main(){
 }
 
 func Routes(){
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", index)
 	http.HandleFunc("/login", login)

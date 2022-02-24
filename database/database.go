@@ -1,11 +1,11 @@
 package database
 
 import (
-	"fmt"
-	"database/sql"
+	_"fmt"
+	_"database/sql"
 	_"log"
     _"github.com/go-sql-driver/mysql"
-	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+	_ "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func main(){
@@ -14,6 +14,7 @@ func main(){
 
 func Database(pass string){
 	// setto impostazioni
+	/*
 	username := imp.DbUser
 	password := pass
 	host := imp.DbHost
@@ -35,4 +36,5 @@ func Database(pass string){
 		panic(err)
 	}
 	fmt.Println(query1)
+	*/
 }

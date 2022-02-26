@@ -15,6 +15,8 @@ var DbPass string = "SERVER2006berta"
 var DbHost string = "192.168.1.154"
 // Port
 var DbPort string = "3306"
-// Database elaborati / utenti
-var DatabaseElaborati string = "elaborati"
-var DatabaseUser string = "user"
+// Database elaborati
+var Database string = "gestionalePilati"
+// Tabella elaborati / user
+var TabellaElaborati string = "elaborati"
+var TabellaUser string = "user"

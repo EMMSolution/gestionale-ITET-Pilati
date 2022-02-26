@@ -25,59 +25,35 @@ func Routes(){
 // all page function
 func index(w http.ResponseWriter, r *http.Request){
 	// get current working directory
-	Cwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
+	Cwd, _ := os.Getwd()
 	// execute html template
-	template, err := template.ParseFiles(Cwd + "\\pagine\\index.html")
-	if err != nil {
-		panic(err)
-	}
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\index.html")
 	template.Execute(w,"")
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
 	// get current working directory
-	Cwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
+	Cwd, _ := os.Getwd()
 	// execute html template
-	template, err := template.ParseFiles(Cwd + "\\pagine\\login.html")
-	if err != nil {
-		panic(err)
-	}
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
 	template.Execute(w,"")
 
 }
 
 func register(w http.ResponseWriter, r *http.Request) {
 	// get current working directory
-	Cwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
+	Cwd, _ := os.Getwd()
 	// execute html template
-	template, err := template.ParseFiles(Cwd + "\\pagine\\regiter.html")
-	if err != nil {
-		panic(err)
-	}
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\regiter.html")
 	template.Execute(w,"")
 
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
 	// get current working directory
-	Cwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
+	Cwd, _ := os.Getwd()
 	// execute html template
-	template, err := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-	if err != nil {
-		panic(err)
-	}
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 	template.Execute(w,"")
 
 }

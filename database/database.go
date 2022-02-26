@@ -13,28 +13,41 @@ func main(){
 }
 
 func Database(pass string){
-	// setto impostazioni
 	/*
+	// setto datatype query a elaborti
+	type Prova struct {
+		Id         string
+		Name       string
+		Creator    string
+		FilePath   string
+		UploadDate string
+	}
+	var prova[5]string
+
+	// setto impostazioni
 	username := imp.DbUser
 	password := pass
 	host := imp.DbHost
 	port := imp.DbPort
-	dbElaborti := imp.DatabaseElaborati
-	//dbUser := imp.DatabaseUser
+	db := imp.Database
+	//tbElaborati := imp.TabellaElaborati
+	//tbUser := imp.DatabaseUser
 
-	accessoDb := string(username)+":"+string(password)+"tcp("+string(host)+":"+string(port)+")/"+string(dbElaborti)
+	accessoDb := string(username)+":"+string(password)+"@tcp("+string(host)+":"+string(port)+")/"+string(db)
 
 	db1, err := sql.Open("mysql", accessoDb)
 	if err != nil {
 		panic(err)
 	}
+	defer db1.Close()
 
-	fmt.Println("Database connesso " + host + ":" + port + "\n")
+	query1, _ := db1.Query("SELECT * FROM elaborati")
+	defer query1.Close()
 
-	query1, err := db1.Query("SELECT * FROM elaborati")
-	if err != nil {
-		panic(err)
+	p := new(Prova)
+	for query1.Next() == true {
+		query1.Scan(&Prova.Id, &Prova.Name, &Prova.Creator, &Prova.FilePath, &Prova.UploadDate)
+		fmt.Println(Prova)
 	}
-	fmt.Println(query1)
 	*/
 }

@@ -5,25 +5,37 @@ import (
 	_"database/sql"
 	_"log"
     _"github.com/go-sql-driver/mysql"
-	_ "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func main(){
 
 }
 
-func Database(pass string){
-	/*
-	// setto datatype query a elaborti
-	type Prova struct {
-		Id         string
-		Name       string
-		Creator    string
-		FilePath   string
-		UploadDate string
-	}
-	var prova[5]string
+// query struct declaration
 
+
+// query struct handling function
+func queryStrictures() () {
+	type User struct {
+		Id          string
+		Name        string
+		Privileges  string
+		Date        string
+		Password    string
+		Email       string
+	}
+	type Elaborati struct {
+		Id          string
+		Name        string
+		Creator     string
+		FilePath    string
+		UploadDate  string
+	}
+
+}
+
+func Database(pass string) string {
 	// setto impostazioni
 	username := imp.DbUser
 	password := pass
@@ -33,21 +45,8 @@ func Database(pass string){
 	//tbElaborati := imp.TabellaElaborati
 	//tbUser := imp.DatabaseUser
 
-	accessoDb := string(username)+":"+string(password)+"@tcp("+string(host)+":"+string(port)+")/"+string(db)
+	accessoDB := string(username)+":"+string(password)+"@tcp("+string(host)+":"+string(port)+")/"+string(db)
 
-	db1, err := sql.Open("mysql", accessoDb)
-	if err != nil {
-		panic(err)
-	}
-	defer db1.Close()
-
-	query1, _ := db1.Query("SELECT * FROM elaborati")
-	defer query1.Close()
-
-	p := new(Prova)
-	for query1.Next() == true {
-		query1.Scan(&Prova.Id, &Prova.Name, &Prova.Creator, &Prova.FilePath, &Prova.UploadDate)
-		fmt.Println(Prova)
-	}
-	*/
+	return string(accessoDB)
+	
 }

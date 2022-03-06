@@ -1,24 +1,33 @@
 package main
-
+ 
 import (
-	"os"
-	"fmt"
+    "net/http"
+    "fmt"
+    "log"
+    "os"
+    "html/template"
 )
-
+ 
 func main() {
-	sergio()
+    routes()
+    acceso()
+    
 }
-func sergio(){
-	type Prova struct {
-		nome     string
-		cognome  string
-		eta      int
-		gender   bool
-	}
-
-	ciao, errore := os.Getwd()
-	if errore != nil {
-		fmt.Println(errore)
-	}
-	fmt.Println(ciao)
+func acceso() {
+    fmt.Print("acceso")
+    porta := ":90"
+    log.Fatal(http.ListenAndServe(string(porta), nil))
+    
 }
+ func routes() {
+    fs := http.FileServer(http.Dir("./static"))
+    http.Handle("/static/", http.StripPrefix("/static", fs))
+    http.HandleFunc("/pagine", pagine)
+ }
+ 
+ func pagine(w http.ResponseWriter, r *http.Request){
+    fmt.Print("ciao1")
+    Cwd, _ := os.Getwd()
+    t, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
+    t.Execute(w,"")
+ }

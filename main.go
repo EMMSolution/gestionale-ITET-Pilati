@@ -1,29 +1,30 @@
 package main
 
 import (
-	"os"
 	"fmt"
-	_"log"
+	_ "html/template"
+	_ "log"
+	_ "net/http"
+	"os"
 	"os/exec"
-	_"net/http"
-	_"html/template"
-	ws "github.com/EggSolution/gestionale-ITET-Pilati/moduli/webserver"
+
 	db "github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+	ws "github.com/EggSolution/gestionale-ITET-Pilati/moduli/webserver"
 )
 
-func cls(){
+func cls() {
 	cls := exec.Command("cmd", "/c", "cls")
 	cls.Stdout = os.Stdout
 	cls.Run()
 }
 
-func main(){
+func main() {
 	// start menu
 	menu()
 }
 
-func menu(){
+func menu() {
 	cls()
 
 	var scelta int
@@ -40,39 +41,38 @@ func menu(){
 	fmt.Scanln(&scelta)
 
 	switch scelta {
-		case 1:
-			cls()
-			fmt.Print(imp.Banner)
+	case 1:
+		cls()
+		fmt.Print(imp.Banner)
 
-			passDb = ""
+		passDb = ""
 
-			if imp.DbDefPass == true {
-				passDb = imp.DbPass
-			} else {
-				fmt.Println(`
+		if imp.DbDefPass == true {
+			passDb = imp.DbPass
+		} else {
+			fmt.Println(`
 				Inserisci la password del database:
 				`)
-				fmt.Print(`> `)
-				fmt.Scanln(&passDb)
-			}
+			fmt.Print(`> `)
+			fmt.Scanln(&passDb)
+		}
 
-			fmt.Println("\nLog webserver: \n")
-			db.Database(passDb)
-			ws.Webserver()
+		fmt.Println("\nLog webserver: \n")
+	
+		ws.Webserver(db.Database(passDb))
 
-		case 2:
-			// reset password
-			passDB := ""
-			fmt.Print(`
+	case 2:
+		// reset password
+		passDB := ""
+		fmt.Print(`
 	Inserisci la password del database:
 
 	`)
-			fmt.Println(`    > `)
-			fmt.Scanln(&passDB)
-			db.Database(passDB)
-			fmt.Println("Riconnessione db" + "\n")
-			cls()
-			menu()
+		fmt.Println(`    > `)
+		fmt.Scanln(&passDB)
+		db.Database(passDB)
+		fmt.Println("Riconnessione db" + "\n")
+		cls()
+		menu()
 	}
-
 }

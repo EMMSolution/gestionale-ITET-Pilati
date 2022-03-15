@@ -1,33 +1,32 @@
 package main
- 
-import (
-    "net/http"
+
+import(
     "fmt"
-    "log"
-    "os"
-    "html/template"
 )
- 
-func main() {
-    routes()
-    acceso()
-    
+
+type Persona struct {
+    nome string
+    cognome string
+    residenza string
+    eta int
+    sesso bool
 }
-func acceso() {
-    fmt.Print("acceso")
-    porta := ":90"
-    log.Fatal(http.ListenAndServe(string(porta), nil))
-    
+
+func Prova(sergio){
+    sergio.nome = "Gian"
+
+    return
 }
- func routes() {
-    fs := http.FileServer(http.Dir("./static"))
-    http.Handle("/static/", http.StripPrefix("/static", fs))
-    http.HandleFunc("/pagine", pagine)
- }
- 
- func pagine(w http.ResponseWriter, r *http.Request){
-    fmt.Print("ciao1")
-    Cwd, _ := os.Getwd()
-    t, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
-    t.Execute(w,"")
- }
+
+func main(){
+    sergio := new(Persona)
+    sergio.nome = "Sergio"
+    sergio.cognome = "rossi"
+    sergio.residenza = "via del sesso 4"
+    sergio.eta = 69
+    sergio.sesso = True
+
+    Prova(sergio)
+
+    fmt.Println(sergio)
+}

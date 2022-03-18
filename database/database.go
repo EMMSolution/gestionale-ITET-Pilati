@@ -13,26 +13,38 @@ func main(){
 }
 
 // query struct declaration
-
+type User struct {
+	Id          string
+	Name        string
+	Privileges  string
+	Date        string
+	Password    string
+	Email       string
+}
+type Elaborati struct {
+	Id          string
+	Name        string
+	Creator     string
+	FilePath    string
+	UploadDate  string
+}
 
 // query struct handling function
-func queryStrictures() () {
-	type User struct {
-		Id          string
-		Name        string
-		Privileges  string
-		Date        string
-		Password    string
-		Email       string
+func queryUser() User {
+	return User {
+		Id: "",
+		Name: "",
+		Privileges: "",
+		Date: "",
+		Password: "",
+		Email: "",
 	}
-	type Elaborati struct {
-		Id          string
-		Name        string
-		Creator     string
-		FilePath    string
-		UploadDate  string
-	}
+}
 
+func queryElaborati() Elaborati {
+	Elaborati := new(Elaborati)
+
+	return Elaborati
 }
 
 func Database(pass string) string {

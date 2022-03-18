@@ -4,7 +4,7 @@ import (
 	"os"
 	"fmt"
 	"net/http"
-	"database/sql"
+	_"database/sql"
     _"github.com/go-sql-driver/mysql"
 	template "html/template"
 	_ "github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
@@ -12,15 +12,6 @@ import (
 
 // variabile globale per al connessione al database
 var InfoDB string
-// query data structure
-type User struct {
-	Id          string
-	Name        string
-	Privileges  string
-	Date        string
-	Password    string
-	Email       string
-}
 
 func main(){
 
@@ -36,6 +27,7 @@ func Routes(infoDB string){
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
+	http.HandleFunc("/passReset", passReset)
 }
 
 // all page function
@@ -67,30 +59,42 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
-	emailForm := ""
-	passForm := ""
+	//emailForm := ""
+	//passForm := ""
 	switch r.Method {
 		// filtro richieste
 		case "POST":
-			emailForm = r.FormValue("email")
-			passForm = r.FormValue("password")
+			//emailForm = r.FormValue("email")
+			//passForm = r.FormValue("password")
+			fmt.Println("POST")
 		case "GET":
-			fmt.Println("non disonibile ancora")
+			// get current working directory
+			Cwd, _ := os.Getwd()
+			// execute html template
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
+			template.Execute(w,"")
+
+			return
 	}
 
 	// connessione database
-	DBconn, _ := sql.Open("mysql", InfoDB)
+	//DBconn, _ := sql.Open("mysql", InfoDB)
 	// query al database
-	credenziali, _ := DBconn.Query("SELECT * FROM user WHERE email='"+string(emailForm) + "' AND password='"+string(passForm)+"';")
+	//credenziali, _ := DBconn.Query("SELECT * FROM user WHERE email='"+string(emailForm) + "' AND password='"+string(passForm)+"';")
 	// divido la query
-	credVar := new(User)
+	credVar := queryUser()
 	// for che controlla tutti i risultati
-	for credenziali.Next(){
-		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email)
-		if err != nil {
-			panic(err)
-		}
-	}
+	//for credenziali.Next(){
+	//	err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email)
+	//	if err != nil {
+	//		panic(err)
+	//	}
+	//}
+	credVar.Id = "2"
+	fmt.Println(credVar.Id)
+	// raccolgo gli elaborati
+
+
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
 		// get current working directory
@@ -103,6 +107,24 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		Cwd, _ := os.Getwd()
 		// execute html template
 		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-		template.Execute(w,"")
+		template.Execute(w, dahsboardData1)
 	}
+}
+
+func passReset(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+		case "POST":
+			// get current working directory
+			Cwd, _ := os.Getwd()
+			// execute html template
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\passDimenticata.html")
+			template.Execute(w,"")
+		case "GET":
+			// get current working directory
+			Cwd, _ := os.Getwd()
+			// execute html template
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
+			template.Execute(w,"")
+	}
+
 }

@@ -268,6 +268,12 @@ body {
     color: white;
 }
 
+/* sezione carica elaborati */
+.fileForm {
+    position: absolute;
+    margin-top: 80px;
+}
+
 /* sezione Laterale */
 .sezioneAgg {
     height: calc(100% - 40px);

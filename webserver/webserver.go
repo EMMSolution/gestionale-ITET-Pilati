@@ -1,12 +1,12 @@
 package webserver
 
- import (
+import (
 	"fmt"
-	"log"
+	_"log"
 	"net/http"
 	//db "gestionaleElaborati/moduli/database"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
- )
+)
 
 func Webserver(infoDB string) {
 	// chiamo gli instradamenti
@@ -18,5 +18,5 @@ func Webserver(infoDB string) {
 	// server in ascolto
 	fmt.Println("Webserver acceso a porta: ",string(porta),"\n")
 	formattedPort := ":"+string(porta)
-	log.Fatal(http.ListenAndServe(formattedPort, nil))
+	http.ListenAndServe(formattedPort, nil)
 }

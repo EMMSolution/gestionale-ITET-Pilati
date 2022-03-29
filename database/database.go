@@ -30,7 +30,7 @@ type Elaborati struct {
 }
 
 // query struct handling function
-func queryUser() User {
+func QueryUser() User {
 	return User {
 		Id: "",
 		Name: "",
@@ -41,10 +41,14 @@ func queryUser() User {
 	}
 }
 
-func queryElaborati() Elaborati {
-	Elaborati := new(Elaborati)
-
-	return Elaborati
+func QueryElaborati() Elaborati {
+	return Elaborati {
+		Id: "",
+		Name: "",
+		Creator: "",
+		FilePath: "",
+		UploadDate: "",
+	}
 }
 
 func Database(pass string) string {

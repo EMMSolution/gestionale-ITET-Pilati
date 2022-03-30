@@ -3,6 +3,7 @@ package webserver
 import (
 	"os"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"database/sql"
     _"github.com/go-sql-driver/mysql"
@@ -113,18 +114,30 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	Cwd, _ =  os.Getwd()
 	switch r.Method {
 		case "POST":
+			// prendo il file
+			file, handler, err := r.FormFile("file")
+			if err != nil {
+				fmt.Println("errore nel caricamento del file")
+				fmt.Println(err)
+			}
+			defer file.Close()
 			// aggiungo l'elaborato nel database
-			name := r.FormValue("nome")
+			name := r.FormValue("nomeElaborato")
 			// VA MODIFICATO DOPO LA AGGIUNTA DELLE SESSIONI
 			creator := "admin"
-			filePath := "/prova/sadsa/ciao.pdf"
-			query := "INSERT INTO elaborati (name, creator, filePath) VALUES ("+name+","+creator+","+filePath+")"
+			filePath := "/elaborati/" + string(handler.Filename)
+			DBconn, _ := sql.Open("mysql", InfoDB)
+			query, _ := DBconn.Query("INSERT INTO elaborati (name, creator, filePath) VALUES ('"+name+"','"+creator+"','"+filePath+"');")
 			fmt.Println(query)
+			// creo l'elaborato
+			tempFile, _ := ioutil.TempFile(Cwd + "\\elaborati\\", "elaborato-*.pdf")
+			defer tempFile.Close()
+			fileByte, _ := ioutil.ReadAll(file)
+			tempFile.Write(fileByte)
 			// renderizzo la pagina (senza errori)
 			template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 			template.Execute(w, "")
 		case "GET":
-
 			// renderizzo la pagina (con errori)
 			template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 			template.Execute(w, "")

@@ -3,6 +3,7 @@ package webserver
 import (
 	"os"
 	"fmt"
+	"bufio"
 	"io/ioutil"
 	"net/http"
 	"database/sql"
@@ -14,13 +15,20 @@ import (
 // variabile globale per al connessione al database
 var InfoDB string
 var Cwd string
+// variabile per il numero di elaborati
+var Nelaborati string
 
 func main(){
 
 }
 
 func Routes(infoDB string){
+	fileNelaborati, _ := os.Open("\\webserver\\var\\Nelaborati.txt")
+	scanner := bufio.NewScanner(fileNelaborati)
 	InfoDB = infoDB
+	for scanner.Scan() {
+		Nelaborati = scanner.Text()
+	}
 	// static file handling
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))

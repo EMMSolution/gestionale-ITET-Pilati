@@ -5,7 +5,7 @@
     <link rel="icon" href="static/media/dashboard/logoEgg.svg">
     <script src="static/script/menuDash.js"></script>
     <script src="static/script/redirectVari.js"></script>
-    <title></title>
+    <title>{{.TitoloPag}}</title>
 </head>
 <body>
     <div class="menu-l">
@@ -68,6 +68,14 @@
                     <th class="tbe2h">File:</th>
                     <th class="tbe2h">Data upload:</th>
                 </tr>
+                {{range .Elaborati}}
+                    <tr class="tbe1d">
+                        <td class="tbe2d">{{.Name}}:</td>
+                        <td class="tbe2d">{{.Creator}}</td>
+                        <td class="tbe2d">{{.FilePath}}</td>
+                        <td class="tbe2d">{{.UploadDate}}</td>
+                    <tr>
+                {{end}}
                 <!-- for che ogni elemento della query ritorna una row con le varie cose -->
 
                 </table>
@@ -76,41 +84,34 @@
                 <div class="titoloDiv">
                     <a class="titolo">Aggiungi elaborati:</a>
                 </div>
-                <div class="fileForm">
-                    
-                </div>
-                <div class="fileName">
-                    <div class="fileName-1">
-                       <a class="scritteFileName">Inserire il nome del file:</a> 
-                    </div>  
-                    <div class="fileName-2">
-                        <form method="post" enctype="multipart/form-data" action="/uploadFile">
+                <form method="post" enctype="multipart/form-data" action="/uploadFile">
+                    <div class="fileName">
+                        <div class="fileName-1">
+                        <a class="scritteFileName">Inserire il nome del file:</a> 
+                        </div>  
+                        <div class="fileName-2">
                             <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
-                        </form>
-                    </div>
-                </div>
-                <div class="parteSotto">
-                    <div class="dragDrop">
-                        <div class="scritteDragDrop">
-                            <div class="scritteDragDrop1">
-                                <a>Drag and drop here</a>
-                            </div>
-                            <div class="scritteDragDrop2">
-                                <a>or</a>
-                            </div>
-                            <div class="scritteDragDrop3">
-                                <form method="post" enctype="multipart/form-data" action="/uploadFile">
-                                    <input type="file" name="file" class="fileInput">
-                                </form>
-                            </div>
                         </div>
                     </div>
-                    <div class="invio">
-                        <form method="post" enctype="multipart/form-data" action="/uploadFile">
+                    <div class="parteSotto">
+                        <div class="dragDrop">
+                            <div class="scritteDragDrop">
+                                <div class="scritteDragDrop1">
+                                    <a>Drag and drop here</a>
+                                </div>
+                                <div class="scritteDragDrop2">
+                                    <a>or</a>
+                                </div>
+                                <div class="scritteDragDrop3">
+                                    <input type="file" name="file" class="fileInput">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invio">
                             <input type="submit" class="fileInputSubmit">
-                        </form>
-                    </div>
-                </div>    
+                        </div>
+                    </div> 
+                </form>   
             </div>
             </div>
             <div class="sezioneLaterale"></div>

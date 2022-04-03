@@ -17,6 +17,18 @@ var InfoDB string
 var Cwd string
 // variabile per il numero di elaborati
 var Nelaborati string
+// struct per dahboard
+type ElabStruct struct {
+	Id          string
+	Name        string
+	Creator     string
+	FilePath    string
+	UploadDate  string
+}
+type DashStruct struct {
+	TitoloPag    string
+	Elaborati    []ElabStruct
+}
 
 func main(){
 
@@ -68,6 +80,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
+
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	emailForm := ""
@@ -98,8 +111,24 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
+	// creo la struct da mettere nell HTML
+	titoloP := "Dashboard - " + credVar.Name
+	var ElaboratiStructData []ElabStruct
 	// raccolgo gli elaborati per renderizzarli nella dash
+	var ElabStruct1 ElabStruct
+	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
+	for elaboratiQueryData.Next(){
+		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
+		if err != nil {
+			fmt.Println(err)
+		}
+		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
+	}
 
+	elaboratiHTML := DashStruct{
+		TitoloPag: titoloP,
+		Elaborati: ElaboratiStructData,
+	}
 
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
@@ -113,7 +142,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		fmt.Println("  -email: " + credVar.Email + "\n")
 		// execute html template
 		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-		template.Execute(w, "")
+		template.Execute(w, elaboratiHTML)
 	}
 }
 

@@ -133,8 +133,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
 		// execute html template
-		template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
-		template.Execute(w, "")
+			http.Redirect(w, r, "http://localhost/login", http.StatusSeeOther)
 	} else {
 		fmt.Println("Utente loggato:")
 		fmt.Println("  -id: " + credVar.Id)
@@ -171,13 +170,10 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 			defer tempFile.Close()
 			fileByte, _ := ioutil.ReadAll(file)
 			tempFile.Write(fileByte)
-			// renderizzo la pagina (senza errori)
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-			template.Execute(w, "")
+			http.Redirect(w, r, "http://localhost/dashboard", http.StatusSeeOther)
 		case "GET":
 			// renderizzo la pagina (con errori)
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-			template.Execute(w, "")
+			http.Redirect(w, r, "http://localhost/dashboard", http.StatusSeeOther)
 	}
 }
 

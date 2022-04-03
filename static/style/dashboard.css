@@ -300,7 +300,7 @@ body {
     justify-content: center;
 }
 .scritteFileName{
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
     color: white;
 }
@@ -336,7 +336,7 @@ body {
     background-color: transparent;
 }
 .scritteDragDrop a{
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
     color: white;
 }

@@ -2,26 +2,28 @@
 <html>
 <head>
     <title>Home</title>
-    <link href="static/style/style.css" rel="stylesheet">
+    <link href="static/style/home.css" rel="stylesheet">
 </head>
 <body>
-    <script src="static/script/redirectVari.js"></script>
-    <div class="headerI">
-        <div class="menu-dI"><img class="logoI" href="#" src="static/media/logoEggs/logoNoSfondo.png">
-            <div class="vociMenuI">
-                <a class="scritteMenuI" href="#">Home</a>
-                <a class="scritteMenuI" href="#">Elaborati</a>
-                <a class="scritteMenuI" href="#">Contattaci</a>
+    <script src="static/script/home.js"></script>
+    <div class="pagina" id="sfondo" style="background-image: url('static/style/sfondi/sfondoS.png');">
+        <div class="opzioni">
+            <div class="lingua">
+                <a id="titoloLang">Lingua:</a>
+                <img src="static/media/home/bandieraIT.png" id="bottoneLang"></img>
+            </div>
+            <div class="tema">
+                <a id="titoloTema">Tema:</a>
+                <img src="static/media/home/temaS.png" id="bottoneTema"></img>
             </div>
         </div>
-        <div class="menu-sI">
-            <button class="bottoniMenuI1" onclick="move('login')">Login</button>
-            <button class="bottoniMenuI2" onclick="move('register')">Register</button>
+        <img class="logo" src="static/media/home/itetPilatiLogo2.png"></img>
+        <div class="main" id="main">
+            <button class="login" id="accedi">Accedi</button>
+            <button class="register" id="registrati">Registrati</button>
+            <button class="guest" id="entraGuest">Entra come ospite</button>
         </div>
     </div>
-    <main class="mainI">
-        <a>ciao</a>
-    </main>
     <footer>
         <a class="poweredBy">Powered by </a>
         <img class="immagineLogo" src="static/media/logoEggs/logoNoSfondo.png">

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* PAGINA */
+.pagina {
+    background-repeat: no-repeat;
+    background-color: #313131;
+    background-size: 180vh;
+    background-position: center center;
+    height: calc(100vh - 60px);
+    position: relative;
+    width: 100%;
+}
+/* OPZIONI */
+.opzioni {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-left: 30px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+.lingua,
+.tema {
+    display: flex;
+    flex-direction: column;
+}
+.lingua img {
+    margin-top: 10px;
+    width: 40px;
+}
+.tema img {
+    margin-top: 7px;
+    width: 30px;
+}
+.tema {
+    padding-left: 30px;
+}
+/* LOGO PILATI */
+.logo {
+    width: 360px;
+    top: calc(50% - 350px);
+    left: calc(50% - 180px);
+    position: relative;
+}
+/* MAIN */
+.main {
+    background: rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 10px 4px rgba(31, 104, 120, 0.3), 10px 10px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    height: 420px;
+    width: 600px;
+    top: calc(50% - 340px);
+    left: calc(50% - 300px);
+    position: relative;
+    background-color: #000000;
+    opacity: 50%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+}
+/* BOTTONI MAIN */
+.login,
+.register,
+.guest {
+    height: 70px;
+    width: 450px;
+    margin-left: calc(300px - 225px);
+    background: #39D99F;
+    border-radius: 20px;
+    border: 0;
+    position: relative;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 100%;
+    transition: 0.2s;
+}
+.login:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+.register:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+.guest:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+.login {
+    margin-top: 50px;
+}
+.register,
+.guest {
+    margin-top: 45px;
+}
+/* FOOTER */
+footer{
+    height: 60px;
+    width: 100%;
+    position: relative;
+    background: rgb(14, 14, 14);
+    display: flex;
+    align-items: center;
+}
+.poweredBy{
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: light;
+    font-size: 16px;
+    margin-left: 20px;
+    color: rgb(218, 218, 218);
+}
+.immagineLogo{
+    height: 30px;
+    margin-left: 10px;
+    z-index: 2; 
+}
+.copyright{
+    font-size: 15px;
+    font-family: 'Spartan', sans-serif;
+    right: 15px;
+    color: white;
+    position: absolute;
+}

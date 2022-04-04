@@ -42,9 +42,9 @@
 }
 /* LOGO PILATI */
 .logo {
-    width: 260px;
+    width: 360px;
     top: calc(50% - 350px);
-    left: calc(50% - 130px);
+    left: calc(50% - 180px);
     position: relative;
 }
 /* MAIN */
@@ -71,7 +71,6 @@
     width: 450px;
     margin-left: calc(300px - 225px);
     background: #39D99F;
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     border-radius: 20px;
     border: 0;
     position: relative;
@@ -79,6 +78,19 @@
     font-weight: 500;
     font-size: 21px;
     line-height: 100%;
+    transition: 0.2s;
+}
+.login:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+.register:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+.guest:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
 }
 .login {
     margin-top: 50px;

@@ -62,11 +62,21 @@
     border-radius: 50px;
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
-/* BOTTONI MAIN */
-.login,
-.register,
-.guest {
+/* SEZIONI */
+.home,
+.login {
+    height: 420px;
+    width: 600px;
+    border-radius: 50px;
+    background-color: #00000000;
+    position: absolute;
+}
+/* HOME */
+.loginInput1,
+.registerInput1,
+.guestInput1 {
     height: 70px;
     width: 450px;
     margin-left: calc(300px - 225px);
@@ -80,23 +90,23 @@
     line-height: 100%;
     transition: 0.2s;
 }
-.login:hover {
+.loginInput1:hover {
     box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     transition: 0.2s;
 }
-.register:hover {
+.registerInput1:hover {
     box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     transition: 0.2s;
 }
-.guest:hover {
+.guestInput1:hover {
     box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     transition: 0.2s;
 }
-.login {
+.loginInput1 {
     margin-top: 50px;
 }
-.register,
-.guest {
+.registerInput1,
+.guestInput1 {
     margin-top: 45px;
 }
 /* FOOTER */

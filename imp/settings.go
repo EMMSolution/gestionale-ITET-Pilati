@@ -20,3 +20,5 @@ var Database string = "gestionalePilati"
 // Tabella elaborati / user
 var TabellaElaborati string = "elaborati"
 var TabellaUser string = "user"
+
+// sesso

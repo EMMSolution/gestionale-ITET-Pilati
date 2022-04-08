@@ -74,5 +74,49 @@ func menu() {
 		fmt.Println("Riconnessione db" + "\n")
 		cls()
 		menu()
+
+	case 4:
+		// cambio impostazioni
+		var defaultPass string = ""
+		var portaDB string = imp.DbPort
+		if imp.DbDefPass {
+			defaultPass = "si"
+		} else {
+			defaultPass = "no"
+		}
+		// sitemo la formattazione della porta
+		for i := 5 - len(imp.DbPort);  i > 0; i--{
+			portaDB = portaDB + " "
+		}
+		fmt.Printf(`
+    Database:                         WebServer:
+       1 Port: %s                      9 Port: %s 
+       2 Host: %s
+       3 NomeDB: %s
+       4 Tab usr: %s
+       5 Tab elb: %s
+       6 User: %s
+       7 Def pass: %s
+          8 pass: %s
+		
+		`, portaDB, imp.WsPort, 
+		   imp.DbHost, imp.Database, 
+		   imp.TabellaUser, imp.TabellaElaborati,
+		   imp.DbUser, defaultPass,
+		   imp.DbPass)
+	
+		sceltaImp := 0
+		fmt.Scanf(&sceltaImp)
+
+		switch sceltaImp {
+			case 1:
+				fmt.Println(`
+    Nuova porta (n per annullare): 
+        
+	   > `)
+			portaNuova := ""
+			fmt.Scanf(&portaNuova)
+		
+		}
 	}
 }

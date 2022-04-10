@@ -8,8 +8,10 @@ import (
 	"net/http"
 	"database/sql"
     _"github.com/go-sql-driver/mysql"
-	template "html/template"
+	"html/template"
 	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
+	// servirà per tornare alla home
+	_"github.com/EggSolution/gestionale-ITET-Pilati/moduli/main"
 )
 
 // variabile globale per al connessione al database

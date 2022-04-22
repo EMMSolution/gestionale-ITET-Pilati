@@ -10,7 +10,7 @@ var DbUser string = "massi"
 // Enabe default password
 var DbDefPass bool = true
 // Password (if default password is enabled)
-var DbPass string = "dioporco"
+var DbPass string = "d"
 // Host
 var DbHost string = "127.0.0.1"
 // Port

@@ -5,7 +5,7 @@ import (
 	_"database/sql"
 	_"log"
     _"github.com/go-sql-driver/mysql"
-	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func main(){

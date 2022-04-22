@@ -87,7 +87,7 @@
 .loginInput1,
 .registerInput1,
 .guestInput1 {
-    height: 50px;
+    height: 70px;
     width: 450px;
     margin-left: calc(300px - 225px);
     background: #39D99F;
@@ -125,7 +125,7 @@
 .passwordInputL {
     color: #1B1B1B;
     padding: 10px;
-    margin-top: 80px;
+    margin-top: 55px;
     height: 50px;
     width: 450px;
     margin-left: calc(300px - 225px);
@@ -141,7 +141,7 @@
 }
 
 .passwordInputL {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .submitL {

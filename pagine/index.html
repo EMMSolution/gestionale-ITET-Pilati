@@ -3,9 +3,9 @@
 <head>
     <title>Home</title>
     <link href="static/style/home.css" rel="stylesheet">
-    <script src="static/script/home.js"></script>
 </head>
 <body>
+    <script src="static/script/home.js"></script>
     <div class="pagina" id="sfondo" style="background-image: url('static/style/sfondi/sfondoS.png');">
         <div class="opzioni">
             <div class="lingua">
@@ -19,15 +19,17 @@
         </div>
         <img class="logo" src="static/media/home/itetPilatiLogo2.png"></img>
         <div class="main" id="main">
-            <div class="home" id="home">
-                <button class="loginInput1" id="accedi">Accedi</button>
-                <button class="registerInput1" id="registrati">Registrati</button>
-                <button class="guestInput1" id="entraGuest">Entra come ospite</button>
-            </div>
-            <div class="login" id="login">
-                <input type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
-                <input type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
-                <input type="submit" class="submitL" id="submitL">Entra</input>
+            <div class="scrollSezioni">
+                <div class="home" id="home">
+                    <button class="loginInput1" id="accedi" onclick="cambioSezione('login')">Accedi</button>
+                    <button class="registerInput1" id="registrati" onclick="">Registrati</button>
+                    <button class="guestInput1" id="entraGuest">Entra come ospite</button>
+                </div>
+                <div class="login" id="login">
+                    <input placeholder="e-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
+                    <input placeholder="password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
+                    <input type="submit" class="submitL" id="submitL">Entra</input>
+                </div>
             </div>
         </div>
     </div>

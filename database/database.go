@@ -64,5 +64,5 @@ func Database(pass string) string {
 	accessoDB := string(username)+":"+string(password)+"@tcp("+string(host)+":"+string(port)+")/"+string(db)
 
 	return string(accessoDB)
-	//sei gay
+
 }

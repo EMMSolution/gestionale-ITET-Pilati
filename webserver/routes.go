@@ -45,37 +45,18 @@ func Routes(infoDB string){
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
-	http.HandleFunc("/", index)
-	http.HandleFunc("/login", login)
-	http.HandleFunc("/register", register)
+	http.HandleFunc("/", home)
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/uploadFile", uploadFile)
 	http.HandleFunc("/passReset", passReset)
 }
 
 // all page function
-func index(w http.ResponseWriter, r *http.Request){
+func home(w http.ResponseWriter, r *http.Request){
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
-	template, _ := template.ParseFiles(Cwd + "\\pagine\\index.html")
-	template.Execute(w,"")
-}
-
-func login(w http.ResponseWriter, r *http.Request) {
-	// get current working directory
-	Cwd, _ =  os.Getwd()
-	// execute html template
-	template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
-	template.Execute(w,"")
-	
-}
-
-func register(w http.ResponseWriter, r *http.Request) {
-	// get current working directory
-	Cwd, _ =  os.Getwd()
-	// execute html template
-	template, _ := template.ParseFiles(Cwd + "\\pagine\\regiter.html")
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
 	template.Execute(w,"")
 }
 
@@ -92,7 +73,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			passForm = r.FormValue("password")
 		case "GET":
 			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
 			template.Execute(w,"")
 
 			return
@@ -133,7 +114,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
 		// execute html template
-			http.Redirect(w, r, "http://localhost/login", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
 	} else {
 		fmt.Println("Utente loggato:")
 		fmt.Println("  -id: " + credVar.Id)
@@ -191,7 +172,7 @@ func passReset(w http.ResponseWriter, r *http.Request) {
 			// get current working directory
 			Cwd, _ := os.Getwd()
 			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\login.html")
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
 			template.Execute(w,"")
 	}
 

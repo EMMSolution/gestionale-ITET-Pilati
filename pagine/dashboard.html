@@ -13,18 +13,18 @@
         <div class="indicatore" style="top: 100px"></div>
         <div class="iconeCentrali">
             <div class="logo1">
-            <button class="bottoneL1" onclick="menu(1)">
-                <img class="homeLogo" src="static/media/dashboard/home.svg">
-            </button>
+                <button class="bottoneL1" onclick="menu(1)">
+                    <img class="homeLogo" src="static/media/dashboard/home.svg">
+                </button>
             </div>
             <div class="logo2">
-            <button class="bottoneL2" onclick="menu(2)"><img class="graLogo" src="static/media/dashboard/grafico2.svg"></button>
+                <button class="bottoneL2" onclick="menu(2)"><img class="graLogo" src="static/media/dashboard/grafico2.svg"></button>
             </div>
             <div class="logo3">
-            <button class="bottoneL3" onclick="menu(3)"><img class="tabLogo" src="static/media/dashboard/elaborati.svg"></button>
+                <button class="bottoneL3" onclick="menu(3)"><img class="tabLogo" src="static/media/dashboard/elaborati.svg"></button>
             </div>
             <div class="logo4">
-            <button class="bottoneL4" onclick="menu(4)"><img class="aggTabLogo" src="static/media/dashboard/aggElaborati.svg"></button>
+                <button class="bottoneL4" onclick="menu(4)"><img class="aggTabLogo" src="static/media/dashboard/aggElaborati.svg"></button>
             </div>
         </div>
         <div class="iconeBasse">
@@ -35,14 +35,28 @@
     <div class="destra">
         <div class="imp">
             <header class="header">
-            <div class="titoloDivImp"><a class="titolo">Impostazioni:</a></div>
-            <button class="chiudi" onclick="menu(5)">
-                <hr class="linea1">
-                <hr class="linea2">
-            </button>
+                <div class="titoloDivImp"><a class="titolo">Impostazioni:</a></div>
+                <button class="chiudi" onclick="menu(5)">
+                    <hr class="linea1">
+                    <hr class="linea2">
+                </button>
             </header>
-            <div class="impSinistra"><a class="impNomeAccount"></a>
-            <div class="impImmagneAccount" style="background-image: url('static/media/user/noUserImg.svg');"></div>
+            <div class="settaggi">
+                <!-- form action="/cambioImpostazioni" -->
+                    <div class="imgProfilo">
+                        <div class="img" style="background-image: url('static/media/user/noUserImg.svg');"></div>
+                        <div class="cambiaImg"></div>
+                    </div>
+                    <div class="listaImpostazioni">
+                        <input class="inputImp1" type="text" value="nome"></input>
+                        <input class="inputImp2" type="email" value="email"></input>
+                        <input class="inputImp3" type="password" value="password"></input>
+                        <div class="divImp4">
+                            <button class="inputImpAnnulla">Annulla</button>
+                            <input class="inputImpApplica" type="submit" value="Applica"></input>
+                        </div>
+                    </div>
+                <!-- div -->
             </div>
             <div class="impDestra"></div>
         </div>
@@ -76,7 +90,6 @@
                         <td class="tbe2">{{.UploadDate}}</td>
                     <tr>
                 {{end}}
-                <!-- for che ogni elemento della query ritorna una row con le varie cose -->
 
                 </table>
             </div>
@@ -87,8 +100,8 @@
                 <form method="post" enctype="multipart/form-data" action="/uploadFile">
                     <div class="fileName">
                         <div class="fileName-1">
-                        <a class="scritteFileName">Inserire il nome del file:</a> 
-                        </div>  
+                        <a class="scritteFileName">Inserire il nome del file:</a>
+                        </div>
                         <div class="fileName-2">
                             <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
                         </div>
@@ -110,8 +123,8 @@
                         <div class="invio">
                             <input type="submit" class="fileInputSubmit">
                         </div>
-                    </div> 
-                </form>   
+                    </div>
+                </form>
             </div>
             </div>
             <div class="sezioneLaterale"></div>

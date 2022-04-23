@@ -9,17 +9,19 @@ window.onload = function(){
 
 function cambioSezione(sezione){
     switch(sezione){
-        case 'home':
-            if(sezioneAttuale == 'home'){
+       case 'home':
+           if(sezioneAttuale == 'home'){
                 return
-            }
-            sezioneScroll.style.transform = 'translateX(0px)';
-            sezioneAttuale = 'home';
+           }
+           sezioneScroll.style.transform = 'translateX(0px)';
+           sezioneAttuale = 'home';
+           break;
         case 'login':
             if(sezioneAttuale == 'login'){
                 return
             }
             sezioneScroll.style.transform = 'translateX(-600px)';
             sezioneAttuale = 'login';
+            break;
     }
 }

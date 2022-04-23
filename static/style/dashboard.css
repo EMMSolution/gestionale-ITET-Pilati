@@ -421,3 +421,106 @@ body {
     border: solid 0;
     background-color: white;
 }
+
+
+/* input impostazioni */
+.settaggi {
+    width: 420px;
+    height: 700px;
+    margin-left: calc(50% - 420px / 2);
+    vertical-align: middle;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(calc(50% - 280px));
+}
+
+.imgProfilo {
+    margin-left: calc(420px / 2 - 140px / 2);
+    height: 140px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cambiaImg {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: none;
+    background-image: url('static/media/dashboard/camera.svg');
+    border: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translateX(50px) translateY(90px);
+}
+
+.inputImp1,
+.inputImp2,
+.inputImp3,
+.inputImp4 {
+    text-align: center;
+    color: white;
+    background-color: #474549;
+    padding: 20px;
+    margin-top: 30px;
+    height: 20px;
+    width: calc(420px - 40px);
+    border-radius: 20px;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    transition: 0.2s;
+}
+
+.inputImp4 {
+    padding-top: 20px;
+}
+
+.inputImpAnnulla,
+.inputImpApplica {
+    text-align: center;
+    color: white;
+    background-color: #474549;
+    padding: 15px;
+    width: 140px;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    transition: 0.2s;
+}
+
+.inputImpAnnulla {
+    background-color: #A33838;
+}
+
+.inputImpApplica {
+    background-color: #59AE9F;
+    float: right;
+}
+
+/* hover box shadow */
+.inputImp1:hover,
+.inputImp2:hover,
+.inputImp3:hover,
+.inputImpAnnulla:hover,
+.inputImpApplica:hover {
+    box-shadow: 6px 6px 6px rgba(64, 179, 216, 0.31);
+}

@@ -26,9 +26,14 @@
                     <button class="guestInput1" id="entraGuest">Entra come ospite</button>
                 </div>
                 <div class="login" id="login">
-                    <input placeholder="e-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
-                    <input placeholder="password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
-                    <input type="submit" class="submitL" id="submitL">Entra</input>
+                    <form action="/dashboard" method="POST">
+                        <input placeholder="E-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
+                        <input placeholder="Password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
+                        <div class="sezzioneBottoneSotto">
+                            <button class="indietroLogin" type="button" onclick="cambioSezione('home')">Indietro</button>
+                            <input class="submitL" type="submit" id="submitL" value="Entra"></input>
+                        </div>
+                   </form>
                 </div>
             </div>
         </div>

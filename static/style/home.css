@@ -123,17 +123,18 @@
 /* LOGIN  */
 .emailInputL,
 .passwordInputL {
-    color: #1B1B1B;
+    color: black;
     padding: 10px;
-    margin-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
     height: 50px;
-    width: 450px;
-    margin-left: calc(300px - 225px);
+    width: calc(450px - 40px);
+    margin-left: calc((600px - 450px)/2);
     background: #39D99F;
     border-radius: 20px;
     border: 0;
     position: relative;
-    font-family: 'Roboto';
     font-weight: 500;
     font-size: 21px;
     line-height: 100%;
@@ -141,24 +142,58 @@
 }
 
 .passwordInputL {
-    margin-top: 50px;
+    margin-top: 45px;
 }
 
-.submitL {
-    color: #1B1B1B
-    padding: 10px;
-    margin-top: 80px;
-    height: 50px;
+.sezzioneBottoneSotto {
+    color: #1B1B1B;
+    margin-top: 45px;
+    height: 80px;
     width: 450px;
-    margin-left: calc(300px - 225px);
-    background: #39D99F;
+    margin-left: calc((600px - 450px)/2);
     border-radius: 20px;
     border: 0;
     position: relative;
-    font-family: 'Roboto';
     font-weight: 500;
     font-size: 21px;
     line-height: 100%;
+    transition: 0.2s;
+}
+.indietroLogin,
+.submitL {
+    margin: 0;
+    background: #39D99F;
+    border-radius: 20px;
+    color: #1B1B1B;
+    height: 50px;
+    width: calc(140px - 20px);
+    padding: 10px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 21px;
+}
+
+.submitL {
+    float: right;
+}
+
+.emailInputL:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+
+.passwordInputL:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+
+.indietroLogin:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+
+.submitL:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     transition: 0.2s;
 }
 

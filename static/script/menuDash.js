@@ -10,6 +10,7 @@ window.onload = function(){
     loghi = document.querySelector('.iconeCentrali');
     sez = document.querySelector('.sezioni');
     imp = document.querySelector('.imp');
+    passImpInput = document.querySelector('.inputImp3');
 
     impAperto = false;
 
@@ -61,5 +62,13 @@ function menu(sezione){
             break;
         default:
             alert("errore nello scorrimento delle sezioni");
+    }
+}
+
+function mostraPass(){
+    if(passImpInput.type === 'password'){
+        passImpInput.type = 'text'
+    } else if(passImpInput.type === 'text'){
+        passImpInput.type = 'password'
     }
 }

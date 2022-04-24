@@ -27,6 +27,10 @@ type ElabStruct struct {
 }
 type DashStruct struct {
 	TitoloPag    string
+	IdUtente     string
+	NomeUtente   string
+	EmailUtente  string
+	PassUtente   string
 	Elaborati    []ElabStruct
 }
 
@@ -108,6 +112,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	elaboratiHTML := DashStruct{
 		TitoloPag: titoloP,
+		IdUtente: credVar.Id,
+		NomeUtente: credVar.Name,
+		EmailUtente: credVar.Email,
+		PassUtente: credVar.Password,
 		Elaborati: ElaboratiStructData,
 	}
 

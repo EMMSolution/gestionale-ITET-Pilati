@@ -45,12 +45,15 @@
                 <!-- form action="/cambioImpostazioni" -->
                     <div class="imgProfilo">
                         <div class="img" style="background-image: url('static/media/user/noUserImg.svg');"></div>
-                        <div class="cambiaImg"></div>
+                        <div class="cambiaImg" style="background-image: url('static/media/dashboard/camera.svg');"></div>
                     </div>
                     <div class="listaImpostazioni">
-                        <input class="inputImp1" type="text" value="nome"></input>
-                        <input class="inputImp2" type="email" value="email"></input>
-                        <input class="inputImp3" type="password" value="password"></input>
+                        <input class="inputImp1" type="text" value="{{.NomeUtente}}"></input>
+                        <input class="inputImp2" type="email" value="{{.EmailUtente}}"></input>
+                        <input class="inputImp3" type="password" value="{{.PassUtente}}"></input>
+                        <button class="mostraPass" type="button" onclick="mostraPass()">
+                            <div style="background-image: url('static/media/dashboard/occhio.png')"></div>
+                        </button>
                         <div class="divImp4">
                             <button class="inputImpAnnulla">Annulla</button>
                             <input class="inputImpApplica" type="submit" value="Applica"></input>
@@ -61,11 +64,12 @@
             <div class="impDestra"></div>
         </div>
         <div class="manu-s">
-            <div class="account" href="#"><a class="nomeAccount"></a>
-            <div class="immagneAccount" style="background-image: url('static/media/user/noUserImg.svg');"></div>
+            <div class="account" href="#">
+                <a class="nomeAccount">{{.NomeUtente}}</a>
+                <div class="immagneAccount" style="background-image: url('static/media/user/noUserImg.svg');"></div>
             </div>
         </div>
-        <div class="main">
+        <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
             <div class="sezioni">
             <div class="sezionePrincipale">
                 <div class="titoloDiv"><a class="titolo">Home:</a></div>
@@ -84,10 +88,10 @@
                 </tr>
                 {{range .Elaborati}}
                     <tr class="tbeFile">
-                        <td class="tbe2">{{.Name}}</td>
-                        <td class="tbe2">{{.Creator}}</td>
-                        <td class="tbe2">{{.FilePath}}</td>
-                        <td class="tbe2">{{.UploadDate}}</td>
+                        <td class="tbe2"><a>{{.Name}}</a></td>
+                        <td class="tbe2"><a>{{.Creator}}</a></td>
+                        <td class="tbe2"><a>{{.FilePath}}</a></td>
+                        <td class="tbe2"><a>{{.UploadDate}}</a></td>
                     <tr>
                 {{end}}
 

@@ -24,7 +24,7 @@ body {
     height: 100%;
     width: 90px;
     position: relative;
-    background-color: rgb(38, 26, 49);
+    background-color: #1C1C1C;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,7 +124,7 @@ body {
 .manu-s {
     width: 100%;
     height: 60px;
-    background-color: rgb(60, 41, 77);
+    background-color: #282828;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -143,9 +143,9 @@ body {
 }
 .nomeAccount {
     font-size: 17px;
+    color: white;
     font-family: 'Roboto', sans-serif;
     margin-right: 4px;
-    color: white;
     position: relative;
 }
 .immagneAccount {
@@ -163,7 +163,10 @@ body {
 .main {
     width: 100%;
     height: calc(100% - 60px);
-    background-color: rgba(57, 0, 105, 0.800);
+    background-repeat: no-repeat;
+    background-color: #313131;
+    background-size: 160vh;
+    background-position: center center;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -176,7 +179,8 @@ body {
     margin-left: 0px;
     margin-right: 20px;
     width: calc(30% - 20px);
-    background-color: rgba(34, 34, 34, 0.568);
+    background-color: #222222;
+    opacity: 90%;
     border-radius: 35px;
 }
 
@@ -210,7 +214,8 @@ body {
 .sezionePrincipale {
     height: calc(100% - 40px);
     width: 100%;
-    background-color: rgba(34, 34, 34, 0.568);
+    background-color: #222222;
+    opacity: 90%;
     border-radius: 35px;
     margin-bottom: 30px;
 }
@@ -219,7 +224,8 @@ body {
 .sezioneInfo {
     height: calc(100% - 40px);
     width: 100%;
-    background-color: rgba(34, 34, 34, 0.568);
+    background-color: #222222;
+    opacity: 90%;
     border-radius: 35px;
     margin-bottom: 30px;
 }
@@ -228,7 +234,8 @@ body {
 .sezioneElaborati {
     height: calc(100% - 40px);
     width: 100%;
-    background-color: rgba(34, 34, 34, 0.568);
+    background-color: #222222;
+    opacity: 90%;
     border-radius: 35px;
     margin-bottom: 30px;
 }
@@ -255,15 +262,36 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.tbe2h:nth-child(1) {
+    width: 25%;
+}
+
+.tbe2h:nth-child(2) {
+    width: 16%;
+}
+
+.tbe2h:nth-child(3) {
+    width: 40%;
+}
+
 .tbe2{
     padding-top: 20px;
 }
+
+.tbe2 a {
+    font-size: 17px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
 .tbe2h {
     border-bottom: solid 2px rgba(255, 255, 255, 1);
     width: 24%;
     font-size: 20px;
     padding-bottom: 10px;
 }
+
 .tbeFile {
     color: white;
 }
@@ -278,7 +306,8 @@ body {
 .sezioneAgg {
     height: calc(100% - 40px);
     width: 100%;
-    background-color: rgba(34, 34, 34, 0.568);
+    background-color: #222222;
+    opacity: 90%;
     border-radius: 35px;
     margin-bottom: 30px;
 }
@@ -378,7 +407,8 @@ body {
     width: calc(100% - 50px);
     border-radius: 35px;
     position: absolute;
-    background-color: #261a31;
+    background-color: #242424;
+    opacity: 86%;
     margin-left: 20px;
     margin-top: calc(40px + 40px);
     transition: 0.2s;
@@ -457,7 +487,6 @@ body {
     border-radius: 50%;
     position: absolute;
     background-color: none;
-    background-image: url('static/media/dashboard/camera.svg');
     border: 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -507,6 +536,36 @@ body {
     transition: 0.2s;
 }
 
+.mostraPass {
+    text-align: center;
+    height: 60px;
+    color: white;
+    background-color: #524f54;
+    padding: 15px;
+    width: 50px;
+    margin-top: 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    transition: 0.2s;
+    float: right;
+    transform: translateX(-50px)
+}
+
+.mostraPass div {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 30px;
+    z-index: 5;
+    transform: translateX(-5px)
+}
+
 .inputImpAnnulla {
     background-color: #A33838;
 }
@@ -520,6 +579,7 @@ body {
 .inputImp1:hover,
 .inputImp2:hover,
 .inputImp3:hover,
+.mostraPass:hover,
 .inputImpAnnulla:hover,
 .inputImpApplica:hover {
     box-shadow: 6px 6px 6px rgba(64, 179, 216, 0.31);

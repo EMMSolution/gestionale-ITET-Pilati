@@ -42,15 +42,15 @@
                 </button>
             </header>
             <div class="settaggi">
-                <!-- form action="/cambioImpostazioni" -->
+                <form action="/cambioImpostazioni" method="POST">
                     <div class="imgProfilo">
                         <div class="img" style="background-image: url('static/media/user/noUserImg.svg');"></div>
                         <div class="cambiaImg" style="background-image: url('static/media/dashboard/camera.svg');"></div>
                     </div>
                     <div class="listaImpostazioni">
-                        <input class="inputImp1" type="text" value="{{.NomeUtente}}"></input>
-                        <input class="inputImp2" type="email" value="{{.EmailUtente}}"></input>
-                        <input class="inputImp3" type="password" value="{{.PassUtente}}"></input>
+                        <input name="nomeUtente" class="inputImp1" type="text" value="{{.NomeUtente}}"></input>
+                        <input name="emailUtente" class="inputImp2" type="email" value="{{.EmailUtente}}"></input>
+                        <input name="passUtente" class="inputImp3" type="password" value="{{.PassUtente}}"></input>
                         <button class="mostraPass" type="button" onclick="mostraPass()">
                             <div style="background-image: url('static/media/dashboard/occhio.png')"></div>
                         </button>
@@ -59,7 +59,7 @@
                             <input class="inputImpApplica" type="submit" value="Applica"></input>
                         </div>
                     </div>
-                <!-- div -->
+                </form>
             </div>
             <div class="impDestra"></div>
         </div>
@@ -120,7 +120,7 @@
                         </div>
                         <div class = "mezzoAgg"></div>
                         <div class = "sottoAgg"></div>
-                    </div>                       
+                    </div>
                 </form>
             </div>
             </div>

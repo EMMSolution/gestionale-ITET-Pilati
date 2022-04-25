@@ -50,9 +50,9 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
-	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/uploadFile", uploadFile)
 	http.HandleFunc("/passReset", passReset)
+	http.HandleFunc("/cambioImpostazioni", cambioImpostazioni)
 }
 
 // all page function
@@ -68,6 +68,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	// get current working directory
 	Cwd, _ =  os.Getwd()
+	fmt.Println(InfoDB)
 	emailForm := ""
 	passForm := ""
 	switch r.Method {
@@ -171,17 +172,32 @@ func passReset(w http.ResponseWriter, r *http.Request) {
 	Cwd, _ =  os.Getwd()
 	switch r.Method {
 		case "POST":
-			// get current working directory
-			Cwd, _ := os.Getwd()
 			// execute html template
 			template, _ := template.ParseFiles(Cwd + "\\pagine\\passDimenticata.html")
 			template.Execute(w,"")
 		case "GET":
-			// get current working directory
-			Cwd, _ := os.Getwd()
 			// execute html template
 			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
 			template.Execute(w,"")
 	}
 
+}
+
+func cambioImpostazioni(w http.ResponseWriter, r *http.Request) {
+	Cwd, _ =  os.Getwd()
+	var NuovoNome string
+	var NuovoEmail string
+	var NuovoPass string
+	switch r.Method {
+		case "POST":
+			NuovoNome = r.FormValue("nomeUtente")
+			NuovoEmail = r.FormValue("emailUtente")
+			NuovoPass = r.FormValue("passUtente")
+		case "GET":
+			http.Redirect(w, r, "http.//localhost/dashboard", http.StatusSeeOther)
+	}
+	DBconn, _ := sql.Open("mysql", InfoDB)
+
+	QueryAggiornamento, _ := DBconn.Query("UPDATE elaborati SET name = '"+NuovoNome+"', email = '"+NuovoEmail+"', password = '"+NuovoPass+"';")
+	fmt.Println(QueryAggiornamento)
 }

@@ -373,11 +373,10 @@ body {
     height: 100%;
     width: 30%;
     position: relative;
-    background-color: blue;
 }
 .divSopraDX{
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 71px;
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
@@ -390,7 +389,6 @@ body {
     height: 350px;
     width: 85%;
     position: relative;
-    background-color: green;
 }
 .dragDrop{
     position: relative;
@@ -407,7 +405,6 @@ body {
 .scritteDragDrop{
     height: 250px;
     width: 400px;
-    background-color: white;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -416,7 +413,6 @@ body {
 .scritteDragDropSopra{
     height: 80%;
     width: 100%;
-    background-color: red;
     text-align:center;
     left: 50%;
     top: 50%;
@@ -434,8 +430,23 @@ body {
 }
 .sottoAgg{
     height: 75px;
-    width: 15%;
+    width: 30%;
     position: relative;
+}
+.invioFileDiv{
+    width: 185px;
+    height: 71px;
+    position: relative;
+    background: #474549;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
+    border-radius: 19px;
+    transform: translateX(15px);
+}
+.fileInputSubmit{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative; 
 }
 /* IMPOSTAZIONI */
 .imp {

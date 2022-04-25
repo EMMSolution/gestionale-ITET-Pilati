@@ -4,6 +4,7 @@ var sez;
 var loghiAlt;
 var altezzaEff;
 var impAperto;
+var impAnnullaInput;
 
 window.onload = function(){
     ind = document.querySelector('.indicatore');
@@ -11,6 +12,9 @@ window.onload = function(){
     sez = document.querySelector('.sezioni');
     imp = document.querySelector('.imp');
     passImpInput = document.querySelector('.inputImp3');
+    inputImpNome = document.querySelector('.inputImp1');
+    inputImpEmail = document.querySelector('.inputImp2');
+    inputImpPass = document.querySelector('.inputImp3');
 
     impAperto = false;
 
@@ -63,6 +67,12 @@ function menu(sezione){
         default:
             alert("errore nello scorrimento delle sezioni");
     }
+}
+
+function resetImpInput(){
+    inputImpNome.value = nomeUtenteJS
+    inputImpEmail.value = emailUtenteJS
+    inputImpPass.value = passUtenteJS
 }
 
 function mostraPass(){

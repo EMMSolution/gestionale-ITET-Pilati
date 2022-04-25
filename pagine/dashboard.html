@@ -48,6 +48,16 @@
                         <div class="cambiaImg" style="background-image: url('static/media/dashboard/camera.svg');"></div>
                     </div>
                     <div class="listaImpostazioni">
+                        <!-- script per passare variabili js in go -->
+                        <script>
+                            var nomeUtenteJS = "{{.NomeUtente}}"
+                            var emailUtenteJS = "{{.EmailUtente}}"
+                            var passUtenteJS = "{{.PassUtente}}"
+                        </script>
+                        <!-- invio il nome originale nel post ma lo nascondo -->
+                        <input type="hidden" name="emailOriginale" value="{{.EmailUtente}}">
+                        <input type="hidden" name="passOriginale" value="{{.PassUtente}}">
+                        <!-- fine -->
                         <input name="nomeUtente" class="inputImp1" type="text" value="{{.NomeUtente}}"></input>
                         <input name="emailUtente" class="inputImp2" type="email" value="{{.EmailUtente}}"></input>
                         <input name="passUtente" class="inputImp3" type="password" value="{{.PassUtente}}"></input>
@@ -55,7 +65,7 @@
                             <div style="background-image: url('static/media/dashboard/occhio.png')"></div>
                         </button>
                         <div class="divImp4">
-                            <button class="inputImpAnnulla">Annulla</button>
+                            <input type="none" class="inputImpAnnulla" onclick="resetImpInput()" value="Annulla" readonly></input>
                             <input class="inputImpApplica" type="submit" value="Applica"></input>
                         </div>
                     </div>

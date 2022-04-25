@@ -50,6 +50,7 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
+	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/uploadFile", uploadFile)
 	http.HandleFunc("/passReset", passReset)
 	http.HandleFunc("/cambioImpostazioni", cambioImpostazioni)
@@ -61,14 +62,13 @@ func home(w http.ResponseWriter, r *http.Request){
 	Cwd, _ =  os.Getwd()
 	// execute html template
 	template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-	template.Execute(w,"")
+	template.Execute(w, "")
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
 
 	// get current working directory
 	Cwd, _ =  os.Getwd()
-	fmt.Println(InfoDB)
 	emailForm := ""
 	passForm := ""
 	switch r.Method {
@@ -91,7 +91,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// divido la query
 	credVar := database.QueryUser()
 	// for che controlla tutti i risultati
-	for credenziali.Next(){
+	for credenziali.Next() {
 		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email)
 		if err != nil {
 			panic(err)
@@ -185,11 +185,15 @@ func passReset(w http.ResponseWriter, r *http.Request) {
 
 func cambioImpostazioni(w http.ResponseWriter, r *http.Request) {
 	Cwd, _ =  os.Getwd()
+	var VecchioEmail string
+	var VecchioPass string
 	var NuovoNome string
 	var NuovoEmail string
 	var NuovoPass string
 	switch r.Method {
 		case "POST":
+			VecchioEmail = r.FormValue("emailOriginale")
+			VecchioPass = r.FormValue("passOriginale")
 			NuovoNome = r.FormValue("nomeUtente")
 			NuovoEmail = r.FormValue("emailUtente")
 			NuovoPass = r.FormValue("passUtente")
@@ -198,6 +202,7 @@ func cambioImpostazioni(w http.ResponseWriter, r *http.Request) {
 	}
 	DBconn, _ := sql.Open("mysql", InfoDB)
 
-	QueryAggiornamento, _ := DBconn.Query("UPDATE elaborati SET name = '"+NuovoNome+"', email = '"+NuovoEmail+"', password = '"+NuovoPass+"';")
+	QueryAggiornamento, _ := DBconn.Query("UPDATE user SET name = '"+NuovoNome+"', email = '"+NuovoEmail+"', password = '"+NuovoPass+"' WHERE email = '"+VecchioEmail+"' and password = '"+VecchioPass+"';")
 	fmt.Println(QueryAggiornamento)
+	http.Redirect(w, r, "http://localhost/dashboard", http.StatusSeeOther)
 }

@@ -374,7 +374,6 @@ body {
     width: 30%;
     position: relative;
     background-color: blue;
-    z-index: 6;
 }
 .divSopraDX{
     position: relative;
@@ -392,6 +391,46 @@ body {
     width: 85%;
     position: relative;
     background-color: green;
+}
+.dragDrop{
+    position: relative;
+    width: 700px;
+    height: 90%;
+    background: #474549;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
+    border-radius: 42px;
+    left: 45%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scritteDragDrop{
+    height: 250px;
+    width: 400px;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+.scritteDragDropSopra{
+    height: 80%;
+    width: 100%;
+    background-color: red;
+    text-align:center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+.scritteDragDropSopraVere{
+    font-size: 25px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.fileInput{
+    transform: translateY(100px);
 }
 .sottoAgg{
     height: 75px;

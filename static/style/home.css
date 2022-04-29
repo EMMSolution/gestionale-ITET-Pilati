@@ -52,7 +52,6 @@
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
     box-shadow: 10px 10px 4px rgba(31, 104, 120, 0.3), 10px 10px 4px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
     height: 420px;
     width: 600px;
     top: calc(50% - 340px);
@@ -74,14 +73,14 @@
     transition: 500ms;
 }
 .home,
-.login {
+.login,
+.register {
     height: 420px;
     width: 600px;
     border-radius: 50px;
     background-color: #00000000;
     position: relative;
 }
-  /* provisorio */
 
 /* HOME */
 .loginInput1,
@@ -90,7 +89,7 @@
     height: 70px;
     width: 450px;
     margin-left: calc(300px - 225px);
-    background: #39D99F;
+    background: #04FFB4;
     border-radius: 20px;
     border: 0;
     position: relative;
@@ -161,6 +160,7 @@
 }
 .indietroLogin,
 .submitL {
+    border: 0;
     margin: 0;
     background: #39D99F;
     border-radius: 20px;
@@ -209,6 +209,8 @@ footer{
     background: rgb(14, 14, 14);
     display: flex;
     align-items: center;
+    top: 100%;
+    position: absolute;
 }
 .poweredBy{
     font-family: 'Yantramanav', sans-serif;

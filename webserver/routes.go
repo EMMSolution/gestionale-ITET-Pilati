@@ -50,7 +50,7 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
-	http.HandleFunc("/register", register)
+//	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/passReset", passReset)
 	http.HandleFunc("/uploadFile", uploadFile)
@@ -136,20 +136,22 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	}
 }
 
-func register(w http.responseWriter, r *http.Request) {
-	switch r.Method {
-		case "GET":
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-			template.Execute(w, "")
-		case "POST":
-			// prendo dati
-			nomeUtente := r.Value('nome')
-			emailUtente := r.Value('email')
-			passwordUtente := r.Value('password')
-			DBconn, _ := sql.Open("mysql", infoDB)
-
-	}
-}
+//func register(w http.responseWriter, r *http.Request) {
+//	switch r.Method {
+//		case "GET":
+//			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
+//			template.Execute(w, "")
+//		case "POST":
+//			// prendo dati
+//			nomeUtente := r.FormValue('nome')
+//			emailUtente := r.FormValue('email')
+//			passwordUtente := r.FormValue('password')
+//
+//
+//			DBconn, _ := sql.Open("mysql", InfoDB)
+//
+//	}
+//}
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 	// get current working directory

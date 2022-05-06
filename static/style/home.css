@@ -99,14 +99,8 @@
     line-height: 100%;
     transition: 0.2s;
 }
-.loginInput1:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-.registerInput1:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
+.loginInput1:hover,
+.registerInput1:hover,
 .guestInput1:hover {
     box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
     transition: 0.2s;
@@ -177,28 +171,79 @@
     float: right;
 }
 
-.emailInputL:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
-.passwordInputL:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
-.indietroLogin:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
-.submitL:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
 /* REGISTER */
+.nomeInputR,
+.emailInputR,
+.passwordInputR {
+    color: black;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;
+    height: 50px;
+    width: calc(450px - 40px);
+    margin-left: calc((600px - 450px)/2);
+    background: #39D99F;
+    border-radius: 20px;
+    border: 0;
+    position: relative;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 100%;
+    transition: 0.2s;
+}
 
+.emailInputR,
+.passwordInputR {
+    margin-top: 20px;
+}
+
+.sezzioneBottoneSotto {
+    color: #1B1B1B;
+    margin-top: 30px;
+    height: 80px;
+    width: 450px;
+    margin-left: calc((600px - 450px)/2);
+    border-radius: 20px;
+    border: 0;
+    position: relative;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 100%;
+    transition: 0.2s;
+}
+.indietroRegister,
+.submitR {
+    border: 0;
+    margin: 0;
+    background: #39D99F;
+    border-radius: 20px;
+    color: #1B1B1B;
+    height: 50px;
+    width: calc(140px - 20px);
+    padding: 10px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 21px;
+}
+
+.submitR {
+    float: right;
+}
+
+.nomeInputR:hover,
+.emailInputR:hover,
+.passwordInputR:hover,
+.indietroRegister:hover,
+.submitR:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
+
+.submitR:hover {
+    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
+    transition: 0.2s;
+}
 
 
 /* FOOTER */

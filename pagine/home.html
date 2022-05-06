@@ -36,12 +36,13 @@
                    </form>
                 </div>
                 <div class="register" id="register">
-                    <form action="/dashboard" method="POST">
-                        <input placeholder="E-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
-                        <input placeholder="Password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
+                    <form action="/register" method="POST">
+                        <input placeholder="Nome" type="text" class="nomeInputR" id="nomeInputR" name="nome"></input>
+                        <input placeholder="E-mail" type="email" class="emailInputR" id="acemailInputLcedi" name="email"></input>
+                        <input placeholder="Password" type="password" class="passwordInputR" id="passwordInputL" name="password"></input>
                         <div class="sezzioneBottoneSotto">
-                            <button class="indietroLogin" type="button" onclick="cambioSezione('home')">Indietro</button>
-                            <input class="submitL" type="submit" id="submitL" value="Entra"></input>
+                            <button class="indietroRegister" type="button" onclick="cambioSezione('home')">Indietro</button>
+                            <input class="submitR" type="submit" id="submitR" value="Registrati"></input>
                         </div>
                    </form>
             </div>

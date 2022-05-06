@@ -50,9 +50,10 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
+	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
-	http.HandleFunc("/uploadFile", uploadFile)
 	http.HandleFunc("/passReset", passReset)
+	http.HandleFunc("/uploadFile", uploadFile)
 	http.HandleFunc("/cambioImpostazioni", cambioImpostazioni)
 }
 
@@ -132,6 +133,21 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		// execute html template
 		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 		template.Execute(w, elaboratiHTML)
+	}
+}
+
+func register(w http.responseWriter, r *http.Request) {
+	switch r.Method {
+		case "GET":
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
+			template.Execute(w, "")
+		case "POST":
+			// prendo dati
+			nomeUtente := r.Value('nome')
+			emailUtente := r.Value('email')
+			passwordUtente := r.Value('password')
+			DBconn, _ := sql.Open("mysql", infoDB)
+
 	}
 }
 

@@ -89,7 +89,7 @@
     height: 70px;
     width: 450px;
     margin-left: calc(300px - 225px);
-    background: #04FFB4;
+    background: #4df0b4;
     border-radius: 20px;
     border: 0;
     position: relative;
@@ -183,7 +183,7 @@
     height: 50px;
     width: calc(450px - 40px);
     margin-left: calc((600px - 450px)/2);
-    background: #39D99F;
+    background: #4df0b4;
     border-radius: 20px;
     border: 0;
     position: relative;
@@ -218,7 +218,7 @@
     margin: 0;
     background: #39D99F;
     border-radius: 20px;
-    color: #1B1B1B;
+    color: #4df0b4;
     height: 50px;
     width: calc(140px - 20px);
     padding: 10px;

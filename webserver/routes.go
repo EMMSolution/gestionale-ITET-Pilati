@@ -50,7 +50,7 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
-//	http.HandleFunc("/register", register)
+	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/passReset", passReset)
 	http.HandleFunc("/uploadFile", uploadFile)
@@ -59,6 +59,7 @@ func Routes(infoDB string){
 
 // all page function
 func home(w http.ResponseWriter, r *http.Request){
+fmt.Print("ciao")
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
@@ -136,22 +137,24 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	}
 }
 
-//func register(w http.responseWriter, r *http.Request) {
-//	switch r.Method {
-//		case "GET":
-//			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-//			template.Execute(w, "")
-//		case "POST":
-//			// prendo dati
-//			nomeUtente := r.FormValue('nome')
-//			emailUtente := r.FormValue('email')
-//			passwordUtente := r.FormValue('password')
-//
-//
-//			DBconn, _ := sql.Open("mysql", InfoDB)
-//
-//	}
-//}
+func register(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+		case "GET":
+			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
+			template.Execute(w, "")
+		case "POST":
+			DBconn, _ := sql.Open("mysql", InfoDB)
+			// prendo dati
+			//nomeUtente := r.FormValue('nome')
+			//emailUtente := r.FormValue('email')
+			//passwordUtente := r.FormValue('password')
+			// query per controllare omonimi
+			utenti, _ := DBconn.Query("SELECT * FROM user;")
+			for utenti.Next(){
+				fmt.Println("trovatro")
+			}
+	}
+}
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 	// get current working directory

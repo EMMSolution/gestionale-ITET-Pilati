@@ -25,6 +25,14 @@ type ElabStruct struct {
 	FilePath    string
 	UploadDate  string
 }
+type UserStruct struct {
+	Id          string
+	Name        string
+	Privileges  string
+	Date        string
+	Password    string
+	Email       string
+}
 type DashStruct struct {
 	TitoloPag    string
 	IdUtente     string
@@ -59,7 +67,6 @@ func Routes(infoDB string){
 
 // all page function
 func home(w http.ResponseWriter, r *http.Request){
-fmt.Print("ciao")
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
@@ -80,8 +87,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			passForm = r.FormValue("password")
 		case "GET":
 			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-			template.Execute(w,"")
+			http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
 
 			return
 	}
@@ -145,14 +151,36 @@ func register(w http.ResponseWriter, r *http.Request) {
 		case "POST":
 			DBconn, _ := sql.Open("mysql", InfoDB)
 			// prendo dati
-			//nomeUtente := r.FormValue('nome')
-			//emailUtente := r.FormValue('email')
-			//passwordUtente := r.FormValue('password')
+			NomeUtente := r.FormValue("nome")
+			MailUtente := r.FormValue("email")
+			PasswordUtente := r.FormValue("password")
 			// query per controllare omonimi
-			utenti, _ := DBconn.Query("SELECT * FROM user;")
+			utenti, _ := DBconn.Query("SELECT * FROM user WHERE name='"+NomeUtente+"' OR email='"+MailUtente+"';")
 			for utenti.Next(){
-				fmt.Println("trovatro")
+				utStr := new(UserStruct)
+				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email)
+				if err != nil {
+					fmt.Println(err)
+				}
+				if utStr.Id != "" {
+					// con errore
+					http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+					return
+				}
 			}
+			// registrazione account
+			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"');")
+			if err != nil {
+				fmt.Println(err)
+				// con errore
+				http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+				return
+			}
+			fmt.Println("Utente registrato:")
+			fmt.Println("  -nome: " + NomeUtente)
+			fmt.Println("  -email: " + MailUtente + "\n")
+			// redirect alla home
+			http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
 	}
 }
 

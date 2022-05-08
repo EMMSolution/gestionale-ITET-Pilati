@@ -103,7 +103,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			passForm = r.FormValue("password")
 		case "GET":
 			// execute html template
-			http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
 
 			return
 	}
@@ -147,7 +147,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
 		// execute html template
-			http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
 	} else {
 		fmt.Println("Utente loggato:")
 		fmt.Println("  -id: " + credVar.Id)
@@ -162,8 +162,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 func register(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 		case "GET":
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-			template.Execute(w, "")
+			http.Redirect(w, r, "http://localhost/?sez=2", http.StatusSeeOther)
 		case "POST":
 			DBconn, _ := sql.Open("mysql", InfoDB)
 			// prendo dati
@@ -180,7 +179,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 				}
 				if utStr.Id != "" {
 					// con errore
-					http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+					http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
 					return
 				}
 			}
@@ -189,14 +188,14 @@ func register(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				fmt.Println(err)
 				// con errore
-				http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+				http.Redirect(w, r, "http://localhost/?sez=2&err=3", http.StatusSeeOther)
 				return
 			}
 			fmt.Println("Utente registrato:")
 			fmt.Println("  -nome: " + NomeUtente)
 			fmt.Println("  -email: " + MailUtente + "\n")
 			// redirect alla home
-			http.Redirect(w, r, "http://localhost", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
 	}
 }
 

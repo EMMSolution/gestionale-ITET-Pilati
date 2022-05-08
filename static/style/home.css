@@ -138,6 +138,13 @@
     margin-top: 45px;
 }
 
+.erroreLogin {
+    margin-top: 20px;
+    margin-left: calc((600px - 450px)/2);
+    font-family: 'Roboto';
+    color: red;
+}
+
 .sezzioneBottoneSotto {
     color: #1B1B1B;
     margin-top: 45px;
@@ -197,6 +204,14 @@
 .passwordInputR {
     margin-top: 20px;
 }
+
+.erroreRegister {
+    margin-top: 20px;
+    margin-left: calc((600px - 450px)/2);
+    font-family: 'Roboto';
+    color: red;
+}
+
 
 .sezzioneBottoneSotto {
     color: #090909;

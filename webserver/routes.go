@@ -33,6 +33,10 @@ type UserStruct struct {
 	Password    string
 	Email       string
 }
+type HomeStruct struct {
+	Sezione      string
+	Errore       string
+}
 type DashStruct struct {
 	TitoloPag    string
 	IdUtente     string
@@ -67,11 +71,23 @@ func Routes(infoDB string){
 
 // all page function
 func home(w http.ResponseWriter, r *http.Request){
+	// divido l'url
+	sezione := r.URL.Query().Get("sez")
+	errore := r.URL.Query().Get("err")
+	HomeVar := new(HomeStruct)
+	HomeVar.Sezione = ""
+	HomeVar.Errore = ""
+	if sezione != "" {
+		HomeVar.Sezione = sezione
+	}
+	if errore != "" {
+		HomeVar.Errore = errore
+	}
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
 	template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-	template.Execute(w, "")
+	template.Execute(w, HomeVar)
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){

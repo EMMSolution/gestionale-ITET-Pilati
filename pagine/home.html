@@ -6,6 +6,25 @@
 </head>
 <body>
     <script src="static/script/home.js"></script>
+    <script>
+        // cambio sezione in base parametri url
+        var sezione = {{.Sezione}}
+        var errore = {{.Errore}}
+
+        function segliSezioneStart(sezione){
+            if(sezione == "0"){
+                    cambioSezione("home")
+            }
+            if(sezione == "1"){
+                    cambioSezione("login")
+            }
+            if(sezione == "2"){
+                    cambioSezione("register")
+            }
+        }
+
+        setTimeout(() => {segliSezioneStart(sezione); }, 500);
+    </script>
     <div class="pagina" id="sfondo" style="background-image: url('static/style/sfondi/sfondoS.png');">
         <div class="opzioni">
             <div class="lingua">

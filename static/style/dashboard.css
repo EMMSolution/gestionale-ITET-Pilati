@@ -31,8 +31,11 @@ body {
     z-index: 3;
 }
 .logo {
-    width: 60px;
-    margin-top: 8px;
+    position: relative;
+    margin-top:9px;
+    width: 55px;
+    height: 55px;
+    filter: drop-shadow(7px 10px 4px rgb(0, 0, 0));
 }
 .iconeCentrali {
     top: calc(50% - 170px/2 - 60px);
@@ -173,12 +176,37 @@ body {
 }
 
 /* sezione laterale statica */
-.sezioneLaterale {
+.sezioneLaterali {
+    display: flex;
+    flex-direction: column;
+    width: calc(30% - 10px);
     height: calc(100% - 40px);
+    margin-left: 10px;
     margin-top: 20px;
-    margin-left: 0px;
-    margin-right: 20px;
-    width: calc(30% - 20px);
+    transition: 0.6s;
+}
+
+.contatti {
+    height: 40%;
+    width: calc(100% - 20px);
+    background-color: #222222;
+    opacity: 90%;
+    border-radius: 35px;
+}
+
+.chat {
+    margin-top: 20px;
+    height: calc(60% - 90px);
+    width: calc(100% - 20px);
+    background-color: #222222;
+    opacity: 90%;
+    border-radius: 35px;
+}
+.sezioneLaterale {
+    position: absolute;
+    margin-left: 861px;
+    height: 100%;
+    width: calc(100% - 20px);
     background-color: #222222;
     opacity: 90%;
     border-radius: 35px;
@@ -187,7 +215,7 @@ body {
 .sezioni {
     display: flex;
     flex-direction: column;
-    width: calc(70% - 50px);
+    width: calc(90% - 50px);
     height: calc(400% - 40px);
     margin: 20px;
     transition: 0.6s;

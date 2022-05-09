@@ -89,7 +89,7 @@
     height: 70px;
     width: 450px;
     margin-left: calc(300px - 225px);
-    background: #04FFB4;
+    background: #4df0b4;
     border-radius: 20px;
     border: 0;
     position: relative;
@@ -116,7 +116,7 @@
 /* LOGIN  */
 .emailInputL,
 .passwordInputL {
-    color: black;
+    color: #090909;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -136,6 +136,13 @@
 
 .passwordInputL {
     margin-top: 45px;
+}
+
+.erroreLogin {
+    margin-top: 20px;
+    margin-left: calc((600px - 450px)/2);
+    font-family: 'Roboto';
+    color: red;
 }
 
 .sezzioneBottoneSotto {
@@ -158,7 +165,7 @@
     margin: 0;
     background: #39D99F;
     border-radius: 20px;
-    color: #1B1B1B;
+    color: #090909;
     height: 50px;
     width: calc(140px - 20px);
     padding: 10px;
@@ -175,7 +182,7 @@
 .nomeInputR,
 .emailInputR,
 .passwordInputR {
-    color: black;
+    color: #090909;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -198,8 +205,16 @@
     margin-top: 20px;
 }
 
+.erroreRegister {
+    margin-top: 20px;
+    margin-left: calc((600px - 450px)/2);
+    font-family: 'Roboto';
+    color: red;
+}
+
+
 .sezzioneBottoneSotto {
-    color: #1B1B1B;
+    color: #090909;
     margin-top: 30px;
     height: 80px;
     width: 450px;
@@ -218,7 +233,7 @@
     margin: 0;
     background: #39D99F;
     border-radius: 20px;
-    color: #1B1B1B;
+    color: #090909;
     height: 50px;
     width: calc(140px - 20px);
     padding: 10px;

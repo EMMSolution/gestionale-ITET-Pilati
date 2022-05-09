@@ -2,6 +2,8 @@ var sezioneScroll
 var sezioneAttuale
 var sezioneLogin
 var sezioneRegister
+var erroreLogin
+var erroreRegister
 
 window.onload = function(){
     sezioneScroll = document.querySelector('.scrollSezioni');
@@ -9,6 +11,9 @@ window.onload = function(){
 
     sezioneLogin = document.querySelector('.login')
     sezioneRegister = document.querySelector('.register')
+
+    erroreLogin = document.querySelector('.erroreLogin')
+    erroreRegister = document.querySelector('.erroreRegister')
 }
 
 
@@ -39,5 +44,31 @@ function cambioSezione(sezione){
             sezioneScroll.style.transform = 'translateX(-600px)';
             sezioneAttuale = 'register';
             break;
+    }
+}
+
+function segliSezioneStart(sezione){
+    switch(sezione){
+        case "0":
+            cambioSezione("home")
+            break
+        case "1":
+            cambioSezione("login")
+            break
+        case "2":
+            cambioSezione("register")
+            break
+     }
+}
+function mostraErrori(errore) {
+    switch(errore){
+        case "1":
+            erroreLogin.innerHTML = "email o password sbagliate"
+            console.log("ciao")
+            break
+        case "2":
+            erroreRegister.innerHTML = "nome o email già utilizzate"
+            console.log("ciao")
+            break
     }
 }

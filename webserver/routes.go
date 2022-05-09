@@ -25,6 +25,18 @@ type ElabStruct struct {
 	FilePath    string
 	UploadDate  string
 }
+type UserStruct struct {
+	Id          string
+	Name        string
+	Privileges  string
+	Date        string
+	Password    string
+	Email       string
+}
+type HomeStruct struct {
+	Sezione      string
+	Errore       string
+}
 type DashStruct struct {
 	TitoloPag    string
 	IdUtente     string
@@ -50,7 +62,7 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
-//	http.HandleFunc("/register", register)
+	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/passReset", passReset)
 	http.HandleFunc("/uploadFile", uploadFile)
@@ -59,11 +71,23 @@ func Routes(infoDB string){
 
 // all page function
 func home(w http.ResponseWriter, r *http.Request){
+	// divido l'url
+	sezione := r.URL.Query().Get("sez")
+	errore := r.URL.Query().Get("err")
+	HomeVar := new(HomeStruct)
+	HomeVar.Sezione = ""
+	HomeVar.Errore = ""
+	if sezione != "" {
+		HomeVar.Sezione = sezione
+	}
+	if errore != "" {
+		HomeVar.Errore = errore
+	}
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
 	template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-	template.Execute(w, "")
+	template.Execute(w, HomeVar)
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
@@ -79,8 +103,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			passForm = r.FormValue("password")
 		case "GET":
 			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-			template.Execute(w,"")
+			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
 
 			return
 	}
@@ -124,7 +147,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
 		// execute html template
-			http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
 	} else {
 		fmt.Println("Utente loggato:")
 		fmt.Println("  -id: " + credVar.Id)
@@ -136,22 +159,45 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	}
 }
 
-//func register(w http.responseWriter, r *http.Request) {
-//	switch r.Method {
-//		case "GET":
-//			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-//			template.Execute(w, "")
-//		case "POST":
-//			// prendo dati
-//			nomeUtente := r.FormValue('nome')
-//			emailUtente := r.FormValue('email')
-//			passwordUtente := r.FormValue('password')
-//
-//
-//			DBconn, _ := sql.Open("mysql", InfoDB)
-//
-//	}
-//}
+func register(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+		case "GET":
+			http.Redirect(w, r, "http://localhost/?sez=2", http.StatusSeeOther)
+		case "POST":
+			DBconn, _ := sql.Open("mysql", InfoDB)
+			// prendo dati
+			NomeUtente := r.FormValue("nome")
+			MailUtente := r.FormValue("email")
+			PasswordUtente := r.FormValue("password")
+			// query per controllare omonimi
+			utenti, _ := DBconn.Query("SELECT * FROM user WHERE name='"+NomeUtente+"' OR email='"+MailUtente+"';")
+			for utenti.Next(){
+				utStr := new(UserStruct)
+				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email)
+				if err != nil {
+					fmt.Println(err)
+				}
+				if utStr.Id != "" {
+					// con errore
+					http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
+					return
+				}
+			}
+			// registrazione account
+			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"');")
+			if err != nil {
+				fmt.Println(err)
+				// con errore
+				http.Redirect(w, r, "http://localhost/?sez=2&err=3", http.StatusSeeOther)
+				return
+			}
+			fmt.Println("Utente registrato:")
+			fmt.Println("  -nome: " + NomeUtente)
+			fmt.Println("  -email: " + MailUtente + "\n")
+			// redirect alla home
+			http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
+	}
+}
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
 	// get current working directory

@@ -2,6 +2,10 @@
     padding: 0;
     margin: 0;
 }
+*::selection {
+    padding: 0;
+    margin: 0;
+}
 html {
     height: 100%;
     width: 100%;
@@ -19,8 +23,95 @@ body {
 /* VIOLA  98, 5, 147 */
 /* GRIGIO 34, 34, 34 */
 
+/* welcome page */
+
+.welcomePage {
+    display: none;
+}
+
+.welcomePage {
+    height: 698px;
+    width: 1168px;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #141414;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 6;
+}
+
+.welcomeTitle,
+.welcomeDes,
+.welcomeDom {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.welcomeTitle,
+.welcomeDes {
+    margin-top: 120px;
+}
+
+.welcomeDom {
+    margin-top: 80px;
+}
+
+.welcomeTitle a {
+    color: #F581E3;
+}
+
+.welcomeDes a,
+.welcomeDom a{
+    color: #4DE9CE;
+}
+
+.welcomeRisposte {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.welcomeSi,
+.welcomeNo {
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.welcomeNo {
+    color: #6A6A6A;
+}
+
+.welcomeSi:hover,
+.welcomeNo:hover {
+    cursor: crosshair;
+}
+
+.welcomeAlertVari {
+    color: #DD0F0F;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    width: calc(100% - 15px);
+    text-align: right;
+    font-size: 15px;
+    margin-top: 170px;
+}
+
 /* menu di lato */
-.menu-l{
+.menu-l {
     height: 100%;
     width: 90px;
     position: relative;
@@ -304,7 +395,10 @@ body {
 }
 
 .tbe2{
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .tbe2 a {
@@ -314,6 +408,8 @@ body {
 }
 
 .tbe2h {
+    padding-left: 8px;
+    padding-right: 8px;
     border-bottom: solid 2px rgba(255, 255, 255, 1);
     width: 24%;
     font-size: 20px;
@@ -322,6 +418,11 @@ body {
 
 .tbeFile {
     color: white;
+}
+
+.tbeFile:hover {
+    cursor: crosshair;
+    background-color: #474747;
 }
 
 /* sezione carica elaborati */
@@ -445,10 +546,10 @@ body {
 }
 .dropdown-content a:hover {
     background-color: #ddd
-} 
+}
 .show {
     display:block;
-} 
+}
 .menuTendinaAgg{
     position: relative;
 }
@@ -490,7 +591,7 @@ body {
     font-size: 25px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    
+
 }
 .fileInput{
     transform: translateY(100px);
@@ -513,7 +614,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    position: relative; 
+    position: relative;
 }
 /* IMPOSTAZIONI */
 .imp {

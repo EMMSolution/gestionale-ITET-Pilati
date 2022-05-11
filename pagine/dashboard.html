@@ -8,6 +8,17 @@
     <title>{{.TitoloPag}}</title>
 </head>
 <body>
+    <div class="welcomePage">
+        <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeUtente}}</a>!</h1>
+        <h2 class="welcomeDes">Questa piattaforma ti permette di <a>caricare</a> elaborati e <br> <a>visualizare</a> quelli degli altri utenti</h2>
+        <h2 class="welcomeDom">Vuoi procedere con il <a>tutorial</a>?</h2>
+        <div class="welcomeRisposte">
+            <button class="welcomeSi" onclick="">Si!</button>
+            <button class="welcomeNo" onclick="">No</button>
+        </div>
+        <!-- cambiare alert con ciò che è necessario -->
+        <h3 class="welcomeAlertVari">*Attenzione, pattaforma ancora in demo*</h3>
+    </div>
     <div class="menu-l">
         <img class="logo" src="static/media/dashboard/logo_itet.png">
         <div class="indicatore" style="top: 100px"></div>
@@ -65,7 +76,7 @@
                             <div style="background-image: url('static/media/dashboard/occhio.png')"></div>
                         </button>
                         <div class="divImp4">
-                            <input type="none" class="inputImpAnnulla" onclick="resetImpInput()" value="Annulla" readonly></input>
+                            <button type="button" class="inputImpAnnulla" onclick="resetImpInput()">Annulla</button>
                             <input class="inputImpApplica" type="submit" value="Applica"></input>
                         </div>
                     </div>
@@ -139,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class = "mezzoAgg">
+                        <div class="mezzoAgg">
                             <div class="dragDrop">
                                 <div class="scritteDragDrop">
                                     <div class="scritteDragDropSopra">
@@ -149,13 +160,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class = "sottoAgg">
+                        <div class="sottoAgg">
                             <div class="invioFileDiv">
                                 <input type="submit" class="fileInputSubmit">
                             </div>
                         </div>
-                        <div class = "mezzoAgg"></div>
-                        <div class = "sottoAgg"></div>
+                        <div class="mezzoAgg"></div>
+                        <div class="sottoAgg"></div>
                     </div>
                 </div>
                 </form>

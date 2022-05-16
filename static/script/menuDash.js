@@ -15,6 +15,7 @@ window.onload = function(){
     inputImpNome = document.querySelector('.inputImp1');
     inputImpEmail = document.querySelector('.inputImp2');
     inputImpPass = document.querySelector('.inputImp3');
+    welcomePage = document.querySelector('.welcomePage');
 
     impAperto = false;
 
@@ -25,6 +26,14 @@ window.onload = function(){
     loghiAlt = loghi.offsetTop;
     altezzaEff = loghiAlt - 63;
     ind.style.top = altezzaEff + "px";
+
+    console.log(nuovoAcc)
+    // nuovo account intro page
+    if(nuovoAcc == "si"){
+        welcomePage.style.display = "block"
+    } else {
+        welcomePage.style.display = "none"
+    }
 }
 
 function menu(sezione){
@@ -82,10 +91,20 @@ function mostraPass(){
         passImpInput.type = 'password'
     }
 }
+
+function iniziaTutorial(){
+    // DA FARE
+    console.log("coming soon")
+}
+
+function fineTutorial(){
+    welcomePage.style.display = "none"
+}
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-  
+
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -98,4 +117,4 @@ function myFunction() {
         }
       }
     }
-  } 
+  }

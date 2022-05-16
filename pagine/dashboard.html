@@ -8,13 +8,16 @@
     <title>{{.TitoloPag}}</title>
 </head>
 <body>
+    <script>
+        var nuovoAcc = {{.NuovoAcc}}
+    </script>
     <div class="welcomePage">
         <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeUtente}}</a>!</h1>
         <h2 class="welcomeDes">Questa piattaforma ti permette di <a>caricare</a> elaborati e <br> <a>visualizare</a> quelli degli altri utenti</h2>
         <h2 class="welcomeDom">Vuoi procedere con il <a>tutorial</a>?</h2>
         <div class="welcomeRisposte">
-            <button class="welcomeSi" onclick="">Si!</button>
-            <button class="welcomeNo" onclick="">No</button>
+            <button class="welcomeSi" onclick="iniziaTutorial()">Si!</button>
+            <button class="welcomeNo" onclick="fineTutorial()">No</button>
         </div>
         <!-- cambiare alert con ciò che è necessario -->
         <h3 class="welcomeAlertVari">*Attenzione, pattaforma ancora in demo*</h3>

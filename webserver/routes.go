@@ -32,6 +32,7 @@ type UserStruct struct {
 	Date        string
 	Password    string
 	Email       string
+	Nuovo       string
 }
 type HomeStruct struct {
 	Sezione      string
@@ -39,6 +40,7 @@ type HomeStruct struct {
 }
 type DashStruct struct {
 	TitoloPag    string
+	NuovoAcc     string
 	IdUtente     string
 	NomeUtente   string
 	EmailUtente  string
@@ -91,7 +93,6 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
-
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	emailForm := ""
@@ -116,7 +117,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	credVar := database.QueryUser()
 	// for che controlla tutti i risultati
 	for credenziali.Next() {
-		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email)
+		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email, &credVar.Nuovo)
 		if err != nil {
 			panic(err)
 		}
@@ -137,6 +138,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	elaboratiHTML := DashStruct{
 		TitoloPag: titoloP,
+		NuovoAcc: credVar.Nuovo,
 		IdUtente: credVar.Id,
 		NomeUtente: credVar.Name,
 		EmailUtente: credVar.Email,
@@ -153,6 +155,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		fmt.Println("  -id: " + credVar.Id)
 		fmt.Println("  -nome: " + credVar.Name)
 		fmt.Println("  -email: " + credVar.Email + "\n")
+		// aggiorno il profilo non più nuovo
+		if credVar.Nuovo == "si" {
+			DBconn.Query("UPDATE user SET nuovo = 'no'")
+		}
 		// execute html template
 		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 		template.Execute(w, elaboratiHTML)
@@ -173,7 +179,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 			utenti, _ := DBconn.Query("SELECT * FROM user WHERE name='"+NomeUtente+"' OR email='"+MailUtente+"';")
 			for utenti.Next(){
 				utStr := new(UserStruct)
-				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email)
+				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email, &utStr.Nuovo)
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -184,7 +190,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 				}
 			}
 			// registrazione account
-			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"');")
+			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email, nuovo) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"', 'si');")
 			if err != nil {
 				fmt.Println(err)
 				// con errore
@@ -195,7 +201,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("  -nome: " + NomeUtente)
 			fmt.Println("  -email: " + MailUtente + "\n")
 			// redirect alla home
-			http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
+			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
 	}
 }
 

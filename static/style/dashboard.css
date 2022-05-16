@@ -26,10 +26,6 @@ body {
 /* welcome page */
 
 .welcomePage {
-    display: none;
-}
-
-.welcomePage {
     height: 698px;
     width: 1168px;
 

@@ -490,10 +490,12 @@ body {
     width: 60px;
     border: 6px solid rgb(116, 116, 116);
     transition: width 0.4s ease-in-out;
+    border-radius: 12px;
 }   
 .nomeElaboratoInput:hover{
     width: 80%;
     border: 6px solid rgb(46, 218, 132);
+    
 }
 .nomeElaboratoInput:focus{
     width: 90%;

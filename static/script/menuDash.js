@@ -77,6 +77,11 @@ function menu(sezione){
             alert("errore nello scorrimento delle sezioni");
     }
 }
+//                    classe     arr      arr
+function graficoBarre(container, sezioni, valori){
+    graficoMain = document.createElement('div')
+    container.appendElement(graficoMain)
+}
 
 function resetImpInput(){
     inputImpNome.value = nomeUtenteJS

@@ -592,7 +592,6 @@ body {
 .scritteDragDropSopra{
     height: 80%;
     width: 100%;
-    text-align:center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -602,10 +601,10 @@ body {
     font-size: 25px;
     color: white;
     font-family: 'Roboto', sans-serif;
-
 }
 .fileInput{
-    transform: translateY(100px);
+    background-color: red;
+    border-radius: 5px;
 }
 .sottoAgg{
     height: 75px;

@@ -605,6 +605,7 @@ body {
 .fileInput{
     background-color: red;
     border-radius: 5px;
+    transform: translate(55px, 100px);
 }
 .sottoAgg{
     height: 75px;

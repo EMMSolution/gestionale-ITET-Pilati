@@ -494,7 +494,7 @@ body {
 }   
 .nomeElaboratoInput:hover{
     width: 80%;
-    border: 6px solid rgb(46, 218, 132);
+    border: 6px solid #8157ac;
     
 }
 .nomeElaboratoInput:focus{
@@ -598,14 +598,35 @@ body {
     position: relative;
 }
 .scritteDragDropSopraVere{
-    font-size: 25px;
+    font-size: 28px;
     color: white;
     font-family: 'Roboto', sans-serif;
 }
-.fileInput{
-    background-color: red;
-    border-radius: 5px;
-    transform: translate(55px, 100px);
+.inputDragDrop{
+    width: 100%;
+    height: 25px;
+    transform: translateY(80px);
+    display: flex;
+    justify-content: center;
+}
+input[type = "file"]{
+    display: none;
+}
+label{
+    color: white;
+    font-size: 28px;
+    height: 60px;
+    width: 180px;
+    position: absolute;
+    background-color: #49474b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+label:hover{
+    background-color: #8157ac;
+    border-radius: 15px;
 }
 .sottoAgg{
     height: 75px;

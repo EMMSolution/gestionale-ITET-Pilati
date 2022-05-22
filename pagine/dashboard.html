@@ -9,7 +9,11 @@
 </head>
 <body>
     <script>
-        var nuovoAcc = {{.NuovoAcc}}
+        var nomeUtenteJS = "{{.NomeUtente}}"
+        var emailUtenteJS = "{{.EmailUtente}}"
+        var passUtenteJS = "{{.PassUtente}}"
+        var nuovoAcc = "{{.NuovoAcc}}"
+        var sezione = "{{.Sezione}}"
     </script>
     <div class="welcomePage">
         <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeUtente}}</a>!</h1>
@@ -62,12 +66,6 @@
                         <div class="cambiaImg" style="background-image: url('static/media/dashboard/camera.svg');"></div>
                     </div>
                     <div class="listaImpostazioni">
-                        <!-- script per passare variabili js in go -->
-                        <script>
-                            var nomeUtenteJS = "{{.NomeUtente}}"
-                            var emailUtenteJS = "{{.EmailUtente}}"
-                            var passUtenteJS = "{{.PassUtente}}"
-                        </script>
                         <!-- invio il nome originale nel post ma lo nascondo -->
                         <input type="hidden" name="emailOriginale" value="{{.EmailUtente}}">
                         <input type="hidden" name="passOriginale" value="{{.PassUtente}}">
@@ -95,82 +93,91 @@
         </div>
         <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
             <div class="sezioni">
-            <div class="sezionePrincipale">
-                <div class="titoloDiv"><a class="titolo">Home:</a></div>
-            </div>
-            <div class="sezioneInfo">
-                <div class="titoloDiv"><a class="titolo">Info:</a></div>
-            </div>
-            <div class="sezioneElaborati">
-                <div class="titoloDiv"><a class="titolo">Elaborati:</a></div>
-                <table class="tabellaElaborati">
-                <tr class="tbe1">
-                    <th class="tbe2h">Nome:</th>
-                    <th class="tbe2h">Autore:</th>
-                    <th class="tbe2h">File:</th>
-                    <th class="tbe2h">Data upload:</th>
-                </tr>
-                {{range .Elaborati}}
-                    <tr class="tbeFile">
-                        <td class="tbe2"><a>{{.Name}}</a></td>
-                        <td class="tbe2"><a>{{.Creator}}</a></td>
-                        <td class="tbe2"><a>{{.FilePath}}</a></td>
-                        <td class="tbe2"><a>{{.UploadDate}}</a></td>
-                    <tr>
-                {{end}}
-
-                </table>
-            </div>
-            <div class="sezioneAgg">
-                <div class="titoloDiv">
-                    <a class="titolo">Aggiungi elaborati:</a>
-                </div>
-                <form method="post" enctype="multipart/form-data" action="/uploadFile">
-                    <div class="parteSottoAgg">
-                        <div class = "sopraAgg">
-                            <div class="sopraSX">
-                                <div class="divSopraSX">
-                                    <div class="divSopraSXSopra">
-                                        <a class="scritteSopraAgg">INSERIRE IL NOME DELL'ELABORATO:</a>
-                                    </div>
-                                    <div class="divSopraSXSotto">
-                                        <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sopraDX">
-                                <div class="divSopraDX">
-                                    <div class="dropdown">
-                                        <button type="button" onclick="myFunction()" class="dropbtn">bho</button>
-                                        <div id="myDropdown" class="dropdown-content">
-                                          <a href="#" class="menuTendinaAgg">1ECA</a>
-                                          <a href="#" class="menuTendinaAgg">1ECB</a>
-                                          <a href="#" class="menuTendinaAgg">1TA</a>
-                                          <a href="#" class="menuTendinaAgg">1TB</a>
-                                          <a href="#" class="menuTendinaAgg">1TC</a>
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mezzoAgg">
-                            <div class="dragDrop">
-                                <div class="scritteDragDrop">
-                                    <div class="scritteDragDropSopra">
-                                        <a class="scritteDragDropSopraVere">Selezionare o trascinare un file:</a>
-                                        <input type="file" name="file" class="fileInput">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sottoAgg">
-                            <div class="invioFileDiv">
-                                <input type="submit" class="fileInputSubmit">
-                            </div>
+                <div class="sezionePrincipale">
+                    <div class="titoloDiv">
+                        <a class="titolo">Home:</a>
+                        <div cass="elabPreferiti">
+                            {{range .Elaborati}}
+                                {{if .Preferito}}
+                                    <a>ciao<a>
+                                {{end}}
+                            {{end}}
                         </div>
                     </div>
                 </div>
-                </form>
+                <div class="sezioneInfo">
+                    <div class="titoloDiv"><a class="titolo">Info:</a></div>
+                </div>
+                <div class="sezioneElaborati">
+                    <div class="titoloDiv"><a class="titolo">Elaborati:</a></div>
+                    <table class="tabellaElaborati">
+                    <tr class="tbe1">
+                        <th class="tbe2h">Nome:</th>
+                        <th class="tbe2h">Autore:</th>
+                        <th class="tbe2h">File:</th>
+                        <th class="tbe2h">Data upload:</th>
+                    </tr>
+                    {{range .Elaborati}}
+                        <tr class="tbeFile">
+                            <td class="tbe2"><a>{{.Name}}</a></td>
+                            <td class="tbe2"><a>{{.Creator}}</a></td>
+                            <td class="tbe2"><a>{{.FilePath}}</a></td>
+                            <td class="tbe2"><a>{{.UploadDate}}</a></td>
+                        <tr>
+                    {{end}}
+
+                    </table>
+                </div>
+                <div class="sezioneAgg">
+                    <div class="titoloDiv">
+                        <a class="titolo">Aggiungi elaborati:</a>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" action="/uploadFile">
+                        <div class="parteSottoAgg">
+                            <div class = "sopraAgg">
+                                <div class="sopraSX">
+                                    <div class="divSopraSX">
+                                        <div class="divSopraSXSopra">
+                                            <a class="scritteSopraAgg">INSERIRE IL NOME DELL'ELABORATO:</a>
+                                        </div>
+                                        <div class="divSopraSXSotto">
+                                            <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sopraDX">
+                                    <div class="divSopraDX">
+                                        <div class="dropdown">
+                                            <button type="button" onclick="myFunction()" class="dropbtn">bho</button>
+                                            <div id="myDropdown" class="dropdown-content">
+                                              <a href="#" class="menuTendinaAgg">1ECA</a>
+                                              <a href="#" class="menuTendinaAgg">1ECB</a>
+                                              <a href="#" class="menuTendinaAgg">1TA</a>
+                                              <a href="#" class="menuTendinaAgg">1TB</a>
+                                              <a href="#" class="menuTendinaAgg">1TC</a>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mezzoAgg">
+                                <div class="dragDrop">
+                                    <div class="scritteDragDrop">
+                                        <div class="scritteDragDropSopra">
+                                            <a class="scritteDragDropSopraVere">Selezionare o trascinare un file:</a>
+                                            <input type="file" name="file" class="fileInput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sottoAgg">
+                                <div class="invioFileDiv">
+                                    <input type="submit" class="fileInputSubmit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="sezioneLaterali">
                 <div class="contatti">

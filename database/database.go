@@ -21,6 +21,7 @@ type User struct {
 	Password    string
 	Email       string
 	Nuovo       string
+	Preferiti   string
 }
 type Elaborati struct {
 	Id          string
@@ -40,6 +41,7 @@ func QueryUser() User {
 		Password: "",
 		Email: "",
 		Nuovo: "",
+		Preferiti: "",
 	}
 }
 

@@ -4,8 +4,9 @@ import (
 	"os"
 	"fmt"
 	"bufio"
-	"io/ioutil"
+	"strings"
 	"net/http"
+	"io/ioutil"
 	"database/sql"
     _"github.com/go-sql-driver/mysql"
 	"html/template"
@@ -25,6 +26,14 @@ type ElabStruct struct {
 	FilePath    string
 	UploadDate  string
 }
+type ElabStructDash struct {
+	Id          string
+	Name        string
+	Creator     string
+	FilePath    string
+	UploadDate  string
+	Preferito   bool
+}
 type UserStruct struct {
 	Id          string
 	Name        string
@@ -33,6 +42,7 @@ type UserStruct struct {
 	Password    string
 	Email       string
 	Nuovo       string
+	Preferiti   string
 }
 type HomeStruct struct {
 	Sezione      string
@@ -45,7 +55,8 @@ type DashStruct struct {
 	NomeUtente   string
 	EmailUtente  string
 	PassUtente   string
-	Elaborati    []ElabStruct
+	Elaborati    []ElabStructDash
+	Sezione      string
 }
 
 func main(){
@@ -93,6 +104,7 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
+	sezione := r.URL.Query().Get("sez")
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	emailForm := ""
@@ -117,21 +129,32 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	credVar := database.QueryUser()
 	// for che controlla tutti i risultati
 	for credenziali.Next() {
-		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email, &credVar.Nuovo)
+		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email, &credVar.Nuovo, &credVar.Preferiti)
 		if err != nil {
 			panic(err)
 		}
 	}
+	// creo gli arrey degli elaborati preferiti
+	var preferiti []string
+	preferiti = strings.Split(credVar.Preferiti, ",")
 	// creo la struct da mettere nell HTML
 	titoloP := "Dashboard - " + credVar.Name
-	var ElaboratiStructData []ElabStruct
+	var ElaboratiStructData []ElabStructDash
 	// raccolgo gli elaborati per renderizzarli nella dash
-	var ElabStruct1 ElabStruct
+	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
 		if err != nil {
 			fmt.Println(err)
+		}
+		for i := 0; i < len(preferiti); i++ {
+			fmt.Print(i)
+			if preferiti[i] == ElabStruct1.Id {
+				ElabStruct1.Preferito = true
+			} else {
+				ElabStruct1.Preferito = false
+			}
 		}
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
 	}
@@ -144,6 +167,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		EmailUtente: credVar.Email,
 		PassUtente: credVar.Password,
 		Elaborati: ElaboratiStructData,
+		Sezione: sezione,
 	}
 
 	// controlle se le credenziali esistono
@@ -179,7 +203,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 			utenti, _ := DBconn.Query("SELECT * FROM user WHERE name='"+NomeUtente+"' OR email='"+MailUtente+"';")
 			for utenti.Next(){
 				utStr := new(UserStruct)
-				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email, &utStr.Nuovo)
+				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email, &utStr.Nuovo, &utStr.Preferiti)
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -190,7 +214,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 				}
 			}
 			// registrazione account
-			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email, nuovo) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"', 'si');")
+			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email, nuovo, preferiti) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"', 'si', '');")
 			if err != nil {
 				fmt.Println(err)
 				// con errore

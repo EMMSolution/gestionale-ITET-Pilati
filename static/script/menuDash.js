@@ -27,12 +27,23 @@ window.onload = function(){
     altezzaEff = loghiAlt - 63;
     ind.style.top = altezzaEff + "px";
 
-    console.log(nuovoAcc)
     // nuovo account intro page
     if(nuovoAcc == "si"){
         welcomePage.style.display = "block"
     } else {
         welcomePage.style.display = "none"
+    }
+
+    //cambio sezione con query
+    switch (sezione){
+        case "1":
+            menu(1)
+        case "2":
+            menu(2)
+        case "3":
+            menu(3)
+        case "4":
+            menu(4)
     }
 }
 
@@ -74,13 +85,15 @@ function menu(sezione){
             }
             break;
         default:
-            alert("errore nello scorrimento delle sezioni");
+            alert("valore sbagliato nello scorrimento sezioni");
     }
 }
+
+
+
 //                    classe     arr      arr
 function graficoBarre(container, sezioni, valori){
-    graficoMain = document.createElement('div')
-    container.appendElement(graficoMain)
+    console.log("da fare")
 }
 
 function resetImpInput(){

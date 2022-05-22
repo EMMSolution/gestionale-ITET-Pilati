@@ -467,7 +467,8 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    margin-left: 30px;
 }
 .divSopraSXSopra{
     height: 50%;
@@ -489,12 +490,13 @@ body {
     background-color: #474549;
     width: 60px;
     border: 6px solid rgb(116, 116, 116);
-    transition: width 0.4s ease-in-out;
+    transition: width 0.8s ease-in-out;
     border-radius: 12px;
+    color: #fff;
 }   
 .nomeElaboratoInput:hover{
     width: 80%;
-    border: 6px solid rgb(46, 218, 132);
+    border: 6px solid #8157ac;
     
 }
 .nomeElaboratoInput:focus{
@@ -520,7 +522,7 @@ body {
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 19px;
-    left: 50%;
+    left: 60%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -592,20 +594,48 @@ body {
 .scritteDragDropSopra{
     height: 80%;
     width: 100%;
-    text-align:center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: relative;
 }
 .scritteDragDropSopraVere{
-    font-size: 25px;
+    font-size: 28px;
     color: white;
     font-family: 'Roboto', sans-serif;
-
 }
-.fileInput{
-    transform: translateY(100px);
+.inputDragDrop{
+    width: 100%;
+    height: 25px;
+    transform: translateY(80px);
+    display: flex;
+    justify-content: center;
+}
+input[type = "file"]{
+    display: none;
+}
+label{
+    color: white;
+    font-size: 28px;
+    height: 60px;
+    width: 180px;
+    position: absolute;
+    background-color: #49474b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    transition: border-radius 0.4s ease-in-out;
+    transition: box-shadow 0.8s ease-in-out;
+    box-shadow: 10px 10px 4px
+    rgba(40, 202, 140, 0)
+    
+}
+label:hover{
+    background-color: #8157ac;
+    border-radius: 22px;
+    box-shadow: 10px 10px 4px
+    rgba(40, 202, 140, 0.1)
 }
 .sottoAgg{
     height: 75px;
@@ -620,12 +650,20 @@ body {
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 19px;
     transform: translateX(15px);
+    margin-left: 30px;
 }
 .fileInputSubmit{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     position: relative;
+    background-color: #49474b;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 /* IMPOSTAZIONI */
 .imp {

@@ -490,8 +490,9 @@ body {
     background-color: #474549;
     width: 60px;
     border: 6px solid rgb(116, 116, 116);
-    transition: width 0.4s ease-in-out;
+    transition: width 0.8s ease-in-out;
     border-radius: 12px;
+    color: #fff;
 }   
 .nomeElaboratoInput:hover{
     width: 80%;
@@ -656,6 +657,13 @@ label:hover{
     top: 50%;
     transform: translate(-50%, -50%);
     position: relative;
+    background-color: #49474b;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 /* IMPOSTAZIONI */
 .imp {

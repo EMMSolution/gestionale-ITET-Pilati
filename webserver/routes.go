@@ -148,12 +148,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		if err != nil {
 			fmt.Println(err)
 		}
+		ElabStruct1.Preferito = false
 		for i := 0; i < len(preferiti); i++ {
-			fmt.Print(i)
 			if preferiti[i] == ElabStruct1.Id {
 				ElabStruct1.Preferito = true
-			} else {
-				ElabStruct1.Preferito = false
 			}
 		}
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)

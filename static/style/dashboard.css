@@ -316,13 +316,13 @@ body {
 .titoloDivImp {
     width: 50px;
 }
-.titolo {
-    font-size: 34px;
+.titoloSez {
+    font-size: 26px;
     font-family: 'Roboto', sans-serif;
-    margin-right: 100px;
+    margin-top: 20px;
+    margin-left: 60px;
     color: white;
-    position: absolute;
-    transform: translateX(60px);
+    position: relative;
 }
 
 /* sezione Principale */
@@ -333,6 +333,74 @@ body {
     opacity: 90%;
     border-radius: 35px;
     margin-bottom: 30px;
+}
+
+/* preferiti */
+
+.tabellaElabPref {
+    border: none;
+    border-collapse: collapse;
+    position: absolute;
+    width: calc(100% - 120px);
+    max-height: calc(100% - 135px - 30px);
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 40px;
+    overflow-y: visible;
+}
+.tbp1,
+.tbp2h
+.tbp2d {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    color: white;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tbp2h:nth-child(1) {
+    width: 25%;
+}
+
+.tbp2h:nth-child(2) {
+    width: 16%;
+}
+
+.tbp2h:nth-child(3) {
+    width: 40%;
+}
+
+.tbp2d{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.tbp2d a {
+    font-size: 17px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.tbp2h {
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom: solid 2px rgba(255, 255, 255, 1);
+    width: 24%;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.tbp2 {
+    color: white;
+}
+
+.tbp2:hover {
+    cursor: crosshair;
+    background-color: #474747;
 }
 
 /* sezione Info */

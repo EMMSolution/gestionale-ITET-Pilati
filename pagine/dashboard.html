@@ -94,44 +94,59 @@
         <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
             <div class="sezioni">
                 <div class="sezionePrincipale">
-                    <div class="titoloDiv">
-                        <a class="titolo">Home:</a>
-                        <div cass="elabPreferiti">
+                    <div class="elaboratiRecenti">
+                        <div class="titoloSez elabRec">
+                            <a>Elaborati Recenti:</a>
+                        </div>
+                        <div class="schedeElabRec">
+                            
+                        </div>
+                    </div>
+                    <div class="elaboratiPreferiti">
+                        <div class="titoloSez elabPref">
+                            <a>Elaborati Preferiti:</a>
+                        </div>
+                        <table class="tabellaElabPref">
+                            <tr class="tbp1">
+                                <th class="tbp2h">Nome:</th>
+                                <th class="tbp2h">Autore:</th>
+                                <th class="tbp2h">File:</th>
+                                <th class="tbp2h">Data upload:</th>
+                            </tr>
                             {{range .Elaborati}}
                                 {{if .Preferito}}
-                                    <a>ciao<a>
+                                    <tr class="tbp2">
+                                        <td class="tbp2d"><a>{{.Name}}</a></td>
+                                        <td class="tbp2d"><a>{{.Creator}}</a></td>
+                                        <td class="tbp2d"><a>{{.FilePath}}</a></td>
+                                        <td class="tbp2d"><a>{{.UploadDate}}</a></td>
+                                    </tr>
                                 {{end}}
                             {{end}}
-                        </div>
+                        </table>
                     </div>
                 </div>
                 <div class="sezioneInfo">
-                    <div class="titoloDiv"><a class="titolo">Info:</a></div>
                 </div>
                 <div class="sezioneElaborati">
-                    <div class="titoloDiv"><a class="titolo">Elaborati:</a></div>
                     <table class="tabellaElaborati">
-                    <tr class="tbe1">
-                        <th class="tbe2h">Nome:</th>
-                        <th class="tbe2h">Autore:</th>
-                        <th class="tbe2h">File:</th>
-                        <th class="tbe2h">Data upload:</th>
-                    </tr>
-                    {{range .Elaborati}}
-                        <tr class="tbeFile">
-                            <td class="tbe2"><a>{{.Name}}</a></td>
-                            <td class="tbe2"><a>{{.Creator}}</a></td>
-                            <td class="tbe2"><a>{{.FilePath}}</a></td>
-                            <td class="tbe2"><a>{{.UploadDate}}</a></td>
-                        <tr>
-                    {{end}}
-
+                        <tr class="tbe1">
+                            <th class="tbe2h">Nome:</th>
+                            <th class="tbe2h">Autore:</th>
+                            <th class="tbe2h">File:</th>
+                            <th class="tbe2h">Data upload:</th>
+                        </tr>
+                        {{range .Elaborati}}
+                            <tr class="tbeFile">
+                                <td class="tbe2"><a>{{.Name}}</a></td>
+                                <td class="tbe2"><a>{{.Creator}}</a></td>
+                                <td class="tbe2"><a>{{.FilePath}}</a></td>
+                                <td class="tbe2"><a>{{.UploadDate}}</a></td>
+                            <tr>
+                        {{end}}
                     </table>
                 </div>
                 <div class="sezioneAgg">
-                    <div class="titoloDiv">
-                        <a class="titolo">Aggiungi elaborati:</a>
-                    </div>
                     <form method="post" enctype="multipart/form-data" action="/uploadFile">
                         <div class="parteSottoAgg">
                             <div class = "sopraAgg">

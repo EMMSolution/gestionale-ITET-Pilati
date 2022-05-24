@@ -95,15 +95,15 @@
             <div class="sezioni">
                 <div class="sezionePrincipale">
                     <div class="elaboratiRecenti">
-                        <div class="titoloSez elabRec">
+                        <div class="titoloSez">
                             <a>Elaborati Recenti:</a>
                         </div>
                         <div class="schedeElabRec">
-                            
+
                         </div>
                     </div>
                     <div class="elaboratiPreferiti">
-                        <div class="titoloSez elabPref">
+                        <div class="titoloSez">
                             <a>Elaborati Preferiti:</a>
                         </div>
                         <table class="tabellaElabPref">
@@ -129,21 +129,26 @@
                 <div class="sezioneInfo">
                 </div>
                 <div class="sezioneElaborati">
+                    <div class="titoloSez">
+                        <a>Elaborati:</a>
+                    </div>
                     <table class="tabellaElaborati">
-                        <tr class="tbe1">
-                            <th class="tbe2h">Nome:</th>
-                            <th class="tbe2h">Autore:</th>
-                            <th class="tbe2h">File:</th>
-                            <th class="tbe2h">Data upload:</th>
-                        </tr>
-                        {{range .Elaborati}}
-                            <tr class="tbeFile">
-                                <td class="tbe2"><a>{{.Name}}</a></td>
-                                <td class="tbe2"><a>{{.Creator}}</a></td>
-                                <td class="tbe2"><a>{{.FilePath}}</a></td>
-                                <td class="tbe2"><a>{{.UploadDate}}</a></td>
-                            <tr>
-                        {{end}}
+                        <tbody class="corpoElaborati">
+                            <tr class="tbe1">
+                                <th class="tbe2h">Nome:</th>
+                                <th class="tbe2h">Autore:</th>
+                                <th class="tbe2h">File:</th>
+                                <th class="tbe2h">Data upload:</th>
+                            </tr>
+                            {{range .Elaborati}}
+                                <tr class="tbeFile">
+                                    <td class="tbe2"><a>{{.Name}}</a></td>
+                                    <td class="tbe2"><a>{{.Creator}}</a></td>
+                                    <td class="tbe2"><a>{{.FilePath}}</a></td>
+                                    <td class="tbe2"><a>{{.UploadDate}}</a></td>
+                                <tr>
+                            {{end}}
+                        </tbody>
                     </table>
                 </div>
                 <div class="sezioneAgg">

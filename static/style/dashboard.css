@@ -512,7 +512,7 @@ body {
     margin-bottom: 30px;
 }
 .parteSottoAgg{
-    height: auto;
+    height: 75vh;
     width: 100%;
     transform: translateY(50px);
     display: flex;
@@ -524,7 +524,6 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
-    background-color: blue;
 }
 .sopraSX{
     height: 100%;
@@ -643,7 +642,6 @@ body {
     height: 64%;
     width: 100%;
     position: relative;
-    background-color: red;
 }
 .dragDrop{
     position: relative;
@@ -715,7 +713,6 @@ label:hover{
     height: 18%;
     width: 30%;
     position: relative;
-    background-color: yellow;
 }
 .invioFileDiv{
     width: 185px;

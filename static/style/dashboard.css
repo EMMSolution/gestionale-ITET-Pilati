@@ -519,11 +519,12 @@ body {
     flex-direction: column;
 }
 .sopraAgg{
-    height: 75px;
+    height: 18%;
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
+    background-color: blue;
 }
 .sopraSX{
     height: 100%;
@@ -639,9 +640,10 @@ body {
     position: relative;
 }
 .mezzoAgg{
-    height: 350px;
+    height: 64%;
     width: 100%;
     position: relative;
+    background-color: red;
 }
 .dragDrop{
     position: relative;
@@ -710,9 +712,10 @@ label:hover{
     rgba(40, 202, 140, 0.1)
 }
 .sottoAgg{
-    height: 75px;
+    height: 18%;
     width: 30%;
     position: relative;
+    background-color: yellow;
 }
 .invioFileDiv{
     width: 185px;

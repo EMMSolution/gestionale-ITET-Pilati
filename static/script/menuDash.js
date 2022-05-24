@@ -6,6 +6,9 @@ var altezzaEff;
 var impAperto;
 var impAnnullaInput;
 var sezL;
+var con;
+var chat;
+var sL;
 
 window.onload = function(){
     ind = document.querySelector('.indicatore');
@@ -18,6 +21,9 @@ window.onload = function(){
     inputImpPass = document.querySelector('.inputImp3');
     welcomePage = document.querySelector('.welcomePage');
     sezL = document.querySelector('.sezioneLaterali')
+    con = document.querySelector('.contatti')
+    chat = document.querySelector('.chat')
+    sL = document.querySelector('.sezioneLaterale')
 
     impAperto = false;
 
@@ -63,10 +69,17 @@ function bottone(sezioneLaterali){
     switch(sezioneLaterali){
         case 1:
             sezL.style.transform = "translateX(-0%)";
+            sL.style.opacity = "90%"
             break;
         case 2:
-            sezL.style.transform = "translateX(-40%)";
+            sezL.style.transform = "translateX(-31%)";
+            sL.style.opacity = "0"
+            chat.style.opacity = "90%"
             break;
+        case 3:
+            sezL.style.transform = "translateX(-63%)";
+            chat.style.opacity = "0"
+        break;
 
     }
 }

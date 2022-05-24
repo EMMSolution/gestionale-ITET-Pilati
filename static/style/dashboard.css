@@ -304,18 +304,17 @@ body {
 
 .contatti {
     position: absolute;
-    margin-left: 20px;
+    margin-left: 882px;
     height: 760px;
     width: 402px;
     background-color: #222222;
     opacity: 90%;
     border-radius: 35px;
-    margin-left: calc(100% + 20px);
 }
 
 .chat {
     position: absolute;
-    margin-left: 20px;
+    margin-left: 442px;
     height: 760px;
     width: 402px;
     background-color: #222222;

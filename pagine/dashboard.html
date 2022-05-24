@@ -94,51 +94,71 @@
         <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
             <div class="sezioni">
                 <div class="sezionePrincipale">
-                    <div class="titoloDiv">
-                        <a class="titolo">Home:</a>
-                        <div cass="elabPreferiti">
+                    <div class="elaboratiRecenti">
+                        <div class="titoloSez">
+                            <a>Elaborati Recenti:</a>
+                        </div>
+                        <div class="schedeElabRec">
+
+                        </div>
+                    </div>
+                    <div class="elaboratiPreferiti">
+                        <div class="titoloSez">
+                            <a>Elaborati Preferiti:</a>
+                        </div>
+                        <table class="tabellaElabPref">
+                            <tr class="tbp1">
+                                <th class="tbp2h">Nome:</th>
+                                <th class="tbp2h">Autore:</th>
+                                <th class="tbp2h">File:</th>
+                                <th class="tbp2h">Data upload:</th>
+                            </tr>
                             {{range .Elaborati}}
                                 {{if .Preferito}}
-                                    <a>ciao<a>
+                                    <tr class="tbp2">
+                                        <td class="tbp2d"><a>{{.Name}}</a></td>
+                                        <td class="tbp2d"><a>{{.Creator}}</a></td>
+                                        <td class="tbp2d"><a>{{.FilePath}}</a></td>
+                                        <td class="tbp2d"><a>{{.UploadDate}}</a></td>
+                                    </tr>
                                 {{end}}
                             {{end}}
-                        </div>
+                        </table>
                     </div>
                 </div>
                 <div class="sezioneInfo">
-                    <div class="titoloDiv"><a class="titolo">Info:</a></div>
                 </div>
                 <div class="sezioneElaborati">
-                    <div class="titoloDiv"><a class="titolo">Elaborati:</a></div>
+                    <div class="titoloSez">
+                        <a>Elaborati:</a>
+                    </div>
                     <table class="tabellaElaborati">
-                    <tr class="tbe1">
-                        <th class="tbe2h">Nome:</th>
-                        <th class="tbe2h">Autore:</th>
-                        <th class="tbe2h">File:</th>
-                        <th class="tbe2h">Data upload:</th>
-                    </tr>
-                    {{range .Elaborati}}
-                        <tr class="tbeFile">
-                            <td class="tbe2"><a>{{.Name}}</a></td>
-                            <td class="tbe2"><a>{{.Creator}}</a></td>
-                            <td class="tbe2"><a>{{.FilePath}}</a></td>
-                            <td class="tbe2"><a>{{.UploadDate}}</a></td>
-                        <tr>
-                    {{end}}
-
+                        <tbody class="corpoElaborati">
+                            <tr class="tbe1">
+                                <th class="tbe2h">Nome:</th>
+                                <th class="tbe2h">Autore:</th>
+                                <th class="tbe2h">File:</th>
+                                <th class="tbe2h">Data upload:</th>
+                            </tr>
+                            {{range .Elaborati}}
+                                <tr class="tbeFile">
+                                    <td class="tbe2"><a>{{.Name}}</a></td>
+                                    <td class="tbe2"><a>{{.Creator}}</a></td>
+                                    <td class="tbe2"><a>{{.FilePath}}</a></td>
+                                    <td class="tbe2"><a>{{.UploadDate}}</a></td>
+                                <tr>
+                            {{end}}
+                        </tbody>
                     </table>
                 </div>
                 <div class="sezioneAgg">
-                    <div class="titoloDiv">
-                        <a class="titolo">Aggiungi elaborati:</a>
-                    </div>
                     <form method="post" enctype="multipart/form-data" action="/uploadFile">
                         <div class="parteSottoAgg">
                             <div class = "sopraAgg">
                                 <div class="sopraSX">
                                     <div class="divSopraSX">
                                         <div class="divSopraSXSopra">
-                                            <a class="scritteSopraAgg">INSERIRE IL NOME DELL'ELABORATO:</a>
+                                            <a class="scritteSopraAgg">NOME DELL'ELABORATO:</a>
                                         </div>
                                         <div class="divSopraSXSotto">
                                             <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
@@ -160,25 +180,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mezzoAgg">
-                            <div class="dragDrop">
-                                <div class="scritteDragDrop">
-                                    <div class="scritteDragDropSopra">
-                                        <a class="scritteDragDropSopraVere">Selezionare o trascinare un file:</a>
-                                        <div class="inputDragDrop">
-                                            <input type="file" name="file" class="fileInput" id="fileInput">
-                                            <label for = "fileInput" class="fileInputLabel">
-                                                Scegli un file
-                                            </label>
+                            <div class="mezzoAgg">
+                                <div class="dragDrop">
+                                    <div class="scritteDragDrop">
+                                        <div class="scritteDragDropSopra">
+                                            <a class="scritteDragDropSopraVere">Selezionare o trascinare un file:</a>
+                                            <div class="inputDragDrop">
+                                                <input type="file" name="file" class="fileInput" id="fileInput">
+                                                <label for = "fileInput" class="fileInputLabel">
+                                                    Scegli un file
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sottoAgg">
-                            <div class="invioFileDiv">
-                                <input type="submit" class="fileInputSubmit" >
+                            <div class="sottoAgg">
+                                <div class="invioFileDiv">
+                                    <input type="submit" class="fileInputSubmit" >
+                                </div>
                             </div>
                         </div>
                     </form>

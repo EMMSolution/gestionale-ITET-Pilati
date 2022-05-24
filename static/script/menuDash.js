@@ -5,6 +5,7 @@ var loghiAlt;
 var altezzaEff;
 var impAperto;
 var impAnnullaInput;
+var sezL;
 
 window.onload = function(){
     ind = document.querySelector('.indicatore');
@@ -16,6 +17,7 @@ window.onload = function(){
     inputImpEmail = document.querySelector('.inputImp2');
     inputImpPass = document.querySelector('.inputImp3');
     welcomePage = document.querySelector('.welcomePage');
+    sezL = document.querySelector('.sezioneLaterali')
 
     impAperto = false;
 
@@ -44,6 +46,28 @@ window.onload = function(){
             menu(3)
         case "4":
             menu(4)
+    }
+
+    // cambio sezione laterale
+    switch (sezioneLaterali){
+        case "1":
+            bottone(1)
+        case "2":
+            bottone(2)
+        case "3":
+            bottone(3)
+    }
+}
+
+function bottone(sezioneLaterali){
+    switch(sezioneLaterali){
+        case 1:
+            sezL.style.transform = "translateX(-0%)";
+            break;
+        case 2:
+            sezL.style.transform = "translateX(-40%)";
+            break;
+
     }
 }
 

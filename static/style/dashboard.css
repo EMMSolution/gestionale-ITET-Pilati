@@ -505,7 +505,7 @@ body {
     margin-bottom: 30px;
 }
 .parteSottoAgg{
-    height: 120px;
+    height: auto;
     width: 100%;
     transform: translateY(50px);
     display: flex;
@@ -641,14 +641,13 @@ body {
 }
 .dragDrop{
     position: relative;
-    width: 700px;
+    width: 70%;
     height: 90%;
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 42px;
-    left: 45%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-left: 5%;
+    margin-top: 3%;
 }
 
 .scritteDragDrop{

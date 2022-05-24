@@ -520,14 +520,14 @@ body {
 }
 .sopraAgg{
     height: 75px;
-    width: 80%;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
 }
 .sopraSX{
     height: 100%;
-    width: 70%;
+    width: 65%;
     position: relative;
     z-index: 6;
 }
@@ -538,12 +538,9 @@ body {
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 19px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 8%;
 }
 .divSopraSXSopra{
     height: 50%;
@@ -643,12 +640,12 @@ body {
 }
 .mezzoAgg{
     height: 350px;
-    width: 85%;
+    width: 100%;
     position: relative;
 }
 .dragDrop{
     position: relative;
-    width: 70%;
+    width: 60%;
     height: 90%;
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
@@ -701,6 +698,7 @@ label{
     border-radius: 7px;
     transition: border-radius 0.4s ease-in-out;
     transition: box-shadow 0.8s ease-in-out;
+    transition: background-color 1s ease-in-out;
     box-shadow: 10px 10px 4px
     rgba(40, 202, 140, 0)
 
@@ -723,6 +721,7 @@ label:hover{
     background: #474549;
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 19px;
+    margin-top: 20px;
     transform: translateX(15px);
     margin-left: 30px;
     display:flex;
@@ -739,6 +738,8 @@ label:hover{
     cursor: pointer;
     border-radius: 8px;
     transition: border-radius 0.3s ease-in-out;
+    transition: background-color 1s ease-in-out;
+
 }
 .fileInputSubmit:hover{
     background-color: #8d6cb1;

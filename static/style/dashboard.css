@@ -649,13 +649,14 @@ body {
     transform: translate(-50%, -50%);
 }
 .dropbtn {
-    background-color: #3b3939;
-    color: white;
+    background-color: #49474b;
     padding: 16px;
     font-size: 16px;
     border: none;
+    width: 200%;
     cursor: pointer;
-    transform: translate(0%, -50%);
+    transform: translate(80%, 15%);
+    transition: backgroun-color 0.8s ease-in-out;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -701,7 +702,7 @@ body {
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.73);
     border-radius: 42px;
     margin-left: 5%;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 .scritteDragDrop{
@@ -746,6 +747,7 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
+    font-family: 'Roboto', sans-serif;
     transition: border-radius 0.4s ease-in-out;
     transition: box-shadow 0.8s ease-in-out;
     transition: background-color 1s ease-in-out;
@@ -787,6 +789,7 @@ label:hover{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
     transition: border-radius 0.3s ease-in-out;
     transition: background-color 1s ease-in-out;
 

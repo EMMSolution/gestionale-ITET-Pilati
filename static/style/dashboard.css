@@ -590,6 +590,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 8%;
+    margin-top: 10px;
 }
 .divSopraSXSopra{
     height: 50%;

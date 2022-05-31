@@ -29,49 +29,49 @@ var TabellaUser string = "user"
 
 directory tree
 ```
->    gestionale-ITET-Pilati           <br>
->        ├───database                 <br>
->        │   └───database.go          <br>
->        ├───elaborati                <br>
->        │   ├───elaborato1.pdf       <br>
->        │   └───elaborato2.pdf       <br>
->        ├───imp                      <br>
->        │   ├───banner.go            <br>
->        │   └───settings.go          <br>
->        ├───pagine                   <br>
->        │   ├───dashboard.html       <br>
->        │   ├───home.html            <br>
->        │   ├───passDimenticata.html <br>
->        │   └───register.html        <br>
->        ├───static                   <br>
->        │   ├───media                <br>
->        │   │   ├───dashboard        <br>
->        │   |   |   └───*iconeDash*  <br>
->        │   │   ├───home             <br>
->        │   |   |   └───*iconeHome*  <br>
->        │   │   ├───logoEggs         <br>
->        │   |   |   └───*loghiEggs*  <br>
->        │   │   └───user             <br>
->        │   |       └───*iconeUser*  <br>
->        │   ├───script               <br>
->        │   |   ├───home.js          <br>
->        │   |   ├───menuDash.js      <br>
->        │   |   └───redirectVari.js  <br>
->        │   └───style                <br>
->        │       ├───sfondi           <br>
->        │       |   ├───sfondoC.png  <br>
->        │       |   └───sfondoS.png  <br>
->        │       ├───dashboard.css    <br>
->        │       ├───home.css         <br>
->        │       ├───pagina404.css    <br>
->        │       └───register.css     <br>
->        ├───webserver                <br>
->        │   ├───routes.go            <br>
->        │   └───webserver.go         <br>
->        ├───.gitgnore                <br>
->        ├───avviaServer.exe          <br>
->        ├───go.mod                   <br>
->        ├───go.sum                   <br>
->        ├───main.go                  <br>
->        └───README.md                <br>
+    gestionale-ITET-Pilati           
+        ├───database                 
+        │   └───database.go          
+        ├───elaborati                
+        │   ├───elaborato1.pdf       
+        │   └───elaborato2.pdf       
+        ├───imp                      
+        │   ├───banner.go            
+        │   └───settings.go          
+        ├───pagine                   
+        │   ├───dashboard.html       
+        │   ├───home.html            
+        │   ├───passDimenticata.html 
+        │   └───register.html        
+        ├───static                   
+        │   ├───media                
+        │   │   ├───dashboard        
+        │   |   |   └───*iconeDash*  
+        │   │   ├───home             
+        │   |   |   └───*iconeHome*  
+        │   │   ├───logoEggs         
+        │   |   |   └───*loghiEggs*  
+        │   │   └───user             
+        │   |       └───*iconeUser*  
+        │   ├───script               
+        │   |   ├───home.js          
+        │   |   ├───menuDash.js      
+        │   |   └───redirectVari.js  
+        │   └───style                
+        │       ├───sfondi           
+        │       |   ├───sfondoC.png  
+        │       |   └───sfondoS.png  
+        │       ├───dashboard.css    
+        │       ├───home.css         
+        │       ├───pagina404.css    
+        │       └───register.css     
+        ├───webserver                
+        │   ├───routes.go            
+        │   └───webserver.go         
+        ├───.gitgnore                
+        ├───avviaServer.exe          
+        ├───go.mod                   
+        ├───go.sum                   
+        ├───main.go                  
+        └───README.md                
 ```

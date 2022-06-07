@@ -86,9 +86,9 @@
             <div class="impDestra"></div>
         </div>
         <div class="manu-s">
-            <div class="account" href="#">
+            <div class="account" href="#">f
                 <a class="nomeAccount">{{.NomeUtente}}</a>
-                <div class="immagneAccount" style="background-image: url('static/media/user/noUserImg.svg');"></div>
+                <div class="immagneAccount" style="backg\ound-image: url('static/media/user/noUserImg.svg');"></div>
             </div>
         </div>
         <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
@@ -99,6 +99,21 @@
                             <a>Elaborati Recenti:</a>
                         </div>
                         <div class="schedeElabRec">
+                            {{range .Elaborati}}
+                                {{if .Recente}}
+                                    <div class="schedaDivElabRec">
+                                        <div class="schedaDivElabRec-sopra">
+                                            <a>{{.Name}}</a>
+                                        </div>
+                                        <div class="schedaDivElabRec-mezzo">
+                                            <a>{{.Creator}}</a>
+                                        </div>
+                                        <div class="schedaDivElabRec-sotto">
+                                            <a>{{.UploadDate}}</a>
+                                        </div>
+                                    </div>
+                                {{end}}
+                            {{end}}
 
                         </div>
                     </div>
@@ -168,7 +183,7 @@
                                 <div class="sopraDX">
                                     <div class="divSopraDX">
                                         <div class="dropdown">
-                                            <button type="button" onclick="myFunction()" class="dropbtn">bho</button>
+                                            <button type="button" onclick="myFunction()" class="dropbtn">CLASSE:</button>
                                             <div id="myDropdown" class="dropdown-content">
                                               <a href="#" class="menuTendinaAgg">1ECA</a>
                                               <a href="#" class="menuTendinaAgg">1ECB</a>

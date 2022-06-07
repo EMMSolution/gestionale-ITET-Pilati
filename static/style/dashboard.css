@@ -390,6 +390,55 @@ body {
 /* recenti */
 .schedeElabRec {
     height: 90%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+.schedaDivElabRec {
+    height: 70%;
+    width: 240px;
+    border-radius: 10px;
+    background-color: red;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+.schedaDivElabRec-sopra {
+    height: 20%;
+    width: calc(100%-12px);
+    padding: 6px; 
+    text-align: center; 
+    padding-top: 8px; 
+}
+.schedaDivElabRec-sopra a {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;   
+}
+.schedaDivElabRec-mezzo {
+    height: 20%;
+    width: calc(100%-12px);
+    padding: 6px; 
+    text-align: center; 
+    padding-top: 8px; 
+}
+.schedaDivElabRec-mezzo a {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: white;   
+}
+.schedaDivElabRec-sotto {
+    height: 20%;
+    width: calc(100%-12px);
+    padding: 6px; 
+    text-align: center; 
+    padding-top: 8px; 
+}
+.schedaDivElabRec-sotto a {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: white;   
 }
 /* preferiti */
 .tabellaElabPref {
@@ -653,10 +702,12 @@ body {
     padding: 16px;
     font-size: 16px;
     border: none;
+    color: white;
     width: 200%;
     cursor: pointer;
-    transform: translate(80%, 15%);
-    transition: backgroun-color 0.8s ease-in-out;
+    transform: translate(35%, 15%);
+    transition: background-color 0.8s ease-in-out;
+    border-radius: 15px;
 }
 
 .dropbtn:hover, .dropbtn:focus {

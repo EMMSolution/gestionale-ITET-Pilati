@@ -33,6 +33,7 @@ type ElabStructDash struct {
 	FilePath    string
 	UploadDate  string
 	Preferito   bool
+	Recente     bool
 }
 type UserStruct struct {
 	Id          string
@@ -137,12 +138,15 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// creo gli arrey degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
+	// creo array id elab
+	var idElab []string
 	// creo la struct da mettere nell HTML
 	titoloP := "Dashboard - " + credVar.Name
 	var ElaboratiStructData []ElabStructDash
 	// raccolgo gli elaborati per renderizzarli nella dash
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
+	//sogliaId := 5
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
 		if err != nil {
@@ -154,8 +158,13 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 				ElabStruct1.Preferito = true
 			}
 		}
+		idElab = append(idElab, ElabStruct1.Id)
+		ElabStruct1.Recente = true
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
 	}
+
+	idElabMenoCinque := idElab[:5]
+	fmt.Print(idElabMenoCinque)
 
 	elaboratiHTML := DashStruct{
 		TitoloPag: titoloP,

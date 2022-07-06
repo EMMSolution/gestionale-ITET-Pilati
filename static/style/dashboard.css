@@ -134,19 +134,41 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 .itetLogo {
     height: 50px;
     width: 50px;
     margin-top: 8px;
 }
-
 .lista {
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
-    height: auto;
+    transform: translateY(calc(-50% - 55px));
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+.lista a {
+    position: absolute;
+    text-align: center;
+    transform: rotate(90deg) translateY(15px);
+    width: 80px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+}
+.lista img {
+    position: absolute;
+    margin-left: 10px;
+    width: 34px;
+}
+.lista div {
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.lista img:hover {
+
 }

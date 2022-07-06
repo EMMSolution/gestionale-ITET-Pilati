@@ -1,39 +1,34 @@
-var ind;
-var loghi;
-var sez;
-var loghiAlt;
-var altezzaEff;
 var impAperto;
 var impAnnullaInput;
-var sezL;
-var con;
-var chat;
-var sL;
 
 window.onload = function(){
-    ind = document.querySelector('.indicatore');
-    loghi = document.querySelector('.iconeCentrali');
-    sez = document.querySelector('.sezioni');
-    imp = document.querySelector('.imp');
-    passImpInput = document.querySelector('.inputImp3');
-    inputImpNome = document.querySelector('.inputImp1');
-    inputImpEmail = document.querySelector('.inputImp2');
-    inputImpPass = document.querySelector('.inputImp3');
-    welcomePage = document.querySelector('.welcomePage');
-    sezL = document.querySelector('.sezioneLaterali')
-    con = document.querySelector('.contatti')
-    chat = document.querySelector('.chat')
-    sL = document.querySelector('.sezioneLaterale')
+    // menu
+    var menuHomeA = document.querySelector('#meuHomeA');
+    var menuHomeImg = document.querySelector('#menuHomeImg');
+    var meuStatsA = document.querySelector('#meuStatsA');
+    var menuStatsImg = document.querySelector('#menuStatsImg');
+    var meuFileA = document.querySelector('#meuFileA');
+    var menuFileImg = document.querySelector('#menuFileImg');
+    var meuAggFileA = document.querySelector('#meuAggFileA');
+    var menuAggFileImg = document.querySelector('#menuAggFileImg');
+    // impostazioni
+    var imp = document.querySelector('.imp');
+    var passImpInput = document.querySelector('.inputImp3');
+    var inputImpNome = document.querySelector('.inputImp1');
+    var inputImpEmail = document.querySelector('.inputImp2');
+    var inputImpPass = document.querySelector('.inputImp3');
+    var welcomePage = document.querySelector('.welcomePage');
 
-    impAperto = false;
+    var impAperto = false;
 
-    sez.style.transform = "translateY(-0%)";
     imp.style.opacity = "0";
     imp.style.zIndex = "0";
 
-    loghiAlt = loghi.offsetTop;
-    altezzaEff = loghiAlt - 63;
-    ind.style.top = altezzaEff + "px";
+    // default set per menu
+    menuHomeA.style.opacity = "0";
+    meuStatsA.style.opacity = "0";
+    meuFileA.style.opacity = "0";
+    meuAggFileA.style.opacity = "0";
 
     // nuovo account intro page
     if(nuovoAcc == "si"){
@@ -53,62 +48,21 @@ window.onload = function(){
         case "4":
             menu(4)
     }
-
-    // cambio sezione laterale
-    switch (sezioneLaterali){
-        case "1":
-            bottone(1)
-        case "2":
-            bottone(2)
-        case "3":
-            bottone(3)
-    }
-}
-
-function bottone(sezioneLaterali){
-    switch(sezioneLaterali){
-        case 1:
-            sezL.style.transform = "translateX(-0%)";
-            sL.style.opacity = "90%"
-            break;
-        case 2:
-            sezL.style.transform = "translateX(-31%)";
-            sL.style.opacity = "0"
-            chat.style.opacity = "90%"
-            break;
-        case 3:
-            sezL.style.transform = "translateX(-63%)";
-            chat.style.opacity = "0"
-        break;
-
-    }
 }
 
 function menu(sezione){
     switch(sezione){
         case 1:
-            ind.style.top = altezzaEff + "px";
-            sez.style.transform = "translateY(-0%)";
-            imp.style.opacity = "0";
-            imp.style.zIndex = "0";
+
             break;
         case 2:
-            ind.style.top = altezzaEff + 54 + "px";
-            sez.style.transform = "translateY(-25%)";
-            imp.style.opacity = "0";
-            imp.style.zIndex = "0";
+
             break;
         case 3:
-            ind.style.top = altezzaEff + 54 * 2 + "px";
-            sez.style.transform = "translateY(-50%)";
-            imp.style.opacity = "0";
-            imp.style.zIndex = "0";
+
             break;
         case 4:
-            ind.style.top = altezzaEff + 54 * 3 + "px";
-            sez.style.transform = "translateY(-75%)";
-            imp.style.opacity = "0";
-            imp.style.zIndex = "0";
+
             break;
         case 5:
             if(impAperto == true){
@@ -124,13 +78,6 @@ function menu(sezione){
         default:
             alert("valore sbagliato nello scorrimento sezioni");
     }
-}
-
-
-
-//                    classe     arr      arr
-function graficoBarre(container, sezioni, valori){
-    console.log("da fare")
 }
 
 function resetImpInput(){
@@ -149,27 +96,9 @@ function mostraPass(){
 
 function iniziaTutorial(){
     // DA FARE
-    console.log("coming soon")
+    alert("coming soon")
 }
 
 function fineTutorial(){
     welcomePage.style.display = "none"
 }
-
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }

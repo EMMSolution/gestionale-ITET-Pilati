@@ -26,205 +26,33 @@
         <!-- cambiare alert con ciò che è necessario -->
         <h3 class="welcomeAlertVari">*Attenzione, pattaforma ancora in demo*</h3>
     </div>
-    <div class="menu-l">
-        <img class="logo" src="static/media/dashboard/logo_itet.png">
-        <div class="indicatore" style="top: 100px"></div>
-        <div class="iconeCentrali">
-            <div class="logo1">
-                <button class="bottoneL1" onclick="menu(1)">
-                    <img class="homeLogo" src="static/media/dashboard/home.svg">
-                </button>
+    <div class="pagina">
+        <div class="menu">
+            <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png"></img>
+            <div class="lista">
+                <div class="home">
+                    <a>Home</a>
+                    <img src="../static/media/dashboard/home.svg"></img>
+                </div>
+                <div class="stats">
+                    <a>Stats</a>
+                    <img src="../static/media/dashboard/grafico.svg"></img>
+                </div>
+                <div class="file">
+                    <a>File</a>
+                    <img img="../static/media/dashboard/"></img>
+                </div>
+                <div class="aggiungiFile">
+                    <a>Agg. File</a>
+                    <img img="../static/media/dashboard/"></img>
+                </div>
             </div>
-            <div class="logo2">
-                <button class="bottoneL2" onclick="menu(2)"><img class="graLogo" src="static/media/dashboard/grafico2.svg"></button>
-            </div>
-            <div class="logo3">
-                <button class="bottoneL3" onclick="menu(3)"><img class="tabLogo" src="static/media/dashboard/elaborati.svg"></button>
-            </div>
-            <div class="logo4">
-                <button class="bottoneL4" onclick="menu(4)"><img class="aggTabLogo" src="static/media/dashboard/aggElaborati.svg"></button>
+            <div class="sotto">
+
             </div>
         </div>
-        <div class="iconeBasse">
-            <div class="impostazioniDiv"><img class="impostazioni" onclick="menu(5)" src="static/media/dashboard/impostazioni.svg"></div>
-            <div class="loguotDiv"><img class="logout" onclick="move('home')" src="static/media/dashboard/logout.svg"></div>
-        </div>
-    </div>
-    <div class="destra">
-        <div class="imp">
-            <header class="header">
-                <div class="titoloDivImp"><a class="titolo">Impostazioni:</a></div>
-                <button class="chiudi" onclick="menu(5)">
-                    <hr class="linea1">
-                    <hr class="linea2">
-                </button>
-            </header>
-            <div class="settaggi">
-                <form action="/cambioImpostazioni" method="POST">
-                    <div class="imgProfilo">
-                        <div class="img" style="background-image: url('static/media/user/noUserImg.svg');"></div>
-                        <div class="cambiaImg" style="background-image: url('static/media/dashboard/camera.svg');"></div>
-                    </div>
-                    <div class="listaImpostazioni">
-                        <!-- invio il nome originale nel post ma lo nascondo -->
-                        <input type="hidden" name="emailOriginale" value="{{.EmailUtente}}">
-                        <input type="hidden" name="passOriginale" value="{{.PassUtente}}">
-                        <!-- fine -->
-                        <input name="nomeUtente" class="inputImp1" type="text" value="{{.NomeUtente}}"></input>
-                        <input name="emailUtente" class="inputImp2" type="email" value="{{.EmailUtente}}"></input>
-                        <input name="passUtente" class="inputImp3" type="password" value="{{.PassUtente}}"></input>
-                        <button class="mostraPass" type="button" onclick="mostraPass()">
-                            <div style="background-image: url('static/media/dashboard/occhio.png')"></div>
-                        </button>
-                        <div class="divImp4">
-                            <button type="button" class="inputImpAnnulla" onclick="resetImpInput()">Annulla</button>
-                            <input class="inputImpApplica" type="submit" value="Applica"></input>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="impDestra"></div>
-        </div>
-        <div class="manu-s">
-            <div class="account" href="#">
-                <a class="nomeAccount">{{.NomeUtente}}</a>
-                <div class="immagneAccount" style="background-image: url('static/media/user/noUserImg.svg');"></div>
-            </div>
-        </div>
-        <div class="main" style="background-image: url('static/style/sfondi/sfondoS.png');">
-            <div class="sezioni">
-                <div class="sezionePrincipale">
-                    <div class="elaboratiRecenti">
-                        <div class="titoloSez">
-                            <a>Elaborati Recenti:</a>
-                        </div>
-                        <div class="schedeElabRec">
+        <div class="main">
 
-                        </div>
-                    </div>
-                    <div class="elaboratiPreferiti">
-                        <div class="titoloSez">
-                            <a>Elaborati Preferiti:</a>
-                        </div>
-                        <table class="tabellaElabPref">
-                            <tr class="tbp1">
-                                <th class="tbp2h">Nome:</th>
-                                <th class="tbp2h">Autore:</th>
-                                <th class="tbp2h">File:</th>
-                                <th class="tbp2h">Data upload:</th>
-                            </tr>
-                            {{range .Elaborati}}
-                                {{if .Preferito}}
-                                    <tr class="tbp2">
-                                        <td class="tbp2d"><a>{{.Name}}</a></td>
-                                        <td class="tbp2d"><a>{{.Creator}}</a></td>
-                                        <td class="tbp2d"><a>{{.FilePath}}</a></td>
-                                        <td class="tbp2d"><a>{{.UploadDate}}</a></td>
-                                    </tr>
-                                {{end}}
-                            {{end}}
-                        </table>
-                    </div>
-                </div>
-                <div class="sezioneInfo">
-                </div>
-                <div class="sezioneElaborati">
-                    <div class="titoloSez">
-                        <a>Elaborati:</a>
-                    </div>
-                    <table class="tabellaElaborati">
-                        <tbody class="corpoElaborati">
-                            <tr class="tbe1">
-                                <th class="tbe2h">Nome:</th>
-                                <th class="tbe2h">Autore:</th>
-                                <th class="tbe2h">File:</th>
-                                <th class="tbe2h">Data upload:</th>
-                            </tr>
-                            {{range .Elaborati}}
-                                <tr class="tbeFile">
-                                    <td class="tbe2"><a>{{.Name}}</a></td>
-                                    <td class="tbe2"><a>{{.Creator}}</a></td>
-                                    <td class="tbe2"><a>{{.FilePath}}</a></td>
-                                    <td class="tbe2"><a>{{.UploadDate}}</a></td>
-                                <tr>
-                            {{end}}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="sezioneAgg">
-                    <form method="post" enctype="multipart/form-data" action="/uploadFile">
-                        <div class="parteSottoAgg">
-                            <div class = "sopraAgg">
-                                <div class="sopraSX">
-                                    <div class="divSopraSX">
-                                        <div class="divSopraSXSopra">
-                                            <a class="scritteSopraAgg">NOME DELL'ELABORATO:</a>
-                                        </div>
-                                        <div class="divSopraSXSotto">
-                                            <input type="text" name="nomeElaborato" class="nomeElaboratoInput">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sopraDX">
-                                    <div class="divSopraDX">
-                                        <div class="dropdown">
-                                            <button type="button" onclick="myFunction()" class="dropbtn">bho</button>
-                                            <div id="myDropdown" class="dropdown-content">
-                                              <a href="#" class="menuTendinaAgg">1ECA</a>
-                                              <a href="#" class="menuTendinaAgg">1ECB</a>
-                                              <a href="#" class="menuTendinaAgg">1TA</a>
-                                              <a href="#" class="menuTendinaAgg">1TB</a>
-                                              <a href="#" class="menuTendinaAgg">1TC</a>
-                                            </div>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mezzoAgg">
-                                <div class="dragDrop">
-                                    <div class="scritteDragDrop">
-                                        <div class="scritteDragDropSopra">
-                                            <a class="scritteDragDropSopraVere">Selezionare o trascinare un file:</a>
-                                            <div class="inputDragDrop">
-                                                <input type="file" name="file" class="fileInput" id="fileInput">
-                                                <label for = "fileInput" class="fileInputLabel">
-                                                    Scegli un file
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sottoAgg">
-                                <div class="invioFileDiv">
-                                    <input type="submit" class="fileInputSubmit" >
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="sezioniLG">
-                <div class="sezioneLaterali">
-                    <div class="contatti">
-
-                    </div>
-                    <div class="chat">
-
-                    </div>
-                    <div class="sezioneLaterale">
-
-                    </div>
-                </div>
-                <div class="bottoni">
-                    <button class="bottoniSlide1" onclick="bottone(1)">
-                    </button>
-                    <button class="bottoniSlide2" onclick="bottone(2)">
-                    </button>
-                    <button class="bottoniSlide3" onclick="bottone(3)">
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 

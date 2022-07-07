@@ -127,7 +127,7 @@ function menu(sezione){
                 menuHomeA.style.opacity = "0";
                 menuHomeImg.style.transform = "translateX(0px)";
                 menuStatsA.style.opacity = "0";
-                mennuStatsImg.style.transform = "translateX(0px)";
+                menuStatsImg.style.transform = "translateX(0px)";
                 menuFileA.style.opacity = "0";
                 menuFileImg.style.transform = "translateX(0px)";
 

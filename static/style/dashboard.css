@@ -115,6 +115,31 @@ body {
     height: 100vh;
     width: calc(100% - 60px);
 }
+/* eggSolution */
+.eggSoltuion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    height: 40px;
+    width: 250px;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 5px;
+}
+.eggSoltuion a {
+    color: white;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+.eggSoltuion img {
+    height: 30px;
+    margin-left: 4px;
+    margin-right: 6px;
+}
 
 /* MENU LATERALE */
 .menu {

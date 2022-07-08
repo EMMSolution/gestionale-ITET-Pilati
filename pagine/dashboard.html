@@ -6,15 +6,15 @@
     <title>{{.TitoloPag}}</title>
 </head>
 <body>
-    <script src="static/script/menuDash.js"></script>
-    <script src="static/script/redirectVari.js"></script>
     <script>
         var nomeUtenteJS = "{{.NomeUtente}}"
         var emailUtenteJS = "{{.EmailUtente}}"
         var passUtenteJS = "{{.PassUtente}}"
         var nuovoAcc = "{{.NuovoAcc}}"
-        var sezione = "{{.Sezione}}"
+        var sezioneQuery = "{{.Sezione}}"
     </script>
+    <script src="static/script/menuDash.js"></script>
+    <script src="static/script/redirectVari.js"></script>
     <div class="welcomePage">
         <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeUtente}}</a>!</h1>
         <h2 class="welcomeDes">Questa piattaforma ti permette di <a>caricare</a> elaborati e <br> <a>visualizare</a> quelli degli altri utenti</h2>
@@ -28,29 +28,29 @@
     </div>
     <div class="pagina">
         <div class="menu">
-            <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png"></img>
+            <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png" href="https://www.istitutopilati.it/"></img>
             <div class="lista">
                 <div class="indicatore"></div>
                 <button onclick="menu(1)">
-                    <div class="home">
+                    <div class="homeMenu">
                         <a class="menuA" id="meuHomeA">Home</a>
                         <img class="menuImg" id="menuHomeImg" src="../static/media/dashboard/home.svg"></img>
                     </div>
                 </button>
                 <button onclick="menu(2)">
-                    <div class="stats">
+                    <div class="statsMenu">
                         <a class="menuA" id="meuStatsA">Stats</a>
                         <img class="menuImg" id="menuStatsImg" src="../static/media/dashboard/grafico2.svg"></img>
                     </div>
                 </button>
                 <button onclick="menu(3)">
-                    <div class="file">
+                    <div class="fileMenu">
                         <a class="menuA" id="meuFileA">File</a>
                         <img class="menuImg" id="menuFileImg" src="../static/media/dashboard/elaborati.svg"></img>
                     </div>
                 </button>
                 <button  onclick="menu(4)">
-                    <div class="aggiungiFile">
+                    <div class="aggiungiFileMenu">
                         <a class="menuA" id="meuAggFileA">Agg.File</a>
                         <img class="menuImg" id="menuAggFileImg" src="../static/media/dashboard/aggElaborati.svg"></img>
                     </div>
@@ -95,8 +95,32 @@
                 </div>
                 <div class="impDestra"></div>
             </div>
+            <header>
+                <div class="containerTitoloSezione">
+                    <div class="movingContainerTitoloSezione">
+                        <a>Home</a>
+                        <a>Statistiche</a>
+                        <a>Elaborati</a>
+                        <a>Carica elaborati</a>
+                    </div>
+                </div>
+            </header>
+            <div class="sezioni">
+                <div class="movingContainerSezioni">
+                    <div class="home">
 
+                    </div>
+                    <div class="statitiche">
 
+                    </div>
+                    <div class="elaborati">
+
+                    </div>
+                    <div class="aggiungiElaborati">
+
+                    </div>
+                </div>
+            </div>
             <div class="eggSoltuion">
                 <a>Powered by</a>
                 <img src="../static/media/logoEggs/logoNoSfondo.png"></img>

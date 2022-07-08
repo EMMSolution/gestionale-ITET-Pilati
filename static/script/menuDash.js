@@ -1,4 +1,6 @@
 var sezioneAttuale;
+var titoloSezione;
+var sezione;
 var indicatoreMenu;
 var menuHomeA;
 var menuHomeImg;
@@ -12,6 +14,10 @@ var impAperto;
 var impAnnullaInput;
 
 window.onload = function(){
+    // titolo sezione
+    titoloSezione = document.querySelector('.movingContainerTitoloSezione');
+    // sezione
+    sezione = document.querySelector('.movingContainerSezioni');
     // menu
     indicatoreMenu = document.querySelector('.indicatore');
     menuHomeA = document.querySelector('#meuHomeA');
@@ -48,21 +54,25 @@ window.onload = function(){
         welcomePage.style.display = "none"
     }
 
-    //cambio sezione con query (da url)
-    switch (sezione){
+    // cambio sezione con query (da url)
+    switch (sezioneQuery){
         case "1":
             menu(1)
+            break;
         case "2":
             menu(2)
+            break;
         case "3":
             menu(3)
+            break;
         case "4":
             menu(4)
+            break;
     }
 }
 
-function menu(sezione){
-    switch(sezione){
+function menu(sezioneFunc){
+    switch(sezioneFunc){
         case 1:
             // scorri menu
             if(sezioneAttuale != 1){
@@ -79,7 +89,11 @@ function menu(sezione){
 
                 sezioneAttuale = 1;
             }
+            // scorri titolo
+            titoloSezione.style.transform = "translateY(0px)";
             // scorri sezione
+            sezione.style.transform = "translateY(0)";
+
             break;
         case 2:
             // scorri menu
@@ -97,7 +111,11 @@ function menu(sezione){
 
                 sezioneAttuale = 2;
             }
+            // scorri titolo
+            titoloSezione.style.transform = "translateY(-55px)";
             // scorri sezione
+            sezione.style.transform = "translateY(-25%)";
+
             break;
         case 3:
             // scorri menu
@@ -115,7 +133,11 @@ function menu(sezione){
 
                 sezioneAttuale = 3;
             }
+            // scorri titolo
+            titoloSezione.style.transform = "translateY(-110px)";
             // scorri sezione
+            sezione.style.transform = "translateY(-50%)";
+
             break;
         case 4:
             // scorri menu
@@ -133,7 +155,11 @@ function menu(sezione){
 
                 sezioneAttuale = 4;
             }
+            // scorri titolo
+            titoloSezione.style.transform = "translateY(-165px)";
             // scorri sezione
+            sezione.style.transform = "translateY(-75%)";
+
             break;
         case 5:
             if(impAperto == true){

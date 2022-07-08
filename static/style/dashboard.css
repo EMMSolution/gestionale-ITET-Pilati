@@ -396,3 +396,58 @@ body {
 .inputImpApplica:hover {
     box-shadow: 6px 6px 6px rgba(64, 179, 216, 0.31);
 }
+
+/* HEADER */
+header {
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    padding-top: 15px;
+    padding-left: 45px;
+    display: flex;
+    flex-direction: row;
+
+}
+.containerTitoloSezione {
+    height: 60px;
+    width: 300px;
+    background: transparent;
+    overflow: hidden;
+}
+.movingContainerTitoloSezione {
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+.movingContainerTitoloSezione a {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+/* SEZIONI */
+.sezioni {
+    overflow: hidden;
+    margin-top: 25px;
+    height: calc(100% - 25px);
+    width: 100%;
+    background: transparent;
+}
+.movingContainerSezioni {
+    height: calc(100% * 4 - 75px * 4);
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+.home,
+.statitiche,
+.elaborati,
+.aggiungiElaborati {
+    height: calc(100% - 20px);
+    width: calc(100% - 100px);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background: red;
+}

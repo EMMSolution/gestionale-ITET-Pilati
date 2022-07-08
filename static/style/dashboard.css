@@ -1,8 +1,3 @@
-/* nascosto per alpha */
-.divSopraDX {
-    display: none;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -226,66 +221,49 @@ body {
     background: var(--barraLateraleColore);
     border: 0 solid;
 }
-
-/* IMPOSTAZIONI */
-.imp {
-    height: calc(100% - 100px);
-    width: calc(100% - 50px);
-    border-radius: 35px;
+.sotto {
+    height: 60px;
+    width: 60px;
     position: absolute;
-    background-color: #242424;
-    opacity: 86%;
-    margin-left: 20px;
-    margin-top: calc(40px + 40px);
-    transition: 0.2s;
-}
-.header {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
-.chiudi {
-    height: 40px;
-    width: 40px;
-    margin-top: 35px;
-    right: 50px;
-    position: absolute;
+    bottom: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.sotto button {
+    height: 34px;
+    width: 34px;
+    border: black 0 solid;
+    background: transparent;
+}
+.sotto img {
+    width: 34px;
+    transition: 0.5s;
+}
+.sotto img:hover {
+    transform: rotate(40deg);
+}
+
+/* IMPOSTAZIONI */
+.imp {
+    height: calc(100% - 150px);
+    width: calc(100% - 160px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    position: absolute;
+    background-color: #303030;
+    margin-left: 50px;
+    margin-top: calc(100px);
     transition: 0.2s;
-    background-color: transparent;
-    border: 0 solid;
-}
-.chiudi:hover {
-    transform: rotate(90deg);
-}
-.linea1 {
-    transform: rotate(45deg);
-    height: 6px;
-    width: 35px;
-    position: absolute;
-    border: solid 0;
-    background-color: white;
-}
-.linea2 {
-    transform: rotate(-45deg);
-    height: 6px;
-    width: 35px;
-    position: absolute;
-    border: solid 0;
-    background-color: white;
 }
 .settaggi {
+    margin-top: -20px;
     width: 420px;
-    height: 700px;
-    margin-left: calc(50% - 420px / 2);
-    vertical-align: middle;
     background-color: none;
     display: flex;
     flex-direction: column;
-    transform: translateY(calc(50% - 280px));
 }
 .imgProfilo {
     margin-left: calc(420px / 2 - 140px / 2);
@@ -419,11 +397,19 @@ header {
     flex-direction: column;
     transition: 0.5s;
 }
+.impTitolo {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: white;
+    transition: 0.1s;
+}
 .movingContainerTitoloSezione a {
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: white;
+    transition: 0.1s;
 }
 
 /* SEZIONI */

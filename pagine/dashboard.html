@@ -57,18 +57,13 @@
                 </button>
             </div>
             <div class="sotto">
-
+                <button onclick="menu(5)">
+                    <img src="../static/media/dashboard/impostazioni.svg"></img>
+                </button>
             </div>
         </div>
         <div class="main">
             <div class="imp">
-                <header class="header">
-                    <div class="titoloDivImp"><a class="titolo">Impostazioni:</a></div>
-                    <button class="chiudi" onclick="menu(5)">
-                        <hr class="linea1">
-                        <hr class="linea2">
-                    </button>
-                </header>
                 <div class="settaggi">
                     <form action="/cambioImpostazioni" method="POST">
                         <div class="imgProfilo">
@@ -97,11 +92,12 @@
             </div>
             <header>
                 <div class="containerTitoloSezione">
+                    <a class="impTitolo">Impostazioni</a>
                     <div class="movingContainerTitoloSezione">
-                        <a>Home</a>
-                        <a>Statistiche</a>
-                        <a>Elaborati</a>
-                        <a>Carica elaborati</a>
+                        <a class="homeTitolo">Home</a>
+                        <a class="statTitolo">Statistiche</a>
+                        <a class="elabTitolo">Elaborati</a>
+                        <a class="caricElabTitolo">Carica elaborati</a>
                     </div>
                 </div>
             </header>

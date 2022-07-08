@@ -1,21 +1,20 @@
-var sezioneAttuale;
-var titoloSezione;
 var sezione;
-var indicatoreMenu;
-var menuHomeA;
-var menuHomeImg;
-var menuStatsA;
-var menuStatsImg;
-var menuFileA;
-var menuFileImg;
-var menuAggFileA;
-var menuAggFileImg;
-var impAperto;
-var impAnnullaInput;
+var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
+var indicatoreMenu, menuHomeA, menuHomeImg, menuStatsA, menuStatsImg, menuFileA, menuFileImg, menuAggFileA, menuAggFileImg;
+var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
+var welcomePage;
+
+var sezioneAttuale = 1;
+var impAperto = false;
 
 window.onload = function(){
     // titolo sezione
     titoloSezione = document.querySelector('.movingContainerTitoloSezione');
+    impTitolo = document.querySelector('.impTitolo');
+    homeTitolo = document.querySelector('.homeTitolo');
+    statTitolo = document.querySelector('.statTitolo');
+    elabTitolo = document.querySelector('.elabTitolo');
+    caricElabTitolo = document.querySelector('.caricElabTitolo');
     // sezione
     sezione = document.querySelector('.movingContainerSezioni');
     // menu
@@ -29,15 +28,16 @@ window.onload = function(){
     menuAggFileA = document.querySelector('#meuAggFileA');
     menuAggFileImg = document.querySelector('#menuAggFileImg');
     // impostazioni
-    var imp = document.querySelector('.imp');
-    var passImpInput = document.querySelector('.inputImp3');
-    var inputImpNome = document.querySelector('.inputImp1');
-    var inputImpEmail = document.querySelector('.inputImp2');
-    var inputImpPass = document.querySelector('.inputImp3');
-    var welcomePage = document.querySelector('.welcomePage');
+    imp = document.querySelector('.imp');
+    passImpInput = document.querySelector('.inputImp3');
+    inputImpNome = document.querySelector('.inputImp1');
+    inputImpEmail = document.querySelector('.inputImp2');
+    inputImpPass = document.querySelector('.inputImp3');
+    welcomePage = document.querySelector('.welcomePage');
 
-    sezioneAttuale = 1;
-    var impAperto = false;
+    // posizione default titolo sezione
+    titoloSezione.style.transform = "translateY(-55px)";
+    impTitolo.style.opacity = "0";
 
     // posizione default menu
     menuHomeA.style.opacity = "1";
@@ -90,7 +90,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 1;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(0px)";
+            titoloSezione.style.transform = "translateY(-55px)";
             // scorri sezione
             sezione.style.transform = "translateY(0)";
 
@@ -112,7 +112,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 2;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-55px)";
+            titoloSezione.style.transform = "translateY(-110px)";
             // scorri sezione
             sezione.style.transform = "translateY(-25%)";
 
@@ -134,7 +134,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 3;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-110px)";
+            titoloSezione.style.transform = "translateY(-165px)";
             // scorri sezione
             sezione.style.transform = "translateY(-50%)";
 
@@ -156,20 +156,34 @@ function menu(sezioneFunc){
                 sezioneAttuale = 4;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-165px)";
+            titoloSezione.style.transform = "translateY(-220px)";
             // scorri sezione
             sezione.style.transform = "translateY(-75%)";
 
             break;
         case 5:
             if(impAperto == true){
-                impAperto = false;
+               impTitolo.style.opacity = "0";
+                // mostro altri titoli
+                homeTitolo.style.opacity = "1";
+                statTitolo.style.opacity = "1";
+                elabTitolo.style.opacity = "1";
+                caricElabTitolo.style.opacity = "1";
+
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
+                impAperto = false;
             } else if(impAperto == false){
-                impAperto = true;
+                // nascondo altri titoli
+                homeTitolo.style.opacity = "0";
+                statTitolo.style.opacity = "0";
+                elabTitolo.style.opacity = "0";
+                caricElabTitolo.style.opacity = "0";
+
+                impTitolo.style.opacity = "1";
                 imp.style.opacity = "1";
                 imp.style.zIndex = "5";
+                impAperto = true;
             }
             break;
         default:

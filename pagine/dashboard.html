@@ -63,6 +63,23 @@
             </div>
         </div>
         <div class="main">
+            <header>
+                <div class="containerTitoloSezione">
+                    <a class="impTitolo">Impostazioni</a>
+                    <div class="movingContainerTitoloSezione">
+                        <a class="homeTitolo">Home</a>
+                        <a class="statTitolo">Statistiche</a>
+                        <a class="elabTitolo">Elaborati</a>
+                        <a class="caricElabTitolo">Carica elaborati</a>
+                    </div>
+                </div>
+                <div class="containerUserInfo">
+                    <a>{{.NomeUtente}}</a>
+                    <div class="userImg">
+                        <img src="../static/media/user/noUserImg.svg"></img>
+                    </div>
+                </div>
+            </header>
             <div class="imp">
                 <div class="settaggi">
                     <form action="/cambioImpostazioni" method="POST">
@@ -88,19 +105,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="impDestra"></div>
             </div>
-            <header>
-                <div class="containerTitoloSezione">
-                    <a class="impTitolo">Impostazioni</a>
-                    <div class="movingContainerTitoloSezione">
-                        <a class="homeTitolo">Home</a>
-                        <a class="statTitolo">Statistiche</a>
-                        <a class="elabTitolo">Elaborati</a>
-                        <a class="caricElabTitolo">Carica elaborati</a>
-                    </div>
-                </div>
-            </header>
             <div class="sezioni">
                 <div class="movingContainerSezioni">
                     <div class="home">

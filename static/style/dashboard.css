@@ -255,7 +255,7 @@ body {
     position: absolute;
     background-color: #303030;
     margin-left: 50px;
-    margin-top: calc(100px);
+    margin-top: 25px;
     transition: 0.2s;
 }
 .settaggi {
@@ -387,8 +387,10 @@ header {
 
 }
 .containerTitoloSezione {
+    padding-top: 10px;
     height: 60px;
     width: 300px;
+    align-items: center;
     background: transparent;
     overflow: hidden;
 }
@@ -410,6 +412,33 @@ header {
     font-size: 40px;
     color: white;
     transition: 0.1s;
+}
+.containerUserInfo {
+    margin-right: 50px;
+    height: 60px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    align-items: center;
+}
+.containerUserInfo a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: white;
+    margin-right: 16px;
+}
+.userImg {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background: var(--mainBackground);
+}
+.userImg img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
 }
 
 /* SEZIONI */
@@ -435,5 +464,5 @@ header {
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
-    background: red;
+    background: blue;
 }

@@ -163,8 +163,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
 	}
 
-	idElabMenoCinque := idElab[:5]
-	fmt.Print(idElabMenoCinque)
+	fmt.Println(ElaboratiStructData)
 
 	elaboratiHTML := DashStruct{
 		TitoloPag: titoloP,
@@ -176,6 +175,8 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		Elaborati: ElaboratiStructData,
 		Sezione: sezione,
 	}
+
+	fmt.Println(elaboratiHTML)
 
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {

@@ -74,6 +74,18 @@ window.onload = function(){
 function menu(sezioneFunc){
     switch(sezioneFunc){
         case 1:
+            if(impAperto == true){
+                impTitolo.style.opacity = "0";
+                // mostro altri titoli
+                homeTitolo.style.opacity = "1";
+                statTitolo.style.opacity = "1";
+                elabTitolo.style.opacity = "1";
+                caricElabTitolo.style.opacity = "1";
+
+                imp.style.opacity = "0";
+                imp.style.zIndex = "0";
+                impAperto = false;
+            }
             // scorri menu
             if(sezioneAttuale != 1){
                 menuHomeA.style.opacity = "1";
@@ -96,6 +108,18 @@ function menu(sezioneFunc){
 
             break;
         case 2:
+            if(impAperto == true){
+               impTitolo.style.opacity = "0";
+                // mostro altri titoli
+                homeTitolo.style.opacity = "1";
+                statTitolo.style.opacity = "1";
+                elabTitolo.style.opacity = "1";
+                caricElabTitolo.style.opacity = "1";
+
+                imp.style.opacity = "0";
+                imp.style.zIndex = "0";
+                impAperto = false;
+            }
             // scorri menu
             if(sezioneAttuale != 2){
                 menuStatsA.style.opacity = "1";
@@ -118,6 +142,18 @@ function menu(sezioneFunc){
 
             break;
         case 3:
+            if(impAperto == true){
+               impTitolo.style.opacity = "0";
+                // mostro altri titoli
+                homeTitolo.style.opacity = "1";
+                statTitolo.style.opacity = "1";
+                elabTitolo.style.opacity = "1";
+                caricElabTitolo.style.opacity = "1";
+
+                imp.style.opacity = "0";
+                imp.style.zIndex = "0";
+                impAperto = false;
+            }
             // scorri menu
             if(sezioneAttuale != 3){
                 menuFileA.style.opacity = "1";
@@ -140,6 +176,18 @@ function menu(sezioneFunc){
 
             break;
         case 4:
+            if(impAperto == true){
+               impTitolo.style.opacity = "0";
+                // mostro altri titoli
+                homeTitolo.style.opacity = "1";
+                statTitolo.style.opacity = "1";
+                elabTitolo.style.opacity = "1";
+                caricElabTitolo.style.opacity = "1";
+
+                imp.style.opacity = "0";
+                imp.style.zIndex = "0";
+                impAperto = false;
+            }
             // scorri menu
             if(sezioneAttuale != 4){
                 menuAggFileA.style.opacity = "1";

@@ -509,14 +509,52 @@ header {
 .home{
     display: flex;
     flex-direction: column;
+    background: transparent;
 }
 .divHomeSopra{
     height: 45%;
     width: 100%;
-    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+.divHomeSopraSinistra{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.divElaboratiPreferiti{
+    height: 95%;
+    width: 93%;
+    background: rgba(48, 48, 48, 0.9);
+    border-radius: 30px;
+    transform: translateX(-0.5%);
+}
+.divHomeSopraDestra{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.divHomeStatsElaborati{
+    height: 95%;
+    width: 93%;
+    background: rgba(48, 48, 48, 0.9);
+    border-radius: 30px;
+    transform: translateX(-3%);
 }
 .divHomeSotto{
     height: 55%;
     width: 100%;
-    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.divElaboratiRecenti{
+    height: 95%;
+    width: 96%;
+    background: rgba(48, 48, 48, 0.9);
+    border-radius: 30px;
 }

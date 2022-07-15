@@ -505,3 +505,18 @@ header {
     margin-bottom: 50px;
     background: blue;
 }
+/*HOME*/
+.home{
+    display: flex;
+    flex-direction: column;
+}
+.divHomeSopra{
+    height: 45%;
+    width: 100%;
+    background-color: red;
+}
+.divHomeSotto{
+    height: 55%;
+    width: 100%;
+    background-color: green;
+}

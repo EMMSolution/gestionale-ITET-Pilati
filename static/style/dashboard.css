@@ -23,6 +23,8 @@ body {
 :root {
     --mainBackground: #4E4E4E;
     --barraLateraleColore: #303030;
+    --widgetSpacing: 25px;
+    --widgetBorderRadius: 25px;
 }
 
 /* WELCOME PAGE */
@@ -112,7 +114,7 @@ body {
     position: absolute;
     width: 713px;
     height: 1737px;
-    top: -13%;  
+    top: -13%;
     left: 1%;
     background: #70C7EC;
     transform: rotate(-40deg);
@@ -483,8 +485,8 @@ header {
 /* SEZIONI */
 .sezioni {
     overflow: hidden;
-    margin-top: 25px;
-    height: calc(100% - 25px);
+    margin-top: 15px;
+    height: calc(100% - 15px);
     width: 100%;
     background: transparent;
 }
@@ -503,62 +505,54 @@ header {
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
-    background: blue;
-}
-/*HOME*/
-.home,
-.statistiche{
     display: flex;
     flex-direction: column;
 }
+
+/* HOME */
 .divHomeSopra{
-    height: 50%;
+    height: 45%;
     width: 100%;
     display: flex;
     flex-direction: row;
 }
 .divHomeSopraSinistra{
     height: 100%;
-    width: 70%;
+    width: 77%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 .divElaboratiPreferiti{
-    height: 95%;
-    width: 93%;
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
-    transform: translateX(-0.5%);
+    border-radius: var(--widgetBorderRadius);
 }
 .divHomeSopraDestra{
     height: 100%;
-    width: 30%;
+    width: 23%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 .divHomeStatsElaborati{
-    height: 95%;
-    width: 93%;
+    margin-left: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
-    transform: translateX(-3%);
+    border-radius: var(--widgetBorderRadius);
 }
 .divHomeSotto{
-    height: 50%;
+    height: 55%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 .divElaboratiRecenti{
-    height: 95%;
-    width: 96%;
+    margin-top: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: 100%;
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
+    border-radius: var(--widgetBorderRadius);
 }
-/*Statistiche*/
+
+/* STATISTICHE */
 .statistiche{
     display: flex;
     flex-direction: column;
@@ -574,26 +568,27 @@ header {
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 .divGraficoLinee{
-    height: 95%;
-    width: 93%;
+    margin-bottom: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
+    border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSopraDestra{
     height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 .divStatisticheStatsElaborati{
-    height: 95%;
-    width: 93%;
+    margin-left: calc(var(--widgetSpacing)/2);
+    margin-bottom: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
+    border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSotto{
     width: 100%;
@@ -606,27 +601,25 @@ header {
     width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 .divStatisticheGraficoTorta{
-    height: 95%;
-    width: 93%;
+    margin-top: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
-    transform: translateX(3%);
+    border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSottoDestra{
     height: 100%;
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 .divStatisticheGraficoColonne{
-    height: 95%;
-    width: 93%;
+    margin-left: calc(var(--widgetSpacing)/2);
+    margin-top: calc(var(--widgetSpacing)/2);
+    height: calc(100% - var(--widgetSpacing)/2);
+    width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
-    border-radius: 30px;
-    transform: translateX(2%);
+    border-radius: var(--widgetBorderRadius);
 }
-

@@ -50,14 +50,17 @@ type HomeStruct struct {
 	Errore       string
 }
 type DashStruct struct {
-	TitoloPag    string
-	NuovoAcc     string
-	IdUtente     string
-	NomeUtente   string
-	EmailUtente  string
-	PassUtente   string
-	Elaborati    []ElabStructDash
-	Sezione      string
+	TitoloPag    	   string
+	NuovoAcc    	   string
+	IdUtente     	   string
+	NomeUtente   	   string
+	EmailUtente 	   string
+	PassUtente 		   string
+	Elaborati   	   []ElabStructDash
+	Sezione            string
+	ElabInfoCaricati   string
+	ElabInfoApprovare  string
+	ElabInfoPubblici   string
 }
 
 func main(){
@@ -138,7 +141,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// creo gli arrey degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
-	// creo array id elab
+	// creo array id elaborati
 	var idElab []string
 	// creo la struct da mettere nell HTML
 	titoloP := "Dashboard - " + credVar.Name
@@ -146,7 +149,9 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// raccolgo gli elaborati per renderizzarli nella dash
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
-	//sogliaId := 5
+	// n elaborati
+	ElaboratiTotali := 0
+	// analizzo query elaborati
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
 		if err != nil {
@@ -161,11 +166,13 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		idElab = append(idElab, ElabStruct1.Id)
 		ElabStruct1.Recente = true
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
+
+		ElaboratiTotali += 1
 	}
 
 	fmt.Println(ElaboratiStructData)
 
-	elaboratiHTML := DashStruct{
+	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
 		NuovoAcc: credVar.Nuovo,
 		IdUtente: credVar.Id,
@@ -174,6 +181,9 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		PassUtente: credVar.Password,
 		Elaborati: ElaboratiStructData,
 		Sezione: sezione,
+		ElabInfoCaricati: ElaboratiTotali,
+		ElabInfoApprovare: ElaboratiApprovare,
+		ElabInfoPubblici: ElaboratiPubblici,
 	}
 
 	fmt.Println(elaboratiHTML)

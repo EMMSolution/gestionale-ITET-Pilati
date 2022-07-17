@@ -510,6 +510,7 @@ header {
 }
 
 /* HOME */
+/* sezioni */
 .divHomeSopra{
     height: 45%;
     width: 100%;
@@ -538,6 +539,11 @@ header {
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 .divHomeSotto{
     height: 55%;
@@ -550,6 +556,107 @@ header {
     width: 100%;
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+}
+/* statistiche (alto destra) */
+.label1,
+.label2,
+.label3 {
+    height: 26%;
+    width: 88%;
+    background-color: #1B1B1B;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+}
+.label1 .sinistra,
+.label2 .sinistra,
+.label3 .sinistra {
+    width: 20%;
+}
+.label1 .barra,
+.label2 .barra,
+.label3 .barra {
+    transition: 0.8s;
+    position: absolute;
+    height: 9.6vh;
+    width: 2.5%;
+    border-radius: 24px;
+}
+.label1 .barra {
+    background-color: #1FC4DA;
+}
+.label2 .barra {
+    background-color: #FF8496;
+}
+.label3 .barra {
+    background-color: #C27DFC;
+}
+.label1:hover .barra {
+    width: 18%;
+}
+.label2:hover .barra {
+    width: 18%;
+}
+.label3:hover .barra {
+    width: 18%;
+}
+.label1:hover a {
+    color: black;
+}
+.label2:hover a {
+    color: black;
+}
+.label3:hover a {
+    color: black;
+}
+.label1 .icona,
+.label2 .icona,
+.label3 .icona {
+    top: calc((100% - 7.4vh)/2);
+    left: 15%;
+    position: relative;
+    height: 7.4vh;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+}
+.label1 .icona img,
+.label2 .icona img,
+.label3 .icona img {
+    height: 75%;
+    margin-left: 16%; /*ofset per icona fatta larga*/
+}
+.label1 .dati,
+.label2 .dati,
+.label3 .dati {
+    z-index: 3;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.label1 .titolo,
+.label2 .titolo,
+.label3 .titolo {
+    transition: 0.8s;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #B2B2B2;
+}
+.label1 .numero,
+.label2 .numero,
+.label3 .numero {
+    transition: 0.8s;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: white;
 }
 
 /* STATISTICHE */

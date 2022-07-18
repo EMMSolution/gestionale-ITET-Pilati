@@ -578,7 +578,6 @@ header {
 .label3 .barra {
     transition: 0.8s;
     position: absolute;
-    height: 9.6vh;
     width: 2.5%;
     border-radius: 24px;
 }

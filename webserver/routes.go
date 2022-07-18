@@ -58,9 +58,9 @@ type DashStruct struct {
 	PassUtente 		   string
 	Elaborati   	   []ElabStructDash
 	Sezione            string
-	ElabInfoCaricati   string
-	ElabInfoApprovare  string
-	ElabInfoPubblici   string
+	ElabInfoCaricati   int
+	ElabInfoApprovare  int
+	ElabInfoPubblici   int
 }
 
 func main(){
@@ -151,6 +151,8 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
 	// n elaborati
 	ElaboratiTotali := 0
+	ElaboratiApprovare := 0
+	ElaboratiPubblici := 0
 	// analizzo query elaborati
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)

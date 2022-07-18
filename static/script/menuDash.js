@@ -3,6 +3,7 @@ var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitol
 var indicatoreMenu, menuHomeA, menuHomeImg, menuStatsA, menuStatsImg, menuFileA, menuFileImg, menuAggFileA, menuAggFileImg;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
 var welcomePage;
+var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidgetColorBar1, homeStatsWidgetColorBar2, homeStatsWidgetColorBar3;
 
 var sezioneAttuale = 1;
 var impAperto = false;
@@ -34,6 +35,13 @@ window.onload = function(){
     inputImpEmail = document.querySelector('.inputImp2');
     inputImpPass = document.querySelector('.inputImp3');
     welcomePage = document.querySelector('.welcomePage');
+    // home
+    homeStatsWidgetDiv1 = document.querySelector('.label1');
+    homeStatsWidgetDiv2 = document.querySelector('.label2');
+    homeStatsWidgetDiv3 = document.querySelector('.label3');
+    homeStatsWidgetColorBar1 = document.querySelector('.label1 .sinistra .barra');
+    homeStatsWidgetColorBar2 = document.querySelector('.label2 .sinistra .barra');
+    homeStatsWidgetColorBar3 = document.querySelector('.label3 .sinistra .barra');
 
     // posizione default titolo sezione
     titoloSezione.style.transform = "translateY(-55px)";
@@ -54,6 +62,11 @@ window.onload = function(){
         welcomePage.style.display = "none"
     }
 
+    // altezza barra colorata home - stats widget
+    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
+    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
+    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
+
     // cambio sezione con query (da url)
     switch (sezioneQuery){
         case "1":
@@ -71,6 +84,14 @@ window.onload = function(){
     }
 }
 
+// EVENT LISTENER
+window.addEventListener('resize', () => {
+    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
+    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
+    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
+});
+
+// FUNCTIONS
 function menu(sezioneFunc){
     switch(sezioneFunc){
         case 1:

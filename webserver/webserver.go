@@ -16,7 +16,7 @@ func Webserver(infoDB string) {
 	porta := imp.WsPort
 
 	// server in ascolto
-	fmt.Println("Webserver acceso a porta: ",string(porta),"\n")
+	fmt.Println()
 	formattedPort := ":"+string(porta)
 	http.ListenAndServe(formattedPort, nil)
 }

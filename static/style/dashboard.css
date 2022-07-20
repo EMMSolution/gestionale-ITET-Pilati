@@ -197,7 +197,7 @@ body {
     left: calc(60px - 50px/2 - 8px);
     height: 50px;
     width: 50px;
-    background-color: #FFE600;
+    background-color: #ffffff;
     position: absolute;
     transition: 0.5s;
 }
@@ -233,6 +233,12 @@ body {
     flex-direction: column;
     width: 100%;
 }
+.lista button div {
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .lista button div a {
     position: absolute;
     text-align: center;
@@ -246,17 +252,17 @@ body {
     opacity: 0;
     transition: 0.5s;
 }
-.lista button div img {
+.lista button div icona {
     position: absolute;
     margin-left: 13px;
     width: 34px;
     transition: 0.5s;
 }
-.lista button div {
-    height: 65px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.lista button div .icona {
+    position: absolute;
+    margin-left: 13px;
+    width: 34px;
+    transition: 0.5s;
 }
 .lista button {
     background: var(--barraLateraleColore);

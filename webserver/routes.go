@@ -4,12 +4,14 @@ import (
 	"os"
 	"fmt"
 	"bufio"
+	"os/exec"
 	"strings"
 	"net/http"
 	"io/ioutil"
 	"database/sql"
-    _"github.com/go-sql-driver/mysql"
 	"html/template"
+    _"github.com/go-sql-driver/mysql"
+	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
 )
 
@@ -18,6 +20,9 @@ var InfoDB string
 var Cwd string
 // variabile per il numero di elaborati
 var Nelaborati string
+// variabile per i log del terminale
+var SchermataTerminale string
+var inputLog string
 // struct per dahboard
 type ElabStruct struct {
 	Id          string
@@ -63,11 +68,19 @@ type DashStruct struct {
 	ElabInfoPubblici   int
 }
 
-func main(){
 
+func cls() {
+	cls := exec.Command("cmd", "/c", "cls")
+	cls.Stdout = os.Stdout
+	cls.Run()
 }
 
+func main(){}
+
 func Routes(infoDB string){
+	// schermata
+	SchermataTerminale = imp.Banner + "\n"
+
 	fileNelaborati, _ := os.Open("\\webserver\\var\\Nelaborati.txt")
 	scanner := bufio.NewScanner(fileNelaborati)
 	InfoDB = infoDB
@@ -195,10 +208,15 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		// execute html template
 			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
 	} else {
-		fmt.Println("Utente loggato:")
-		fmt.Println("  -id: " + credVar.Id)
-		fmt.Println("  -nome: " + credVar.Name)
-		fmt.Println("  -email: " + credVar.Email + "\n")
+		// aggiorno e stampo i log
+		cls()
+		SchermataTerminale += `
+	Utente loggato:
+  	  -id: ` + credVar.Id + `
+  	  -nome: ` + credVar.Name + `
+  	  -email: ` + credVar.Email + "\n"
+		fmt.Print(SchermataTerminale)
+
 		// aggiorno il profilo non più nuovo
 		if credVar.Nuovo == "si" {
 			DBconn.Query("UPDATE user SET nuovo = 'no'")
@@ -246,6 +264,14 @@ func register(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("  -email: " + MailUtente + "\n")
 			// redirect alla home
 			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
+
+			// aggiorno e stampo i log
+			cls()
+			SchermataTerminale += `
+	Utente loggato:
+	  -nome: ` + NomeUtente + `
+	  -email: ` + MailUtente + "\n"
+			fmt.Print(SchermataTerminale)
 	}
 }
 

@@ -1,6 +1,6 @@
 var sezione;
 var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
-var indicatoreMenu, menuHomeA, menuHomeImg, menuStatsA, menuStatsImg, menuFileA, menuFileImg, menuAggFileA, menuAggFileImg;
+var indicatoreMenu, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
 var welcomePage;
 var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidgetColorBar1, homeStatsWidgetColorBar2, homeStatsWidgetColorBar3;
@@ -21,13 +21,24 @@ window.onload = function(){
     // menu
     indicatoreMenu = document.querySelector('.indicatore');
     menuHomeA = document.querySelector('#meuHomeA');
-    menuHomeImg = document.querySelector('#menuHomeImg');
+    menuHomeImg = document.querySelector('#iconaHomeMenu');
+    menuHomeSvgPath1 = document.querySelector('#iconaHomeMenu .cls-1-1');
+    menuHomeSvgPath2 = document.querySelector('#iconaHomeMenu .cls-1-2');
     menuStatsA = document.querySelector('#meuStatsA');
-    menuStatsImg = document.querySelector('#menuStatsImg');
+    menuStatsImg = document.querySelector('#iconaStatsMenu');
+    menuStatsSvgPath1 = document.querySelector('#iconaStatsMenu .cls-1-1');
+    menuStatsSvgPath2 = document.querySelector('#iconaStatsMenu .cls-1-2');
     menuFileA = document.querySelector('#meuFileA');
-    menuFileImg = document.querySelector('#menuFileImg');
+    menuFileImg = document.querySelector('#iconaFileMenu');
+    menuFileSvgPath1 = document.querySelector('#iconaFileMenu .cls-1-1');
+    menuFileSvgPath2 = document.querySelector('#iconaFileMenu .cls-1-2');
+    menuFileSvgPath3 = document.querySelector('#iconaFileMenu .cls-1-3');
     menuAggFileA = document.querySelector('#meuAggFileA');
-    menuAggFileImg = document.querySelector('#menuAggFileImg');
+    menuAggFileImg = document.querySelector('#iconaAggFileMenu');
+    menuAggFileSvgPath1 = document.querySelector('#iconaAggFileMenu .cls-1-1');
+    menuAggFileSvgPath2 = document.querySelector('#iconaAggFileMenu .cls-1-2');
+    menuAggFileSvgPath3 = document.querySelector('#iconaAggFileMenu .cls-1-3');
+    menuAggFileSvgPath4 = document.querySelector('#iconaAggFileMenu .cls-2');
     // impostazioni
     imp = document.querySelector('.imp');
     passImpInput = document.querySelector('.inputImp3');
@@ -50,6 +61,18 @@ window.onload = function(){
     // posizione default menu
     menuHomeA.style.opacity = "1";
     menuHomeImg.style.transform = "translateX(30px)";
+
+    // colore default icone menu
+    menuHomeSvgPath1.style.fill = "#303030";
+    menuHomeSvgPath2.style.fill = "#303030";
+    menuStatsSvgPath1.style.fill = "#ffffff";
+    menuStatsSvgPath2.style.fill = "#ffffff";
+    menuFileSvgPath1.style.fill = "#ffffff";
+    menuFileSvgPath2.style.fill = "#ffffff";
+    menuFileSvgPath3.style.fill = "#ffffff";
+    menuAggFileSvgPath1.style.fill = "#ffffff";
+    menuAggFileSvgPath2.style.fill = "#ffffff";
+    menuAggFileSvgPath3.style.fill = "#ffffff";
 
     // posizione default impostazioni
     imp.style.opacity = "0";
@@ -120,6 +143,22 @@ function menu(sezioneFunc){
                 menuAggFileA.style.opacity = "0";
                 menuAggFileImg.style.transform = "translateX(0px)";
 
+                // colore icone menu
+                menuHomeSvgPath1.style.fill = "#303030";
+                menuHomeSvgPath2.style.fill = "#303030";
+
+                menuStatsSvgPath1.style.fill = "#ffffff";
+                menuStatsSvgPath2.style.fill = "#ffffff";
+
+                menuFileSvgPath1.style.fill = "#ffffff";
+                menuFileSvgPath2.style.fill = "#ffffff";
+                menuFileSvgPath3.style.fill = "#ffffff";
+
+                menuAggFileSvgPath1.style.fill = "#ffffff";
+                menuAggFileSvgPath2.style.fill = "#ffffff";
+                menuAggFileSvgPath3.style.fill = "#ffffff";
+                menuAggFileSvgPath4. style.fill = "#303030";
+
                 sezioneAttuale = 1;
             }
             // scorri titolo
@@ -153,6 +192,22 @@ function menu(sezioneFunc){
                 menuFileImg.style.transform = "translateX(0px)";
                 menuAggFileA.style.opacity = "0";
                 menuAggFileImg.style.transform = "translateX(0px)";
+
+                // colore icone menu
+                menuHomeSvgPath1.style.fill = "#ffffff";
+                menuHomeSvgPath2.style.fill = "#ffffff";
+
+                menuStatsSvgPath1.style.fill = "#303030";
+                menuStatsSvgPath2.style.fill = "#303030";
+
+                menuFileSvgPath1.style.fill = "#ffffff";
+                menuFileSvgPath2.style.fill = "#ffffff";
+                menuFileSvgPath3.style.fill = "#ffffff";
+
+                menuAggFileSvgPath1.style.fill = "#ffffff";
+                menuAggFileSvgPath2.style.fill = "#ffffff";
+                menuAggFileSvgPath3.style.fill = "#ffffff";
+                menuAggFileSvgPath4. style.fill = "#303030";
 
                 sezioneAttuale = 2;
             }
@@ -188,6 +243,22 @@ function menu(sezioneFunc){
                 menuAggFileA.style.opacity = "0";
                 menuAggFileImg.style.transform = "translateX(0px)";
 
+                // colore icone menu
+                menuHomeSvgPath1.style.fill = "#ffffff";
+                menuHomeSvgPath2.style.fill = "#ffffff";
+
+                menuStatsSvgPath1.style.fill = "#ffffff";
+                menuStatsSvgPath2.style.fill = "#ffffff";
+
+                menuFileSvgPath1.style.fill = "#303030";
+                menuFileSvgPath2.style.fill = "#303030";
+                menuFileSvgPath3.style.fill = "#303030";
+
+                menuAggFileSvgPath1.style.fill = "#ffffff";
+                menuAggFileSvgPath2.style.fill = "#ffffff";
+                menuAggFileSvgPath3.style.fill = "#ffffff";
+                menuAggFileSvgPath4. style.fill = "#303030";
+
                 sezioneAttuale = 3;
             }
             // scorri titolo
@@ -221,6 +292,22 @@ function menu(sezioneFunc){
                 menuStatsImg.style.transform = "translateX(0px)";
                 menuFileA.style.opacity = "0";
                 menuFileImg.style.transform = "translateX(0px)";
+
+                // colore icone menu
+                menuHomeSvgPath1.style.fill = "#ffffff";
+                menuHomeSvgPath2.style.fill = "#ffffff";
+
+                menuStatsSvgPath1.style.fill = "#ffffff";
+                menuStatsSvgPath2.style.fill = "#ffffff";
+
+                menuFileSvgPath1.style.fill = "#ffffff";
+                menuFileSvgPath2.style.fill = "#ffffff";
+                menuFileSvgPath3.style.fill = "#ffffff";
+
+                menuAggFileSvgPath1.style.fill = "#303030";
+                menuAggFileSvgPath2.style.fill = "#303030";
+                menuAggFileSvgPath3.style.fill = "#303030";
+                menuAggFileSvgPath4. style.fill = "#ffffff";
 
                 sezioneAttuale = 4;
             }

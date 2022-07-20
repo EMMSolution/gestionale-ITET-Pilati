@@ -68,8 +68,7 @@ func accendiWS(){
 		fmt.Print(`> `)
 		fmt.Scanln(&passDb)
 	}
-
-	fmt.Println("\nLog webserver: \n")
+	fmt.Print("   Log webserver: \n")
 
 	ws.Webserver(db.Database(passDb))
 }
@@ -82,7 +81,7 @@ func riconnessioneDB(){
 	Inserisci la password del database:
 
 	`)
-		fmt.Println(`    > `)
+		fmt.Print(`    > `)
 		fmt.Scanln(&passDB)
 		db.Database(passDB)
 		fmt.Println("Riconnessione db" + "\n")
@@ -108,7 +107,7 @@ func impostazioni(){
 	}
 	fmt.Printf(`
 	DATABASE:                          WEBSERVER:
-	1 Port: %s                      9 Port: %s 
+	1 Port: %s                      9 Port: %s
 	2 Host: %s
 	3 NomeDB: %s
 	4 Tab usr: %s
@@ -118,8 +117,8 @@ func impostazioni(){
 	8 Pass: %s
 
 	(0 per uscire)
-	> `, portaDB, imp.WsPort, 
-	   imp.DbHost, imp.Database, 
+	> `, portaDB, imp.WsPort,
+	   imp.DbHost, imp.Database,
 	   imp.TabellaUser, imp.TabellaElaborati,
 	   imp.DbUser, defaultPass,
 	   imp.DbPass)
@@ -132,7 +131,7 @@ func impostazioni(){
 			menu()
 		case 1:
 			fmt.Print(`
-	Nuova porta database (n per annullare): 
+	Nuova porta database (n per annullare):
 	> `)
 		   var Port string
 			fmt.Scanln(&Port)
@@ -144,7 +143,7 @@ func impostazioni(){
 
 		case 2:
 			fmt.Print(`
-	Nuovo host database (n per annullare): 
+	Nuovo host database (n per annullare):
 	> `)
 		   var Host string
 			fmt.Scanln(&Host)
@@ -153,10 +152,10 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-		
+
 		case 3:
 			fmt.Print(`
-	Nuovo nome database (n per annullare): 
+	Nuovo nome database (n per annullare):
 	> `)
 		   var NomeDB string
 			fmt.Scanln(&NomeDB)
@@ -165,10 +164,10 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-			
+
 		case 4:
 			fmt.Print(`
-	Nuovo nome tabella utenti (n per annullare): 
+	Nuovo nome tabella utenti (n per annullare):
 	> `)
 		   var TabUsr string
 			fmt.Scanln(&TabUsr)
@@ -177,10 +176,10 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-			
+
 		case 5:
 			fmt.Print(`
-	Nuovo nome tabella elaborati (n per annullare): 
+	Nuovo nome tabella elaborati (n per annullare):
 	> `)
 		   var TabElb string
 			fmt.Scanln(&TabElb)
@@ -189,10 +188,10 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-			
+
 		case 6:
 			fmt.Print(`
-	Nuovo nome user database (n per annullare): 
+	Nuovo nome user database (n per annullare):
 	> `)
 		   var User string
 			fmt.Scanln(&User)
@@ -201,10 +200,10 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-			
+
 		case 7:
 			fmt.Print(`
-	Default password [si/no] (n per annullare): 
+	Default password [si/no] (n per annullare):
 	> `)
 		   var User string
 			fmt.Scanln(&User)
@@ -217,7 +216,7 @@ func impostazioni(){
 			} else if (User == "n"){
 				impostazioni()
 			}
-			
+
 		case 8:
 			fmt.Print(`
     Nuova password database (n per annullare):
@@ -230,7 +229,7 @@ func impostazioni(){
 			}
 			// usa la variabile sopra per riscrivere il file imp/settings.go
 			impostazioni()
-			
+
 		case 9:
 			fmt.Print(`
     Nuova porta webserver (n per annullare):

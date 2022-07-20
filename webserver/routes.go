@@ -151,6 +151,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
+	// n elaborati
+	ElaboratiTotali := 0
+	ElaboratiApprovare := 0
+	ElaboratiPubblici := 0
 	// creo gli arrey degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
@@ -162,10 +166,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// raccolgo gli elaborati per renderizzarli nella dash
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
-	// n elaborati
-	ElaboratiTotali := 0
-	ElaboratiApprovare := 0
-	ElaboratiPubblici := 0
 	// analizzo query elaborati
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)

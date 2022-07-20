@@ -151,6 +151,20 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
+	// controlle se le credenziali esistono
+	if credVar.Id == "" {
+		// execute html template
+			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
+	} else {
+		// aggiorno e stampo i log
+		cls()
+		SchermataTerminale += `
+	Utente loggato:
+  	  -id: ` + credVar.Id + `
+  	  -nome: ` + credVar.Name + `
+  	  -email: ` + credVar.Email + "\n"
+		fmt.Print(SchermataTerminale)
+	}
 	// creo gli arrey degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
@@ -184,8 +198,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
-
-	fmt.Println(ElaboratiStructData)
+	fmt.Println(idElab)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
@@ -201,30 +214,14 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
 
-	fmt.Println(elaboratiHTML)
-
-	// controlle se le credenziali esistono
-	if credVar.Id == "" {
-		// execute html template
-			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
-	} else {
-		// aggiorno e stampo i log
-		cls()
-		SchermataTerminale += `
-	Utente loggato:
-  	  -id: ` + credVar.Id + `
-  	  -nome: ` + credVar.Name + `
-  	  -email: ` + credVar.Email + "\n"
-		fmt.Print(SchermataTerminale)
-
-		// aggiorno il profilo non più nuovo
-		if credVar.Nuovo == "si" {
-			DBconn.Query("UPDATE user SET nuovo = 'no'")
-		}
-		// execute html template
-		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-		template.Execute(w, elaboratiHTML)
+	
+	// aggiorno il profilo non più nuovo
+	if credVar.Nuovo == "si" {
+		DBconn.Query("UPDATE user SET nuovo = 'no'")
 	}
+	// execute html template
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
+	template.Execute(w, elaboratiHTML)
 }
 
 func register(w http.ResponseWriter, r *http.Request) {

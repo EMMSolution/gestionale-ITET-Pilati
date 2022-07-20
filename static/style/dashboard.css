@@ -582,7 +582,7 @@ header {
 .label1 .barra,
 .label2 .barra,
 .label3 .barra {
-    transition: 0.8s;
+    transition: 0.8s width;
     position: absolute;
     width: 2.5%;
     border-radius: 24px;

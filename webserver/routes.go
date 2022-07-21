@@ -165,6 +165,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
   	  -email: ` + credVar.Email + "\n"
 		fmt.Print(SchermataTerminale)
 	}
+	// n elaborati
+	ElaboratiTotali := 0
+	ElaboratiApprovare := 0
+	ElaboratiPubblici := 0
 	// creo gli arrey degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
@@ -176,10 +180,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// raccolgo gli elaborati per renderizzarli nella dash
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
-	// n elaborati
-	ElaboratiTotali := 0
-	ElaboratiApprovare := 0
-	ElaboratiPubblici := 0
 	// analizzo query elaborati
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
@@ -199,6 +199,16 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElaboratiTotali += 1
 	}
 	fmt.Println(idElab)
+	//creo array degli elaborati recenti
+	var elabRecenti [5]int
+	//prendo gli elaborati recenti uno ad uno
+	elabRecenti[0] = elabRecenti[len(idElab)-5]
+	elabRecenti[1] = elabRecenti[len(idElab)-4]
+	elabRecenti[2] = elabRecenti[len(idElab)-3]
+	//elabRecenti[3] = elabRecenti[len(idElab)-2]
+	//elabRecenti[4] = elabRecenti[len(idElab)-1]
+	fmt.Println(elabRecenti)
+
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,

@@ -80,15 +80,18 @@ window.onload = function(){
 
     // nuovo account intro page
     if(nuovoAcc == "si"){
-        welcomePage.style.display = "block"
+        welcomePage.style.display = "block";
     } else {
-        welcomePage.style.display = "none"
+        welcomePage.style.display = "none";
     }
 
-    // altezza barra colorata home - stats widget
-    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
-    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
-    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
+    // dimensioni barra colorata home - stats widget
+    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px";
+    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px";
+    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px";
+    homeStatsWidgetColorBar1.style.width = "2.5%";
+    homeStatsWidgetColorBar2.style.width = "2.5%";
+    homeStatsWidgetColorBar3.style.width = "2.5%";
 
     // cambio sezione con query (da url)
     switch (sezioneQuery){
@@ -109,10 +112,29 @@ window.onload = function(){
 
 // EVENT LISTENER
 window.addEventListener('resize', () => {
-    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
-    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
-    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
+    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px";
+    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px";
+    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px";
 });
+// mouse over barre colorate home - stas widget
+homeStatsWidgetColorBar1.addEventListener('mouseover', () => {
+    homeStatsWidgetColorBar1.style.width = homeStatsWidgetDiv1.clientWidth + "px";
+})
+homeStatsWidgetColorBar1.addEventListener('mouseout', () => {
+    homeStatsWidgetColorBar1.style.width = "2.5%";
+})
+homeStatsWidgetColorBar1.addEventListener('mouseover', () => {
+    homeStatsWidgetColorBar2.style.width = homeStatsWidgetDiv1.clientWidth + "px";
+})
+homeStatsWidgetColorBar2.addEventListener('mouseout', () => {
+    homeStatsWidgetColorBar2.style.width = "2.5%";
+})
+homeStatsWidgetColorBar3.addEventListener('mouseover', () => {
+    homeStatsWidgetColorBar3.style.width = homeStatsWidgetDiv1.clientWidth + "px";
+})
+homeStatsWidgetColorBar3.addEventListener('mouseout', () => {
+    homeStatsWidgetColorBar3.style.width = "2.5%";
+})
 
 // FUNCTIONS
 function menu(sezioneFunc){

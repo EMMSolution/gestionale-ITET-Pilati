@@ -596,15 +596,6 @@ header {
 .label3 .barra {
     background-color: #C27DFC;
 }
-.label1:hover .barra {
-    width: 18%;
-}
-.label2:hover .barra {
-    width: 18%;
-}
-.label3:hover .barra {
-    width: 18%;
-}
 .label1:hover a {
     color: black;
 }

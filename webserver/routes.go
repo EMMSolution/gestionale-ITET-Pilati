@@ -185,8 +185,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElaboratiTotali += 1
 	}
 
-	fmt.Println(ElaboratiStructData)
-
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
 		NuovoAcc: credVar.Nuovo,
@@ -200,8 +198,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoApprovare: ElaboratiApprovare,
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
-
-	fmt.Println(elaboratiHTML)
 
 	// controlle se le credenziali esistono
 	if credVar.Id == "" {
@@ -219,6 +215,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		// aggiorno il profilo non più nuovo
 		if credVar.Nuovo == "si" {
+			// FIXARE ERRORE
 			DBconn.Query("UPDATE user SET nuovo = 'no'")
 		}
 		// execute html template

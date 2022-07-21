@@ -151,6 +151,20 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
+	// controlle se le credenziali esistono
+	if credVar.Id == "" {
+		// execute html template
+			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
+	} else {
+		// aggiorno e stampo i log
+		cls()
+		SchermataTerminale += `
+	Utente loggato:
+  	  -id: ` + credVar.Id + `
+  	  -nome: ` + credVar.Name + `
+  	  -email: ` + credVar.Email + "\n"
+		fmt.Print(SchermataTerminale)
+	}
 	// n elaborati
 	ElaboratiTotali := 0
 	ElaboratiApprovare := 0
@@ -184,6 +198,16 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
+	fmt.Println(idElab)
+	//creo array degli elaborati recenti
+	var elabRecenti [5]int
+	//prendo gli elaborati recenti uno ad uno
+	elabRecenti[0] = elabRecenti[len(idElab)-5]
+	elabRecenti[1] = elabRecenti[len(idElab)-4]
+	elabRecenti[2] = elabRecenti[len(idElab)-3]
+	//elabRecenti[3] = elabRecenti[len(idElab)-2]
+	//elabRecenti[4] = elabRecenti[len(idElab)-1]
+	fmt.Println(elabRecenti)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
@@ -199,29 +223,14 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
 
-	// controlle se le credenziali esistono
-	if credVar.Id == "" {
-		// execute html template
-			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
-	} else {
-		// aggiorno e stampo i log
-		cls()
-		SchermataTerminale += `
-	Utente loggato:
-  	  -id: ` + credVar.Id + `
-  	  -nome: ` + credVar.Name + `
-  	  -email: ` + credVar.Email + "\n"
-		fmt.Print(SchermataTerminale)
 
-		// aggiorno il profilo non più nuovo
-		if credVar.Nuovo == "si" {
-			// FIXARE ERRORE
-			DBconn.Query("UPDATE user SET nuovo = 'no'")
-		}
-		// execute html template
-		template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
-		template.Execute(w, elaboratiHTML)
+	// aggiorno il profilo non più nuovo
+	if credVar.Nuovo == "si" {
+		DBconn.Query("UPDATE user SET nuovo = 'no'")
 	}
+	// execute html template
+	template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
+	template.Execute(w, elaboratiHTML)
 }
 
 func register(w http.ResponseWriter, r *http.Request) {

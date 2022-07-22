@@ -726,3 +726,31 @@ header {
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
 }
+/*ELABORATI*/
+.sezElaborati{
+    background-color: rgba(48 ,48, 48, 0.9);
+    height:100%;
+    width:100%;
+    border-radius: var(--widgetBorderRadius);
+}
+.titoloPref{
+    position: absolute;
+    color: rgb(225, 225, 225);
+    font-family: 'Roboto', sans-serif;
+    margin-top: 23px;
+    margin-left: 55px;
+    font-size: 30px;
+}
+.scrollBar{
+    height: 12px;
+    width: calc(100% - 90px);
+    background-color: rgba(88, 88, 88, 80%);
+    margin-top: 252px;
+    margin-left: 45px;
+    border-radius: 49px;
+}
+.indicatoreScrolll{
+    scrollbar-color: blue;
+}
+
+

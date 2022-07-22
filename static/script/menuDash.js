@@ -80,15 +80,44 @@ window.onload = function(){
 
     // nuovo account intro page
     if(nuovoAcc == "si"){
-        welcomePage.style.display = "block"
+        welcomePage.style.display = "block";
     } else {
-        welcomePage.style.display = "none"
+        welcomePage.style.display = "none";
     }
 
-    // altezza barra colorata home - stats widget
-    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
-    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
-    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
+    // dimensioni barra colorata home - stats widget
+    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px";
+    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px";
+    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px";
+    homeStatsWidgetColorBar1.style.width = "2.5%";
+    homeStatsWidgetColorBar2.style.width = "2.5%";
+    homeStatsWidgetColorBar3.style.width = "2.5%";
+
+    // EVENT LISTENER
+    window.addEventListener('resize', () => {
+        homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px";
+        homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px";
+        homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px";
+    });
+    // mouse over barre colorate home - stas widget
+    homeStatsWidgetDiv1.addEventListener('mouseover', () => {
+        homeStatsWidgetColorBar1.style.width = homeStatsWidgetDiv1.clientWidth + "px";
+    })
+    homeStatsWidgetDiv1.addEventListener('mouseout', () => {
+        homeStatsWidgetColorBar1.style.width = "2.5%";
+    })
+    homeStatsWidgetDiv2.addEventListener('mouseover', () => {
+        homeStatsWidgetColorBar2.style.width = homeStatsWidgetDiv2.clientWidth + "px";
+    })
+    homeStatsWidgetDiv2.addEventListener('mouseout', () => {
+        homeStatsWidgetColorBar2.style.width = "2.5%";
+    })
+    homeStatsWidgetDiv3.addEventListener('mouseover', () => {
+        homeStatsWidgetColorBar3.style.width = homeStatsWidgetDiv3.clientWidth + "px";
+    })
+    homeStatsWidgetDiv3.addEventListener('mouseout', () => {
+        homeStatsWidgetColorBar3.style.width = "2.5%";
+    })
 
     // cambio sezione con query (da url)
     switch (sezioneQuery){
@@ -106,13 +135,6 @@ window.onload = function(){
             break;
     }
 }
-
-// EVENT LISTENER
-window.addEventListener('resize', () => {
-    homeStatsWidgetColorBar1.style.height = homeStatsWidgetDiv1.clientHeight + "px"
-    homeStatsWidgetColorBar2.style.height = homeStatsWidgetDiv2.clientHeight + "px"
-    homeStatsWidgetColorBar3.style.height = homeStatsWidgetDiv3.clientHeight + "px"
-});
 
 // FUNCTIONS
 function menu(sezioneFunc){

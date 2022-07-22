@@ -199,15 +199,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElaboratiTotali += 1
 	}
 	fmt.Println(idElab)
-	//creo array degli elaborati recenti
-	var elabRecenti [5]int
-	//prendo gli elaborati recenti uno ad uno
-	elabRecenti[0] = elabRecenti[len(idElab)-5]
-	elabRecenti[1] = elabRecenti[len(idElab)-4]
-	elabRecenti[2] = elabRecenti[len(idElab)-3]
-	//elabRecenti[3] = elabRecenti[len(idElab)-2]
-	//elabRecenti[4] = elabRecenti[len(idElab)-1]
-	fmt.Println(elabRecenti)
 
 
 	elaboratiHTML := DashStruct {

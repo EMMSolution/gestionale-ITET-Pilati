@@ -23,6 +23,8 @@ var Nelaborati string
 // variabile per i log del terminale
 var SchermataTerminale string
 var inputLog string
+//id degli ultimi 5 elaborati
+var elabRecenti [5]string 
 // struct per dahboard
 type ElabStruct struct {
 	Id          string
@@ -198,7 +200,14 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
-	fmt.Println(idElab)
+	//metto i valori all'interno dell'array
+	elabRecenti[0] = idElab[len(idElab)-5]
+	elabRecenti[1] = idElab[len(idElab)-4]
+	elabRecenti[2] = idElab[len(idElab)-3]
+	elabRecenti[3] = idElab[len(idElab)-2]
+	elabRecenti[4] = idElab[len(idElab)-1]
+
+	fmt.Println(elabRecenti)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
@@ -214,7 +223,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
 
-
+	
 	// aggiorno il profilo non più nuovo
 	if credVar.Nuovo == "si" {
 		DBconn.Query("UPDATE user SET nuovo = 'no'")

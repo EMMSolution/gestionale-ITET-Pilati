@@ -293,7 +293,7 @@ body {
 
 /* IMPOSTAZIONI */
 .imp {
-    height: calc(100% - 150px);
+    height: calc(100% - 140px);
     width: calc(100% - 160px);
     display: flex;
     justify-content: center;
@@ -302,7 +302,7 @@ body {
     position: absolute;
     background-color: #303030;
     margin-left: 50px;
-    margin-top: 25px;
+    margin-top: 15px;
     transition: 0.2s;
 }
 .settaggi {
@@ -752,5 +752,3 @@ header {
 .indicatoreScrolll{
     scrollbar-color: blue;
 }
-
-

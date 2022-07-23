@@ -741,14 +741,43 @@ header {
     margin-left: 55px;
     font-size: 30px;
 }
-.scrollBar{
-    height: 12px;
+.sezPreferitiElab{
+    overflow: auto;
+    white-space: nowrap;
+    margin-top:80px;
+    height:204px;
+    width: calc(100% - 108px);
+    margin-left:54px;
+}
+
+.scrollbar{
+    overflow: visible;
     width: calc(100% - 90px);
-    background-color: rgba(88, 88, 88, 80%);
-    margin-top: 252px;
-    margin-left: 45px;
-    border-radius: 49px;
+    height: 10px;
+    scrollbar-color: rgb(173, 0, 0) rgba(0, 255, 42, 0.8);
 }
-.indicatoreScrolll{
-    scrollbar-color: blue;
-}
+<<<<<<< HEAD
+=======
+
+.scrollbar div{
+    display: inline-block;
+    color: rgb(0, 0, 0);
+  }
+  ::-webkit-scrollbar {
+    width: calc(100% - 90px);
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(88,88,88,80%);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: rgba(255,255,255);
+    border-radius: 10px;
+  }
+
+
+>>>>>>> 94383d409dc813daeb781c079884a9f168583239

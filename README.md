@@ -25,6 +25,10 @@ var Database string = "gestionalePilati"
 var TabellaElaborati string = "elaborati"
 var TabellaUser string = "user"
 
+// Developer
+var DebugMode bool = true
+
+
 ```
 
 ## Directory tree

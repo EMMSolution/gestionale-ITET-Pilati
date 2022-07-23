@@ -23,8 +23,9 @@ var Nelaborati string
 // variabile per i log del terminale
 var SchermataTerminale string
 var inputLog string
-// id degli ultimi 5 elaborati
-var elabRecenti [5]string
+// numero di elaborati recenti
+const nElabRecenti int = 5
+
 // struct per dahboard
 type ElabStruct struct {
 	Id          string
@@ -213,15 +214,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
-
-	// metto i valori all'interno dell'array
-	elabRecenti[0] = idElab[len(idElab)-5]
-	elabRecenti[1] = idElab[len(idElab)-4]
-	elabRecenti[2] = idElab[len(idElab)-3]
-	elabRecenti[3] = idElab[len(idElab)-2]
-	elabRecenti[4] = idElab[len(idElab)-1]
-
-	fmt.Println(elabRecenti)
+	var idElabRecenti []string = idElab[len(idElab) - nElabRecenti:]
+	// analizzo query e riempio elaborati recenti
+	fmt.Println(idElabRecenti)
+	fmt.Println(elaboratiQueryData)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,

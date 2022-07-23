@@ -28,14 +28,20 @@ func menu() {
 	cls()
 	var scelta int
 
+	// debug mode
+	debugAlert := ""
+	if imp.DebugMode == true {
+		debugAlert = "\n	* debug mode attiva *"
+	}
+
 	fmt.Print(imp.Banner)
-	fmt.Print(`
+	fmt.Printf(`
 
 	1. Accendi webserver         3. Verifica stato
 	2. Ricconetti a database     4. Impostazioni
-
+	%s
 	(0 per uscire)
-	`)
+	`, debugAlert)
 	fmt.Print("> ")
 	fmt.Scanln(&scelta)
 
@@ -52,7 +58,6 @@ func menu() {
 }
 
 // SEZIONI MENU
-
 func accendiWS(){
 	cls()
 	fmt.Print(imp.Banner)

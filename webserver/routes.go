@@ -10,9 +10,9 @@ import (
 	"io/ioutil"
 	"database/sql"
 	"html/template"
+	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
     _"github.com/go-sql-driver/mysql"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
-	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
 )
 
 // variabile globale per al connessione al database
@@ -23,8 +23,8 @@ var Nelaborati string
 // variabile per i log del terminale
 var SchermataTerminale string
 var inputLog string
-//id degli ultimi 5 elaborati
-var elabRecenti [5]string 
+// id degli ultimi 5 elaborati
+var elabRecenti [5]string
 // struct per dahboard
 type ElabStruct struct {
 	Id          string
@@ -158,30 +158,43 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		// execute html template
 			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
 	} else {
-		// aggiorno e stampo i log
+		// aggiorno e stampo i log con debug
+		debugSpacer := ""
+
+		if imp.DebugMode == true {
+			debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
+		}
+
 		cls()
 		SchermataTerminale += `
 	Utente loggato:
   	  -id: ` + credVar.Id + `
   	  -nome: ` + credVar.Name + `
   	  -email: ` + credVar.Email + "\n"
-		fmt.Print(SchermataTerminale)
+
+		fmt.Printf(SchermataTerminale + "%s", debugSpacer)
 	}
+
 	// n elaborati
 	ElaboratiTotali := 0
 	ElaboratiApprovare := 0
 	ElaboratiPubblici := 0
-	// creo gli arrey degli elaborati preferiti
+
+	// creo gli array degli elaborati preferiti
 	var preferiti []string
 	preferiti = strings.Split(credVar.Preferiti, ",")
+
 	// creo array id elaborati
 	var idElab []string
+
 	// creo la struct da mettere nell HTML
 	titoloP := "Dashboard - " + credVar.Name
 	var ElaboratiStructData []ElabStructDash
+
 	// raccolgo gli elaborati per renderizzarli nella dash
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
+
 	// analizzo query elaborati
 	for elaboratiQueryData.Next(){
 		err := elaboratiQueryData.Scan(&ElabStruct1.Id, &ElabStruct1.Name, &ElabStruct1.Creator, &ElabStruct1.FilePath, &ElabStruct1.UploadDate)
@@ -200,7 +213,8 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
-	//metto i valori all'interno dell'array
+
+	// metto i valori all'interno dell'array
 	elabRecenti[0] = idElab[len(idElab)-5]
 	elabRecenti[1] = idElab[len(idElab)-4]
 	elabRecenti[2] = idElab[len(idElab)-3]
@@ -223,7 +237,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
 
-	
+
 	// aggiorno il profilo non più nuovo
 	if credVar.Nuovo == "si" {
 		DBconn.Query("UPDATE user SET nuovo = 'no'")

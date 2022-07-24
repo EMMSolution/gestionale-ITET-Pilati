@@ -21,10 +21,63 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
 
 :root {
-    --mainBackground: #4E4E4E;
+    --mainBackground: #4863e6;
     --barraLateraleColore: #303030;
     --widgetSpacing: 25px;
     --widgetBorderRadius: 25px;
+}
+/* SCROLL */
+::-webkit-scrollbar {
+  width: calc(100% - 90px);
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(88,88,88,80%);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: rgba(255,255,255);
+  border-radius: 10px;
+}
+::-o-scrollbar {
+  width: calc(100% - 90px);
+  height: 10px;
+}
+::-o-scrollbar-track {
+  background-color: rgba(88,88,88,80%);
+  border-radius: 10px;
+}
+::-o-scrollbar-thumb {
+  height: 10px;
+  background-color: rgba(255,255,255);
+  border-radius: 10px;
+}
+::-moz-scrollbar {
+  width: calc(100% - 90px);
+  height: 10px;
+}
+::-moz-scrollbar-track {
+  background-color: rgba(88,88,88,80%);
+  border-radius: 10px;
+}
+::-moz-scrollbar-thumb {
+  height: 10px;
+  background-color: rgba(255,255,255);
+  border-radius: 10px;
+}
+::-ms-scrollbar {
+  width: calc(100% - 90px);
+  height: 10px;
+}
+::-ms-scrollbar-track {
+  background-color: rgba(88,88,88,80%);
+  border-radius: 10px;
+}
+::-ms-scrollbar-thumb {
+  height: 10px;
+  background-color: rgba(255,255,255);
+  border-radius: 10px;
 }
 
 /* WELCOME PAGE */
@@ -513,6 +566,7 @@ header {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* HOME */
@@ -562,6 +616,10 @@ header {
     width: 100%;
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 /* statistiche (alto destra) */
 .label1,
@@ -654,6 +712,37 @@ header {
     font-size: 22px;
     color: white;
 }
+/* elaborati recenti (sotto) */
+.titoloSezione {
+    height: 20px;
+    width: 100%;
+    padding-left: 30px;
+    transition: 0.8s;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+.divElaboratiRecenti .tabella {
+    margin-top: 20px;
+    height: calc(100% - 40px - 20px);
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+}
+.divElaboratiRecenti .linea {
+    width: 100%;
+}
+.divElaboratiRecenti .headTabella {
+    width: 100%;
+    height: 50px;
+    background: red;
+}
+.divElaboratiRecenti .bodyTabella {
+    width: 100%;
+    height: calc(100% - 50px);
+    background: yellow;
+    overflow-y: scroll;
+}
 
 /* STATISTICHE */
 .statistiche{
@@ -726,7 +815,8 @@ header {
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
 }
-/*ELABORATI*/
+
+/* ELABORATI */
 .sezElaborati{
     background-color: rgba(48 ,48, 48, 0.9);
     height:100%;

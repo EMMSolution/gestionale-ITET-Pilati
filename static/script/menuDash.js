@@ -76,7 +76,7 @@ window.onload = function(){
 
     // posizione default impostazioni
     imp.style.opacity = "0";
-    imp.style.zIndex = "0";
+    imp.style.zIndex = "-1";
 
     // nuovo account intro page
     if(nuovoAcc == "si"){
@@ -349,7 +349,7 @@ function menu(sezioneFunc){
                 caricElabTitolo.style.opacity = "1";
 
                 imp.style.opacity = "0";
-                imp.style.zIndex = "0";
+                imp.style.zIndex = "-1";
                 impAperto = false;
             } else if(impAperto == false){
                 // nascondo altri titoli

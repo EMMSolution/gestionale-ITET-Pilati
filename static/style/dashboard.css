@@ -847,8 +847,7 @@ header {
     height: 10px;
     scrollbar-color: rgb(173, 0, 0) rgba(0, 255, 42, 0.8);
 }
-
 .scrollbar div{
     display: inline-block;
     color: rgb(0, 0, 0);
-  }
+}

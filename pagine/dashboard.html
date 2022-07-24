@@ -187,9 +187,10 @@
                         <div class="divHomeSopra">
                             <div class="divHomeSopraSinistra">
                                 <div class="divElaboratiPreferiti">
-
-                                    <!-- elaborati preferiti -->
-
+                                    <a class="titoloSezione">Preferiti</a>
+                                    <div class="listaSchede">
+                                        <!-- tutte le schede con gli elab preferiti -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="divHomeSopraDestra">
@@ -238,11 +239,69 @@
                                 <a class="titoloSezione">Recenti</a>
                                 <div class="tabella">
                                     <div class="headTabella">
-
+                                        <div class="row">
+                                            <div class="id">
+                                                <a>Id</a>
+                                            </div>
+                                            <div class="nome">
+                                                <div class="divisore"></div>
+                                                <a>Nome</a>
+                                            </div>
+                                            <div class="autore">
+                                                <div class="divisore"></div>
+                                                <a>Autore</a>
+                                            </div>
+                                            <div class="classe">
+                                                <div class="divisore"></div>
+                                                <a>Classe</a>
+                                            </div>
+                                            <div class="dataCaricamento">
+                                                <div class="divisore"></div>
+                                                <a>Data caricamento</a>
+                                            </div>
+                                            <div class="stato">
+                                                <div class="divisore"></div>
+                                                <a>Stato</a>
+                                            </div>
+                                            <div class="preferito">
+                                                <div class="divisore"></div>
+                                                <a>Preferito</a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
-
+                                        {{range .Elaborati}}
+                                            <div class="row">
+                                                <div class="id">
+                                                    <a>{{.Id}}</a>
+                                                </div>
+                                                <div class="nome">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Name}}</a>
+                                                </div>
+                                                <div class="autore">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Creator}}</a>
+                                                </div>
+                                                <div class="classe">
+                                                    <div class="divisore"></div>
+                                                    <a>idk</a>
+                                                </div>
+                                                <div class="dataCaricamento">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.UploadDate}}</a>
+                                                </div>
+                                                <div class="stato">
+                                                    <div class="divisore"></div>
+                                                    <a>idk</a>
+                                                </div>
+                                                <div class="preferito">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Preferito}}</a>
+                                                </div>
+                                            </div>
+                                        {{end}}
                                     </div>
                                 </div>
                             </div>

@@ -571,29 +571,33 @@ header {
 
 /* HOME */
 /* sezioni */
-.divHomeSopra{
+.divHomeSopra {
     height: 45%;
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-.divHomeSopraSinistra{
+.divHomeSopraSinistra {
     height: 100%;
     width: 77%;
     display: flex;
 }
-.divElaboratiPreferiti{
-    height: calc(100% - var(--widgetSpacing)/2);
+.divElaboratiPreferiti {
+    padding: 10px;
+    padding-top: 5px;
+    height: calc(100% - var(--widgetSpacing)/2 - 15px);
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+    display: flex;
+    flex-direction: column;
 }
-.divHomeSopraDestra{
+.divHomeSopraDestra {
     height: 100%;
     width: 23%;
     display: flex;
 }
-.divHomeStatsElaborati{
+.divHomeStatsElaborati {
     margin-left: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
@@ -605,12 +609,15 @@ header {
     align-items: center;
     gap: 15px;
 }
-.divHomeSotto{
+.divHomeSotto {
     height: 55%;
     width: 100%;
     display: flex;
 }
-.divElaboratiRecenti{
+.divElaboratiRecenti {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
@@ -618,9 +625,24 @@ header {
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+/* elaborati preferiti (alto sinistra) */
+.divElaboratiPreferiti .titoloSezione {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    height: 34px;
+    width: 100%;
+    transition: 0.8s;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+.divElaboratiPreferiti .listaSchede {
+    height: 100%;
+    width: 100%;
 }
 /* statistiche (alto destra) */
 .label1,
@@ -714,35 +736,121 @@ header {
     color: white;
 }
 /* elaborati recenti (sotto) */
-.titoloSezione {
-    height: 20px;
+.divElaboratiRecenti .titoloSezione {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-left: 40px;
+    height: 50px;
     width: 100%;
-    padding-left: 30px;
     transition: 0.8s;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     color: #FFFFFF;
 }
 .divElaboratiRecenti .tabella {
-    margin-top: 20px;
-    height: calc(100% - 40px - 20px);
+    margin-top: 10px;
+    height: calc(100% - 40px - 5px - 10px);
     width: calc(100% - 40px);
     display: flex;
     flex-direction: column;
 }
 .divElaboratiRecenti .linea {
     width: 100%;
+    height: 3px;
+    border-radius: 20px;
+    border: solid 0;
+    background: #AAAAAA;
+    opacity: 60%;
 }
 .divElaboratiRecenti .headTabella {
     width: 100%;
-    height: 50px;
-    background: red;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 .divElaboratiRecenti .bodyTabella {
     width: 100%;
-    height: calc(100% - 50px);
-    background: yellow;
+    height: calc(100% - 40px - 3px);
     overflow-y: scroll;
+}
+.divElaboratiRecenti .tabella .row {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+.divElaboratiRecenti .tabella .bodyTabella .row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.divElaboratiRecenti .headTabella a {
+    color: #FFFFFF;
+    opacity: 80%;
+}
+.divElaboratiRecenti .bodyTabella a {
+    color: #FFFFFF;
+    opacity: 100%;
+}
+.divElaboratiRecenti .tabella .row .id {
+    width: 3%;
+}
+.divElaboratiRecenti .tabella .row .nome {
+    width: 22%;
+}
+.divElaboratiRecenti .tabella .row .autore {
+    width: 14%;
+}
+.divElaboratiRecenti .tabella .row .classe {
+    width: 10%;
+}
+.divElaboratiRecenti .tabella .row .dataCaricamento {
+    width: 22%;
+}
+.divElaboratiRecenti .tabella .row .stato {
+    width: 20%;
+}
+.divElaboratiRecenti .tabella .row .preferito {
+    width: 6%;
+}
+.divElaboratiRecenti .tabella .row .id,
+.divElaboratiRecenti .tabella .row .nome,
+.divElaboratiRecenti .tabella .row .autore,
+.divElaboratiRecenti .tabella .row .classe,
+.divElaboratiRecenti .tabella .row .dataCaricamento,
+.divElaboratiRecenti .tabella .row .stato,
+.divElaboratiRecenti .tabella .row .preferito {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.divElaboratiRecenti .tabella .row .id a,
+.divElaboratiRecenti .tabella .row .nome a,
+.divElaboratiRecenti .tabella .row .autore a,
+.divElaboratiRecenti .tabella .row .classe a,
+.divElaboratiRecenti .tabella .row .dataCaricamento a,
+.divElaboratiRecenti .tabella .row .stato a,
+.divElaboratiRecenti .tabella .row .preferito a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+.divElaboratiRecenti .tabella .row .id .divisore,
+.divElaboratiRecenti .tabella .row .nome .divisore,
+.divElaboratiRecenti .tabella .row .autore .divisore,
+.divElaboratiRecenti .tabella .row .classe .divisore,
+.divElaboratiRecenti .tabella .row .dataCaricamento .divisore,
+.divElaboratiRecenti .tabella .row .stato .divisore,
+.divElaboratiRecenti .tabella .row .preferito .divisore {
+    height: 20px;
+    width: 4px;
+    background: #D9D9D9;
+    opacity: 70%;
+    border-radius: 40px;
+    margin-right: 10px;
 }
 
 /* STATISTICHE */

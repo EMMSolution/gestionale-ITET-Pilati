@@ -321,7 +321,7 @@ body {
     background: var(--barraLateraleColore);
     border: 0 solid;
 }
-.sotto {
+.MenuSezionesotto {
     height: 60px;
     width: 60px;
     position: absolute;
@@ -330,18 +330,36 @@ body {
     justify-content: center;
     align-items: center;
 }
-.sotto button {
+.MenuSezionesotto button {
     height: 34px;
     width: 34px;
     border: black 0 solid;
     background: transparent;
 }
-.sotto img {
+.MenuSezionesotto img {
     width: 34px;
     transition: 0.5s;
 }
-.sotto img:hover {
+.MenuSezionesotto img:hover {
     transform: rotate(40deg);
+}
+.fileMenuType {
+    border-radius: 14px;
+    width: 75%;
+    margin-left: calc((100% - 75%) / 2);
+    background: #4863E6;
+    transition: 0.2s height;
+    display: flex;
+    flex-direction: column;
+}
+.fileMenuType .sopra,
+.fileMenuType .sotto {
+    border: 0 solid;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* IMPOSTAZIONI */
@@ -499,6 +517,26 @@ header {
     flex-direction: column;
     transition: 0.5s;
 }
+.elabTitolo {
+    width: 500px;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.elabTitolo .subtitleSlide {
+    position: inline;
+    display: flex;
+    flex-direction: column;
+}
+.elabTitolo .subtitleSlide a {
+    width: 200px;
+    margin-top: 17px;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #313131;
+}
 .impTitolo {
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
@@ -550,14 +588,14 @@ header {
     background: transparent;
 }
 .movingContainerSezioni {
-    height: calc(100% * 4 - 75px * 4);
     display: flex;
     flex-direction: column;
     transition: 0.5s;
 }
 .home,
 .statitiche,
-.elaborati,
+.elaboratiPersonali,
+.elaboratiClasse,
 .aggiungiElaborati {
     height: calc(100% - 20px);
     width: calc(100% - 100px);
@@ -618,7 +656,6 @@ header {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
     background: rgba(48, 48, 48, 0.9);
@@ -771,7 +808,7 @@ header {
 }
 .divElaboratiRecenti .bodyTabella {
     width: 100%;
-    height: calc(100% - 40px - 3px);
+    height: calc(100% - 40px - 4px - 15px);
     overflow-y: scroll;
 }
 .divElaboratiRecenti .tabella .row {
@@ -926,13 +963,13 @@ header {
 }
 
 /* ELABORATI */
-.sezElaborati{
+.sezElaborati {
     background-color: rgba(48 ,48, 48, 0.9);
     height:100%;
     width:100%;
     border-radius: var(--widgetBorderRadius);
 }
-.titoloPref{
+.titoloPref {
     position: absolute;
     color: rgb(225, 225, 225);
     font-family: 'Roboto', sans-serif;
@@ -940,7 +977,7 @@ header {
     margin-left: 55px;
     font-size: 30px;
 }
-.sezPreferitiElab{
+.sezPreferitiElab {
     overflow: auto;
     white-space: nowrap;
     margin-top:80px;
@@ -949,13 +986,13 @@ header {
     margin-left:54px;
 }
 
-.scrollbar{
+.scrollbar {
     overflow: visible;
     width: calc(100% - 90px);
     height: 10px;
     scrollbar-color: rgb(173, 0, 0) rgba(0, 255, 42, 0.8);
 }
-.scrollbar div{
+.scrollbar div {
     display: inline-block;
     color: rgb(0, 0, 0);
 }

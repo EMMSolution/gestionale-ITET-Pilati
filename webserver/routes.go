@@ -192,7 +192,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	titoloP := "Dashboard - " + credVar.Name
 	var ElaboratiStructData []ElabStructDash
 
-	// raccolgo gli elaborati per renderizzarli nella dash
+	// raccolgo gli elaborati temporaneamente
 	var ElabStruct1 ElabStructDash
 	elaboratiQueryData, _ := DBconn.Query("SELECT * FROM elaborati")
 
@@ -209,15 +209,32 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			}
 		}
 		idElab = append(idElab, ElabStruct1.Id)
-		ElabStruct1.Recente = true
+		ElabStruct1.Recente = false
 		ElaboratiStructData = append(ElaboratiStructData, ElabStruct1)
 
 		ElaboratiTotali += 1
 	}
 	var idElabRecenti []string = idElab[len(idElab) - nElabRecenti:]
+	var ElabStruct2 ElabStructDash
+	var ElabStructData2 []ElabStructDash
+	for a := 0; a < len(ElaboratiStructData); a++ {
+		ElabStruct2.Id = ElaboratiStructData[a].Id
+		ElabStruct2.Name = ElaboratiStructData[a].Name
+		ElabStruct2.Creator = ElaboratiStructData[a].Creator
+		ElabStruct2.FilePath = ElaboratiStructData[a].FilePath
+		ElabStruct2.UploadDate = ElaboratiStructData[a].UploadDate
+		ElabStruct2.Preferito = ElaboratiStructData[a].Preferito
+		ElabStruct2.Recente = false
+		for i := 0; i < len(idElabRecenti); i++ {
+			if ElaboratiStructData[a].Id == idElabRecenti[i]{			
+				ElabStruct2.Recente = true
+			}
+		}
+		ElabStructData2 = append(ElabStructData2, ElabStruct2)
+	}
+	fmt.Println(ElaboratiStructData)
 	// analizzo query e riempio elaborati recenti
 	fmt.Println(idElabRecenti)
-	fmt.Println(elaboratiQueryData)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
@@ -226,7 +243,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		NomeUtente: credVar.Name,
 		EmailUtente: credVar.Email,
 		PassUtente: credVar.Password,
-		Elaborati: ElaboratiStructData,
+		Elaborati: ElabStructData2,
 		Sezione: sezione,
 		ElabInfoCaricati: ElaboratiTotali,
 		ElabInfoApprovare: ElaboratiApprovare,

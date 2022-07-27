@@ -2,7 +2,7 @@ var sezione;
 var elaboratiPersonali, elaboratiClasse;
 var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
 var indicatoreMenu, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
-var posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
+var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
 var welcomePage;
 var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidgetColorBar1, homeStatsWidgetColorBar2, homeStatsWidgetColorBar3;
@@ -37,6 +37,7 @@ window.onload = function(){
     menuFileSvgPath1 = document.querySelector('#iconaFileMenu .cls-1-1');
     menuFileSvgPath2 = document.querySelector('#iconaFileMenu .cls-1-2');
     menuFileSvgPath3 = document.querySelector('#iconaFileMenu .cls-1-3');
+    menuFileSottomenu = document.querySelector('.subtitleSlide');
     menuFileDiv = document.querySelector('.fileMenuType');
     menuFileDivSopra = document.querySelector('.fileMenuType .sopra');
     menuFileDivSotto = document.querySelector('.fileMenuType .sotto');
@@ -309,6 +310,8 @@ function menu(sezioneFunc){
             }
             // scorri menu
             if(sezioneAttuale != 3){
+                menuFileSottomenu.transform = "translateY(0px)";
+
                 sezione.style.height = "calc(100% * 5 - 75px * 5)";
                 elaboratiClasse.style.display = "block";
 
@@ -375,6 +378,8 @@ function menu(sezioneFunc){
             }
             // scorri menu
             if(sezioneAttuale != 4){
+                menuFileSottomenu.transform = "translateY(51px)";
+
                 sezione.style.height = "calc(100% * 5 - 75px * 5)";
                 elaboratiClasse.style.display = "block";
 

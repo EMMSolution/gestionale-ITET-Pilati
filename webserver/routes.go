@@ -226,15 +226,12 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabStruct2.Preferito = ElaboratiStructData[a].Preferito
 		ElabStruct2.Recente = false
 		for i := 0; i < len(idElabRecenti); i++ {
-			if ElaboratiStructData[a].Id == idElabRecenti[i]{			
+			if ElaboratiStructData[a].Id == idElabRecenti[i]{
 				ElabStruct2.Recente = true
 			}
 		}
 		ElabStructData2 = append(ElabStructData2, ElabStruct2)
 	}
-	fmt.Println(ElaboratiStructData)
-	// analizzo query e riempio elaborati recenti
-	fmt.Println(idElabRecenti)
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,

@@ -304,6 +304,8 @@ function menu(sezioneFunc){
             }
             if(posizioneFileMenuSvg == 1){
                 menu(4)
+                posizioneFileMenuSvg = 0;
+                break;
             }
             // scorri menu
             if(sezioneAttuale != 3){
@@ -370,9 +372,6 @@ function menu(sezioneFunc){
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
-            }
-            if(posizioneFileMenuSvg == 0){
-                menu(3)
             }
             // scorri menu
             if(sezioneAttuale != 4){
@@ -509,6 +508,7 @@ function menu(sezioneFunc){
         default:
             alert("valore sbagliato nello scorrimento sezioni");
     }
+    console.log(posizioneFileMenuSvg)
 }
 
 function resetImpInput(){

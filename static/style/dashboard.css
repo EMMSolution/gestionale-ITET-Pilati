@@ -361,6 +361,10 @@ body {
     align-items: center;
     justify-content: center;
 }
+.fileMenuType .sopra #svgElement,
+.fileMenuType .sotto #svgElement {
+    transition: 0.2s;
+}
 
 /* IMPOSTAZIONI */
 .imp {

@@ -551,7 +551,7 @@ header {
 .containerTitoloSezione {
     padding-top: 10px;
     height: 60px;
-    width: 300px;
+    width: 500px;
     align-items: center;
     background: transparent;
     overflow: hidden;
@@ -572,6 +572,7 @@ header {
     position: inline;
     display: flex;
     flex-direction: column;
+    transition: 0.5s;
 }
 .elabTitolo .subtitleSlide a {
     width: 200px;

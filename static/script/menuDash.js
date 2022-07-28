@@ -316,8 +316,6 @@ function menu(sezioneFunc){
             }
             // scorri menu
             if(sezioneAttuale != 3){
-                menuFileSottomenu.transform = "translateY(0px)";
-
                 sezione.style.height = "calc(100% * 5 - 75px * 5)";
                 elaboratiClasse.style.display = "block";
 
@@ -363,8 +361,9 @@ function menu(sezioneFunc){
                 sezioneAttuale = 3;
                 posizioneFileMenuSvg = 0;
             }
-            // scorri titolo
+            // scorri titolo e sottotitolo
             titoloSezione.style.transform = "translateY(-165px)";
+            menuFileSottomenu.style.transform = "translateY(0px)";
             // scorri sezione
             sezione.style.transform = "translateY(-40%)";
 
@@ -384,8 +383,6 @@ function menu(sezioneFunc){
             }
             // scorri menu
             if(sezioneAttuale != 4){
-                menuFileSottomenu.transform = "translateY(51px)";
-
                 sezione.style.height = "calc(100% * 5 - 75px * 5)";
                 elaboratiClasse.style.display = "block";
 
@@ -426,13 +423,14 @@ function menu(sezioneFunc){
                 menuAggFileSvgPath1.style.fill = "#ffffff";
                 menuAggFileSvgPath2.style.fill = "#ffffff";
                 menuAggFileSvgPath3.style.fill = "#ffffff";
-                menuAggFileSvgPath4. style.fill = "#303030";
+                menuAggFileSvgPath4.style.fill = "#303030";
 
                 sezioneAttuale = 4;
                 posizioneFileMenuSvg = 1;
             }
-            // scorri titolo
+            // scorri titolo e sottotitolo
             titoloSezione.style.transform = "translateY(-165px)";
+            menuFileSottomenu.style.transform = "translateY(-51.5px)";
             // scorri sezione
             sezione.style.transform = "translateY(-60%)";
 

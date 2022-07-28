@@ -1,3 +1,9 @@
+// CARICAMENTO
+window.addEventListener('load', () => {
+    document.querySelector('.caricamento').classList.add('caricamentoScomparsa');
+})
+
+// PAGINA
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
 var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;

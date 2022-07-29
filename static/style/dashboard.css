@@ -26,6 +26,46 @@ body {
     --widgetSpacing: 25px;
     --widgetBorderRadius: 25px;
 }
+/* CARICAMENTO */
+.caricamento {
+    z-index: 9999;
+    background: #000000;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    transition: 1s visibility;
+}
+.caricamentoScomparsa {
+    display: none;
+}
+.eggSoltuion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    height: 40px;
+    width: 250px;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 5px;
+}
+.eggSoltuion a {
+    color: white;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+.eggSoltuion img {
+    height: 30px;
+    margin-left: 4px;
+    margin-right: 6px;
+}
+
 /* SCROLL */
 ::-webkit-scrollbar {
   width: calc(100% - 90px);
@@ -511,7 +551,7 @@ header {
 .containerTitoloSezione {
     padding-top: 10px;
     height: 60px;
-    width: 300px;
+    width: 500px;
     align-items: center;
     background: transparent;
     overflow: hidden;
@@ -532,6 +572,7 @@ header {
     position: inline;
     display: flex;
     flex-direction: column;
+    transition: 0.5s;
 }
 .elabTitolo .subtitleSlide a {
     width: 200px;
@@ -1010,4 +1051,128 @@ header {
 .scrollbar div {
     display: inline-block;
     color: rgb(0, 0, 0);
+}
+.sezTuttiElaborati{
+    margin-top: 69px;
+}
+.sezElaborati .titolo{
+    position: absolute;
+    margin-top: 13px;
+    color: rgb(225, 225, 225);
+    font-family: 'Roboto', sans-serif;
+    margin-left: 55px;
+    font-size: 30px;
+}
+.sezElaborati .filtri{
+    position: absolute;
+    margin-top: 13px;
+    color: rgb(225, 225, 225);
+    font-family: 'Roboto', sans-serif;
+    margin-left: calc(1760px - 76.35px - 55px);
+    font-size: 23px;
+}
+.sezElaborati .tabella {
+    height: calc(100% - 40px - 5px - 10px);
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+}
+.sezElaborati .linea {
+    margin-left: 54px;
+    width: calc(100% - 54px);
+    height: 3px;
+    border-radius: 20px;
+    border: solid 0;
+    background: #AAAAAA;
+    opacity: 60%;
+}
+.sezElaborati .headTabella {
+    margin-left: 54px;
+    width: calc(100% - 54px);
+    height: 40px;
+    display: flex;
+}
+.sezElaborati .bodyTabella {
+    width: calc(100% - 54px);
+    height: calc(100% - 40px - 4px - 15px);
+    overflow-y: scroll;
+    margin-left: 54px;
+}
+.sezElaborati .tabella .row {
+    width: calc(100% - 54px);
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.sezElaborati .tabella .bodyTabella .row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sezElaborati .headTabella a {
+    color: #FFFFFF;
+    opacity: 80%;
+}
+.sezElaborati .bodyTabella a {
+    color: #FFFFFF;
+    opacity: 100%;
+}
+.sezElaborati .tabella .row .id {
+    width: 3%;
+}
+.sezElaborati .tabella .row .nome {
+    width: 22%;
+}
+.sezElaborati .tabella .row .autore {
+    width: 14%;
+}
+.sezElaborati .tabella .row .classe {
+    width: 10%;
+}
+.sezElaborati .tabella .row .dataCaricamento {
+    width: 22%;
+}
+.sezElaborati .tabella .row .stato {
+    width: 20%;
+}
+.sezElaborati .tabella .row .preferito {
+    width: 6%;
+}
+.sezElaborati .tabella .row .id,
+.sezElaborati .tabella .row .nome,
+.sezElaborati .tabella .row .autore,
+.sezElaborati .tabella .row .classe,
+.sezElaborati .tabella .row .dataCaricamento,
+.sezElaborati .tabella .row .stato,
+.sezElaborati .tabella .row .preferito {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.sezElaborati .tabella .row .id a,
+.sezElaborati .tabella .row .nome a,
+.sezElaborati .tabella .row .autore a,
+.sezElaborati .tabella .row .classe a,
+.sezElaborati .tabella .row .dataCaricamento a,
+.sezElaborati .tabella .row .stato a,
+.sezElaborati .tabella .row .preferito a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+.sezElaborati .tabella .row .id .divisore,
+.sezElaborati .tabella .row .nome .divisore,
+.sezElaborati .tabella .row .autore .divisore,
+.sezElaborati .tabella .row .classe .divisore,
+.sezElaborati .tabella .row .dataCaricamento .divisore,
+.sezElaborati .tabella .row .stato .divisore,
+.sezElaborati .tabella .row .preferito .divisore {
+    height: 20px;
+    width: 4px;
+    background: #D9D9D9;
+    opacity: 70%;
+    border-radius: 40px;
+    margin-right: 10px;
 }

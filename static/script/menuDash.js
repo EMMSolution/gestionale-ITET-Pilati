@@ -1,8 +1,14 @@
+// CARICAMENTO
+window.addEventListener('load', () => {
+    document.querySelector('.caricamento').classList.add('caricamentoScomparsa');
+})
+
+// PAGINA
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
 var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
 var indicatoreMenu, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
-var posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
+var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
 var welcomePage;
 var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidgetColorBar1, homeStatsWidgetColorBar2, homeStatsWidgetColorBar3;
@@ -37,6 +43,7 @@ window.onload = function(){
     menuFileSvgPath1 = document.querySelector('#iconaFileMenu .cls-1-1');
     menuFileSvgPath2 = document.querySelector('#iconaFileMenu .cls-1-2');
     menuFileSvgPath3 = document.querySelector('#iconaFileMenu .cls-1-3');
+    menuFileSottomenu = document.querySelector('.subtitleSlide');
     menuFileDiv = document.querySelector('.fileMenuType');
     menuFileDivSopra = document.querySelector('.fileMenuType .sopra');
     menuFileDivSotto = document.querySelector('.fileMenuType .sotto');
@@ -354,8 +361,9 @@ function menu(sezioneFunc){
                 sezioneAttuale = 3;
                 posizioneFileMenuSvg = 0;
             }
-            // scorri titolo
+            // scorri titolo e sottotitolo
             titoloSezione.style.transform = "translateY(-165px)";
+            menuFileSottomenu.style.transform = "translateY(0px)";
             // scorri sezione
             sezione.style.transform = "translateY(-40%)";
 
@@ -415,13 +423,14 @@ function menu(sezioneFunc){
                 menuAggFileSvgPath1.style.fill = "#ffffff";
                 menuAggFileSvgPath2.style.fill = "#ffffff";
                 menuAggFileSvgPath3.style.fill = "#ffffff";
-                menuAggFileSvgPath4. style.fill = "#303030";
+                menuAggFileSvgPath4.style.fill = "#303030";
 
                 sezioneAttuale = 4;
                 posizioneFileMenuSvg = 1;
             }
-            // scorri titolo
+            // scorri titolo e sottotitolo
             titoloSezione.style.transform = "translateY(-165px)";
+            menuFileSottomenu.style.transform = "translateY(-51.5px)";
             // scorri sezione
             sezione.style.transform = "translateY(-60%)";
 

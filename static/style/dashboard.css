@@ -684,6 +684,17 @@ header {
 .divElaboratiPreferiti .listaSchede {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.schedaPreferito{
+    height: 90%;
+    width: 150px;
+    background-color: red;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
 }
 /* statistiche (alto destra) */
 .label1,

@@ -246,7 +246,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		ElabInfoApprovare: ElaboratiApprovare,
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
-
+	
 
 	// aggiorno il profilo non più nuovo
 	if credVar.Nuovo == "si" {

@@ -58,7 +58,7 @@ body {
     color: white;
     font-family: 'Yantramanav', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 85%;
 }
 .eggSoltuion img {
     height: 30px;
@@ -173,7 +173,7 @@ body {
     font-weight: 300;
     margin-left: 20px;
     margin-right: 20px;
-    font-size: 25px;
+    font-size: 133%;
 }
 .welcomeNo {
     color: #6A6A6A;
@@ -188,7 +188,7 @@ body {
     font-weight: 300;
     width: calc(100% - 15px);
     text-align: right;
-    font-size: 15px;
+    font-size: 94%;
     margin-top: 170px;
 }
 
@@ -262,7 +262,7 @@ body {
     color: white;
     font-family: 'Yantramanav', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 85%
 }
 .eggSoltuion img {
     height: 30px;
@@ -339,7 +339,7 @@ body {
     width: 80px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.8px;
     opacity: 0;
@@ -470,7 +470,7 @@ body {
     font-family: 'Roboto', sans-serif;
     position: relative;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 120%;
     line-height: 100%;
     transition: 0.2s;
 }
@@ -490,7 +490,7 @@ body {
     font-family: 'Roboto', sans-serif;
     position: relative;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 100%;
     line-height: 100%;
     transition: 0.2s;
 }
@@ -508,7 +508,7 @@ body {
     font-family: 'Roboto', sans-serif;
     position: absolute;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 100%;
     line-height: 100%;
     transition: 0.2s;
     float: right;
@@ -559,6 +559,7 @@ header {
     overflow: hidden;
 }
 .movingContainerTitoloSezione {
+    margin-top: 6px;
     display: flex;
     flex-direction: column;
     transition: 0.5s;
@@ -587,12 +588,12 @@ header {
 .impTitolo {
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 40px;
+    font-size: 190%;
     color: #303030;
     transition: 0.1s;
 }
 .movingContainerTitoloSezione a {
-    margin-top: 10px;
+    margin-top: 14px;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: #303030;
@@ -610,7 +611,7 @@ header {
 }
 .containerUserInfo a {
     font-family: 'Roboto', sans-serif;
-    font-size: 22px;
+    font-size: 120%;
     color: white;
     margin-right: 16px;
 }
@@ -721,13 +722,50 @@ header {
     width: 100%;
     transition: 0.8s;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 160%;
     color: #FFFFFF;
 }
 .divElaboratiPreferiti .listaSchede {
     height: 100%;
     width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
+.divElaboratiPreferiti .listaSchedeScorri {
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+.divElaboratiPreferiti .schedaPreferito {
+    position: relative;
+    min-width: 15%;
+    height: 96%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #C27DFC;
+    margin-left: 20px;
+    margin-bottom: 3%;
+}
+.divElaboratiPreferiti .schedaPreferito div {
+    background: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divElaboratiPreferiti .schedaPreferito a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    color: #000000;
+}
+
 /* statistiche (alto destra) */
 .label1,
 .label2,
@@ -808,7 +846,7 @@ header {
 .label3 .titolo {
     transition: 0.8s;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 94%;
     color: #B2B2B2;
 }
 .label1 .numero,
@@ -816,7 +854,7 @@ header {
 .label3 .numero {
     transition: 0.8s;
     font-family: 'Roboto', sans-serif;
-    font-size: 22px;
+    font-size: 120%;
     color: white;
 }
 /* elaborati recenti (sotto) */
@@ -828,7 +866,7 @@ header {
     width: 100%;
     transition: 0.8s;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 160%;
     color: #FFFFFF;
 }
 .divElaboratiRecenti .tabella {
@@ -918,7 +956,7 @@ header {
 .divElaboratiRecenti .tabella .row .stato a,
 .divElaboratiRecenti .tabella .row .preferito a {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 110%;
     font-weight: lighter;
     color: #FFFFFF;
 }
@@ -1022,7 +1060,7 @@ header {
     font-family: 'Roboto', sans-serif;
     margin-top: 23px;
     margin-left: 55px;
-    font-size: 30px;
+    font-size: 160%;
 }
 .sezPreferitiElab {
     overflow: auto;
@@ -1052,7 +1090,7 @@ header {
     color: rgb(225, 225, 225);
     font-family: 'Roboto', sans-serif;
     margin-left: 55px;
-    font-size: 30px;
+    font-size: 160%;
 }
 .sezElaborati .filtri{
     position: absolute;
@@ -1060,7 +1098,7 @@ header {
     color: rgb(225, 225, 225);
     font-family: 'Roboto', sans-serif;
     margin-left: calc(1760px - 76.35px - 55px);
-    font-size: 23px;
+    font-size: 124%;
 }
 .sezElaborati .tabella {
     height: calc(100% - 40px - 5px - 10px);
@@ -1149,7 +1187,7 @@ header {
 .sezElaborati .tabella .row .stato a,
 .sezElaborati .tabella .row .preferito a {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 110%;
     font-weight: lighter;
     color: #FFFFFF;
 }

@@ -132,8 +132,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	switch r.Method {
 		// filtro richieste
 		case "POST":
-			emailForm = r.FormValue("email")
-			passForm = r.FormValue("password")
+			break;
 		case "GET":
 			// execute html template
 			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
@@ -154,27 +153,22 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
-	// controlle se le credenziali esistono
-	if credVar.Id == "" {
-		// execute html template
-			http.Redirect(w, r, "http://localhost/?sez=1&err=1", http.StatusSeeOther)
-	} else {
-		// aggiorno e stampo i log con debug
-		debugSpacer := ""
+	
+	// aggiorno e stampo i log con debug
+	debugSpacer := ""
 
-		if imp.DebugMode == true {
-			debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
-		}
+	if imp.DebugMode == true {
+		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
+	}
 
-		cls()
-		SchermataTerminale += `
+	cls()
+	SchermataTerminale += `
 	Utente loggato:
   	  -id: ` + credVar.Id + `
   	  -nome: ` + credVar.Name + `
   	  -email: ` + credVar.Email + "\n"
 
-		fmt.Printf(SchermataTerminale + "%s", debugSpacer)
-	}
+	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
 
 	// n elaborati
 	ElaboratiTotali := 0

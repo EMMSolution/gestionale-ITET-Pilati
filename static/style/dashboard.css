@@ -362,15 +362,17 @@ body {
     border: 0 solid;
 }
 .MenuSezionesotto {
-    height: 60px;
+    height: 120px;
     width: 60px;
     position: absolute;
     bottom: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.MenuSezionesotto button {
+.MenuSezionesotto button,
+.MenuSezionesotto #logoutGoogle, {
     height: 34px;
     width: 34px;
     border: black 0 solid;

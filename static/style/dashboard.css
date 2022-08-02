@@ -207,8 +207,8 @@ body {
     position: absolute;
     width: 713px;
     height: 1737px;
-    top: -13%;
-    left: 1%;
+    top: -20%;
+    left: 13%;
     background: #70C7EC;
     transform: rotate(-40deg);
 }
@@ -227,7 +227,7 @@ body {
     height: 700px;
     width: 300px;
     transform: rotate(-45deg);
-    top: 50%;
+    top: 90%;
     left: -2%;
 }
 
@@ -372,7 +372,7 @@ body {
     align-items: center;
 }
 .MenuSezionesotto button,
-.MenuSezionesotto #logoutGoogle, {
+.MenuSezionesotto #logoutGoogle {
     height: 34px;
     width: 34px;
     border: black 0 solid;

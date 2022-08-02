@@ -28,53 +28,7 @@
         </div>
         <img class="logo" src="static/media/home/itetPilatiLogo2.png"></img>
         <div class="main" id="main">
-            <div class="scrollSezioni">
-                <div class="home" id="home">
-                    <div id="g_id_onload"
-                        data-client_id=""
-                        data-login_uri="http://localhost/dashboard"
-                        data-auto_prompt="false">
-                    </div>
-                    <div class="g_id_signin"
-                        data-type="standard"
-                        data-size="large"
-                        data-theme="outline"
-                        data-text="sign_in_with"
-                        data-shape="rectangular"
-                        data-logo_alignment="left">
-                    <button class="loginInput1" id="accedi" onclick="cambioSezione('login')">Accedi</button>
-                    <button class="registerInput1" id="registrati" onclick="cambioSezione('register')">Registrati</button>
-                    <form action="/dashboard" method="POST">
-                        <input type="email" name="email" value="ospite@ospite" style="display: none;">
-                        <input type="password" name="password" value="ospite" style="display: none;">
-                        <input type="submit" class="guestInput1" id="entraGuest" value="Entra come ospite">
-                    </form>
-                </div>
-                <div class="login" id="login">
-                    <form action="/dashboard" method="POST">
-                        <input placeholder="E-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
-                        <input placeholder="Password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
-                        <br>
-                        <a class="erroreLogin"> </a>
-                        <div class="sezzioneBottoneSotto">
-                            <button class="indietroLogin" type="button" onclick="cambioSezione('home')">Indietro</button>
-                            <input class="submitL" type="submit" id="submitL" value="Entra"></input>
-                        </div>
-                   </form>
-                </div>
-                <div class="register" id="register">
-                    <form action="/register" method="POST">
-                        <input placeholder="Nome" type="text" class="nomeInputR" id="nomeInputR" name="nome"></input>
-                        <input placeholder="E-mail" type="email" class="emailInputR" id="acemailInputLcedi" name="email"></input>
-                        <input placeholder="Password" type="password" class="passwordInputR" id="passwordInputL" name="password"></input>
-                        <br>
-                        <a class="erroreRegister"> </a>
-                        <div class="sezzioneBottoneSotto">
-                            <button class="indietroRegister" type="button" onclick="cambioSezione('home')">Indietro</button>
-                            <input class="submitR" type="submit" id="submitR" value="Registrati"></input>
-                        </div>
-                   </form>
-            </div>
+            
         </div>
     </div>
     <footer>

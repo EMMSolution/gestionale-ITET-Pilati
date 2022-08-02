@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
 }
-
+body {
+    display: flex;
+    flex-direction: column;
+}
 /* PAGINA */
 .pagina {
-    background-repeat: no-repeat;
     background-color: #313131;
-    background-size: 180vh;
-    background-position: center center;
     height: calc(100vh - 60px);
     position: relative;
     width: 100%;
@@ -51,7 +51,6 @@
 .main {
     overflow: hidden;
     background: rgba(0, 0, 0, 0.45);
-    box-shadow: 10px 10px 4px rgba(31, 104, 120, 0.3), 10px 10px 4px rgba(0, 0, 0, 0.25);
     height: 420px;
     width: 600px;
     top: calc(50% - 340px);
@@ -64,227 +63,31 @@
     display: flex;
     flex-direction: row;
 }
-/* SEZIONI */
-.scrollSezioni {
-    transform: translateX(0px);
-    display: flex;
-    flex-direction: row;
-    width: 200%;
-    transition: 500ms;
-}
-.home,
-.login,
-.register {
-    height: 420px;
-    width: 600px;
-    border-radius: 50px;
-    background-color: #00000000;
-    position: relative;
-}
-
-/* HOME */
-.loginInput1,
-.registerInput1,
-.guestInput1 {
-    height: 70px;
-    width: 450px;
-    margin-left: calc(300px - 225px);
-    background: #04FFB4;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.loginInput1:hover,
-.registerInput1:hover,
-.guestInput1:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-.loginInput1 {
-    margin-top: 50px;
-}
-.registerInput1,
-.guestInput1 {
-    margin-top: 45px;
-}
-
-/* LOGIN  */
-.emailInputL,
-.passwordInputL {
-    color: #090909;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 50px;
-    height: 50px;
-    width: calc(450px - 40px);
-    margin-left: calc((600px - 450px)/2);
-    background: #39D99F;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-
-.passwordInputL {
-    margin-top: 45px;
-}
-
-.erroreLogin {
-    margin-top: 20px;
-    margin-left: calc((600px - 450px)/2);
-    font-family: 'Roboto';
-    color: red;
-}
-
-.sezzioneBottoneSotto {
-    color: #1B1B1B;
-    margin-top: 45px;
-    height: 80px;
-    width: 450px;
-    margin-left: calc((600px - 450px)/2);
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.indietroLogin,
-.submitL {
-    border: 0;
-    margin: 0;
-    background: #39D99F;
-    border-radius: 20px;
-    color: #090909;
-    height: 50px;
-    width: calc(140px - 20px);
-    padding: 10px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 21px;
-}
-
-.submitL {
-    float: right;
-}
-
-/* REGISTER */
-.nomeInputR,
-.emailInputR,
-.passwordInputR {
-    color: #090909;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 40px;
-    height: 50px;
-    width: calc(450px - 40px);
-    margin-left: calc((600px - 450px)/2);
-    background: #39D99F;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-
-.emailInputR,
-.passwordInputR {
-    margin-top: 20px;
-}
-
-.erroreRegister {
-    margin-top: 20px;
-    margin-left: calc((600px - 450px)/2);
-    font-family: 'Roboto';
-    color: red;
-}
-
-
-.sezzioneBottoneSotto {
-    color: #090909;
-    margin-top: 30px;
-    height: 80px;
-    width: 450px;
-    margin-left: calc((600px - 450px)/2);
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.indietroRegister,
-.submitR {
-    border: 0;
-    margin: 0;
-    background: #39D99F;
-    border-radius: 20px;
-    color: #090909;
-    height: 50px;
-    width: calc(140px - 20px);
-    padding: 10px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 21px;
-}
-
-.submitR {
-    float: right;
-}
-
-.nomeInputR:hover,
-.emailInputR:hover,
-.passwordInputR:hover,
-.indietroRegister:hover,
-.submitR:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
-.submitR:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
 
 /* FOOTER */
-footer{
+footer {
     height: 60px;
     width: 100%;
     position: relative;
     background: rgb(14, 14, 14);
     display: flex;
     align-items: center;
-    top: 100%;
+    top: calc(100vh - 60px);
     position: absolute;
 }
-.poweredBy{
+.poweredBy {
     font-family: 'Yantramanav', sans-serif;
     font-weight: light;
     font-size: 16px;
     margin-left: 20px;
     color: rgb(218, 218, 218);
 }
-.immagineLogo{
+.immagineLogo {
     height: 30px;
     margin-left: 10px;
     z-index: 2;
 }
-.copyright{
+.copyright {
     font-size: 15px;
     font-family: 'Spartan', sans-serif;
     right: 15px;

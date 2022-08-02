@@ -1223,7 +1223,7 @@ header {
 }
 .aggiungiElaborati .sinistra{
     height: 100%;
-    width: 50%;
+    width: 48%;
     display: flex;
     flex-direction: column;
 }
@@ -1283,8 +1283,68 @@ header {
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
 }
-
+.aggiungiElaborati .mezzo{
+    height: 100%;
+    width: 4%;
+}
 .aggiungiElaborati .destra{
     height: 100%;
+    width: 48%;
+}
+.aggiungiElaborati .destra .sopra{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+.aggiungiElaborati .destra .sopra .divIstruzioni{
+    height: 95%;
+    width: 100%;
+    background-color: #C27DFC;
+    border-radius: 17px;
+}
+.aggiungiElaborati .destra .mezzo{
+    width: 100%;
+    height: 80%;
+}
+.aggiungiElaborati .destra .mezzo .divSelezionaClasse{
+    width: 100%;
+    height: 95%;
+    background-color: rgba(48, 48, 48, 0.9);
+    border-radius: 17px;
+    margin-top: 1%;
+}
+.aggiungiElaborati .destra .sotto{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.aggiungiElaborati .destra .sotto .sezionatore{
+    width: 100%;
+    height: 79%;
+    display: flex;
+    flex-direction: row;
+}
+.aggiungiElaborati .destra .sotto .sezionatore .sinistra{
+    height: 100%;
     width: 50%;
+}
+.aggiungiElaborati .destra .sotto .sezionatore .sinistra .divPubblico{
+    height: 100%;
+    width: 95%;
+    background-color: #C27DFC;
+    border-radius: 17px;
+}
+.aggiungiElaborati .destra .sotto .sezionatore .destra{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.aggiungiElaborati .destra .sotto .sezionatore .destra .divInvia{
+    height: 100%;
+    width: 95%;
+    background-color: #1FC4DA;
+    border-radius: 17px; 
 }

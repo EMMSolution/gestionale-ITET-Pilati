@@ -165,6 +165,13 @@ window.onload = function(){
         menu(4)
     })
 
+    // logout account google
+    const bottoneLogout = document.getElementById("g_id_signout");
+    bottoneLogout.onclick = () => {
+        google.accounts.id.disableAutoSelect();
+        window.location = "http://localhost/";  
+    }
+
     // cambio sezione con query (da url)
     switch (sezioneQuery){
         case "1":

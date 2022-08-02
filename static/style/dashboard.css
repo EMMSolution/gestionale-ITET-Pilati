@@ -192,7 +192,7 @@ body {
     margin-top: 170px;
 }
 
-/*SFONDO*/
+/* SFONDO */
 .sfondo{
     position: absolute;
     height: 100vh;
@@ -365,25 +365,37 @@ body {
     height: 120px;
     width: 60px;
     position: absolute;
-    bottom: 5px;
+    bottom: -5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
-.MenuSezionesotto button,
-.MenuSezionesotto #logoutGoogle {
-    height: 34px;
-    width: 34px;
-    border: black 0 solid;
-    background: transparent;
+.MenuSezionesotto .sotto,
+.MenuSezionesotto .sopra {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 13px;
+    padding-right: 13px;
+    height: 40px;
+    width: 60px;
 }
-.MenuSezionesotto img {
-    width: 34px;
+.MenuSezionesotto .sopra button {
+    background: var(--barraLateraleColore);
+    border: 0 solid;
+}
+.MenuSezionesotto .sopra svg {
     transition: 0.5s;
+    transform: translateX(3px);
 }
-.MenuSezionesotto img:hover {
-    transform: rotate(40deg);
+.MenuSezionesotto .sopra:hover svg {
+    transform: translateX(3px) rotate(40deg);
+}
+.MenuSezionesotto .sotto .frecciaSvg {
+    transition: 0.3s;
+    transform: translateX(-1px) translateY(-40.5px);
+}
+.MenuSezionesotto .sotto:hover .frecciaSvg {
+    transform: translateX(-6px) translateY(-40.5px);
 }
 .fileMenuType {
     border-radius: 14px;

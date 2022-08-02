@@ -6,16 +6,23 @@
 </head>
 <body>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload"
+        data-client_id="1068935943407-q7ootu39e5f3n2sklib91j526lrhs4tq.apps.googleusercontent.com"
+        data-login_uri="http://localhost/dashboard"
+        data-auto_prompt="false">
+    </div>
     <script src="static/script/home.js"></script>
     <script>
-        // cambio sezione in base parametri url
-        var sezione = {{.Sezione}}
-        setTimeout(() => {segliSezioneStart(sezione); }, 700);
-        // gestione errori
-        var errore = {{.Errore}}
-        setTimeout(() => {mostraErrori(errore); }, 700);
+        // cambio informazioni in base parametri url
+        // es: messaggio piattaforma in manutenzione
+
     </script>
-    <div class="pagina" id="sfondo" style="background-image: url('static/style/sfondi/sfondoS.png');">
+    <div class="sfondo">
+        <div class="corpo3"></div>
+        <div class="corpo2"></div>
+        <div class="corpo1"></div>
+    </div>
+    <div class="pagina" id="sfondo">
         <div class="opzioni">
             <div class="lingua">
                 <a id="titoloLang">Lingua:</a>
@@ -28,13 +35,8 @@
         </div>
         <img class="logo" src="static/media/home/itetPilatiLogo2.png"></img>
         <div class="main" id="main">
-            <div class="scrollSezioni">
-                <div class="home" id="home">
-                    <div id="g_id_onload"
-                        data-client_id=""
-                        data-login_uri="http://localhost/dashboard"
-                        data-auto_prompt="false">
-                    </div>
+            <div class="centro">
+                <div class="sopra">
                     <div class="g_id_signin"
                         data-type="standard"
                         data-size="large"
@@ -42,45 +44,27 @@
                         data-text="sign_in_with"
                         data-shape="rectangular"
                         data-logo_alignment="left">
-                    <button class="loginInput1" id="accedi" onclick="cambioSezione('login')">Accedi</button>
-                    <button class="registerInput1" id="registrati" onclick="cambioSezione('register')">Registrati</button>
+                    </div>
+                </div>
+                <div class="mezzo">
+                    <hr></hr>
+                    <a>O</a>
+                    <hr></hr>
+                </div>
+                <div class="sotto">
                     <form action="/dashboard" method="POST">
-                        <input type="email" name="email" value="ospite@ospite" style="display: none;">
-                        <input type="password" name="password" value="ospite" style="display: none;">
-                        <input type="submit" class="guestInput1" id="entraGuest" value="Entra come ospite">
+                        <input name="email" value="ospite@ospite" style="display: none;"></input>
+                        <input name="password" value="ospite" style="display: none;"></input>
+                        <input type="submit" value="Accedi come ospite"></input>
                     </form>
                 </div>
-                <div class="login" id="login">
-                    <form action="/dashboard" method="POST">
-                        <input placeholder="E-mail" type="email" class="emailInputL" id="acemailInputLcedi" name="email">Email</input>
-                        <input placeholder="Password" type="password" class="passwordInputL" id="passwordInputL" name="password">Password</input>
-                        <br>
-                        <a class="erroreLogin"> </a>
-                        <div class="sezzioneBottoneSotto">
-                            <button class="indietroLogin" type="button" onclick="cambioSezione('home')">Indietro</button>
-                            <input class="submitL" type="submit" id="submitL" value="Entra"></input>
-                        </div>
-                   </form>
-                </div>
-                <div class="register" id="register">
-                    <form action="/register" method="POST">
-                        <input placeholder="Nome" type="text" class="nomeInputR" id="nomeInputR" name="nome"></input>
-                        <input placeholder="E-mail" type="email" class="emailInputR" id="acemailInputLcedi" name="email"></input>
-                        <input placeholder="Password" type="password" class="passwordInputR" id="passwordInputL" name="password"></input>
-                        <br>
-                        <a class="erroreRegister"> </a>
-                        <div class="sezzioneBottoneSotto">
-                            <button class="indietroRegister" type="button" onclick="cambioSezione('home')">Indietro</button>
-                            <input class="submitR" type="submit" id="submitR" value="Registrati"></input>
-                        </div>
-                   </form>
             </div>
         </div>
     </div>
-    <footer>
-        <a class="poweredBy">Powered by </a>
-        <img class="immagineLogo" src="static/media/logoEggs/logoNoSfondo.png">
-        <a class="copyright">&copy; 2022 EggSolution, Inc. All rights reserved.</a>
-    </footer>
+    <div class="eggSoltuion">
+        <a>Powered by</a>
+        <img src="../static/media/logoEggs/logoNoSfondo.png"></img>
+    </div>
+    <a class="copyright">&copy; 2022 EggSolution, Inc. All rights reserved.</a>
 </body>
 </html>

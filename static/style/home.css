@@ -4,17 +4,57 @@
     margin: 0;
     padding: 0;
 }
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* SFONDO */
+.sfondo{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: #364CB6;
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 0;
+    overflow: hidden;
+}
+.corpo3{
+    position: absolute;
+    width: 713px;
+    height: 1737px;
+    top: -13%;
+    left: 1%;
+    background: #70C7EC;
+    transform: rotate(-40deg);
+}
+.corpo2{
+    position: absolute;
+    width: 713px;
+    height: 1405px;
+    left: -10%;
+    top: 10%;
+    background: #4863E6;
+    transform: rotate(-49.84deg);
+}
+.corpo1{
+    position: absolute;
+    background-color: #34189C;
+    height: 700px;
+    width: 300px;
+    transform: rotate(-45deg);
+    top: 50%;
+    left: -2%;
+}
 
 /* PAGINA */
 .pagina {
-    background-repeat: no-repeat;
-    background-color: #313131;
-    background-size: 180vh;
-    background-position: center center;
-    height: calc(100vh - 60px);
+    height: 100vh;
     position: relative;
     width: 100%;
 }
+
 /* OPZIONI */
 .opzioni {
     display: flex;
@@ -40,254 +80,114 @@
 .tema {
     padding-left: 30px;
 }
+
 /* LOGO PILATI */
 .logo {
     width: 360px;
-    top: calc(50% - 350px);
+    top: calc(50% - 400px);
     left: calc(50% - 180px);
     position: relative;
 }
+
 /* MAIN */
 .main {
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.45);
-    box-shadow: 10px 10px 4px rgba(31, 104, 120, 0.3), 10px 10px 4px rgba(0, 0, 0, 0.25);
-    height: 420px;
-    width: 600px;
-    top: calc(50% - 340px);
-    left: calc(50% - 300px);
+    background: #303030;
+    height: 320px;
+    width: 500px;
+    top: calc(50% - 360px);
+    left: calc(50% - 250px);
     position: relative;
-    background-color: #000000;
-    opacity: 50%;
-    border-radius: 50px;
+    opacity: 0.9;
+    border-radius: 44px;
     padding: 0;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-/* SEZIONI */
-.scrollSezioni {
-    transform: translateX(0px);
+.centro {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+.centro .sopra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.centro .mezzo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+.centro .mezzo hr {
+    width: 35px;
+    height: 2px;
+    border: 0 solid;
+    background: #ffffff;
+    border-radius: 1px;
+}
+.centro .mezzo a  {
+    margin-left: 7px;
+    margin-right: 7px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.centro .sotto {
     display: flex;
     flex-direction: row;
-    width: 200%;
-    transition: 500ms;
+    justify-content: center;
+    align-items: center;
 }
-.home,
-.login,
-.register {
-    height: 420px;
-    width: 600px;
-    border-radius: 50px;
-    background-color: #00000000;
-    position: relative;
-}
-
-/* HOME */
-.loginInput1,
-.registerInput1,
-.guestInput1 {
-    height: 70px;
-    width: 450px;
-    margin-left: calc(300px - 225px);
-    background: #04FFB4;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-family: 'Roboto';
+.centro .sotto input {
+    font-family: "Google Sans", arial, sans-serif;
     font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
+    font-size: 14px;
+    height: 39px;
+    width: 174px;
+    border: 0 solid;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #3c4043;
 }
-.loginInput1:hover,
-.registerInput1:hover,
-.guestInput1:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-.loginInput1 {
-    margin-top: 50px;
-}
-.registerInput1,
-.guestInput1 {
-    margin-top: 45px;
-}
-
-/* LOGIN  */
-.emailInputL,
-.passwordInputL {
-    color: #090909;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 50px;
-    height: 50px;
-    width: calc(450px - 40px);
-    margin-left: calc((600px - 450px)/2);
-    background: #39D99F;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-
-.passwordInputL {
-    margin-top: 45px;
-}
-
-.erroreLogin {
-    margin-top: 20px;
-    margin-left: calc((600px - 450px)/2);
-    font-family: 'Roboto';
-    color: red;
-}
-
-.sezzioneBottoneSotto {
-    color: #1B1B1B;
-    margin-top: 45px;
-    height: 80px;
-    width: 450px;
-    margin-left: calc((600px - 450px)/2);
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.indietroLogin,
-.submitL {
-    border: 0;
-    margin: 0;
-    background: #39D99F;
-    border-radius: 20px;
-    color: #090909;
-    height: 50px;
-    width: calc(140px - 20px);
-    padding: 10px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 21px;
-}
-
-.submitL {
-    float: right;
-}
-
-/* REGISTER */
-.nomeInputR,
-.emailInputR,
-.passwordInputR {
-    color: #090909;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 40px;
-    height: 50px;
-    width: calc(450px - 40px);
-    margin-left: calc((600px - 450px)/2);
-    background: #39D99F;
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-
-.emailInputR,
-.passwordInputR {
-    margin-top: 20px;
-}
-
-.erroreRegister {
-    margin-top: 20px;
-    margin-left: calc((600px - 450px)/2);
-    font-family: 'Roboto';
-    color: red;
-}
-
-
-.sezzioneBottoneSotto {
-    color: #090909;
-    margin-top: 30px;
-    height: 80px;
-    width: 450px;
-    margin-left: calc((600px - 450px)/2);
-    border-radius: 20px;
-    border: 0;
-    position: relative;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.indietroRegister,
-.submitR {
-    border: 0;
-    margin: 0;
-    background: #39D99F;
-    border-radius: 20px;
-    color: #090909;
-    height: 50px;
-    width: calc(140px - 20px);
-    padding: 10px;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 21px;
-}
-
-.submitR {
-    float: right;
-}
-
-.nomeInputR:hover,
-.emailInputR:hover,
-.passwordInputR:hover,
-.indietroRegister:hover,
-.submitR:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
-.submitR:hover {
-    box-shadow: 10px 10px 4px rgba(12, 153, 233, 0.15);
-    transition: 0.2s;
-}
-
 
 /* FOOTER */
-footer{
-    height: 60px;
-    width: 100%;
-    position: relative;
-    background: rgb(14, 14, 14);
+/* eggSolution */
+.eggSoltuion {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    top: 100%;
+    justify-content: right;
+    height: 40px;
+    width: 250px;
+    background: transparent;
     position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 5px;
 }
-.poweredBy{
+.eggSoltuion a {
+    color: white;
     font-family: 'Yantramanav', sans-serif;
-    font-weight: light;
-    font-size: 16px;
-    margin-left: 20px;
-    color: rgb(218, 218, 218);
+    font-weight: 400;
+    font-size: 85%
 }
-.immagineLogo{
+.eggSoltuion img {
     height: 30px;
-    margin-left: 10px;
-    z-index: 2;
+    margin-left: 4px;
+    margin-right: 6px;
 }
-.copyright{
+.copyright {
     font-size: 15px;
     font-family: 'Spartan', sans-serif;
-    right: 15px;
     color: white;
     position: absolute;
+    padding-bottom: 12px;
+    bottom: 0;
+    left: 14px;
 }

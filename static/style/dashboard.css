@@ -1223,145 +1223,62 @@ header {
 }
 .aggiungiElaborati .sinistra{
     height: 100%;
-    width: 48%;
-    display: flex;
-    flex-direction: column;
+    width: 50%;
 }
-.aggiungiElaborati .sinistra .sopra{
+.aggiungiElaborati .sinistra .sezioneSinistra{
+    height: 100%;
+    width: 95%;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra{
     width: 100%;
     height: 10%;
     display: flex;
     flex-direction: row;
 }
-.aggiungiElaborati .sinistra .sopra .sinistra{
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra{
     height: 100%;
     width: 75%;
     display: flex;
     align-items: center;
-    flex-direction: row;
 }
-.aggiungiElaborati .sinistra .sopra .sinistra .divNomeElaborato{
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra .divNomeElaborato{
     height: 95%;
-    width: 96%;
+    width: 90%;
     background-color: #FF8496;
     border-radius: 17px;
 }
-.aggiungiElaborati .sinistra .sopra .destra{
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra{
     height: 100%;
     width: 25%;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
- }
- .aggiungiElaborati .sinistra .sopra .destra .divSelezionaClasse{
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra .divSelezionaClasse{
     height: 95%;
-    width: 96%;
-    background-color: #C27DFC;
+    width: 90%;
+    background: #C27DFC;
     border-radius: 17px;
- }
-.aggiungiElaborati .sinistra .mezzo{
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
     height: 45%;
-    display: flex;
-    align-items: center;
 }
-.aggiungiElaborati .sinistra .mezzo .divDragDrop{
-    height: 95%;
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop{
+    height: 100%;
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
+    margin-top: 1vh;
 }
-.aggiungiElaborati .sinistra .sotto{
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;
     height: 45%;
-    display: flex;
-    align-items: center;
 }
-.aggiungiElaborati .sinistra .sotto .divDescrizione{
-    height: 95%;
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
+    height: 100%;
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
-}
-.aggiungiElaborati .mezzo{
-    height: 100%;
-    width: 4%;
-}
-.aggiungiElaborati .destra{
-    height: 100%;
-    width: 48%;
-}
-.aggiungiElaborati .destra .sopra{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-}
-.aggiungiElaborati .destra .sopra .divIstruzioni{
-    height: 95%;
-    width: 100%;
-    background-color: #C27DFC;
-    border-radius: 17px;
-}
-.aggiungiElaborati .destra .mezzo{
-    width: 100%;
-    height: 80%;
-}
-.aggiungiElaborati .destra .mezzo .divSelezionaClasse{
-    width: 100%;
-    height: 95%;
-    background-color: rgba(48, 48, 48, 0.9);
-    border-radius: 17px;
-    margin-top: 1%;
-}
-.aggiungiElaborati .destra .sotto{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-}
-.aggiungiElaborati .destra .sotto .sezionatore{
-    width: 100%;
-    height: 79%;
-    display: flex;
-    flex-direction: row;
-}
-.aggiungiElaborati .destra .sotto .sezionatore .sinistra{
-    height: 100%;
-    width: 50%;
-}
-.aggiungiElaborati .destra .sotto .sezionatore .sinistra .divPubblico{
-    height: 100%;
-    width: 95%;
-    background-color: #C27DFC;
-    border-radius: 17px;
-}
-.aggiungiElaborati .destra .sotto .sezionatore .destra{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.aggiungiElaborati .destra .sotto .sezionatore .destra .divInvia{
-    height: 100%;
-    width: 95%;
-    background-color: #1FC4DA;
-    border-radius: 17px; 
-}
-.divNomeElaborato a{
-    position: absolute;
-    margin-left:17px;
-    margin-top:20px;
-    font-size: 24px;
-    color:#000000;
-    font-family: 'Roboto', sans-serif;
-}
-.divSelezionaClasse a{
-    position: absolute;
-    margin-left: 65px;
-    margin-top:22px;
-    font-size: 24px;
-    color:#000000;
-    font-family: 'Roboto', sans-serif;
-    
+    margin-top: 1vh;
 }

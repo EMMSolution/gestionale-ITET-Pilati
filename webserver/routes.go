@@ -14,7 +14,6 @@ import (
     _"github.com/go-sql-driver/mysql"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 
-	"gopkg.in/square/go-jose.v2"
 )
 
 // variabile globale per al connessione al database
@@ -154,6 +153,9 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			return
 	}
 
+	// apro connessione db
+	DBconn, _ := sql.Open("mysql", InfoDB)
+
 	// VERIFICHE E DECODIFICA INFORMAZIONI GOOGLE API
 	if tokenCsrfPOST == "" {
 		// execute html template
@@ -161,8 +163,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	}
 	fmt.Println(tokenCsrfPOST)
 	fmt.Println(tokenId)
-
-	DBconn, _ := sql.Open("mysql", InfoDB)
 
 	// stampo informazioni
 	SchermataTerminale += `

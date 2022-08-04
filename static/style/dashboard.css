@@ -1348,3 +1348,20 @@ header {
     background-color: #1FC4DA;
     border-radius: 17px; 
 }
+.divNomeElaborato a{
+    position: absolute;
+    margin-left:17px;
+    margin-top:20px;
+    font-size: 24px;
+    color:#000000;
+    font-family: 'Roboto', sans-serif;
+}
+.divSelezionaClasse a{
+    position: absolute;
+    margin-left: 65px;
+    margin-top:22px;
+    font-size: 24px;
+    color:#000000;
+    font-family: 'Roboto', sans-serif;
+    
+}

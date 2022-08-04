@@ -169,7 +169,7 @@ window.onload = function(){
     const bottoneLogout = document.getElementById("g_id_signout");
     bottoneLogout.onclick = () => {
         google.accounts.id.disableAutoSelect();
-        window.location = "http://localhost/";  
+        window.location = "http://localhost/";
     }
 
     // cambio sezione con query (da url)
@@ -244,7 +244,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 1;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-55px)";
+            titoloSezione.style.transform = "translateY(-25%)";
             // scorri sezione
             sezione.style.transform = "translateY(0)";
 
@@ -298,7 +298,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 2;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-110px)";
+            titoloSezione.style.transform = "translateY(-50%)";
             // scorri sezione
             sezione.style.transform = "translateY(-25%)";
 
@@ -369,8 +369,8 @@ function menu(sezioneFunc){
                 posizioneFileMenuSvg = 0;
             }
             // scorri titolo e sottotitolo
-            titoloSezione.style.transform = "translateY(-165px)";
-            menuFileSottomenu.style.transform = "translateY(0px)";
+            titoloSezione.style.transform = "translateY(-75%)";
+            menuFileSottomenu.style.transform = "translateY(8%)";
             // scorri sezione
             sezione.style.transform = "translateY(-40%)";
 
@@ -436,8 +436,8 @@ function menu(sezioneFunc){
                 posizioneFileMenuSvg = 1;
             }
             // scorri titolo e sottotitolo
-            titoloSezione.style.transform = "translateY(-165px)";
-            menuFileSottomenu.style.transform = "translateY(-51.5px)";
+            titoloSezione.style.transform = "translateY(-75%)";
+            menuFileSottomenu.style.transform = "translateY(-90%)";
             // scorri sezione
             sezione.style.transform = "translateY(-60%)";
 
@@ -491,7 +491,7 @@ function menu(sezioneFunc){
                 sezioneAttuale = 5;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-220px)";
+            titoloSezione.style.transform = "translateY(-100%)";
             // scorri sezione
             sezione.style.transform = "translateY(-75%)";
 

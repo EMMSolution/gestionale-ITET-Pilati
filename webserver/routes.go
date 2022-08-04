@@ -10,9 +10,11 @@ import (
 	"io/ioutil"
 	"database/sql"
 	"html/template"
-	"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
+	_"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
     _"github.com/go-sql-driver/mysql"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+
+	"gopkg.in/square/go-jose.v2"
 )
 
 // variabile globale per al connessione al database
@@ -124,49 +126,50 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
-	sezione := r.URL.Query().Get("sez")
-	// get current working directory
-	Cwd, _ =  os.Getwd()
-	emailForm := ""
-	passForm := ""
-	switch r.Method {
-		// filtro richieste
-		case "POST":
-			break;
-		case "GET":
-			// execute html template
-			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
-
-			return
-	}
-
-	// connessione database
-	DBconn, _ := sql.Open("mysql", InfoDB)
-	// query al database
-	credenziali, _ := DBconn.Query("SELECT * FROM user WHERE email='"+string(emailForm) + "' AND password='"+string(passForm)+"';")
-	// divido la query
-	credVar := database.QueryUser()
-	// for che controlla tutti i risultati
-	for credenziali.Next() {
-		err := credenziali.Scan(&credVar.Id, &credVar.Name, &credVar.Privileges, &credVar.Date, &credVar.Password, &credVar.Email, &credVar.Nuovo, &credVar.Preferiti)
-		if err != nil {
-			panic(err)
-		}
-	}
-	
-	// aggiorno e stampo i log con debug
+	// stampo banner debug
 	debugSpacer := ""
 
 	if imp.DebugMode == true {
 		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
 	}
 
-	cls()
+
+	sezione := r.URL.Query().Get("sez")
+	// get current working directory
+	Cwd, _ =  os.Getwd()
+	// variabili per contenere info POST
+	tokenCsrfPOST := ""
+	tokenId := ""
+
+	switch r.Method {
+		// filtro richieste
+		case "POST":
+			tokenCsrfPOST = r.FormValue("g_csrf_token");
+			tokenId = r.FormValue("credential");
+			break;
+		case "GET":
+			// execute html template
+			http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
+
+			return
+	}
+
+	// VERIFICHE E DECODIFICA INFORMAZIONI GOOGLE API
+	if tokenCsrfPOST == "" {
+		// execute html template
+		http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
+	}
+	fmt.Println(tokenCsrfPOST)
+	fmt.Println(tokenId)
+
+	DBconn, _ := sql.Open("mysql", InfoDB)
+
+	// stampo informazioni
 	SchermataTerminale += `
 	Utente loggato:
-  	  -id: ` + credVar.Id + `
-  	  -nome: ` + credVar.Name + `
-  	  -email: ` + credVar.Email + "\n"
+  	  -id: ` + "" + `
+  	  -nome: ` + "" + `
+  	  -email: ` + "" + "\n"
 
 	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
 
@@ -177,13 +180,13 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	// creo gli array degli elaborati preferiti
 	var preferiti []string
-	preferiti = strings.Split(credVar.Preferiti, ",")
+	preferiti = strings.Split("10, 11", ",")
 
 	// creo array id elaborati
 	var idElab []string
 
 	// creo la struct da mettere nell HTML
-	titoloP := "Dashboard - " + credVar.Name
+	titoloP := "Dashboard - " + ""
 	var ElaboratiStructData []ElabStructDash
 
 	// raccolgo gli elaborati temporaneamente
@@ -229,21 +232,21 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
-		NuovoAcc: credVar.Nuovo,
-		IdUtente: credVar.Id,
-		NomeUtente: credVar.Name,
-		EmailUtente: credVar.Email,
-		PassUtente: credVar.Password,
+		//NuovoAcc: credVar.Nuovo,
+		//IdUtente: credVar.Id,
+		//NomeUtente: credVar.Name,
+		//EmailUtente: credVar.Email,
+		//PassUtente: credVar.Password,
 		Elaborati: ElabStructData2,
 		Sezione: sezione,
 		ElabInfoCaricati: ElaboratiTotali,
 		ElabInfoApprovare: ElaboratiApprovare,
 		ElabInfoPubblici: ElaboratiPubblici,
 	}
-	
+
 
 	// aggiorno il profilo non più nuovo
-	if credVar.Nuovo == "si" {
+	if "" == "si" {
 		DBconn.Query("UPDATE user SET nuovo = 'no'")
 	}
 	// execute html template

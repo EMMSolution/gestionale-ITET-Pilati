@@ -14,6 +14,7 @@ import (
     _"github.com/go-sql-driver/mysql"
 	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 
+    "gopkg.in/square/go-jose.v2/jwt"
 )
 
 // variabile globale per al connessione al database
@@ -64,6 +65,7 @@ type DashStruct struct {
 	IdUtente     	   string
 	NomeUtente   	   string
 	EmailUtente 	   string
+	ImgUtente          string
 	PassUtente 		   string
 	Elaborati   	   []ElabStructDash
 	Sezione            string
@@ -125,13 +127,6 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
-	// stampo banner debug
-	debugSpacer := ""
-
-	if imp.DebugMode == true {
-		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
-	}
-
 
 	sezione := r.URL.Query().Get("sez")
 	// get current working directory
@@ -156,22 +151,40 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// apro connessione db
 	DBconn, _ := sql.Open("mysql", InfoDB)
 
+	// mappa per token id
+	var tokenIdDecoded map[string]interface{}
+	// decodifica token id
+	token, _ := jwt.ParseSigned(tokenId)
+	_ = token.UnsafeClaimsWithoutVerification(&tokenIdDecoded)
+
 	// VERIFICHE E DECODIFICA INFORMAZIONI GOOGLE API
+	// verifica token csrf in post
 	if tokenCsrfPOST == "" {
-		// execute html template
 		http.Redirect(w, r, "http://localhost/", http.StatusSeeOther)
 	}
-	fmt.Println(tokenCsrfPOST)
-	fmt.Println(tokenId)
+	// verifica token csrf in cookie
+
+	// verifica token csrf uguali
+
+
+
+	// creo banner debug
+	debugSpacer := ""
+
+	if imp.DebugMode == true {
+		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
+	}
 
 	// stampo informazioni
 	SchermataTerminale += `
 	Utente loggato:
   	  -id: ` + "" + `
-  	  -nome: ` + "" + `
-  	  -email: ` + "" + "\n"
+  	  -nome: ` + tokenIdDecoded["name"].(string) + `
+  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
 
+	cls()
 	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
+
 
 	// n elaborati
 	ElaboratiTotali := 0
@@ -186,7 +199,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	var idElab []string
 
 	// creo la struct da mettere nell HTML
-	titoloP := "Dashboard - " + ""
+	titoloP := "Dashboard - " + tokenIdDecoded["name"].(string)
 	var ElaboratiStructData []ElabStructDash
 
 	// raccolgo gli elaborati temporaneamente
@@ -234,8 +247,9 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		TitoloPag: titoloP,
 		//NuovoAcc: credVar.Nuovo,
 		//IdUtente: credVar.Id,
-		//NomeUtente: credVar.Name,
-		//EmailUtente: credVar.Email,
+		NomeUtente: tokenIdDecoded["name"].(string),
+		EmailUtente: tokenIdDecoded["email"].(string),
+		ImgUtente: tokenIdDecoded["picture"].(string),
 		//PassUtente: credVar.Password,
 		Elaborati: ElabStructData2,
 		Sezione: sezione,

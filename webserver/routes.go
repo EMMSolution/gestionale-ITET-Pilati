@@ -193,7 +193,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	// creo gli array degli elaborati preferiti
 	var preferiti []string
-	preferiti = strings.Split("10, 11", ",")
+	preferiti = strings.Split("10,11", ",")
 
 	// creo array id elaborati
 	var idElab []string

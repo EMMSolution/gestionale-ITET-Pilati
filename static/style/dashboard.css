@@ -207,8 +207,8 @@ body {
     position: absolute;
     width: 713px;
     height: 1737px;
-    top: -20%;
-    left: 13%;
+    top: -30%;
+    left: 18%;
     background: #70C7EC;
     transform: rotate(-40deg);
 }
@@ -216,7 +216,7 @@ body {
     position: absolute;
     width: 713px;
     height: 1405px;
-    left: -10%;
+    left: 0%;
     top: 10%;
     background: #4863E6;
     transform: rotate(-49.84deg);
@@ -226,9 +226,9 @@ body {
     background-color: #34189C;
     height: 700px;
     width: 300px;
-    transform: rotate(-45deg);
-    top: 90%;
-    left: -2%;
+    transform: rotate(110deg);
+    top: 65%;
+    left: 10%;
 }
 
 /* PAGINA */

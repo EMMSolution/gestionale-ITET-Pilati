@@ -189,8 +189,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
 	}
 
-	fmt.Println(userQueryStruct.Id)
-
 	nuovoUserAccount := ""
 
 	// se l'utente non è già nel database
@@ -224,6 +222,15 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	} else {
 		nuovoUserAccount = "no";
 
+		oraAttuale := time.Now()
+		oraAttualeFormat := oraAttuale.Format("02-01-2006 15:04:05")
+		
+		queryInsertUtente := "UPDATE user SET ultimoAccesso = '"+oraAttualeFormat+"' WHERE nome = '"+tokenIdDecoded[`given_name`].(string)+"' AND cognome='"+tokenIdDecoded[`family_name`].(string)+"' AND email='"+tokenIdDecoded[`email`].(string)+"';"
+		_, err := DBconn.Query(queryInsertUtente)
+		if err != nil {
+			fmt.Println(err);
+		}
+		
 		// stampo informazioni
 		SchermataTerminale += `
 		Utente loggato:

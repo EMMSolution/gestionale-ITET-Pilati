@@ -745,6 +745,7 @@ header {
     flex-direction: row;
 }
 .divElaboratiPreferiti .schedaPreferito {
+    margin-right: 25px;
     position: relative;
     min-width: 15%;
     max-width: 15%;

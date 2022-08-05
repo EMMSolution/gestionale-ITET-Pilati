@@ -224,13 +224,13 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		oraAttuale := time.Now()
 		oraAttualeFormat := oraAttuale.Format("02-01-2006 15:04:05")
-		
+
 		queryInsertUtente := "UPDATE user SET ultimoAccesso = '"+oraAttualeFormat+"' WHERE nome = '"+tokenIdDecoded[`given_name`].(string)+"' AND cognome='"+tokenIdDecoded[`family_name`].(string)+"' AND email='"+tokenIdDecoded[`email`].(string)+"';"
 		_, err := DBconn.Query(queryInsertUtente)
 		if err != nil {
 			fmt.Println(err);
 		}
-		
+
 		// stampo informazioni
 		SchermataTerminale += `
 		Utente loggato:
@@ -250,7 +250,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	// creo gli array degli elaborati preferiti
 	var preferiti []string
-	preferiti = strings.Split("10,11", ",")
+	preferiti = strings.Split(userQueryStruct.Preferiti, ",")
 
 	// creo array id elaborati
 	var idElab []string

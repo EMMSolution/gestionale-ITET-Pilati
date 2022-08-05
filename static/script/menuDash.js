@@ -4,10 +4,11 @@ window.addEventListener('load', () => {
 })
 
 // PAGINA
+var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
-var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
-var indicatoreMenu, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
+var userNameInfo, titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
+var indicatoreMenu, indicatoreMenuBefore, indicatoreMenuAfter, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
 var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
 var welcomePage;
@@ -17,6 +18,11 @@ var sezioneAttuale = 1;
 var impAperto = false;
 
 window.onload = function(){
+    // sfondo
+    sfondoDiv1 = document.querySelector('.sfondo')
+    sfondoDiv2 = document.querySelector('.sfondo .corpo3')
+    sfondoDiv3 = document.querySelector('.sfondo .corpo2')
+    sfondoDiv4 = document.querySelector('.sfondo .corpo1')
     // titolo sezione
     titoloSezione = document.querySelector('.movingContainerTitoloSezione');
     impTitolo = document.querySelector('.impTitolo');
@@ -24,12 +30,16 @@ window.onload = function(){
     statTitolo = document.querySelector('.statTitolo');
     elabTitolo = document.querySelector('.elabTitolo');
     caricElabTitolo = document.querySelector('.caricElabTitolo');
+    // info nome utente
+    userNameInfo = document.querySelector('.containerUserInfo');
     // sezione
     sezione = document.querySelector('.movingContainerSezioni');
     elaboratiPersonali = document.querySelector(".elaboratiPersonali");
     elaboratiClasse = document.querySelector(".elaboratiClasse");
     // menu
     indicatoreMenu = document.querySelector('.indicatore');
+    indicatoreMenuBefore = document.querySelector('.indicatore .before');
+    indicatoreMenuAfter = document.querySelector('.indicatore .after');
     menuHomeA = document.querySelector('#meuHomeA');
     menuHomeImg = document.querySelector('#iconaHomeMenu');
     menuHomeSvgPath1 = document.querySelector('#iconaHomeMenu .cls-1-1');
@@ -77,6 +87,20 @@ window.onload = function(){
     homeStatsWidgetColorBar1 = document.querySelector('.label1 .sinistra .barra');
     homeStatsWidgetColorBar2 = document.querySelector('.label2 .sinistra .barra');
     homeStatsWidgetColorBar3 = document.querySelector('.label3 .sinistra .barra');
+
+    // colori default sfondo (tema scuro)
+    titoloSezione.style.color = "#ffffff";
+    menuFileSottomenu.style.color = "#ffffff";
+    userNameInfo.style.color = "#ffffff";
+    indicatoreMenu.style.borderColor = "#171717";
+    indicatoreMenuBefore.style.borderRight = "5px #171717 solid";
+    indicatoreMenuBefore.style.borderBottom = "5px #171717 solid";
+    indicatoreMenuAfter.style.borderRight = "5px #171717 solid";
+    indicatoreMenuAfter.style.borderTop = "5px #171717 solid";
+    sfondoDiv1.style.background = "#545454";
+    sfondoDiv2.style.background = "#444444";
+    sfondoDiv3.style.background = "#171717";
+    sfondoDiv4.style.background = "#000000";
 
     // default sezioni
     elaboratiClasse.style.display = "none";
@@ -193,6 +217,67 @@ window.onload = function(){
 }
 
 // FUNCTIONS
+function sfondo(tema){
+    switch(tema){
+        case "chiaro":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#303030";
+            indicatoreMenu.style.borderColor = "#D3D3D3"
+            indicatoreMenuBefore.style.borderRight = "5px #D3D3D3 solid";
+            indicatoreMenuBefore.style.borderBottom = "5px #D3D3D3 solid";
+            indicatoreMenuAfter.style.borderRight = "5px #D3D3D3 solid";
+            indicatoreMenuAfter.style.borderTop = "5px #D3D3D3 solid";
+            sfondoDiv1.style.background = "#FFFFFF";
+            sfondoDiv2.style.background = "#E3E3E3";
+            sfondoDiv3.style.background = "#D3D3D3";
+            sfondoDiv4.style.background = "#8F8F8F";
+            break;
+        case "scuro":
+            titoloSezione.style.color = "#ffffff"
+            menuFileSottomenu.style.color = "#ffffff";
+            userNameInfo.style.color = "#ffffff";
+            indicatoreMenu.style.borderColor = "#171717"
+            indicatoreMenuBefore.style.borderRight = "5px #171717 solid";
+            indicatoreMenuBefore.style.borderBottom = "5px #171717 solid";
+            indicatoreMenuAfter.style.borderRight = "5px #171717 solid";
+            indicatoreMenuAfter.style.borderTop = "5px #171717 solid";
+            sfondoDiv1.style.background = "#545454";
+            sfondoDiv2.style.background = "#444444";
+            sfondoDiv3.style.background = "#171717";
+            sfondoDiv4.style.background = "#000000";
+            break;
+        case "eggsolution":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#ffffff";
+            indicatoreMenu.style.borderColor = "#A36B00"
+            indicatoreMenuBefore.style.borderRight = "5px #A36B00 solid";
+            indicatoreMenuBefore.style.borderBottom = "5px #A36B00 solid";
+            indicatoreMenuAfter.style.borderRight = "5px #A36B00 solid";
+            indicatoreMenuAfter.style.borderTop = "5px #A36B00 solid";
+            sfondoDiv1.style.background = "#3F3F3F";
+            sfondoDiv2.style.background = "#E2BE40";
+            sfondoDiv3.style.background = "#A36B00";
+            sfondoDiv4.style.background = "#4E4E4E";
+            break;
+        case "blu":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#ffffff";
+            indicatoreMenu.style.borderColor = "#4863E6"
+            indicatoreMenuBefore.style.borderRight = "5px #4863E6 solid";
+            indicatoreMenuBefore.style.borderBottom = "5px #4863E6 solid";
+            indicatoreMenuAfter.style.borderRight = "5px #4863E6 solid";
+            indicatoreMenuAfter.style.borderTop = "5px #4863E6 solid";
+            sfondoDiv1.style.background = "#364CB6";
+            sfondoDiv2.style.background = "#70C7EC";
+            sfondoDiv3.style.background = "#4863E6";
+            sfondoDiv4.style.background = "#34189C";
+            break;
+    }
+}
+
 function menu(sezioneFunc){
     switch(sezioneFunc){
         case 1:

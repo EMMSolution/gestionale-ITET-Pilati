@@ -194,40 +194,41 @@ body {
 
 /* SFONDO */
 .sfondo{
+    transition: 0.2s;
     position: absolute;
     height: 100vh;
     width: 100%;
-    background-color: #364CB6;
     display: flex;
     flex-direction: column-reverse;
     z-index: -1;
     overflow: hidden;
 }
 .corpo3{
+    transition: 0.2s;
     position: absolute;
     width: 713px;
     height: 1737px;
     top: -30%;
     left: 18%;
-    background: #70C7EC;
     transform: rotate(-40deg);
 }
 .corpo2{
+    transition: 0.2s;
     position: absolute;
     width: 713px;
     height: 1405px;
     left: 0%;
     top: 10%;
-    background: #4863E6;
     transform: rotate(-49.84deg);
 }
 .corpo1{
+    transition: 0.2s;
     position: absolute;
     background-color: #34189C;
-    height: 700px;
+    height: 1000px;
     width: 300px;
     transform: rotate(110deg);
-    top: 65%;
+    top: 48%;
     left: 10%;
 }
 
@@ -286,28 +287,25 @@ body {
 }
 .indicatore {
     border-radius: 50%;
-    border: 8px var(--mainBackground) solid;
+    border: 8px solid;
     left: calc(60px - 50px/2 - 8px);
     height: 50px;
     width: 50px;
     background-color: #ffffff;
     position: absolute;
-    transition: 0.5s;
+    transition: border 0.2s, transform 0.5s;
 }
-.indicatore::before {
-    content: '';
+.indicatore .before {
     position: absolute;
-    top: -41%;
+    top: -40%;
     left: 9px;
     width: 16px;
     height: 16px;
     background-color: transparent;
     border-bottom-right-radius: 20px;
-    border-right: 5px var(--mainBackground) solid;
-    border-bottom: 5px var(--mainBackground) solid;
+    transition: 0.2s border;
 }
-.indicatore::after {
-    content: '';
+.indicatore .after {
     position: absolute;
     bottom: -41%;
     left: 9px;
@@ -315,8 +313,7 @@ body {
     height: 16px;
     background-color: transparent;
     border-top-right-radius: 20px;
-    border-right: 5px var(--mainBackground) solid;
-    border-top: 5px var(--mainBackground) solid;
+    transition: 0.2s border;
 }
 .lista {
     position: relative;
@@ -681,7 +678,10 @@ header {
     display: flex;
 }
 .divElaboratiPreferiti {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
     padding-top: 5px;
     height: calc(100% - var(--widgetSpacing)/2 - 15px);
     width: calc(100% - var(--widgetSpacing)/2);
@@ -729,7 +729,6 @@ header {
 .divElaboratiPreferiti .titoloSezione {
     margin-top: 15px;
     margin-bottom: 5px;
-    padding-left: 20px;
     height: 34px;
     width: 100%;
     transition: 0.8s;
@@ -752,16 +751,16 @@ header {
 .divElaboratiPreferiti .schedaPreferito {
     position: relative;
     min-width: 15%;
-    height: 96%;
+    max-width: 15%;
+    height: 90%;
+    margin-top: 1.2%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     background: #C27DFC;
-    margin-left: 20px;
-    margin-bottom: 3%;
 }
 .divElaboratiPreferiti .schedaPreferito div {
     background: red;
@@ -772,10 +771,13 @@ header {
     justify-content: center;
     align-items: center;
 }
+.divElaboratiPreferiti .schedaPreferito svg {
+    margin-bottom: 10%;
+}
 .divElaboratiPreferiti .schedaPreferito a {
     font-family: 'Roboto', sans-serif;
     font-size: 110%;
-    color: #000000;
+    color: #303030;
 }
 
 /* statistiche (alto destra) */
@@ -812,13 +814,13 @@ header {
     background-color: #C27DFC;
 }
 .label1:hover a {
-    color: black;
+    color: #303030;
 }
 .label2:hover a {
-    color: black;
+    color: #303030;
 }
 .label3:hover a {
-    color: black;
+    color: #303030;
 }
 .label1 .icona,
 .label2 .icona,

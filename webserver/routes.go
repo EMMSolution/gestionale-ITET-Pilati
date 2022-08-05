@@ -3,6 +3,7 @@ package webserver
 import (
 	"os"
 	"fmt"
+	"time"
 	"bufio"
 	"os/exec"
 	"strings"
@@ -46,14 +47,15 @@ type ElabStructDash struct {
 	Recente     bool
 }
 type UserStruct struct {
-	Id          string
-	Name        string
-	Privileges  string
-	Date        string
-	Password    string
-	Email       string
-	Nuovo       string
-	Preferiti   string
+	Id            string
+	Nome          string
+	Cognome       string
+	Email         string
+	Preferiti     string
+	Tipo          string
+	PrimoAccesso  string
+	UltimoAccesso string
+	Stato         string
 }
 type HomeStruct struct {
 	Sezione      string
@@ -62,7 +64,7 @@ type HomeStruct struct {
 type DashStruct struct {
 	TitoloPag    	   string
 	NuovoAcc    	   string
-	IdUtente     	   string
+	IdGoogleUtente	   string
 	NomeUtente   	   string
 	EmailUtente 	   string
 	ImgUtente          string
@@ -98,11 +100,8 @@ func Routes(infoDB string){
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 	// routes
 	http.HandleFunc("/", home)
-	http.HandleFunc("/register", register)
 	http.HandleFunc("/dashboard", dashboard)
-	http.HandleFunc("/passReset", passReset)
 	http.HandleFunc("/uploadFile", uploadFile)
-	http.HandleFunc("/cambioImpostazioni", cambioImpostazioni)
 }
 
 // all page function
@@ -148,9 +147,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 			return
 	}
 
-	// apro connessione db
-	DBconn, _ := sql.Open("mysql", InfoDB)
-
 	// mappa per token id
 	var tokenIdDecoded map[string]interface{}
 	// decodifica token id
@@ -167,6 +163,24 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// verifica token csrf uguali
 
 
+	// apro connessione db
+	DBconn, _ := sql.Open("mysql", InfoDB)
+
+	// controllo se l'account è già esistente o se è il primo accesso
+	userQueryStruct := new(UserStruct)
+
+	queryUserTesto := "SELECT * FROM user WHERE nome='"+tokenIdDecoded["given_name"].(string)+"' AND cognome='"+tokenIdDecoded["family_name"].(string)+"' AND email='"+tokenIdDecoded["email"].(string)+"';"
+	queryUserData, err := DBconn.Query(queryUserTesto)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	for queryUserData.Next() {
+		err := queryUserData.Scan(&userQueryStruct.Id, &userQueryStruct.Nome, &userQueryStruct.Cognome, &userQueryStruct.Email, &userQueryStruct.Preferiti, &userQueryStruct.Tipo, &userQueryStruct.PrimoAccesso, &userQueryStruct.UltimoAccesso, &userQueryStruct.Stato)
+		if err != nil {
+			panic(err);
+		}
+	}
 
 	// creo banner debug
 	debugSpacer := ""
@@ -175,12 +189,48 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
 	}
 
-	// stampo informazioni
-	SchermataTerminale += `
-	Utente loggato:
-  	  -id: ` + "" + `
-  	  -nome: ` + tokenIdDecoded["name"].(string) + `
-  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
+	fmt.Println(userQueryStruct.Id)
+
+	nuovoUserAccount := ""
+
+	// se l'utente non è già nel database
+	if userQueryStruct.Id == "" {
+		nuovoUserAccount = "si";
+
+		oraAttuale := time.Now()
+		oraAttualeFormat := oraAttuale.Format("02-01-2006 15:04:05")
+
+		emailUtente := tokenIdDecoded[`email`].(string)
+		tipoNuovoAccount := ""
+
+		if emailUtente[:2] == "s-" {
+			tipoNuovoAccount = "studente"
+		} else {
+			tipoNuovoAccount = "professore"
+		}
+
+		queryInsertNuovoUtente := "INSERT INTO user (nome, cognome, email, preferiti, tipo, primoAccesso, ultimoAccesso, stato) VALUES ('"+tokenIdDecoded[`given_name`].(string)+"', '"+tokenIdDecoded[`family_name`].(string)+"', '"+emailUtente+"', '"+" "+"', '"+tipoNuovoAccount+"', '"+oraAttualeFormat+"', '"+oraAttualeFormat+"', '1')"
+		_, err := DBconn.Query(queryInsertNuovoUtente)
+		if err != nil {
+			fmt.Println(err);
+		}
+
+		// stampo informazioni
+		SchermataTerminale += `
+		Utente loggato per la prima volta:
+	  	  -id:    ` + tokenIdDecoded["sub"].(string) + `
+	  	  -nome:  ` + tokenIdDecoded["name"].(string) + `
+	  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
+	} else {
+		nuovoUserAccount = "no";
+
+		// stampo informazioni
+		SchermataTerminale += `
+		Utente loggato:
+	  	  -id:    ` + tokenIdDecoded["sub"].(string) + `
+	  	  -nome:  ` + tokenIdDecoded["name"].(string) + `
+	  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
+	}
 
 	cls()
 	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
@@ -245,12 +295,11 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	elaboratiHTML := DashStruct {
 		TitoloPag: titoloP,
-		//NuovoAcc: credVar.Nuovo,
-		//IdUtente: credVar.Id,
+		NuovoAcc: nuovoUserAccount,
+		IdGoogleUtente: tokenIdDecoded["sub"].(string),
 		NomeUtente: tokenIdDecoded["name"].(string),
 		EmailUtente: tokenIdDecoded["email"].(string),
 		ImgUtente: tokenIdDecoded["picture"].(string),
-		//PassUtente: credVar.Password,
 		Elaborati: ElabStructData2,
 		Sezione: sezione,
 		ElabInfoCaricati: ElaboratiTotali,
@@ -266,54 +315,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// execute html template
 	template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
 	template.Execute(w, elaboratiHTML)
-}
-
-func register(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-		case "GET":
-			http.Redirect(w, r, "http://localhost/?sez=2", http.StatusSeeOther)
-		case "POST":
-			DBconn, _ := sql.Open("mysql", InfoDB)
-			// prendo dati
-			NomeUtente := r.FormValue("nome")
-			MailUtente := r.FormValue("email")
-			PasswordUtente := r.FormValue("password")
-			// query per controllare omonimi
-			utenti, _ := DBconn.Query("SELECT * FROM user WHERE name='"+NomeUtente+"' OR email='"+MailUtente+"';")
-			for utenti.Next(){
-				utStr := new(UserStruct)
-				err := utenti.Scan(&utStr.Id, &utStr.Name, &utStr.Privileges, &utStr.Date, &utStr.Password, &utStr.Email, &utStr.Nuovo, &utStr.Preferiti)
-				if err != nil {
-					fmt.Println(err)
-				}
-				if utStr.Id != "" {
-					// con errore
-					http.Redirect(w, r, "http://localhost/?sez=2&err=2", http.StatusSeeOther)
-					return
-				}
-			}
-			// registrazione account
-			_, err := DBconn.Query("INSERT INTO user (name, privileges, password, email, nuovo, preferiti) VALUES ('"+NomeUtente+"', '"+"3"+"', '"+PasswordUtente+"', '"+MailUtente+"', 'si', '');")
-			if err != nil {
-				fmt.Println(err)
-				// con errore
-				http.Redirect(w, r, "http://localhost/?sez=2&err=3", http.StatusSeeOther)
-				return
-			}
-			fmt.Println("Utente registrato:")
-			fmt.Println("  -nome: " + NomeUtente)
-			fmt.Println("  -email: " + MailUtente + "\n")
-			// redirect alla home
-			http.Redirect(w, r, "http://localhost/?sez=1", http.StatusSeeOther)
-
-			// aggiorno e stampo i log
-			cls()
-			SchermataTerminale += `
-	Utente loggato:
-	  -nome: ` + NomeUtente + `
-	  -email: ` + MailUtente + "\n"
-			fmt.Print(SchermataTerminale)
-	}
 }
 
 func uploadFile(w http.ResponseWriter, r *http.Request) {
@@ -346,44 +347,4 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 			// renderizzo la pagina (con errori)
 			http.Redirect(w, r, "http://localhost/dashboard", http.StatusSeeOther)
 	}
-}
-
-func passReset(w http.ResponseWriter, r *http.Request) {
-	// get current working directory
-	Cwd, _ =  os.Getwd()
-	switch r.Method {
-		case "POST":
-			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\passDimenticata.html")
-			template.Execute(w,"")
-		case "GET":
-			// execute html template
-			template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
-			template.Execute(w,"")
-	}
-
-}
-
-func cambioImpostazioni(w http.ResponseWriter, r *http.Request) {
-	Cwd, _ =  os.Getwd()
-	var VecchioEmail string
-	var VecchioPass string
-	var NuovoNome string
-	var NuovoEmail string
-	var NuovoPass string
-	switch r.Method {
-		case "POST":
-			VecchioEmail = r.FormValue("emailOriginale")
-			VecchioPass = r.FormValue("passOriginale")
-			NuovoNome = r.FormValue("nomeUtente")
-			NuovoEmail = r.FormValue("emailUtente")
-			NuovoPass = r.FormValue("passUtente")
-		case "GET":
-			http.Redirect(w, r, "http.//localhost/dashboard", http.StatusSeeOther)
-	}
-	DBconn, _ := sql.Open("mysql", InfoDB)
-
-	QueryAggiornamento, _ := DBconn.Query("UPDATE user SET name = '"+NuovoNome+"', email = '"+NuovoEmail+"', password = '"+NuovoPass+"' WHERE email = '"+VecchioEmail+"' and password = '"+VecchioPass+"';")
-	fmt.Println(QueryAggiornamento)
-	http.Redirect(w, r, "http://localhost/dashboard", http.StatusSeeOther)
 }

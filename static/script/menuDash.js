@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
-var titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
+var userNameInfo, titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
 var indicatoreMenu, indicatoreMenuBefore, indicatoreMenuAfter, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
 var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
 var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
@@ -30,6 +30,8 @@ window.onload = function(){
     statTitolo = document.querySelector('.statTitolo');
     elabTitolo = document.querySelector('.elabTitolo');
     caricElabTitolo = document.querySelector('.caricElabTitolo');
+    // info nome utente
+    userNameInfo = document.querySelector('.containerUserInfo');
     // sezione
     sezione = document.querySelector('.movingContainerSezioni');
     elaboratiPersonali = document.querySelector(".elaboratiPersonali");
@@ -87,6 +89,9 @@ window.onload = function(){
     homeStatsWidgetColorBar3 = document.querySelector('.label3 .sinistra .barra');
 
     // colori default sfondo (tema scuro)
+    titoloSezione.style.color = "#ffffff";
+    menuFileSottomenu.style.color = "#ffffff";
+    userNameInfo.style.color = "#ffffff";
     indicatoreMenu.style.borderColor = "#171717";
     indicatoreMenuBefore.style.borderRight = "5px #171717 solid";
     indicatoreMenuBefore.style.borderBottom = "5px #171717 solid";
@@ -215,6 +220,9 @@ window.onload = function(){
 function sfondo(tema){
     switch(tema){
         case "chiaro":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#303030";
             indicatoreMenu.style.borderColor = "#D3D3D3"
             indicatoreMenuBefore.style.borderRight = "5px #D3D3D3 solid";
             indicatoreMenuBefore.style.borderBottom = "5px #D3D3D3 solid";
@@ -226,6 +234,9 @@ function sfondo(tema){
             sfondoDiv4.style.background = "#8F8F8F";
             break;
         case "scuro":
+            titoloSezione.style.color = "#ffffff"
+            menuFileSottomenu.style.color = "#ffffff";
+            userNameInfo.style.color = "#ffffff";
             indicatoreMenu.style.borderColor = "#171717"
             indicatoreMenuBefore.style.borderRight = "5px #171717 solid";
             indicatoreMenuBefore.style.borderBottom = "5px #171717 solid";
@@ -237,6 +248,9 @@ function sfondo(tema){
             sfondoDiv4.style.background = "#000000";
             break;
         case "eggsolution":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#ffffff";
             indicatoreMenu.style.borderColor = "#A36B00"
             indicatoreMenuBefore.style.borderRight = "5px #A36B00 solid";
             indicatoreMenuBefore.style.borderBottom = "5px #A36B00 solid";
@@ -248,6 +262,9 @@ function sfondo(tema){
             sfondoDiv4.style.background = "#4E4E4E";
             break;
         case "blu":
+            titoloSezione.style.color = "#303030"
+            menuFileSottomenu.style.color = "#303030";
+            userNameInfo.style.color = "#ffffff";
             indicatoreMenu.style.borderColor = "#4863E6"
             indicatoreMenuBefore.style.borderRight = "5px #4863E6 solid";
             indicatoreMenuBefore.style.borderBottom = "5px #4863E6 solid";

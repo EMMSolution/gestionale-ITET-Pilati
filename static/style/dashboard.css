@@ -592,7 +592,6 @@ header {
     margin-left: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
-    color: #313131;
 }
 .impTitolo {
     margin-top: 10px;
@@ -605,7 +604,6 @@ header {
     margin-top: 14px;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
-    color: #303030;
     transition: 0.1s;
 }
 .containerUserInfo {
@@ -621,7 +619,6 @@ header {
 .containerUserInfo a {
     font-family: 'Roboto', sans-serif;
     font-size: 120%;
-    color: white;
     margin-right: 16px;
 }
 .userImg {

@@ -7,10 +7,10 @@ window.addEventListener('load', () => {
 var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
-var userNameInfo, titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo, impTitolo;
+var userNameInfo, titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo;
 var indicatoreMenu, indicatoreMenuBefore, indicatoreMenuAfter, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
 var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
-var imp, impAperto, impAnnullaInput, passImpInput, inputImpNome, inputImpEmail;
+var imp, impAperto;
 var welcomePage;
 var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidgetColorBar1, homeStatsWidgetColorBar2, homeStatsWidgetColorBar3;
 
@@ -18,6 +18,8 @@ var sezioneAttuale = 1;
 var impAperto = false;
 
 window.onload = function(){
+    // welcome page
+    welcomePage = document.querySelector('.welcomePage')
     // sfondo
     sfondoDiv1 = document.querySelector('.sfondo')
     sfondoDiv2 = document.querySelector('.sfondo .corpo3')
@@ -25,7 +27,6 @@ window.onload = function(){
     sfondoDiv4 = document.querySelector('.sfondo .corpo1')
     // titolo sezione
     titoloSezione = document.querySelector('.movingContainerTitoloSezione');
-    impTitolo = document.querySelector('.impTitolo');
     homeTitolo = document.querySelector('.homeTitolo');
     statTitolo = document.querySelector('.statTitolo');
     elabTitolo = document.querySelector('.elabTitolo');
@@ -75,11 +76,6 @@ window.onload = function(){
     menuAggFileSvgPath4 = document.querySelector('#iconaAggFileMenu .cls-2');
     // impostazioni
     imp = document.querySelector('.imp');
-    passImpInput = document.querySelector('.inputImp3');
-    inputImpNome = document.querySelector('.inputImp1');
-    inputImpEmail = document.querySelector('.inputImp2');
-    inputImpPass = document.querySelector('.inputImp3');
-    welcomePage = document.querySelector('.welcomePage');
     // home
     homeStatsWidgetDiv1 = document.querySelector('.label1');
     homeStatsWidgetDiv2 = document.querySelector('.label2');
@@ -107,8 +103,7 @@ window.onload = function(){
     sezione.style.height = "calc(100% * 4 - 75px * 4)";
 
     // posizione default titolo sezione
-    titoloSezione.style.transform = "translateY(-55px)";
-    impTitolo.style.opacity = "0";
+    titoloSezione.style.transform = "translateY(-10%)";
 
     // colore/posizioni default menu
     menuHomeA.style.opacity = "1";
@@ -282,13 +277,6 @@ function menu(sezioneFunc){
     switch(sezioneFunc){
         case 1:
             if(impAperto == true){
-                impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
@@ -329,20 +317,13 @@ function menu(sezioneFunc){
                 sezioneAttuale = 1;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-25%)";
+            titoloSezione.style.transform = "translateY(-10%)";
             // scorri sezione
             sezione.style.transform = "translateY(0)";
 
             break;
         case 2:
             if(impAperto == true){
-               impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
@@ -383,20 +364,13 @@ function menu(sezioneFunc){
                 sezioneAttuale = 2;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-50%)";
+            titoloSezione.style.transform = "translateY(-35%)";
             // scorri sezione
             sezione.style.transform = "translateY(-25%)";
 
             break;
         case 3:
             if(impAperto == true){
-               impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
@@ -454,7 +428,7 @@ function menu(sezioneFunc){
                 posizioneFileMenuSvg = 0;
             }
             // scorri titolo e sottotitolo
-            titoloSezione.style.transform = "translateY(-75%)";
+            titoloSezione.style.transform = "translateY(-60%)";
             menuFileSottomenu.style.transform = "translateY(8%)";
             // scorri sezione
             sezione.style.transform = "translateY(-40%)";
@@ -462,13 +436,6 @@ function menu(sezioneFunc){
             break;
         case 4:
             if(impAperto == true){
-               impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
@@ -521,21 +488,14 @@ function menu(sezioneFunc){
                 posizioneFileMenuSvg = 1;
             }
             // scorri titolo e sottotitolo
-            titoloSezione.style.transform = "translateY(-75%)";
-            menuFileSottomenu.style.transform = "translateY(-90%)";
+            titoloSezione.style.transform = "translateY(-60%)";
+            menuFileSottomenu.style.transform = "translateY(-84%)";
             // scorri sezione
             sezione.style.transform = "translateY(-60%)";
 
             break;
         case 5:
             if(impAperto == true){
-               impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "0";
                 impAperto = false;
@@ -576,31 +536,17 @@ function menu(sezioneFunc){
                 sezioneAttuale = 5;
             }
             // scorri titolo
-            titoloSezione.style.transform = "translateY(-100%)";
+            titoloSezione.style.transform = "translateY(-85%)";
             // scorri sezione
             sezione.style.transform = "translateY(-75%)";
 
             break;
         case 6:
             if(impAperto == true){
-               impTitolo.style.opacity = "0";
-                // mostro altri titoli
-                homeTitolo.style.opacity = "1";
-                statTitolo.style.opacity = "1";
-                elabTitolo.style.opacity = "1";
-                caricElabTitolo.style.opacity = "1";
-
                 imp.style.opacity = "0";
                 imp.style.zIndex = "-1";
                 impAperto = false;
             } else if(impAperto == false){
-                // nascondo altri titoli
-                homeTitolo.style.opacity = "0";
-                statTitolo.style.opacity = "0";
-                elabTitolo.style.opacity = "0";
-                caricElabTitolo.style.opacity = "0";
-
-                impTitolo.style.opacity = "1";
                 imp.style.opacity = "1";
                 imp.style.zIndex = "5";
                 impAperto = true;

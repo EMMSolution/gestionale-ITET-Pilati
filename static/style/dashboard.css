@@ -358,7 +358,7 @@ body {
     border: 0 solid;
 }
 .MenuSezionesotto {
-    height: 120px;
+    height: 60px;
     width: 60px;
     position: absolute;
     bottom: -5px;
@@ -366,25 +366,13 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-.MenuSezionesotto .sotto,
-.MenuSezionesotto .sopra {
+.MenuSezionesotto .sotto {
     padding-top: 6px;
     padding-bottom: 6px;
     padding-left: 13px;
     padding-right: 13px;
     height: 40px;
     width: 60px;
-}
-.MenuSezionesotto .sopra button {
-    background: var(--barraLateraleColore);
-    border: 0 solid;
-}
-.MenuSezionesotto .sopra svg {
-    transition: 0.5s;
-    transform: translateX(3px);
-}
-.MenuSezionesotto .sopra:hover svg {
-    transform: translateX(3px) rotate(40deg);
 }
 .MenuSezionesotto .sotto .frecciaSvg {
     transition: 0.3s;
@@ -418,133 +406,9 @@ body {
 
 /* IMPOSTAZIONI */
 .imp {
-    height: calc(100% - 140px);
-    width: calc(100% - 160px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
     position: absolute;
-    background-color: #303030;
-    margin-left: 50px;
-    margin-top: 15px;
-    transition: 0.2s;
-}
-.settaggi {
-    margin-top: -20px;
-    width: 420px;
-    background-color: none;
-    display: flex;
-    flex-direction: column;
-}
-.imgProfilo {
-    margin-left: calc(420px / 2 - 140px / 2);
-    height: 140px;
-    width: 140px;
-    display: flex;
-    justify-content: center;
-}
-.img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.cambiaImg {
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    position: absolute;
-    background-color: none;
-    border: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transform: translateX(50px) translateY(90px);
-}
-.inputImp1,
-.inputImp2,
-.inputImp3,
-.inputImp4 {
-    text-align: center;
-    color: white;
-    background-color: #474549;
-    padding: 20px;
-    margin-top: 30px;
-    height: 20px;
-    width: calc(420px - 40px);
-    border-radius: 20px;
-    border: 0;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    font-weight: 500;
-    font-size: 120%;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.inputImp4 {
-    padding-top: 20px;
-}
-.inputImpAnnulla,
-.inputImpApplica {
-    text-align: center;
-    color: white;
-    background-color: #474549;
-    padding: 15px;
-    width: 140px;
-    margin-top: 30px;
-    border-radius: 20px;
-    border: 0;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    font-weight: 500;
-    font-size: 100%;
-    line-height: 100%;
-    transition: 0.2s;
-}
-.mostraPass {
-    text-align: center;
-    height: 60px;
-    color: white;
-    background-color: #524f54;
-    padding: 15px;
-    width: 50px;
-    margin-top: 30px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 0;
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    font-weight: 500;
-    font-size: 100%;
-    line-height: 100%;
-    transition: 0.2s;
-    float: right;
-    transform: translateX(-50px)
-}
-.mostraPass div {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 20px;
-    width: 30px;
-    z-index: 5;
-    transform: translateX(-5px)
-}
-.inputImpAnnulla {
-    background-color: #A33838;
-}
-.inputImpApplica {
-    background-color: #59AE9F;
-    float: right;
-}
-/* hover box shadow */
-.inputImp1:hover,
-.inputImp2:hover,
-.inputImp3:hover,
-.mostraPass:hover,
-.inputImpAnnulla:hover,
-.inputImpApplica:hover {
-    box-shadow: 6px 6px 6px rgba(64, 179, 216, 0.31);
+    top: 0;
+    right: 0;
 }
 
 /* HEADER */
@@ -615,7 +479,17 @@ header {
     right: 0;
     align-items: center;
 }
-.containerUserInfo a {
+.containerUserInfo button {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0 solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.containerUserInfo button a {
+    color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 120%;
     margin-right: 16px;
@@ -1226,7 +1100,7 @@ header {
 }
 .aggiungiElaborati .sinistra .sezioneSinistra{
     height: 100%;
-    width: calc(100% - var(--widgetSpacing));
+    width: 95%;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sopra{
     width: 100%;
@@ -1280,69 +1154,4 @@ header {
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
-}
-
-.aggiungiElaborati .destra{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.aggiungiElaborati .destra .sezioneDestra{
-    height: 100%;
-    width: calc(100% - var(--widgetSpacing));
-    display: flex;
-    flex-direction: column;
-}
-.aggiungiElaborati .destra .sezioneDestra .sopra{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-}
-.aggiungiElaborati .destra .sezioneDestra .sopra .divIstruzioni{
-    height: 95%;
-    width: 100%;
-    background: #C27DFC;
-    border-radius: 17px;
-}
-.aggiungiElaborati .destra .sezioneDestra .mezzo{
-    height: calc(80% - (var(--widgetSpacing)*2));
-    width: 100%;
-    margin-top: var(--widgetSpacing);
-}
-.aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie{
-    height: 100%;
-    width: 100%;
-    background: rgba(48, 48, 48, 0.9);
-    border-radius: 17px;
-}
-.aggiungiElaborati .destra .sezioneDestra .sotto{
-    height: 10%;
-    width: 100%;
-    margin-top: var(--widgetSpacing);
-    display: flex;
-    flex-direction: row;
-}
-.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra{
-    height: 100%;
-    width: 50%;
-}
-.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra .divSelezionatorePubblico{
-    height: 100%;
-    width: calc(100% - var(--widgetSpacing)/2);
-    background: #C27DFC;
-    border-radius: 17px;
-}
-.aggiungiElaborati .destra .sezioneDestra .sotto .destra{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.aggiungiElaborati .destra .sezioneDestra .sotto .destra .invia{
-    height: 100%;
-    width: calc(100% - var(--widgetSpacing)/2);
-    background: #1FC4DA;
-    border-radius: 17px;
 }

@@ -460,7 +460,7 @@
                                     </div>
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
-                                        <div class="row">
+                                        <button class="row">
                                             <div class="id">
                                                 <a>a</a>
                                             </div>
@@ -487,6 +487,17 @@
                                             <div class="preferito">
                                                 <div class="divisore"></div>
                                                 <a>aaa</a>
+                                            </div>
+                                        </button>
+                                        <button id="show-pdf-button">Show PDF</button>
+
+                                        <div id="pdf-main-container">
+                                            <div id="pdf-contents">
+                                                <div id="pdf-meta">
+                                                    </div>
+                                                    <div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
+                                                </div>
+                                                <canvas id="pdf-canvas" width="720"></canvas>
                                             </div>
                                         </div>
                                         <div class="row">

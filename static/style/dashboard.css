@@ -1320,6 +1320,29 @@ header {
 .aggiungiElaborati .destra .sezioneDestra .sotto{
     height: 10%;
     width: 100%;
-    opacity: 30%;
     margin-top: var(--widgetSpacing);
+    display: flex;
+    flex-direction: row;
+}
+.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra{
+    height: 100%;
+    width: 50%;
+}
+.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra .divSelezionatorePubblico{
+    height: 100%;
+    width: calc(100% - var(--widgetSpacing)/2);
+    background: #C27DFC;
+    border-radius: 17px;
+}
+.aggiungiElaborati .destra .sezioneDestra .sotto .destra{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.aggiungiElaborati .destra .sezioneDestra .sotto .destra .invia{
+    height: 100%;
+    width: calc(100% - var(--widgetSpacing)/2);
+    background: #1FC4DA;
+    border-radius: 17px;
 }

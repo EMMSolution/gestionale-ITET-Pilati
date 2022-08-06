@@ -1226,7 +1226,7 @@ header {
 }
 .aggiungiElaborati .sinistra .sezioneSinistra{
     height: 100%;
-    width: 95%;
+    width: calc(100% - var(--widgetSpacing));
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sopra{
     width: 100%;
@@ -1279,5 +1279,47 @@ header {
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
+    margin-top: var(--widgetSpacing);
+}
+
+.aggiungiElaborati .destra{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.aggiungiElaborati .destra .sezioneDestra{
+    height: 100%;
+    width: calc(100% - var(--widgetSpacing));
+    display: flex;
+    flex-direction: column;
+}
+.aggiungiElaborati .destra .sezioneDestra .sopra{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+.aggiungiElaborati .destra .sezioneDestra .sopra .divIstruzioni{
+    height: 95%;
+    width: 100%;
+    background: #C27DFC;
+    border-radius: 17px;
+}
+.aggiungiElaborati .destra .sezioneDestra .mezzo{
+    height: calc(80% - (var(--widgetSpacing)*2));
+    width: 100%;
+    margin-top: var(--widgetSpacing);
+}
+.aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie{
+    height: 100%;
+    width: 100%;
+    background: rgba(48, 48, 48, 0.9);
+    border-radius: 17px;
+}
+.aggiungiElaborati .destra .sezioneDestra .sotto{
+    height: 10%;
+    width: 100%;
+    opacity: 30%;
     margin-top: var(--widgetSpacing);
 }

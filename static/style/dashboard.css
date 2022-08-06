@@ -335,7 +335,7 @@ body {
     width: 80px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     letter-spacing: 0.8px;
     opacity: 0;
@@ -491,8 +491,8 @@ header {
 .containerUserInfo button a {
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 120%;
-    margin-right: 16px;
+    font-size: 140%;
+    margin-right: 12px;
 }
 .userImg {
     height: 48px;

@@ -17,14 +17,14 @@
     <script src="static/script/menuDash.js"></script>
     <script src="static/script/redirectVari.js"></script>
     <script>
-        var nomeUtenteJS = "{{.NomeUtente}}"
+        var nomeUtenteJS = "{{.NomeCompleto}}"
         var emailUtenteJS = "{{.EmailUtente}}"
         var passUtenteJS = "{{.PassUtente}}"
         var nuovoAcc = "{{.NuovoAcc}}"
         var sezioneQuery = "{{.Sezione}}"
     </script>
     <div class="welcomePage">
-        <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeUtente}}</a>!</h1>
+        <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeCompleto}}</a>!</h1>
         <h2 class="welcomeDes">Questa piattaforma ti permette di <a>caricare</a> elaborati e <br> <a>visualizare</a> quelli degli altri utenti</h2>
         <h2 class="welcomeDom">Vuoi procedere con il <a>tutorial</a>?</h2>
         <div class="welcomeRisposte">
@@ -197,34 +197,45 @@
         </div>
         <div class="main">
             <div class="imp">
-                <div class="freccia"></div>
                 <div class="corpo">
                     <a class="titolo">Account</a>
                     <div class="tema">
                         <a class="titoloSezione">Tema:</a>
                         <div class="coloriTema">
-                            <div class="cerchioTema">
-
+                            <div class="cerchioTema" onclick="sfondo('scuro')">
+                                <div class="colore1-1"></div>
+                                <div class="colore2-1"></div>
                             </div>
-                            <div class="cerchioTema">
-
+                            <div class="cerchioTema" onclick="sfondo('chiaro')">
+                                <div class="colore1-2"></div>
+                                <div class="colore2-2"></div>
                             </div>
-                            <div class="cerchioTema">
-
+                            <div class="cerchioTema" onclick="sfondo('blu')">
+                                <div class="colore1-3"></div>
+                                <div class="colore2-3"></div>
                             </div>
-                            <div class="cerchioTema">
-
+                            <div class="cerchioTema" onclick="sfondo('eggsolution')">
+                                <div class="colore1-4"></div>
+                                <div class="colore2-4"></div>
                             </div>
                         </div>
                     </div>
                     <div class="infoAccount">
                         <a class="titoloSezione">Info account:</a>
-                        <a class="infoAccountData">
-                            Nome:     Marco        <br>
-                            Cognome:  Bertagnolli  <br>
-                            Tipo:     Studente     <br>
-                            Classe:   2TE
-                        </a>
+                        <div class="infoText">
+                            <a class="infoAccountLabel">
+                                Nome:     <br>
+                                Cognome:  <br>
+                                Tipo:     <br>
+                                Classe:   <br>
+                            </a>
+                            <a class="infoAccountData">
+                                {{.Nome}}         <br>
+                                {{.Cognome}}      <br>
+                                {{.TipoAccount}}  <br>
+                                2TE               <br>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -245,7 +256,7 @@
                 </div>
                 <div class="containerUserInfo">
                     <button onclick="menu(6)">
-                        <a>{{.NomeUtente}}</a>
+                        <a>{{.NomeCompleto}}</a>
                         <div class="userImg">
                             <img src="{{.ImgUtente}}"></img>
                         </div>

@@ -32,7 +32,7 @@ window.onload = function(){
     elabTitolo = document.querySelector('.elabTitolo');
     caricElabTitolo = document.querySelector('.caricElabTitolo');
     // info nome utente
-    userNameInfo = document.querySelector('.containerUserInfo');
+    userNameInfo = document.querySelector('.containerUserInfo a');
     // sezione
     sezione = document.querySelector('.movingContainerSezioni');
     elaboratiPersonali = document.querySelector(".elaboratiPersonali");

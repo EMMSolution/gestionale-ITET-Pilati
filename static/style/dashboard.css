@@ -1208,6 +1208,12 @@ header {
 .aggiungiElaborati{
     flex-direction: row;
 }
+.aggiungiElaborati form{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
 .aggiungiElaborati .sinistra{
     height: 100%;
     width: 50%;
@@ -1228,12 +1234,15 @@ header {
     display: flex;
     align-items: center;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra .divNomeElaborato{
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra .nomeElaboratoInput{
     height: 95%;
     width: 90%;
     background-color: #FF8496;
     border-radius: 17px;
     opacity: 90%;
+    border: 0 solid;
+    text-align: center;
+    font-size: 150%;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra{
     height: 100%;

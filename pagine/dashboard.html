@@ -539,12 +539,14 @@
 
                         </div>
                     </div>
+                    
                     <div class="aggiungiElaborati">
+                        <form action="/uploadFile" method="POST" enctype="multipart/form-data">                            
                         <div class="sinistra">
                             <div class="sezioneSinistra">
                                 <div class="sopra">
                                     <div class="sinistra">
-                                        <div class="divNomeElaborato"></div>
+                                        <input type="text" name="nomeElaborato" class="nomeElaboratoInput" placeholder="inserire il nome dell' elaborato">
                                     </div>
                                     <div class="destra">
                                         <div class="divSelezionaClasse"></div>
@@ -577,6 +579,7 @@
                             </div>
                             <div class></div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

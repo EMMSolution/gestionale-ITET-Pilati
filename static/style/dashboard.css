@@ -335,7 +335,7 @@ body {
     width: 80px;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     letter-spacing: 0.8px;
     opacity: 0;
@@ -407,8 +407,109 @@ body {
 /* IMPOSTAZIONI */
 .imp {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 74px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.15s;
+}
+.imp .corpo {
+    max-width: 300px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    padding-bottom: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background: #303030;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+}
+.imp .corpo .titolo {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 138%;
+    margin-top: 24px;
+}
+.imp .corpo .tema {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 18px;
+}
+.imp .corpo .titoloSezione {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 130%;
+}
+.imp .corpo .coloriTema {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+.imp .corpo .coloriTema .cerchioTema {
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+    border: 1px solid white;
+}
+.imp .corpo .coloriTema .cerchioTema div {
+    height: 23px;
+    width: 46px;
+}
+.imp .corpo .coloriTema .cerchioTema .colore1-1 {
+    background-color: #545454;
+}
+.imp .corpo .coloriTema .cerchioTema .colore2-1 {
+    background-color: #171717;
+}
+.imp .corpo .coloriTema .cerchioTema .colore1-2 {
+    background-color: #FFFFFF;
+}
+.imp .corpo .coloriTema .cerchioTema .colore2-2 {
+    background-color: #8F8F8F;
+}
+.imp .corpo .coloriTema .cerchioTema .colore1-3 {
+    background-color: #364CB6;
+}
+.imp .corpo .coloriTema .cerchioTema .colore2-3 {
+    background-color: #34189C;
+}
+.imp .corpo .coloriTema .cerchioTema .colore1-4 {
+    background-color: #3F3F3F;
+}
+.imp .corpo .coloriTema .cerchioTema .colore2-4 {
+    background-color: #E2BE40;
+}
+.imp .corpo .infoAccount {
+    width: 214px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 32px;
+}
+.imp .corpo .infoAccount .infoText {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.imp .corpo .infoAccount .infoText .infoAccountLabel,
+.imp .corpo .infoAccount .infoText .infoAccountData {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    margin-top: 18px;
+    line-height: 1.4;
 }
 
 /* HEADER */
@@ -454,7 +555,7 @@ header {
     margin-top: 17px;
     margin-left: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 180%;
 }
 .impTitolo {
     margin-top: 10px;
@@ -466,7 +567,7 @@ header {
 .movingContainerTitoloSezione a {
     margin-top: 14px;
     font-family: 'Roboto', sans-serif;
-    font-size: 40px;
+    font-size: 264%;
     transition: 0.1s;
 }
 .containerUserInfo {
@@ -489,10 +590,9 @@ header {
     align-items: center;
 }
 .containerUserInfo button a {
-    color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 120%;
-    margin-right: 16px;
+    font-size: 145%;
+    margin-right: 12px;
 }
 .userImg {
     height: 48px;
@@ -790,8 +890,8 @@ header {
     justify-content: center
 }
 .divElaboratiRecenti .tabella .bodyTabella .row {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 8px;
+    margin-bottom: 8px;
 }
 .divElaboratiRecenti .headTabella a {
     color: #FFFFFF;
@@ -854,10 +954,24 @@ header {
 .divElaboratiRecenti .tabella .row .preferito .divisore {
     height: 20px;
     width: 4px;
-    background: #D9D9D9;
     opacity: 70%;
     border-radius: 40px;
     margin-right: 10px;
+}
+.divElaboratiRecenti .tabella .headTabella .row .divisore {
+    background: #C27DFC;
+}
+.divElaboratiRecenti .tabella .bodyTabella .row:nth-child(3n + 1) .divisore {
+    background: #FF8496;
+}
+.divElaboratiRecenti .tabella .bodyTabella .row:nth-child(3n + 2) .divisore {
+    background: #1FC4DA;
+}
+.divElaboratiRecenti .tabella .bodyTabella .row:nth-child(3n + 3) .divisore {
+    background: #C27DFC;
+}
+.divElaboratiRecenti .tabella .bodyTabella .row:hover {
+    background: rgba(73, 73, 73, 0.5);
 }
 
 /* STATISTICHE */

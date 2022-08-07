@@ -65,7 +65,10 @@ type DashStruct struct {
 	TitoloPag    	   string
 	NuovoAcc    	   string
 	IdGoogleUtente	   string
-	NomeUtente   	   string
+	NomeCompleto   	   string
+	Nome        	   string
+	Cognome		   	   string
+	TipoAccount        string
 	EmailUtente 	   string
 	ImgUtente          string
 	PassUtente 		   string
@@ -191,21 +194,23 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 	nuovoUserAccount := ""
 
+	emailUtente := tokenIdDecoded[`email`].(string)
+
+	// controllo se è uno studente o un professore
+	tipoNuovoAccount := ""
+
+	if emailUtente[:2] == "s-" {
+		tipoNuovoAccount = "studente"
+	} else {
+		tipoNuovoAccount = "professore"
+	}
+
 	// se l'utente non è già nel database
 	if userQueryStruct.Id == "" {
 		nuovoUserAccount = "si";
 
 		oraAttuale := time.Now()
 		oraAttualeFormat := oraAttuale.Format("02-01-2006 15:04:05")
-
-		emailUtente := tokenIdDecoded[`email`].(string)
-		tipoNuovoAccount := ""
-
-		if emailUtente[:2] == "s-" {
-			tipoNuovoAccount = "studente"
-		} else {
-			tipoNuovoAccount = "professore"
-		}
 
 		queryInsertNuovoUtente := "INSERT INTO user (nome, cognome, email, preferiti, tipo, primoAccesso, ultimoAccesso, stato) VALUES ('"+tokenIdDecoded[`given_name`].(string)+"', '"+tokenIdDecoded[`family_name`].(string)+"', '"+emailUtente+"', '"+" "+"', '"+tipoNuovoAccount+"', '"+oraAttualeFormat+"', '"+oraAttualeFormat+"', '1')"
 		_, err := DBconn.Query(queryInsertNuovoUtente)
@@ -304,7 +309,10 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		TitoloPag: titoloP,
 		NuovoAcc: nuovoUserAccount,
 		IdGoogleUtente: tokenIdDecoded["sub"].(string),
-		NomeUtente: tokenIdDecoded["name"].(string),
+		NomeCompleto: tokenIdDecoded["name"].(string),
+		Nome: tokenIdDecoded["given_name"].(string),
+		Cognome: tokenIdDecoded["family_name"].(string),
+		TipoAccount: tipoNuovoAccount,
 		EmailUtente: tokenIdDecoded["email"].(string),
 		ImgUtente: tokenIdDecoded["picture"].(string),
 		Elaborati: ElabStructData2,

@@ -1261,6 +1261,8 @@ header {
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
     height: calc(45% - var(--widgetSpacing));
+    display: flex;
+    justify-content: center;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop{
     height: 100%;
@@ -1269,6 +1271,7 @@ header {
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
     position: relative !important; 
+    
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;

@@ -1347,4 +1347,6 @@ header {
     background: #1FC4DA;
     border-radius: 17px;
     opacity: 90%;
+    border: 0 solid;
+    font-size: 150%;
 }

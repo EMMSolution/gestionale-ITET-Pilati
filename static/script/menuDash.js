@@ -580,3 +580,7 @@ function iniziaTutorial(){
 function fineTutorial(){
     welcomePage.style.display = "none"
 }
+
+function previewPDF(){
+    onclick=document.getElementsByClassName('boxPDF').style.display="flex"
+}

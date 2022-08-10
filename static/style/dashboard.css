@@ -1347,3 +1347,15 @@ header {
     border-radius: 17px;
     opacity: 90%;
 }
+
+/*preview*/
+.preview{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.boxPDF{
+    position: absolute;
+    height: 70%;
+    width: 60%;  
+}

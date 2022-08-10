@@ -1260,7 +1260,7 @@ header {
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
-    height: calc(45% - var(--widgetSpacing));
+    height: 45%;
     display: flex;
     justify-content: center;
 }
@@ -1275,7 +1275,7 @@ header {
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;
-    height: calc(45% - var(--widgetSpacing));
+    height: calc(45% - var(--widgetSpacing)*2);
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
     height: 100%;
@@ -1283,6 +1283,15 @@ header {
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
     margin-top: calc(var(--widgetSpacing)*2);
+    display: flex;
+    overflow-X: scroll;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione a{
+    font-size: 130%;
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
 }
 .aggiungiElaborati .destra{
     height: 100%;

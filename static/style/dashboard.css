@@ -1204,7 +1204,8 @@ header {
     border-radius: 40px;
     margin-right: 10px;
 }
-/*AGGIUNGI ELABORATI*/
+
+/* AGGIUNGI ELABORATI */
 .aggiungiElaborati{
     flex-direction: row;
 }
@@ -1270,8 +1271,8 @@ header {
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
-    position: relative !important; 
-    
+    position: relative !important;
+
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;

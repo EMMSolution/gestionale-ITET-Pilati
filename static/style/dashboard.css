@@ -1261,6 +1261,8 @@ header {
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
     height: calc(45% - var(--widgetSpacing));
+    display: flex;
+    justify-content: center;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop{
     height: 100%;
@@ -1268,6 +1270,8 @@ header {
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
+    position: relative !important; 
+    
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;
@@ -1278,7 +1282,7 @@ header {
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
-    margin-top: var(--widgetSpacing);
+    margin-top: calc(var(--widgetSpacing)*2);
 }
 .aggiungiElaborati .destra{
     height: 100%;
@@ -1358,4 +1362,6 @@ header {
     position: absolute;
     height: 70%;
     width: 60%;  
+    border: 0 solid;
+    font-size: 150%;
 }

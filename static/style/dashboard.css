@@ -1261,22 +1261,38 @@ header {
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
-    height: 45%;
+    height: calc(45% + var(--widgetSpacing));
     display: flex;
     justify-content: center;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop{
+    display: flex;
     height: 100%;
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
-    position: relative !important;
-
+    position: relative;
+    justify-content: center;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .fileInput{
+    height: 100%;
+    width: 100%;
+    color: transparent;
+    opacity: 0%;
+    border-radius: 17px;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .svgCartella{
+    height: 30%;
+    position: absolute;
+    margin-top: 5%;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop a {
+    color: #ffffff;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;
-    height: calc(45% - var(--widgetSpacing)*2);
+    height: calc(45% - var(--widgetSpacing)*3);
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
     height: 100%;

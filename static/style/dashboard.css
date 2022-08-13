@@ -1374,4 +1374,10 @@ header {
     width: 60%;  
     border: 0 solid;
     font-size: 150%;
+    margin-left: 20%;
+}
+.PDF-canvas{
+    border: 1px solid rgba(0,0,0,0.2);
+	box-sizing: border-box;
+    width: 720px;
 }

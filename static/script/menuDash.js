@@ -16,6 +16,7 @@ var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidg
 
 var sezioneAttuale = 1;
 var impAperto = false;
+var _PDF_DOC, _CANVAS = document.querySelector('#pdf-canvas');
 
 window.onload = function(){
     // welcome page
@@ -581,6 +582,16 @@ function fineTutorial(){
     welcomePage.style.display = "none"
 }
 
-function previewPDF(){
-    onclick=document.getElementsByClassName('boxPDF').style.display="flex"
+
+//preview
+async function showPDF(pdf_url) {
+    document.querySelector("#pdf-loader").style.display = 'block';
+
+    // get handle of pdf document
+    try {
+        _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });
+    }
+    catch(error) {
+        alert(error.message);
+    }
 }

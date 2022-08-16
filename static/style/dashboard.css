@@ -1375,6 +1375,7 @@ header {
 }
 
 /*preview*/
+<<<<<<< HEAD
 .preview {
     display: none;
 
@@ -1395,3 +1396,14 @@ header {
 	box-sizing: border-box;
     width: 720px;
 }
+=======
+.preview{
+    border:none; 
+    height:100%; 
+    width:100%; 
+    position:absolute; 
+    z-index:6; 
+    display: none;
+
+}
+>>>>>>> e462a510737f490fe0994331a4f875fcd1f7b18d

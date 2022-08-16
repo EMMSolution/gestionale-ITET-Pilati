@@ -244,7 +244,6 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
 	}
 
-	cls()
 	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
 
 
@@ -356,15 +355,30 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 			name := r.FormValue("nomeElaborato")
 			// VA MODIFICATO DOPO LA AGGIUNTA DELLE SESSIONI
 			creator := "admin"
-			filePath := "/elaborati/" + string(handler.Filename)
-			// creo l'elaborato
-			tempFile, _ := ioutil.TempFile(Cwd + "\\static\\elaborati\\", "elaborato-*.pdf")
+			filePath := "\\static\\elaborati\\" + string(handler.Filename)
 
 			DBconn, _ := sql.Open("mysql", InfoDB)
-			_, err := DBconn.Query("INSERT INTO elaborati (name, creator, filePath) VALUES ('"+name+"','"+creator+"','"+filePath+"');")
-			if err != nil {
-				console.logerr
+			// query a elaborati per vederne il numero
+			elaboratiQueryStruct := new(ElabStruct)
+			queryString := "SELECT * FROM elaborati;"
+			queryElaborati, _ := DBconn.Query(queryString)
+
+			var ultimoIdElaborati string
+
+			for queryElaborati.Next() {
+				queryElaborati.Scan(elaboratiQueryStruct.Id)
+
+				ultimoIdElaborati = elaboratiQueryStruct.Id
 			}
+
+			// creo l'elaborato
+			tempFile, _ := ioutil.TempFile(Cwd + "\\static\\elaborati\\", "elaborato-"+ultimoIdElaborati+".pdf")
+
+			fmt.Println(tempFile)
+
+			query, _ := DBconn.Query("INSERT INTO elaborati (name, creator, filePath) VALUES ('"+name+"','"+creator+"','"+filePath+"');")
+
+			fmt.Println(query)
 
 			defer tempFile.Close()
 			fileByte, _ := ioutil.ReadAll(file)

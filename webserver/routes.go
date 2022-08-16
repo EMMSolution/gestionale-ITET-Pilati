@@ -286,7 +286,15 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 		ElaboratiTotali += 1
 	}
-	var idElabRecenti []string = idElab[len(idElab) - nElabRecenti:]
+	// controllo che gli elaborati siano piu di nElabRecenti
+	var idElabRecenti []string
+
+	if (len(idElab) == 0 || len(idElab) < nElabRecenti) {
+		idElabRecenti = idElab[len(idElab):]
+	} else {
+		idElabRecenti = idElab[len(idElab) - nElabRecenti:]
+	}
+
 	var ElabStruct2 ElabStructDash
 	var ElabStructData2 []ElabStructDash
 	for a := 0; a < len(ElaboratiStructData); a++ {
@@ -349,11 +357,15 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 			// VA MODIFICATO DOPO LA AGGIUNTA DELLE SESSIONI
 			creator := "admin"
 			filePath := "/elaborati/" + string(handler.Filename)
-			DBconn, _ := sql.Open("mysql", InfoDB)
-			query, _ := DBconn.Query("INSERT INTO elaborati (name, creator, filePath) VALUES ('"+name+"','"+creator+"','"+filePath+"');")
-			fmt.Println(query)
 			// creo l'elaborato
-			tempFile, _ := ioutil.TempFile(Cwd + "\\elaborati\\", "elaborato-*.pdf")
+			tempFile, _ := ioutil.TempFile(Cwd + "\\static\\elaborati\\", "elaborato-*.pdf")
+
+			DBconn, _ := sql.Open("mysql", InfoDB)
+			_, err := DBconn.Query("INSERT INTO elaborati (name, creator, filePath) VALUES ('"+name+"','"+creator+"','"+filePath+"');")
+			if err != nil {
+				console.logerr
+			}
+
 			defer tempFile.Close()
 			fileByte, _ := ioutil.ReadAll(file)
 			tempFile.Write(fileByte)

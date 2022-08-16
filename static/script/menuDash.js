@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 })
 
 // PAGINA
+var preview;
 var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
@@ -16,9 +17,10 @@ var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidg
 
 var sezioneAttuale = 1;
 var impAperto = false;
-var _PDF_DOC, _CANVAS = document.querySelector('#pdf-canvas');
+
 
 window.onload = function(){
+    preview = document.querySelector('.preview')
     // welcome page
     welcomePage = document.querySelector('.welcomePage')
     // sfondo
@@ -584,14 +586,7 @@ function fineTutorial(){
 
 
 //preview
-async function showPDF(pdf_url) {
-    document.querySelector("#pdf-loader").style.display = 'block';
+document.querySelector(".row").addEventListener('click'), function() {
+    preview.style.position = "relative"
 
-    // get handle of pdf document
-    try {
-        _PDF_DOC = await pdfjsLib.getDocument({ url: pdf_url });
-    }
-    catch(error) {
-        alert(error.message);
-    }
 }

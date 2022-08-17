@@ -871,7 +871,7 @@ header {
 }
 .divElaboratiRecenti .headTabella {
     width: 100%;
-    height: 34px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center
@@ -1137,20 +1137,12 @@ header {
 .sezElaborati .tabella .bodyTabella .row {
     margin-top: 10px;
     margin-bottom: 10px;
-    background: transparent;
-    border: 0 solid;
 }
 .sezElaborati .headTabella a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 110%;
-    font-weight: lighter;
     color: #FFFFFF;
     opacity: 80%;
 }
-.sezElaborati .bodyTabella button a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 110%;
-    font-weight: lighter;
+.sezElaborati .bodyTabella a {
     color: #FFFFFF;
     opacity: 100%;
 }
@@ -1186,6 +1178,18 @@ header {
     display: flex;
     flex-direction: row;
 }
+.sezElaborati .tabella .row .id a,
+.sezElaborati .tabella .row .nome a,
+.sezElaborati .tabella .row .autore a,
+.sezElaborati .tabella .row .classe a,
+.sezElaborati .tabella .row .dataCaricamento a,
+.sezElaborati .tabella .row .stato a,
+.sezElaborati .tabella .row .preferito a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
 .sezElaborati .tabella .row .id .divisore,
 .sezElaborati .tabella .row .nome .divisore,
 .sezElaborati .tabella .row .autore .divisore,
@@ -1202,36 +1206,36 @@ header {
 }
 
 /* AGGIUNGI ELABORATI */
-.aggiungiElaborati {
+.aggiungiElaborati{
     flex-direction: row;
 }
-.aggiungiElaborati form {
+.aggiungiElaborati form{
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 100%;
 }
-.aggiungiElaborati .sinistra {
+.aggiungiElaborati .sinistra{
     height: 100%;
     width: 50%;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra {
+.aggiungiElaborati .sinistra .sezioneSinistra{
     height: 100%;
     width: 95%;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra {
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra{
     width: 100%;
     height: 10%;
     display: flex;
     flex-direction: row;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra {
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra{
     height: 100%;
     width: 75%;
     display: flex;
     align-items: center;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra .nomeElaboratoInput {
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .sinistra .nomeElaboratoInput{
     height: 95%;
     width: 90%;
     background-color: #FF8496;
@@ -1241,27 +1245,27 @@ header {
     text-align: center;
     font-size: 150%;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra {
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra{
     height: 100%;
     width: 25%;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra .divSelezionaClasse {
+.aggiungiElaborati .sinistra .sezioneSinistra .sopra .destra .divSelezionaClasse{
     height: 95%;
     width: 90%;
     background: #C27DFC;
     border-radius: 17px;
     opacity: 90%;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .mezzo {
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo{
     width: 100%;
     height: calc(45% + var(--widgetSpacing));
     display: flex;
     justify-content: center;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop {
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop{
     display: flex;
     height: 100%;
     width: 100%;
@@ -1271,14 +1275,14 @@ header {
     position: relative;
     justify-content: center;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .fileInput {
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .fileInput{
     height: 100%;
     width: 100%;
     color: transparent;
     opacity: 0%;
     border-radius: 17px;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .svgCartella {
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .svgCartella{
     height: 30%;
     position: absolute;
     margin-top: 5%;
@@ -1286,11 +1290,11 @@ header {
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop a {
     color: #ffffff;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sotto {
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;
     height: calc(45% - var(--widgetSpacing)*3);
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione {
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
     height: 100%;
     width: 100%;
     background-color: rgba(48, 48, 48, 0.9);
@@ -1299,74 +1303,74 @@ header {
     display: flex;
     overflow-X: scroll;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione a {
+.aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione a{
     font-size: 130%;
     color: white;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 3%;
 }
-.aggiungiElaborati .destra {
+.aggiungiElaborati .destra{
     height: 100%;
     width: 50%;
     display: flex;
     flex-direction: row-reverse;
 }
-.aggiungiElaborati .destra .sezioneDestra {
+.aggiungiElaborati .destra .sezioneDestra{
     height: 100%;
     width: calc(100% - var(--widgetSpacing));
     display: flex;
     flex-direction: column;
 }
-.aggiungiElaborati .destra .sezioneDestra .sopra {
+.aggiungiElaborati .destra .sezioneDestra .sopra{
     width: 100%;
     height: 10%;
     display: flex;
     align-items: center;
 }
-.aggiungiElaborati .destra .sezioneDestra .sopra .divIstruzioni {
+.aggiungiElaborati .destra .sezioneDestra .sopra .divIstruzioni{
     height: 95%;
     width: 100%;
     background: #C27DFC;
     border-radius: 17px;
     opacity: 90%;
 }
-.aggiungiElaborati .destra .sezioneDestra .mezzo {
+.aggiungiElaborati .destra .sezioneDestra .mezzo{
     height: calc(80% - (var(--widgetSpacing)*2));
     width: 100%;
     margin-top: var(--widgetSpacing);
 }
-.aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie {
+.aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie{
     height: 100%;
     width: 100%;
     background: rgba(48, 48, 48, 0.9);
     border-radius: 17px;
 }
-.aggiungiElaborati .destra .sezioneDestra .sotto {
+.aggiungiElaborati .destra .sezioneDestra .sotto{
     height: 10%;
     width: 100%;
     margin-top: var(--widgetSpacing);
     display: flex;
     flex-direction: row;
 }
-.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra {
+.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra{
     height: 100%;
     width: 50%;
 }
-.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra .divSelezionatorePubblico {
+.aggiungiElaborati .destra .sezioneDestra .sotto .sinistra .divSelezionatorePubblico{
     height: 100%;
     width: calc(100% - var(--widgetSpacing)/2);
     background: #C27DFC;
     border-radius: 17px;
     opacity: 90%;
 }
-.aggiungiElaborati .destra .sezioneDestra .sotto .destra {
+.aggiungiElaborati .destra .sezioneDestra .sotto .destra{
     height: 100%;
     width: 50%;
     display: flex;
     flex-direction: row-reverse;
 }
-.aggiungiElaborati .destra .sezioneDestra .sotto .destra .invia {
+.aggiungiElaborati .destra .sezioneDestra .sotto .destra .invia{
     height: 100%;
     width: calc(100% - var(--widgetSpacing)/2);
     background: #1FC4DA;
@@ -1375,35 +1379,10 @@ header {
 }
 
 /*preview*/
-<<<<<<< HEAD
-.preview {
-    display: none;
-
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-.boxPDF {
-    position: absolute;
-    height: 70%;
-    width: 60%;
-    border: 0 solid;
-    font-size: 150%;
-    margin-left: 20%;
-}
-.PDF-canvas {
-    border: 1px solid rgba(0,0,0,0.2);
-	box-sizing: border-box;
-    width: 720px;
-}
-=======
-.preview{
-    border:none; 
+.PDFpreview{ 
     height:100%; 
     width:100%; 
-    position:absolute; 
-    z-index:6; 
+    position:relative;
     display: none;
-
+    z-index: 6;
 }
->>>>>>> e462a510737f490fe0994331a4f875fcd1f7b18d

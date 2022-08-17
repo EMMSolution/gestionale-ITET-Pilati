@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 })
 
 // PAGINA
-var preview;
+var PDFpreview;
 var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
@@ -17,10 +17,11 @@ var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidg
 
 var sezioneAttuale = 1;
 var impAperto = false;
+var iframeAperto = false;
 
 
 window.onload = function(){
-    preview = document.querySelector('.preview')
+    PDFpreview = document.querySelector('.PDFpreview')
     // welcome page
     welcomePage = document.querySelector('.welcomePage')
     // sfondo
@@ -585,8 +586,15 @@ function fineTutorial(){
 }
 
 
-//preview
-document.querySelector(".row").addEventListener('click'), function() {
-    preview.style.position = "relative"
-
+// PDFpreview
+function previewLayer(filePath){  
+    PDFpreview.scr = (filePath)
+    if (iframeAperto == false){
+        PDFpreview.style.display = "block"
+        console.log("aperto")
+    }
+    else {
+        PDFpreview.style.display = "none"
+        console.log("chiuso")
+    }
 }

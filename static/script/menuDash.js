@@ -558,7 +558,6 @@ function menu(sezioneFunc){
         default:
             alert("valore sbagliato nello scorrimento sezioni");
     }
-    console.log(posizioneFileMenuSvg)
 }
 
 function resetImpInput(){
@@ -585,15 +584,15 @@ function fineTutorial(){
 }
 
 
-// PDFpreview
+// PDF preview
 function previewLayer(filePath){
-    PDFpreview.scr = (filePath)
+    PDFpreview.src = (filePath)
+    
     if (iframeAperto == false){
         PDFpreview.style.display = "block"
-        console.log("aperto")
-    }
-    else {
+        iframeAperto = true
+    } else if (iframeAperto == true) {
         PDFpreview.style.display = "none"
-        console.log("chiuso")
+        iframeAperto = false
     }
 }

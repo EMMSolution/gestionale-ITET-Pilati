@@ -231,6 +231,17 @@ body {
     left: 10%;
 }
 
+/* PREVIEW */
+.PDFpreview{
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: none;
+    z-index: 6;
+    border: solid 0;
+}
+
 /* PAGINA */
 .pagina {
     height: 100vh;
@@ -1149,20 +1160,42 @@ header {
     color: #FFFFFF;
     opacity: 80%;
 }
-<<<<<<< HEAD
-.sezElaborati .tabella .bodyTabella .row .id a,
-.sezElaborati .tabella .bodyTabella .row .nome a,
-.sezElaborati .tabella .bodyTabella .row .autore a,
-.sezElaborati .tabella .bodyTabella .row .classe a,
-.sezElaborati .tabella .bodyTabella .row .dataCaricamento a,
-.sezElaborati .tabella .bodyTabella .row .stato a,
-.sezElaborati .tabella .bodyTabella .row .preferito a {
+.sezTuttiElaborati .tabella .headTabella .row .id a,
+.sezTuttiElaborati .tabella .headTabella .row .nome a,
+.sezTuttiElaborati .tabella .headTabella .row .autore a,
+.sezTuttiElaborati .tabella .headTabella .row .classe a,
+.sezTuttiElaborati .tabella .headTabella .row .dataCaricamento a,
+.sezTuttiElaborati .tabella .headTabella .row .stato a,
+.sezTuttiElaborati .tabella .headTabella .row .preferito a {
     font-family: 'Roboto', sans-serif;
     font-size: 110%;
     font-weight: lighter;
-=======
-.sezElaborati .bodyTabella a {
->>>>>>> 738cafc023e5351c3f0b719447aac2fd8ccdb8b3
+    color: #FFFFFF;
+}
+.sezTuttiElaborati .tabella .row .id .divisore,
+.sezTuttiElaborati .tabella .row .nome .divisore,
+.sezTuttiElaborati .tabella .row .autore .divisore,
+.sezTuttiElaborati .tabella .row .classe .divisore,
+.sezTuttiElaborati .tabella .row .dataCaricamento .divisore,
+.sezTuttiElaborati .tabella .row .stato .divisore,
+.sezTuttiElaborati .tabella .row .preferito .divisore {
+    height: 20px;
+    width: 4px;
+    background: #D9D9D9;
+    opacity: 70%;
+    border-radius: 40px;
+    margin-right: 10px;
+}
+.sezTuttiElaborati .tabella .bodyTabella .row .id a,
+.sezTuttiElaborati .tabella .bodyTabella .row .nome a,
+.sezTuttiElaborati .tabella .bodyTabella .row .autore a,
+.sezTuttiElaborati .tabella .bodyTabella .row .classe a,
+.sezTuttiElaborati .tabella .bodyTabella .row .dataCaricamento a,
+.sezTuttiElaborati .tabella .bodyTabella .row .stato a,
+.sezTuttiElaborati .tabella .bodyTabella .row .preferito a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: lighter;
     color: #FFFFFF;
 }
 .sezElaborati .tabella .row .id {
@@ -1196,32 +1229,6 @@ header {
     height: 100%;
     display: flex;
     flex-direction: row;
-}
-.sezElaborati .tabella .row .id a,
-.sezElaborati .tabella .row .nome a,
-.sezElaborati .tabella .row .autore a,
-.sezElaborati .tabella .row .classe a,
-.sezElaborati .tabella .row .dataCaricamento a,
-.sezElaborati .tabella .row .stato a,
-.sezElaborati .tabella .row .preferito a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 110%;
-    font-weight: lighter;
-    color: #FFFFFF;
-}
-.sezElaborati .tabella .row .id .divisore,
-.sezElaborati .tabella .row .nome .divisore,
-.sezElaborati .tabella .row .autore .divisore,
-.sezElaborati .tabella .row .classe .divisore,
-.sezElaborati .tabella .row .dataCaricamento .divisore,
-.sezElaborati .tabella .row .stato .divisore,
-.sezElaborati .tabella .row .preferito .divisore {
-    height: 20px;
-    width: 4px;
-    background: #D9D9D9;
-    opacity: 70%;
-    border-radius: 40px;
-    margin-right: 10px;
 }
 
 /* AGGIUNGI ELABORATI */
@@ -1396,40 +1403,3 @@ header {
     border-radius: 17px;
     opacity: 90%;
 }
-
-<<<<<<< HEAD
-
-
-.preview {
-    display: none;
-
-    border: none;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 6;
-    display: none;
-}
-.boxPDF {
-    position: absolute;
-    height: 70%;
-    width: 60%;
-    border: 0 solid;
-    font-size: 150%;
-    margin-left: 20%;
-}
-.PDF-canvas {
-    border: 1px solid rgba(0,0,0,0.2);
-	box-sizing: border-box;
-    width: 720px;
-}
-=======
-/*preview*/
-.PDFpreview{ 
-    height:100%; 
-    width:100%; 
-    position:relative;
-    display: none;
-    z-index: 6;
-}
->>>>>>> 738cafc023e5351c3f0b719447aac2fd8ccdb8b3

@@ -975,36 +975,43 @@ header {
 }
 
 /* STATISTICHE */
-.statistiche{
+.statistiche {
     display: flex;
     flex-direction: column;
 }
-.divStatisticheSopra{
+.divStatisticheSopra {
     width: 100%;
     height: 50%;
     display: flex;
     flex-direction: row;
 }
-.divStatisticheSopraSinistra{
+.divStatisticheSopraSinistra {
     height: 100%;
     width: 70%;
     display: flex;
     align-items: center;
 }
-.divGraficoLinee{
+.divGraficoLinee {
     margin-bottom: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.divStatisticheSopraDestra{
+.divGraficoLinee .containerGrafico {
+    height: calc(100% - 80px);
+    width: calc(100% - 80px);
+}
+.divStatisticheSopraDestra {
     height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
 }
-.divStatisticheStatsElaborati{
+.divStatisticheStatsElaborati {
     margin-left: calc(var(--widgetSpacing)/2);
     margin-bottom: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
@@ -1012,32 +1019,32 @@ header {
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
 }
-.divStatisticheSotto{
+.divStatisticheSotto {
     width: 100%;
     height: 50%;
     display: flex;
     flex-direction: row;
 }
-.divStatisticheSottoSinistra{
+.divStatisticheSottoSinistra {
     height: 100%;
     width: 30%;
     display: flex;
     align-items: center;
 }
-.divStatisticheGraficoTorta{
+.divStatisticheGraficoTorta {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
 }
-.divStatisticheSottoDestra{
+.divStatisticheSottoDestra {
     height: 100%;
     width: 70%;
     display: flex;
     align-items: center;
 }
-.divStatisticheGraficoColonne{
+.divStatisticheGraficoColonne {
     margin-left: calc(var(--widgetSpacing)/2);
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
@@ -1147,12 +1154,17 @@ header {
     color: #FFFFFF;
     opacity: 80%;
 }
-.sezElaborati .bodyTabella button a {
+.sezElaborati .tabella .bodyTabella .row .id a,
+.sezElaborati .tabella .bodyTabella .row .nome a,
+.sezElaborati .tabella .bodyTabella .row .autore a,
+.sezElaborati .tabella .bodyTabella .row .classe a,
+.sezElaborati .tabella .bodyTabella .row .dataCaricamento a,
+.sezElaborati .tabella .bodyTabella .row .stato a,
+.sezElaborati .tabella .bodyTabella .row .preferito a {
     font-family: 'Roboto', sans-serif;
     font-size: 110%;
     font-weight: lighter;
     color: #FFFFFF;
-    opacity: 100%;
 }
 .sezElaborati .tabella .row .id {
     width: 3%;
@@ -1374,14 +1386,17 @@ header {
     opacity: 90%;
 }
 
-/*preview*/
-<<<<<<< HEAD
+
+
 .preview {
     display: none;
 
-    position: absolute;
+    border: none;
     height: 100%;
     width: 100%;
+    position: absolute;
+    z-index: 6;
+    display: none;
 }
 .boxPDF {
     position: absolute;
@@ -1396,14 +1411,3 @@ header {
 	box-sizing: border-box;
     width: 720px;
 }
-=======
-.preview{
-    border:none; 
-    height:100%; 
-    width:100%; 
-    position:absolute; 
-    z-index:6; 
-    display: none;
-
-}
->>>>>>> e462a510737f490fe0994331a4f875fcd1f7b18d

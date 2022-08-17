@@ -18,7 +18,6 @@ var homeStatsWidgetDiv1, homeStatsWidgetDiv2, homeStatsWidgetDiv3, homeStatsWidg
 var sezioneAttuale = 1;
 var impAperto = false;
 
-
 window.onload = function(){
     preview = document.querySelector('.preview')
     // welcome page
@@ -582,11 +581,4 @@ function iniziaTutorial(){
 
 function fineTutorial(){
     welcomePage.style.display = "none"
-}
-
-
-//preview
-document.querySelector(".row").addEventListener('click'), function() {
-    preview.style.position = "relative"
-
 }

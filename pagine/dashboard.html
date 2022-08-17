@@ -13,6 +13,7 @@
             <img src="../static/media/logoEggs/logoNoSfondo.png"></img>
         </div>
     </div>
+    <script src="../static/graphJS/src/graphJS.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="static/script/menuDash.js"></script>
     <script src="static/script/redirectVari.js"></script>
@@ -26,7 +27,7 @@
         // controllo se ci sono elaborati
         var elaboratiArr = "{{.Elaborati}}"
         if (elaboratiArr == "[]") {
-
+            console.log("elaborati vuoti")
         }
     </script>
     <div class="welcomePage">
@@ -422,10 +423,27 @@
                     <div class="statitiche">
                         <div class="divStatisticheSopra">
                             <div class="divStatisticheSopraSinistra">
-                                <div class="divGraficoLinee"></div>
+                                <div class="divGraficoLinee">
+                                    <div class="containerGrafico">
+                                        <graph-js
+                                            graphType="barGraph"
+                                            data="[120, [140, 100], 140, 100, 160, 220, 180]"
+                                            barLabel="['Bar 1', 'Suum', 'Bar 2', 'Bar 3', 'Bar 4', 'Bar 5', 'Bar 6', 'Bar 7']"
+                                            barLabelColor="#dca8f4"
+                                            barLabelFont="Roboto"
+                                            barBorderRadius="10px"
+                                            barBackground="#d019d3"
+                                            barMargin="4px"
+                                            groupMargin="8px"
+                                            axysBackground="#2219d3"
+                                        ></graph-js>
+                                    </div>
+                                </div>
                             </div>
                             <div class="divStatisticheSopraDestra">
-                                <div class="divStatisticheStatsElaborati"></div>
+                                <div class="divStatisticheStatsElaborati">
+
+                                </div>
                             </div>
                         </div>
                         <div class="divStatisticheSotto">
@@ -481,7 +499,7 @@
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
                                         {{range .Elaborati}}
-                                            <button class="row" onclick="console.log('codio')">
+                                            <div class="row" onclick="console.log('codio')">
                                                 <div class="id">
                                                     <a>{{.Id}}</a>
                                                 </div>
@@ -509,7 +527,7 @@
                                                     <div class="divisore"></div>
                                                     <a>{{.Preferito}}</a>
                                                 </div>
-                                            </button>
+                                            </div>
                                         {{end}}
                                     </div>
                                 </div>

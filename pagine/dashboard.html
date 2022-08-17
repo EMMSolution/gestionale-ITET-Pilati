@@ -46,7 +46,7 @@
         <div class="corpo2"></div>
         <div class="corpo1"></div>
     </div>
-    <iframe src="http://localhost/static/elaborati/elaborato-1586527020.pdf" class="preview">
+    <iframe class="PDFpreview">
     </iframe>
     <div class="pagina">
         <div class="menu">
@@ -499,7 +499,7 @@
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
                                         {{range .Elaborati}}
-                                            <div class="row" onclick="console.log('codio')">
+                                            <button class="row" onclick="previewLayer('/localhost/dashboard')">
                                                 <div class="id">
                                                     <a>{{.Id}}</a>
                                                 </div>

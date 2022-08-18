@@ -1013,8 +1013,8 @@ header {
     justify-content: center;
 }
 .divGraficoLinee .containerGrafico {
-    height: calc(100% - 80px);
-    width: calc(100% - 80px);
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
 }
 .divStatisticheSopraDestra {
     height: 100%;
@@ -1062,6 +1062,13 @@ header {
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divStatisticheGraficoColonne .containerGrafico {
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
 }
 
 /* ELABORATI */

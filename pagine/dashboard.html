@@ -13,7 +13,6 @@
             <img src="../static/media/logoEggs/logoNoSfondo.png"></img>
         </div>
     </div>
-    <script src="../static/graphJS/src/graphJS.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="static/script/menuDash.js"></script>
     <script src="static/script/redirectVari.js"></script>
@@ -425,18 +424,7 @@
                             <div class="divStatisticheSopraSinistra">
                                 <div class="divGraficoLinee">
                                     <div class="containerGrafico">
-                                        <graph-js
-                                            graphType="barGraph"
-                                            data="[120, [140, 100], 140, 100, 160, 220, 180]"
-                                            barLabel="['Bar 1', 'Suum', 'Bar 2', 'Bar 3', 'Bar 4', 'Bar 5', 'Bar 6', 'Bar 7']"
-                                            barLabelColor="#dca8f4"
-                                            barLabelFont="Roboto"
-                                            barBorderRadius="10px"
-                                            barBackground="#d019d3"
-                                            barMargin="4px"
-                                            groupMargin="8px"
-                                            axysBackground="#2219d3"
-                                        ></graph-js>
+
                                     </div>
                                 </div>
                             </div>
@@ -448,10 +436,26 @@
                         </div>
                         <div class="divStatisticheSotto">
                             <div class="divStatisticheSottoSinistra">
-                                <div class="divStatisticheGraficoTorta"></div>
+                                <div class="divStatisticheGraficoTorta">
+
+                                </div>
                             </div>
                             <div class="divStatisticheSottoDestra">
-                                <div class="divStatisticheGraficoColonne"></div>
+                                <div class="divStatisticheGraficoColonne">
+                                    <div class="containerGrafico">
+                                        <graph-js
+                                            graphType="barGraph"
+                                            data="[120, [140, 100], 140, 100, 160, 220, 180]"
+                                            barWidth="60px"
+                                            barMargin="4px"
+                                            barBorderRadius="10px"
+                                            barBackground="#d019d3"
+                                            barLabelColor="#FF8496"
+                                            groupMargin="8px"
+                                            axysBackground="#ffffff"
+                                        ></graph-js>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -594,5 +598,7 @@
             </div>
         </div>
     </div>
+    <!-- Graph-JS -->
+    <script src="static/graphJS/src/graphJS.js"></script>
 </body>
 </html>

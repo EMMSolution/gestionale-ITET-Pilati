@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 })
 
 // PAGINA
+var contenitoreIframe;
 var PDFpreview;
 var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
 var sezione;
@@ -20,6 +21,7 @@ var impAperto = false;
 var iframeAperto = false;
 
 window.onload = function(){
+    contenitoreIframe = document.querySelector('.contenitoreIframe')
     PDFpreview = document.querySelector('.PDFpreview')
     // welcome page
     welcomePage = document.querySelector('.welcomePage')
@@ -589,10 +591,11 @@ function previewLayer(filePath){
     PDFpreview.src = (filePath)
     
     if (iframeAperto == false){
-        PDFpreview.style.display = "block"
+        contenitoreIframe.style.display = "block"
+        console.log("aperto")
         iframeAperto = true
     } else if (iframeAperto == true) {
-        PDFpreview.style.display = "none"
+        contenitoreIframe.style.display = "none"
         iframeAperto = false
     }
 }

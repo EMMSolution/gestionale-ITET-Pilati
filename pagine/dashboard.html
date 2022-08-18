@@ -40,13 +40,18 @@
         <!-- cambiare alert con ciò che è necessario -->
         <h3 class="welcomeAlertVari">*Attenzione, pattaforma ancora in demo*</h3>
     </div>
+    <div class="contenitoreIframe">
+        <div class="esciIframe">
+            <img src="" class="chiudiElaborato">
+        </div>
+        <iframe src="" class="PDFpreview">
+        </iframe>
+    </div>
     <div class="sfondo">
         <div class="corpo3"></div>
         <div class="corpo2"></div>
         <div class="corpo1"></div>
     </div>
-    <iframe src="" class="PDFpreview">
-    </iframe>
     <div class="pagina">
         <div class="menu">
             <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png" href="https://www.istitutopilati.it/"></img>
@@ -383,7 +388,7 @@
                                     <div class="bodyTabella">
                                         {{range .Elaborati}}
                                             {{if .Recente}}
-                                                <div class="row">
+                                                <div class="row" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
                                                     <div class="id">
                                                         <a>{{.Id}}</a>
                                                     </div>
@@ -503,7 +508,7 @@
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
                                         {{range .Elaborati}}
-                                            <div class="row" onclick="previewLayer('/static/elaborati/algoritmi_1.pdf')">
+                                            <div class="row" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
                                                 <div class="id">
                                                     <a>{{.Id}}</a>
                                                 </div>

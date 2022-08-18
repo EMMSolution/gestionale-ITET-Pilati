@@ -232,13 +232,22 @@ body {
 }
 
 /* PREVIEW */
+.contenitoreIframe {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    position: absolute;
+    height: 85.2%;
+    width: 92%;
+    border-radius: var(--widgetBorderRadius);
+    z-index: 6;
+    display: none;
+}
 .PDFpreview{
     border-radius: 20px;
     height: 100%;
     width: 100%;
-    position: absolute;
-    display: none;
-    z-index: 6;
+    z-index:6;
     border: solid 0;
 }
 

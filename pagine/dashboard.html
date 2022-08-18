@@ -46,8 +46,6 @@
         <div class="corpo2"></div>
         <div class="corpo1"></div>
     </div>
-    <iframe src="" class="PDFpreview">
-    </iframe>
     <div class="pagina">
         <div class="menu">
             <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png" href="https://www.istitutopilati.it/"></img>
@@ -274,6 +272,10 @@
             </header>
             <!--preview PDF-->
             <div class="sezioni">
+                <div class="contenitoreIframe">
+                    <iframe src="" class="PDFpreview">
+                    </iframe>
+                </div>
                 <div class="movingContainerSezioni">
                     <div class="home">
                         <div class="divHomeSopra">
@@ -499,7 +501,7 @@
                                     <hr class="linea"></hr>
                                     <div class="bodyTabella">
                                         {{range .Elaborati}}
-                                            <div class="row" onclick="previewLayer('/static/elaborati/algoritmi_1.pdf')">
+                                            <div class="row" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
                                                 <div class="id">
                                                     <a>{{.Id}}</a>
                                                 </div>

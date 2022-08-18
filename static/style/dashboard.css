@@ -232,13 +232,24 @@ body {
 }
 
 /* PREVIEW */
-.contenitoreIframe {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+.chiudiElaborato {
+    margin-top: 20%;
+    margin-left: 10%;
+}
+.esciIframe {
+    height: 10%;
+    width: 10%;
     position: absolute;
-    height: 85.2%;
-    width: 92%;
+    z-index: 6;
+    margin-top: 20%;
+    margin-left: 7%;
+}
+.contenitoreIframe {
+    margin-left: 5.8%;
+    margin-top: 4.7%;
+    position: absolute;
+    height: 85%;
+    width: 91.6%;
     border-radius: var(--widgetBorderRadius);
     z-index: 6;
     display: none;
@@ -247,7 +258,7 @@ body {
     border-radius: 20px;
     height: 100%;
     width: 100%;
-    z-index:6;
+    z-index: 5;
     border: solid 0;
 }
 

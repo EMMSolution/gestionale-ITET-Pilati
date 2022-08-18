@@ -1022,17 +1022,16 @@ header {
     display: flex;
     align-items: center;
 }
-.divGraficoLinee {
-    margin-bottom: calc(var(--widgetSpacing)/2);
-    height: calc(100% - var(--widgetSpacing)/2);
-    width: calc(100% - var(--widgetSpacing)/2);
+.divStatisticheGraficoLinee {
+    height: 100%;
+    width: 100%;
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.divGraficoLinee .containerGrafico {
+.divStatisticheGraficoLinee .containerGrafico {
     height: calc(100% - 60px);
     width: calc(100% - 60px);
 }
@@ -1044,8 +1043,7 @@ header {
 }
 .divStatisticheStatsElaborati {
     margin-left: calc(var(--widgetSpacing)/2);
-    margin-bottom: calc(var(--widgetSpacing)/2);
-    height: calc(100% - var(--widgetSpacing)/2);
+    height: 100%;
     width: calc(100% - var(--widgetSpacing)/2);
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
@@ -1065,7 +1063,7 @@ header {
 .divStatisticheGraficoTorta {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
-    width: calc(100% - var(--widgetSpacing)/2);
+    width: 100%;
     background: rgba(48, 48, 48, 0.9);
     border-radius: var(--widgetBorderRadius);
 }

@@ -1327,6 +1327,8 @@ header {
     margin-top: var(--widgetSpacing);
     position: relative;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .fileInput{
     height: 100%;
@@ -1334,14 +1336,58 @@ header {
     color: transparent;
     opacity: 0%;
     border-radius: 17px;
+    position: absolute;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop a {
+    position: relative;
+    color: #ffffff;
+    font-size: 120%;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop a:nth-child(1) {
+    margin-top: 20%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop div hr {
+    height: 1px;
+    width: 40px;
+    background-color: #ffffff;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop div a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: lighter;
+    color: #FFFFFF;
+    margin: 5px;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .svgCartella{
     height: 30%;
-    position: absolute;
-    margin-top: 5%;
+    position: relative;
+    margin-bottom: 5px;
 }
-.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop a {
-    color: #ffffff;
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .bottoneFinto{
+    height: 10%;
+    width: 20%;
+    background: rgb(37, 37, 37);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aggiungiElaborati .sinistra .sezioneSinistra .mezzo .DragDrop .bottoneFinto a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    font-weight: lighter;
+    color: #FFFFFF;
+    margin-top: 0% !important;
 }
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto{
     width: 100%;

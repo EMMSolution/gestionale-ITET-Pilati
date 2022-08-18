@@ -245,19 +245,21 @@ body {
     margin-left: 7%;
 }
 .contenitoreIframe {
-    margin-left: 5.8%;
-    margin-top: 4.7%;
     position: absolute;
-    height: 85%;
-    width: 91.6%;
+    height: 100%;
+    width: 100%;
     border-radius: var(--widgetBorderRadius);
     z-index: 6;
     display: none;
 }
 .PDFpreview{
-    border-radius: 20px;
-    height: 100%;
-    width: 100%;
+    margin-right: 4%;
+    margin-bottom: 5%;
+    margin-left: 5.75%;
+    margin-top: 4.7%;
+    border-radius: 25px;
+    height: 85%;
+    width: 91.65%;
     z-index: 5;
     border: solid 0;
 }

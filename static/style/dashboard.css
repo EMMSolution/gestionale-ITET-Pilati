@@ -24,7 +24,7 @@ body {
     --mainBackground: #4863e6;
     --barraLateraleColore: #303030;
     --widgetSpacing: 25px;
-    --widgetBorderRadius: 25px;
+    --widgetBorderRadius: 20px;
 }
 /* CARICAMENTO */
 .caricamento {

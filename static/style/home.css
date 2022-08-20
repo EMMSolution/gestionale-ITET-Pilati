@@ -7,10 +7,11 @@
 body {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* SFONDO */
-.sfondo{
+.sfondo {
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -20,7 +21,7 @@ body {
     z-index: 0;
     overflow: hidden;
 }
-.corpo3{
+.corpo3 {
     position: absolute;
     width: 713px;
     height: 1737px;
@@ -29,7 +30,7 @@ body {
     background: #70C7EC;
     transform: rotate(-40deg);
 }
-.corpo2{
+.corpo2 {
     position: absolute;
     width: 713px;
     height: 1405px;
@@ -38,7 +39,7 @@ body {
     background: #4863E6;
     transform: rotate(-49.84deg);
 }
-.corpo1{
+.corpo1 {
     position: absolute;
     background-color: #34189C;
     height: 700px;
@@ -53,39 +54,17 @@ body {
     height: 100vh;
     position: relative;
     width: 100%;
-}
-
-/* OPZIONI */
-.opzioni {
-    display: flex;
-    flex-direction: row;
-    padding-top: 15px;
-    padding-left: 30px;
-    color: white;
-    font-family: 'Inter', sans-serif;
-}
-.lingua,
-.tema {
     display: flex;
     flex-direction: column;
-}
-.lingua img {
-    margin-top: 10px;
-    width: 40px;
-}
-.tema img {
-    margin-top: 7px;
-    width: 30px;
-}
-.tema {
-    padding-left: 30px;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-40px);
 }
 
 /* LOGO PILATI */
 .logo {
     width: 360px;
-    top: calc(50% - 400px);
-    left: calc(50% - 180px);
     position: relative;
 }
 
@@ -95,8 +74,6 @@ body {
     background: #303030;
     height: 320px;
     width: 500px;
-    top: calc(50% - 360px);
-    left: calc(50% - 250px);
     position: relative;
     opacity: 0.9;
     border-radius: 44px;
@@ -190,4 +167,23 @@ body {
     padding-bottom: 12px;
     bottom: 0;
     left: 14px;
+}
+
+/* RESPONSIVE MOBILE */
+@media only screen and (max-width: 600px){
+    .corpo2 {
+        left: -40%;
+        top: 4%;
+    }
+    .logo {
+        width: 70%;
+    }
+    .main {
+        width: 75%;
+        height: 30%;
+        border-radius: 40px;
+    }
+    .copyright {
+        display: none;
+    }
 }

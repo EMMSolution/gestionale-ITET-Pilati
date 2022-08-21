@@ -331,7 +331,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 
 
 	// aggiorno il profilo non più nuovo
-	if "" == "si" {
+	if nuovoUserAccount == "si" {
 		DBconn.Query("UPDATE user SET nuovo = 'no'")
 	}
 	// execute html template
@@ -351,10 +351,11 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 				fmt.Println(err)
 			}
 			defer file.Close()
-			// aggiungo l'elaborato nel database
+			// prendo altre variabili
+			nomeUtente := r.FormValue("userName")
 			name := r.FormValue("nomeElaborato")
-			// VA MODIFICATO DOPO LA AGGIUNTA DELLE SESSIONI
-			creator := "admin"
+			// aggiungo l'elaborato nel database
+			creator := nomeUtente
 			filePath := "\\static\\elaborati\\" + string(handler.Filename)
 
 			DBconn, _ := sql.Open("mysql", InfoDB)

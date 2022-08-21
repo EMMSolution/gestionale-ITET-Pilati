@@ -432,7 +432,7 @@
                                     <div class="containerGrafico">
                                         <graph-js
                                             graphType="lineGraph"
-                                            data="[120, 160, 220, 180]"
+                                            data="[[0,40], [10,20], [20,100], [30,60],[40,85]]"
                                             axysBackground="#ffffff"
                                         ></graph-js>
                                     </div>
@@ -556,6 +556,7 @@
 
                     <div class="aggiungiElaborati">
                         <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+                        <input name="userName" type="hidden" value="{{.NomeCompleto}}">
                         <div class="sinistra">
                             <div class="sezioneSinistra">
                                 <div class="sopra">

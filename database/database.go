@@ -1,11 +1,12 @@
 package database
 
 import (
-	_"fmt"
+	"os"
+	"github.com/axli-personal/cfparser"
+	"fmt"
 	_"database/sql"
 	_"log"
     _"github.com/go-sql-driver/mysql"
-	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func main(){
@@ -56,12 +57,47 @@ func QueryElaborati() Elaborati {
 }
 
 func Database(pass string) string {
-	// setto impostazioni
-	username := imp.DbUser
+	projectPath, _ := os.Getwd()
+	configFile, err := os.Open(projectPath + "\\imp\\server.txt")
+	if err != nil {
+		fmt.Println("Attenzione: file di configurazione assente o non agibile!")
+		return ""
+	}
+	// prendo impostazioni
+	parser := cfparser.NewCFParser(configFile, "#", '=')
+
+	lineeValideCnfg := parser.ReadAll()
+
+	// faccio qualcosa con lineeValideCnfg
+	if a := false; a {
+		fmt.Printf("linee valide file configurazione: %v", lineeValideCnfg)
+	}
+
+	// default variable values
+	DatabaseHost := "192.168.1.154"
+	DatabasePort := "3306"
+	DatabaseUser := "berta"
+	DatabaseName := "gestionalePilati"
+
+	if DatabaseHostPair := parser.Get("database-host"); DatabaseHostPair != nil {
+		DatabaseHost = DatabaseHostPair.String()
+	}
+	if DatabasePortPair := parser.Get("database-port"); DatabasePortPair != nil {
+		DatabasePort = DatabasePortPair.String()
+	}
+	if DatabaseUserPair := parser.Get("database-user"); DatabaseUserPair != nil {
+		DatabaseUser = DatabaseUserPair.String()
+	}
+	if DatabaseNamePair := parser.Get("database-name"); DatabaseNamePair != nil {
+		DatabaseName = DatabaseNamePair.String()
+	}
+
+	// setto impostazioni con variabili definitive
+	username := DatabaseUser
 	password := pass
-	host := imp.DbHost
-	port := imp.DbPort
-	db := imp.Database
+	host := DatabaseHost
+	port := DatabasePort
+	db := DatabaseName
 	//tbElaborati := imp.TabellaElaborati
 	//tbUser := imp.DatabaseUser
 

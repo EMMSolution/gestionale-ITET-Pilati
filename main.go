@@ -7,10 +7,10 @@ import (
 	_ "net/http"
 	"os"
 	"os/exec"
-
+	"github.com/axli-personal/cfparser"
 	db "github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
-	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 	ws "github.com/EggSolution/gestionale-ITET-Pilati/moduli/webserver"
+	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/bannerImp"
 )
 
 func cls() {
@@ -24,17 +24,74 @@ func main() {
 	menu()
 }
 
+// default config variable values
+var WebserverPort string = "80"
+var DatabaseHost string = "192.168.1.154"
+var DatabasePort string = "3306"
+var DatabaseUser string = "berta"
+var DatabaseName string = "gestionalePilati"
+var DatabaseTabellaUser string = "user"
+var DatabaseTabellaElab string = "elaborati"
+var DatabaseDefaultPassword string = " "
+var DefaultPassword string = " "
+var DebugMode string = " "
+
 func menu() {
+	projectPath, _ := os.Getwd()
+	configFile, err := os.Open(projectPath + "\\imp\\server.txt")
+	if err != nil {
+		fmt.Println("Attenzione: file di configurazione assente o non agibile!")
+		return
+	}
+	// prendo impostazioni
+	parser := cfparser.NewCFParser(configFile, "#", '=')
+
+	lineeValideCnfg := parser.ReadAll()
+
+	fmt.Printf("linee valide file configurazione: %v", lineeValideCnfg)
+
+	if WebserverPortPair := parser.Get("webserver-port"); WebserverPortPair != nil {
+		WebserverPort = WebserverPortPair.String()
+	}
+	if DatabasePortPair := parser.Get("database-port"); DatabasePortPair != nil {
+		DatabasePort = DatabasePortPair.String()
+	}
+	if DatabaseHostPair := parser.Get("database-host"); DatabaseHostPair != nil {
+		DatabaseHost = DatabaseHostPair.String()
+	}
+	if DatabaseUserPair := parser.Get("database-user"); DatabaseUserPair != nil {
+		DatabaseUser = DatabaseUserPair.String()
+	}
+	if DatabaseNamePair := parser.Get("database-name"); DatabaseNamePair != nil {
+		DatabaseName = DatabaseNamePair.String()
+	}
+	if DatabaseTabellaUserPair := parser.Get("database-tUsr"); DatabaseTabellaUserPair != nil {
+		DatabaseTabellaUser = DatabaseTabellaUserPair.String()
+	}
+	if DatabaseTabellaElabPair := parser.Get("database-tElb"); DatabaseTabellaElabPair != nil {
+		DatabaseTabellaElab = DatabaseTabellaElabPair.String()
+	}
+	if DatabaseDefaultPasswordPair := parser.Get("database-default-password"); DatabaseDefaultPasswordPair != nil {
+		DatabaseDefaultPassword = DatabaseDefaultPasswordPair.String()
+	}
+	if DefaultPasswordPair := parser.Get("database-password"); DefaultPasswordPair != nil {
+		DefaultPassword = DefaultPasswordPair.String()
+	}
+	if DebugModePair := parser.Get("debug-mode"); DebugModePair != nil {
+		DebugMode = DebugModePair.String()
+	}
+
 	cls()
+
 	var scelta int
 
 	// debug mode
 	debugAlert := ""
-	if imp.DebugMode == true {
+	if DebugMode == "true" {
 		debugAlert = "\n	* debug mode attiva *"
 	}
 
-	fmt.Print(imp.Banner)
+	fmt.Print(banner.Banner)
 	fmt.Printf(`
 
 	1. Accendi webserver         3. Verifica stato
@@ -60,12 +117,11 @@ func menu() {
 // SEZIONI MENU
 func accendiWS(){
 	cls()
-	fmt.Print(imp.Banner)
 
-	passDb := ""
+	passDb := " "
 
-	if imp.DbDefPass == true {
-		passDb = imp.DbPass
+	if DatabaseDefaultPassword == "true" {
+		passDb = DefaultPassword
 	} else {
 		fmt.Println(`
 			Inserisci la password del database:
@@ -73,7 +129,9 @@ func accendiWS(){
 		fmt.Print(`> `)
 		fmt.Scanln(&passDb)
 	}
-	fmt.Print("   Log webserver: \n")
+
+	fmt.Println(banner.Banner)
+	fmt.Println("   Log webserver: \n")
 
 	ws.Webserver(db.Database(passDb))
 }
@@ -97,17 +155,17 @@ func riconnessioneDB(){
 
 func impostazioni(){
 	cls()
-	fmt.Print(imp.Banner)
+	fmt.Print(banner.Banner)
 	// cambio impostazioni
-	var defaultPass string = ""
-	var portaDB string = imp.DbPort
-	if imp.DbDefPass {
-		defaultPass = "si"
+	var DefaultPass string = ""
+	var portaDB string = DatabasePort
+	if DatabaseDefaultPassword == "true" {
+		DefaultPass = "si"
 	} else {
-		defaultPass = "no"
+		DefaultPass = "no"
 	}
 	// sitemo la formattazione della porta
-	for i := 5 - len(imp.DbPort);  i > 0; i--{
+	for i := 5 - len(DatabasePort);  i > 0; i--{
 		portaDB = portaDB + " "
 	}
 	fmt.Printf(`
@@ -122,11 +180,11 @@ func impostazioni(){
 	8 Pass: %s
 
 	(0 per uscire)
-	> `, portaDB, imp.WsPort,
-	   imp.DbHost, imp.Database,
-	   imp.TabellaUser, imp.TabellaElaborati,
-	   imp.DbUser, defaultPass,
-	   imp.DbPass)
+	> `, portaDB, WebserverPort,
+	   DatabaseHost, DatabaseName,
+	   DatabaseTabellaUser, DatabaseTabellaElab,
+	   DatabaseUser, DefaultPass,
+	   DefaultPassword)
 
 	var sceltaImp int
 	fmt.Scanln(&sceltaImp)

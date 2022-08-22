@@ -1,3 +1,5 @@
+github.com/axli-personal/cfparser v0.1.0 h1:fPxObc7OPZG1+aWTMh0ArQO4QXOOLaFSZvZKY84zuO4=
+github.com/axli-personal/cfparser v0.1.0/go.mod h1:Y7jOgI+i4rH2JPxRnYTfgp2VWFZ6j0nSX1t63PJr7Dk=
 github.com/go-sql-driver/mysql v1.6.0 h1:BCTh4TKNUYmOmMUcQ3IipzF5prigylS7XXjEkfCHuOE=
 github.com/go-sql-driver/mysql v1.6.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa h1:zuSxTR4o9y82ebqCUJYNGJbGPo6sKVl54f/TVDObg1c=

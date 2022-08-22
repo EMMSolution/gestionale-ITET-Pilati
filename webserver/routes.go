@@ -11,9 +11,10 @@ import (
 	"io/ioutil"
 	"database/sql"
 	"html/template"
+	"github.com/axli-personal/cfparser"
 	_"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
     _"github.com/go-sql-driver/mysql"
-	imp "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
+	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/bannerImp"
 
     "gopkg.in/square/go-jose.v2/jwt"
 )
@@ -89,8 +90,9 @@ func cls() {
 func main(){}
 
 func Routes(infoDB string){
+
 	// schermata
-	SchermataTerminale = imp.Banner + "\n"
+	SchermataTerminale = banner.Banner + "\n"
 
 	fileNelaborati, _ := os.Open("\\webserver\\var\\Nelaborati.txt")
 	scanner := bufio.NewScanner(fileNelaborati)
@@ -129,6 +131,22 @@ func home(w http.ResponseWriter, r *http.Request){
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request){
+	// prendo le configurazioni necessarie (debugMode) dal file config
+	projectPath, _ := os.Getwd()
+	configFile, err := os.Open(projectPath + "\\imp\\server.con")
+	if err != nil {
+		fmt.Println(err)
+	}
+	// prendo impostazioni
+	parser := cfparser.NewCFParser(configFile, "#", ' ')
+
+	// valori di default
+	DebugMode := ""
+
+	if DebugModePair := parser.Get("debug-mode"); DebugModePair != nil {
+		DebugMode = DebugModePair.String()
+	}
+
 
 	sezione := r.URL.Query().Get("sez")
 	// get current working directory
@@ -140,6 +158,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	switch r.Method {
 		// filtro richieste
 		case "POST":
+			//ospite := r.FormValue("ospite");
 			tokenCsrfPOST = r.FormValue("g_csrf_token");
 			tokenId = r.FormValue("credential");
 			break;
@@ -188,7 +207,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	// creo banner debug
 	debugSpacer := ""
 
-	if imp.DebugMode == true {
+	if DebugMode == "true" {
 		debugSpacer = "\n -------------------------- Debug log -------------------------- \n\n"
 	}
 
@@ -243,7 +262,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 	  	  -nome:  ` + tokenIdDecoded["name"].(string) + `
 	  	  -email: ` + tokenIdDecoded["email"].(string) + "\n"
 	}
-
+	cls()
 	fmt.Printf(SchermataTerminale + "%s", debugSpacer)
 
 

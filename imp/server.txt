@@ -1,0 +1,19 @@
+# WEBSERVER
+webserver-port = 80
+
+# DATABASE
+database-host = 192.168.1.154
+database-port = 3306
+database-user = berta
+database-name = gestionalePilati
+database-tUsr = user
+database-tElb = elaborati
+# password
+database-default-password = true
+database-password = SERVER2006berta
+
+# DEVELOPER
+debug-mode = true
+
+# BANNER
+# banner available in banner.go file

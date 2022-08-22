@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style/dashboard.css">
+    <link rel="icon" href="static/media/dashboard/logoEgg.svg">
+    <title>{{.TitoloPag}}</title>
+</head>
+<body>
+    <div class="caricamento">
+        <!-- gif -->
+        <div class="eggSoltuion">
+            <a>Powered by</a>
+            <img src="../static/media/logoEggs/logoNoSfondo.png"></img>
+        </div>
+    </div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="static/script/menuDash.js"></script>
+    <script src="static/script/redirectVari.js"></script>
+    <script>
+        var nomeUtenteJS = "{{.NomeCompleto}}"
+        var emailUtenteJS = "{{.EmailUtente}}"
+        var passUtenteJS = "{{.PassUtente}}"
+        var nuovoAcc = "{{.NuovoAcc}}"
+        var sezioneQuery = "{{.Sezione}}"
+
+        // controllo se ci sono elaborati
+        var elaboratiArr = "{{.Elaborati}}"
+        if (elaboratiArr == "[]") {
+            console.log("elaborati vuoti")
+        }
+    </script>
+    <div class="welcomePage">
+        <h1 class="welcomeTitle">Benvenuto, <a>{{.NomeCompleto}}</a>!</h1>
+        <h2 class="welcomeDes">Questa piattaforma ti permette di <a>caricare</a> elaborati e <br> <a>visualizare</a> quelli degli altri utenti</h2>
+        <h2 class="welcomeDom">Vuoi procedere con il <a>tutorial</a>?</h2>
+        <div class="welcomeRisposte">
+            <button class="welcomeSi" onclick="iniziaTutorial()">Si!</button>
+            <button class="welcomeNo" onclick="fineTutorial()">No</button>
+        </div>
+        <!-- cambiare alert con ciò che è necessario -->
+        <h3 class="welcomeAlertVari">*Attenzione, pattaforma ancora in demo*</h3>
+    </div>
+    <div class="sfondo">
+        <div class="corpo3"></div>
+        <div class="corpo2"></div>
+        <div class="corpo1"></div>
+    </div>
+    <div class="pagina">
+        <div class="contenitoreIframe" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
+            <div class="esciIframe">
+                <img src="" class="chiudiElaborato">
+            </div>
+            <iframe src="" class="PDFpreview">
+            </iframe>
+        </div>
+        <div class="menu">
+            <img class="itetLogo" src="../static/media/dashboard/logo_itet1.png" href="https://www.istitutopilati.it/"></img>
+            <div class="lista">
+                <div class="indicatore">
+                    <div class="before"></div>
+                    <div class="after"></div>
+                </div>
+                <button onclick="menu(1)">
+                    <div class="homeMenu">
+                        <a class="menuA" id="meuHomeA">Home</a>
+                        <icona id="iconaHomeMenu">
+                            <svg width="34px" class="menuImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.85 173.03">
+                                <defs>
+                                    <style>
+                                        .cls-1-1,
+                                        .cls-1-2 {
+                                            transition: 0.5s;
+                                            stroke: #000;
+                                            stroke-miterlimit: 0;
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="cls-1-1" d="M720,252.69v65.74a20,20,0,0,1-20,20H596a20,20,0,0,1-20-20V252.85l0,0,18-15.09v62.7a20,20,0,0,0,20,20h68a20,20,0,0,0,20-20V237.57l18,15.08Z" transform="translate(-548.17 -165.9)"/>
+                                <path class="cls-1-2" d="M745,255l-5.13,4.31a9.68,9.68,0,0,1-12,0L720,252.69l0,0-18-15.08L697.76,234l-21.43-18-22.22-18.67a9.68,9.68,0,0,0-12,0L619.87,216l-21.43,18L594,237.73l-18,15.09,0,0-7.68,6.46a9.68,9.68,0,0,1-12,0L551.16,255a6.37,6.37,0,0,1,0-10.1l90.93-76.41a9.68,9.68,0,0,1,12,0L745,244.9A6.37,6.37,0,0,1,745,255Z" transform="translate(-548.17 -165.9)"/>
+                            </svg>
+                        </icona>
+                    </div>
+                </button>
+                <button onclick="menu(2)">
+                    <div class="statsMenu">
+                        <a class="menuA" id="meuStatsA">Stats</a>
+                        <icona id="iconaStatsMenu">
+                            <svg width="28px" class="menuImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.53 135.56">
+                                <defs>
+                                    <style>
+                                        .cls-1-1,
+                                        .cls-1-2 {
+                                            transition: 0.5s;
+                                            stroke-miterlimit: 0;
+                                            stroke: #fff;
+                                            stroke-width: 0;
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="cls-1-1" d="M214.19,504a2.22,2.22,0,0,1-.37,0h-4.64a2.11,2.11,0,0,1-2.18-2v-.17a2.19,2.19,0,0,0,2.18,2.18Z" transform="translate(-206.5 -368.97)"/>
+                                <path class="cls-1-2" d="M249.49,470.51,225,495H348.82a2.19,2.19,0,0,1,2.18,2.18v4.64a2.19,2.19,0,0,1-2.18,2.18H209.18a2.19,2.19,0,0,1-2.18-2.18V371.51a2.11,2.11,0,0,1,2.18-2h4.64a2.11,2.11,0,0,1,2.18,2V486l33.49-33.49a3.54,3.54,0,0,1,5,0l4,4a3.54,3.54,0,0,0,5,0l31-31a3.54,3.54,0,0,1,5,0l13,13a3.54,3.54,0,0,0,5,0l31-31a3.54,3.54,0,0,1,5,0l4,4a3.54,3.54,0,0,1,0,5l-40,40a3.54,3.54,0,0,1-5,0l-13-13a3.54,3.54,0,0,0-5,0l-31,31a3.54,3.54,0,0,1-5,0l-4-4A3.54,3.54,0,0,0,249.49,470.51Z" transform="translate(-206.5 -368.97)"/>
+                            </svg>
+                        </icona>
+                    </div>
+                </button>
+                <button onclick="menu(3)">
+                    <div class="fileMenu">
+                        <a class="menuA" id="meuFileA">File</a>
+                        <icona id="iconaFileMenu">
+                            <svg width="28px" class="menuImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 63.5">
+                                <defs>
+                                    <style>
+                                        .cls-1-1,
+                                        .cls-1-2,
+                                        .cls-1-3 {
+                                            transition: 0.5s;
+                                            stroke-miterlimit: 0;
+                                            stroke-width: 0;
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="cls-1-1" d="M359.92,313.68v4.65a3.24,3.24,0,0,0-3.46-3H309a3,3,0,0,1-3-3V301.73h9.14c2.19,0,4,1,4,2.17v2.7a3.33,3.33,0,0,0,1,2.36,4.36,4.36,0,0,0,3,1.18h32.64A3.84,3.84,0,0,1,359.92,313.68Z" transform="translate(-287.5 -297)"/>
+                                <path class="cls-1-2" d="M360,318.33V357a3,3,0,0,1-3,3H291a3,3,0,0,1-3-3V300.47a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3v11.91a3,3,0,0,0,3,3h47.46a3.24,3.24,0,0,1,3.46,3v-.67A3,3,0,0,1,360,318.33Z" transform="translate(-287.5 -297)"/>
+                                <path class="cls-1-3" d="M359.92,317.66v.67a3.24,3.24,0,0,0-3.46-3H357A3,3,0,0,1,359.92,317.66Z" transform="translate(-287.5 -297)"/>
+                            </svg>
+                        </icona>
+                    </div>
+                </button>
+                <div class="fileMenuType">
+                    <div class="sopra">
+                        <svg width="23" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse id="svgElement" class="svgElement1" cx="16" cy="26" rx="16" ry="8"/>
+                            <ellipse id="svgElement" class="svgElement2" cx="16" cy="26" rx="16" ry="8"/>
+                            <circle id="svgElement" class="svgElement3" cx="16.3638" cy="8.10303" r="8.10303"/>
+                            <circle id="svgElement" class="svgElement4" cx="16.3638" cy="8.10303" r="8.10303"/>
+                        </svg>
+                    </div>
+                    <div class="sotto">
+                        <svg width="34" viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse id="svgElement" class="svgElement1" cx="31.8621" cy="20.1081" rx="12.138" ry="6.06901"/>
+                            <circle id="svgElement" class="svgElement2" cx="32.1384" cy="6.53096" r="6.14717"/>
+                            <ellipse id="svgElement" class="svgElement3" cx="12.1375" cy="20.1081" rx="12.138" ry="6.06901"/>
+                            <circle id="svgElement" class="svgElement4" cx="12.4143" cy="6.53096" r="6.14717"/>
+                            <path id="svgElement" class="svgElement5" d="M35.2565 22.7378C35.2565 24.3458 33.94 25.9361 31.5037 27.1542C29.0974 28.3574 25.738 29.116 22.0001 29.116C18.2621 29.116 14.9028 28.3574 12.4964 27.1542C10.0602 25.9361 8.74365 24.3458 8.74365 22.7378C8.74365 21.1299 10.0602 19.5396 12.4964 18.3214C14.9028 17.1182 18.2621 16.3596 22.0001 16.3596C25.738 16.3596 29.0974 17.1182 31.5037 18.3214C33.94 19.5396 35.2565 21.1299 35.2565 22.7378Z" stroke="#4863E6"/>
+                            <circle id="svgElement" class="svgElement6" cx="22.3125" cy="7.35058" r="6.4668" stroke="#4863E6"/>
+                        </svg>
+                    </div>
+                </div>
+                <button  onclick="menu(5)">
+                    <div class="aggiungiFileMenu">
+                        <a class="menuA" id="meuAggFileA">Agg.File</a>
+                        <icona id="iconaAggFileMenu">
+                            <svg width="28px" class="menuImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 63.5">
+                                <defs>
+                                    <style>
+                                        .cls-1-1,
+                                        .cls-1-2,
+                                        .cls-1-3,
+                                        .cls-2{
+                                            transition: 0.5s;
+                                            stroke-miterlimit: 0;
+                                            stroke-width: 0;
+                                        }
+                                        .cls-2 {
+                                            fill: #303030;
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="cls-1-1" d="M359.92,313.68v4.65a3.24,3.24,0,0,0-3.46-3H309a3,3,0,0,1-3-3V301.73h9.14c2.19,0,4,1,4,2.17v2.7a3.33,3.33,0,0,0,1,2.36,4.36,4.36,0,0,0,3,1.18h32.64A3.84,3.84,0,0,1,359.92,313.68Z" transform="translate(-287.5 -297)"/>
+                                <path class="cls-1-2" d="M360,318.33V357a3,3,0,0,1-3,3H291a3,3,0,0,1-3-3V300.47a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3v11.91a3,3,0,0,0,3,3h47.46a3.24,3.24,0,0,1,3.46,3v-.67A3,3,0,0,1,360,318.33Z" transform="translate(-287.5 -297)"/>
+                                <path class="cls-2" d="M337.5,333.78v5.38a1.8,1.8,0,0,1-1.79,1.8h-5.17a1.79,1.79,0,0,0-1.79,1.79v5.41A1.8,1.8,0,0,1,327,350h-5.67a1.8,1.8,0,0,1-1.79-1.8v-5.41a1.79,1.79,0,0,0-1.79-1.79h-5.42a1.8,1.8,0,0,1-1.79-1.8v-5.38a1.79,1.79,0,0,1,1.79-1.79h5.42a1.8,1.8,0,0,0,1.79-1.8v-5.44a1.79,1.79,0,0,1,1.79-1.79H327a1.79,1.79,0,0,1,1.79,1.79v5.44a1.8,1.8,0,0,0,1.79,1.8h5.17A1.79,1.79,0,0,1,337.5,333.78Z" transform="translate(-287.5 -297)"/>
+                                <path class="cls-1-3" d="M359.92,317.66v.67a3.24,3.24,0,0,0-3.46-3H357A3,3,0,0,1,359.92,317.66Z" transform="translate(-287.5 -297)"/>
+                            </svg>
+                        </icona>
+                    </div>
+                </button>
+            </div>
+            <div class="MenuSezionesotto">
+                <div class="sotto">
+                    <div id="g_id_signout">
+                        <svg height="29px" id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306.43 317">
+                            <defs>
+                                <style>
+                                    .MenuSezionesotto .sotto svg .cls-1 {
+                                        fill: #fff;
+                                        stroke: #1d1d1b;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1" d="M147.19,389.06a8.36,8.36,0,0,1,8.33,8.36v38.25A37.66,37.66,0,0,0,193,473.28h64.29a37.65,37.65,0,0,0,37.47-37.61V240.28a37.65,37.65,0,0,0-37.47-37.61H193a37.66,37.66,0,0,0-37.48,37.61v41.85a8.37,8.37,0,0,1-8.39,8.37l-10.15,0a8.36,8.36,0,0,1-8.34-8.36V230a50,50,0,0,1,49.74-50H271.9a50,50,0,0,1,49.75,50V446a50,50,0,0,1-49.75,50H178.38a50,50,0,0,1-49.74-50V397.39A8.36,8.36,0,0,1,137,389Z" transform="translate(-15.71 -179.48)"/>
+                        </svg>
+                        <div class="frecciaSvg">
+                            <svg height="29px" width="29px" id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306.43 317">
+                                <defs>
+                                    <style>
+                                        .MenuSezionesotto .sotto svg .cls-2 {
+                                            fill: #fff;
+                                            stroke: #1d1d1b;
+                                            stroke-miterlimit: 10;
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="cls-2" d="M72.65,378a11.24,11.24,0,0,1-6.06-1.72L20.37,346.64a9.07,9.07,0,0,1-3.71-4.32c-1.27-3.49.23-7.11,3.49-9.21l46.44-29.78a11.5,11.5,0,0,1,12.49.25,8.12,8.12,0,0,1,3.57,6.68v9.34c0,.06,0,.1.12.1H232.88c5.59,0,10.12,3.81,10.12,8.52V351.4c0,4.7-4.53,8.51-10.12,8.51H82.77a.11.11,0,0,0-.12.1v9.23a8.51,8.51,0,0,1-4.84,7.55A11.47,11.47,0,0,1,72.65,378Z" transform="translate(-15 -100)"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="imp">
+                <div class="corpo">
+                    <a class="titolo">Account</a>
+                    <div class="tema">
+                        <a class="titoloSezione">Tema:</a>
+                        <div class="coloriTema">
+                            <div class="cerchioTema" onclick="sfondo('scuro')">
+                                <div class="colore1-1"></div>
+                                <div class="colore2-1"></div>
+                            </div>
+                            <div class="cerchioTema" onclick="sfondo('chiaro')">
+                                <div class="colore1-2"></div>
+                                <div class="colore2-2"></div>
+                            </div>
+                            <div class="cerchioTema" onclick="sfondo('blu')">
+                                <div class="colore1-3"></div>
+                                <div class="colore2-3"></div>
+                            </div>
+                            <div class="cerchioTema" onclick="sfondo('eggsolution')">
+                                <div class="colore1-4"></div>
+                                <div class="colore2-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infoAccount">
+                        <a class="titoloSezione">Info account:</a>
+                        <div class="infoText">
+                            <a class="infoAccountLabel">
+                                Nome:     <br>
+                                Cognome:  <br>
+                                Tipo:     <br>
+                                Classe:   <br>
+                            </a>
+                            <a class="infoAccountData">
+                                {{.Nome}}         <br>
+                                {{.Cognome}}      <br>
+                                {{.TipoAccount}}  <br>
+                                2TE               <br>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header>
+                <div class="containerTitoloSezione">
+                    <div class="movingContainerTitoloSezione">
+                        <a class="homeTitolo">Home</a>
+                        <a class="statTitolo">Statistiche</a>
+                        <div class="elabTitolo">
+                            <a>Elaborati</a>
+                            <div class="subtitleSlide">
+                                <a>- Personali</a>
+                                <a>- Classe</a>
+                            </div>
+                        </div>
+                        <a class="caricElabTitolo">Carica elaborati</a>
+                    </div>
+                </div>
+                <div class="containerUserInfo">
+                    <button onclick="menu(6)">
+                        <a>{{.NomeCompleto}}</a>
+                        <div class="userImg">
+                            <img src="{{.ImgUtente}}"></img>
+                        </div>
+                    </button>
+                </div>
+            </header>
+            <!--preview PDF-->
+            <div class="sezioni">
+                <div class="movingContainerSezioni">
+                    <div class="home">
+                        <div class="divHomeSopra">
+                            <div class="divHomeSopraSinistra">
+                                <div class="divElaboratiPreferiti">
+                                    <a class="titoloSezione">Preferiti</a>
+                                    <div class="listaSchede">
+                                        <div class="listaSchedeScorri">
+                                        {{range .Elaborati}}
+                                            {{if .Preferito}}
+                                                <div class="schedaPreferito">
+                                                    <svg width="40%" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <rect width="87" height="87" rx="43.5" fill="url(#pattern0)"/>
+                                                        <defs>
+                                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                        <use xlink:href="#image0_701_339" transform="scale(0.00195312)"/>
+                                                        </pattern>
+                                                        <image id="image0_701_339" width="512" height="512" xlink:href="data:image/png;base64,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"/>
+                                                        </defs>
+                                                    </svg>
+                                                    <a>{{.Name}}</a>
+                                                    <a>{{.Creator}}</a>
+                                                    <a>idk</a>
+                                                </div>
+                                            {{end}}
+                                        {{end}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divHomeSopraDestra">
+                                <div class="divHomeStatsElaborati">
+                                    <div class="label1">
+                                        <div class="sinistra">
+                                            <div class="barra"></div>
+                                            <div class="icona">
+                                                <img src="../static/media/dashboard/pdf-caricati.svg"></img>
+                                            </div>
+                                        </div>
+                                        <div class="dati">
+                                            <a class="titolo">Elaborati caricati:</a>
+                                            <a class="numero">{{.ElabInfoCaricati}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="label2">
+                                        <div class="sinistra">
+                                            <div class="barra"></div>
+                                            <div class="icona">
+                                                <img src="../static/media/dashboard/pdf-inConferma.svg"></img>
+                                            </div>
+                                        </div>
+                                        <div class="dati">
+                                            <a class="titolo">Elaborati da approvare:</a>
+                                            <a class="numero">{{.ElabInfoApprovare}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="label3">
+                                        <div class="sinistra">
+                                            <div class="barra"></div>
+                                            <div class="icona">
+                                                <img src="../static/media/dashboard/pdf-pubblici.svg"></img>
+                                            </div>
+                                        </div>
+                                        <div class="dati">
+                                            <a class="titolo">Elaborati pubblici:</a>
+                                            <a class="numero">{{.ElabInfoPubblici}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divHomeSotto">
+                            <div class="divElaboratiRecenti">
+                                <a class="titoloSezione">Recenti</a>
+                                <div class="tabella">
+                                    <div class="headTabella">
+                                        <div class="row">
+                                            <div class="id">
+                                                <a>Id</a>
+                                            </div>
+                                            <div class="nome">
+                                                <div class="divisore"></div>
+                                                <a>Nome</a>
+                                            </div>
+                                            <div class="autore">
+                                                <div class="divisore"></div>
+                                                <a>Autore</a>
+                                            </div>
+                                            <div class="classe">
+                                                <div class="divisore"></div>
+                                                <a>Classe</a>
+                                            </div>
+                                            <div class="dataCaricamento">
+                                                <div class="divisore"></div>
+                                                <a>Data caricamento</a>
+                                            </div>
+                                            <div class="stato">
+                                                <div class="divisore"></div>
+                                                <a>Stato</a>
+                                            </div>
+                                            <div class="preferito">
+                                                <div class="divisore"></div>
+                                                <a>Preferito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="linea"></hr>
+                                    <div class="bodyTabella">
+                                        {{range .Elaborati}}
+                                            {{if .Recente}}
+                                                <div class="row" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
+                                                    <div class="id">
+                                                        <a>{{.Id}}</a>
+                                                    </div>
+                                                    <div class="nome">
+                                                        <div class="divisore"></div>
+                                                        <a>{{.Name}}</a>
+                                                    </div>
+                                                    <div class="autore">
+                                                        <div class="divisore"></div>
+                                                        <a>{{.Creator}}</a>
+                                                    </div>
+                                                    <div class="classe">
+                                                        <div class="divisore"></div>
+                                                        <a>idk</a>
+                                                    </div>
+                                                    <div class="dataCaricamento">
+                                                        <div class="divisore"></div>
+                                                        <a>{{.UploadDate}}</a>
+                                                    </div>
+                                                    <div class="stato">
+                                                        <div class="divisore"></div>
+                                                        <a>idk</a>
+                                                    </div>
+                                                    <div class="preferito">
+                                                        <div class="divisore"></div>
+                                                        <a>{{.Preferito}}</a>
+                                                    </div>
+                                                </div>
+                                            {{end}}
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statitiche">
+                        <div class="divStatisticheSopra">
+                            <div class="divStatisticheSopraSinistra">
+                                <div class="divStatisticheGraficoLinee">
+                                    <div class="containerGrafico">
+                                        <graph-js
+                                            graphType="lineGraph"
+                                            data="[[0,40], [10,20], [20,100], [30,60],[40,85]]"
+                                            axysBackground="#ffffff"
+                                        ></graph-js>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divStatisticheSopraDestra">
+                                <div class="divStatisticheStatsElaborati">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divStatisticheSotto">
+                            <div class="divStatisticheSottoSinistra">
+                                <div class="divStatisticheGraficoTorta">
+
+                                </div>
+                            </div>
+                            <div class="divStatisticheSottoDestra">
+                                <div class="divStatisticheGraficoColonne">
+                                    <div class="containerGrafico">
+                                        <graph-js
+                                            graphType="barGraph"
+                                            data="[120, [140, 100], 140, 100, 160, 220, 180]"
+                                            barWidth="60px"
+                                            barMargin="4px"
+                                            barBorderRadius="10px"
+                                            barBackground="#d019d3"
+                                            barLabelColor="#FF8496"
+                                            groupMargin="8px"
+                                            axysBackground="#ffffff"
+                                        ></graph-js>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elaboratiPersonali">
+                        <div class=sezElaborati>
+                            <a class="titoloPref">Preferiti</a>
+                            <div class="sezPreferitiElab">
+                                <div class="scrollbar"><div>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr </div></div>
+                            </div>
+                            <a class="titolo">Elaborati</a>
+                            <a class="filtri">filtri ▼</a>
+                            <div class="sezTuttiElaborati">
+                                <div class="tabella">
+                                    <div class="headTabella">
+                                        <div class="row">
+                                            <div class="id">
+                                                <a>Id</a>
+                                            </div>
+                                            <div class="nome">
+                                                <div class="divisore"></div>
+                                                <a>Nome</a>
+                                            </div>
+                                            <div class="autore">
+                                                <div class="divisore"></div>
+                                                <a>Autore</a>
+                                            </div>
+                                            <div class="classe">
+                                                <div class="divisore"></div>
+                                                <a>Classe</a>
+                                            </div>
+                                            <div class="dataCaricamento">
+                                                <div class="divisore"></div>
+                                                <a>Data caricamento</a>
+                                            </div>
+                                            <div class="stato">
+                                                <div class="divisore"></div>
+                                                <a>Stato</a>
+                                            </div>
+                                            <div class="preferito">
+                                                <div class="divisore"></div>
+                                                <a>Preferito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="linea"></hr>
+                                    <div class="bodyTabella">
+                                        {{range .Elaborati}}
+                                            <div class="row" onclick="previewLayer('/static/elaborati/Serie%20D4%20maschile%202022%20calendario%20gironi.pdf')">
+                                                <div class="id">
+                                                    <a>{{.Id}}</a>
+                                                </div>
+                                                <div class="nome">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Name}}</a>
+                                                </div>
+                                                <div class="autore">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Creator}}</a>
+                                                </div>
+                                                <div class="classe">
+                                                    <div class="divisore"></div>
+                                                    <a>idk</a>
+                                                </div>
+                                                <div class="dataCaricamento">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.UploadDate}}</a>
+                                                </div>
+                                                <div class="stato">
+                                                    <div class="divisore"></div>
+                                                    <a>idk</a>
+                                                </div>
+                                                <div class="preferito">
+                                                    <div class="divisore"></div>
+                                                    <a>{{.Preferito}}</a>
+                                                </div>
+                                            </div>
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elaboratiClasse">
+                        <div class=sezElaborati>
+
+                        </div>
+                    </div>
+
+                    <div class="aggiungiElaborati">
+                        <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+                        <input name="userName" type="hidden" value="{{.NomeCompleto}}">
+                        <div class="sinistra">
+                            <div class="sezioneSinistra">
+                                <div class="sopra">
+                                    <div class="sinistra">
+                                        <input type="text" name="nomeElaborato" class="nomeElaboratoInput" placeholder="inserire il nome dell' elaborato">
+                                    </div>
+                                    <div class="destra">
+                                        <div class="divSelezionaClasse"></div>
+                                    </div>
+                                </div>
+                                <div class="mezzo">
+                                    <div class="DragDrop">
+                                        <svg class="svgCartella" id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 63.5"><defs><style>.cls-1{fill:#fff;stroke:#1d1d1b;stroke-miterlimit:10;}</style></defs><path class="cls-1" d="M359.92,313.68v4.65a3.24,3.24,0,0,0-3.46-3H309a3,3,0,0,1-3-3V301.73h9.14c2.19,0,4,1,4,2.17v2.7a3.33,3.33,0,0,0,1,2.36,4.36,4.36,0,0,0,3,1.18h32.64A3.84,3.84,0,0,1,359.92,313.68Z" transform="translate(-287.5 -297)"/><path class="cls-1" d="M360,318.33V357a3,3,0,0,1-3,3H291a3,3,0,0,1-3-3V300.47a3,3,0,0,1,3-3h12a3,3,0,0,1,3,3v11.91a3,3,0,0,0,3,3h47.46a3.24,3.24,0,0,1,3.46,3v-.67A3,3,0,0,1,360,318.33Z" transform="translate(-287.5 -297)"/><path class="cls-1" d="M359.92,317.66v.67a3.24,3.24,0,0,0-3.46-3H357A3,3,0,0,1,359.92,317.66Z" transform="translate(-287.5 -297)"/></svg>
+                                        <input type="file" name="file" class="fileInput" id="fileInput">
+                                        <a>Drag & Drop</a>
+                                        <div>
+                                            <hr>
+                                            <a>O</a>
+                                            <hr>
+                                        </div>
+                                        <div class="bottoneFinto">
+                                            <a>carica file</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sotto">
+                                    <div class="divDescrizione">
+                                        <a>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destra">
+                            <div class="sezioneDestra">
+                                <div class="sopra">
+                                    <div class="divIstruzioni"></div>
+                                </div>
+                                <div class="mezzo">
+                                    <div class="divMaterie"></div>
+                                </div>
+                                <div class="sotto">
+                                    <div class="sinistra">
+                                        <div class="divSelezionatorePubblico"></div>
+                                    </div>
+                                    <div class="destra">
+                                        <input type="submit" class="invia" value="invia elaborato">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class></div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="eggSoltuion">
+                <a>Powered by</a>
+                <img src="../static/media/logoEggs/logoNoSfondo.png"></img>
+            </div>
+        </div>
+    </div>
+    <!-- Graph-JS -->
+    <script src="static/graphJS/src/graphJS.js"></script>
+</body>
+</html>

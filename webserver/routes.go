@@ -14,7 +14,7 @@ import (
 	"github.com/axli-personal/cfparser"
 	_"github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
     _"github.com/go-sql-driver/mysql"
-	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/bannerImp"
+	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 
     "gopkg.in/square/go-jose.v2/jwt"
 )

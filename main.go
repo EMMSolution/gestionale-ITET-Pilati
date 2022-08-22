@@ -10,7 +10,7 @@ import (
 	"github.com/axli-personal/cfparser"
 	db "github.com/EggSolution/gestionale-ITET-Pilati/moduli/database"
 	ws "github.com/EggSolution/gestionale-ITET-Pilati/moduli/webserver"
-	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/bannerImp"
+	banner "github.com/EggSolution/gestionale-ITET-Pilati/moduli/imp"
 )
 
 func cls() {

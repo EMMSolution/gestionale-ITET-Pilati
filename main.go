@@ -43,6 +43,7 @@ func menu() {
 		fmt.Println("Attenzione: file di configurazione assente o non agibile!")
 		return
 	}
+	defer configFile.Close()
 	// prendo impostazioni
 	parser := cfparser.NewCFParser(configFile, "#", '=')
 

@@ -126,7 +126,7 @@ func home(w http.ResponseWriter, r *http.Request){
 	// get current working directory
 	Cwd, _ =  os.Getwd()
 	// execute html template
-	template, _ := template.ParseFiles(Cwd + "\\pagine\\home.html")
+	template, _ := template.ParseFiles(Cwd + "\\static\\pagine\\home.html")
 	template.Execute(w, HomeVar)
 }
 
@@ -354,7 +354,7 @@ func dashboard(w http.ResponseWriter, r *http.Request){
 		DBconn.Query("UPDATE user SET nuovo = 'no'")
 	}
 	// execute html template
-	template, _ := template.ParseFiles(Cwd + "\\pagine\\dashboard.html")
+	template, _ := template.ParseFiles(Cwd + "\\static\\pagine\\dashboard.html")
 	template.Execute(w, elaboratiHTML)
 }
 

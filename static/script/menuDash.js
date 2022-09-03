@@ -21,15 +21,15 @@ var impAperto = false;
 var iframeAperto = false;
 
 window.onload = function(){
-    contenitoreIframe = document.querySelector('.contenitoreIframe')
-    PDFpreview = document.querySelector('.PDFpreview')
+    contenitoreIframe = document.querySelector('.contenitoreIframe');
+    PDFpreview = document.querySelector('.PDFpreview');
     // welcome page
-    welcomePage = document.querySelector('.welcomePage')
+    welcomePage = document.querySelector('.welcomePage');
     // sfondo
-    sfondoDiv1 = document.querySelector('.sfondo')
-    sfondoDiv2 = document.querySelector('.sfondo .corpo3')
-    sfondoDiv3 = document.querySelector('.sfondo .corpo2')
-    sfondoDiv4 = document.querySelector('.sfondo .corpo1')
+    sfondoDiv1 = document.querySelector('.sfondo');
+    sfondoDiv2 = document.querySelector('.sfondo .corpo3');
+    sfondoDiv3 = document.querySelector('.sfondo .corpo2');
+    sfondoDiv4 = document.querySelector('.sfondo .corpo1');
     // titolo sezione
     titoloSezione = document.querySelector('.movingContainerTitoloSezione');
     homeTitolo = document.querySelector('.homeTitolo');
@@ -88,10 +88,16 @@ window.onload = function(){
     homeStatsWidgetColorBar1 = document.querySelector('.label1 .sinistra .barra');
     homeStatsWidgetColorBar2 = document.querySelector('.label2 .sinistra .barra');
     homeStatsWidgetColorBar3 = document.querySelector('.label3 .sinistra .barra');
-    
+
     //controllo quale tema è attualmente continua in fondo
+    if(localStorage.getItem("tema") === ""){
+        localStorage.setItem("tema", "scuro");
+    }
     let temaAttuale = localStorage.getItem("tema");
     console.log(temaAttuale)
+    //setto il tema
+    sfondo(localStorage.getItem("tema"));
+
     // default sezioni
     elaboratiClasse.style.display = "none";
     sezione.style.height = "calc(100% * 4 - 75px * 4)";
@@ -269,7 +275,7 @@ function sfondo(tema){
             sfondoDiv4.style.background = "#34189C";
             localStorage.setItem("tema", "blu");
             break;
-        
+
     }
 }
 function menu(sezioneFunc){
@@ -593,5 +599,3 @@ function previewLayer(filePath){
         iframeAperto = false
     }
 }
-//continuo... setto il tema
-sfondo("scuro");

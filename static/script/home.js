@@ -7,7 +7,6 @@ window.onload = function(){
     sfondoDiv3 = document.querySelector('.sfondo .corpo2');
     sfondoDiv4 = document.querySelector('.sfondo .corpo1');
 
-    console.log(localStorage.getItem("tema"))
     if(localStorage.getItem("tema") === null){
         localStorage.setItem("tema", "scuro");
     }

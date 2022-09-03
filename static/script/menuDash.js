@@ -88,11 +88,10 @@ window.onload = function(){
     homeStatsWidgetColorBar1 = document.querySelector('.label1 .sinistra .barra');
     homeStatsWidgetColorBar2 = document.querySelector('.label2 .sinistra .barra');
     homeStatsWidgetColorBar3 = document.querySelector('.label3 .sinistra .barra');
-    //controllo quale tema è attualmente
-    tema = localStorage.getItem("color");
-    console.log("Adesso il tema è:", tema );
-    sfondo(tema);
-
+    
+    //controllo quale tema è attualmente continua in fondo
+    let temaAttuale = localStorage.getItem("tema");
+    console.log(temaAttuale)
     // default sezioni
     elaboratiClasse.style.display = "none";
     sezione.style.height = "calc(100% * 4 - 75px * 4)";
@@ -273,7 +272,6 @@ function sfondo(tema){
         
     }
 }
-
 function menu(sezioneFunc){
     switch(sezioneFunc){
         case 1:
@@ -595,3 +593,5 @@ function previewLayer(filePath){
         iframeAperto = false
     }
 }
+//continuo... setto il tema
+sfondo("scuro");

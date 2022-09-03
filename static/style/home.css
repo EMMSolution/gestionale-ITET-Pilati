@@ -15,7 +15,6 @@ body {
     position: absolute;
     height: 100vh;
     width: 100%;
-    background-color: #364CB6;
     display: flex;
     flex-direction: column-reverse;
     z-index: 0;
@@ -27,7 +26,6 @@ body {
     height: 1737px;
     top: -13%;
     left: 1%;
-    background: #70C7EC;
     transform: rotate(-40deg);
 }
 .corpo2 {
@@ -36,12 +34,10 @@ body {
     height: 1405px;
     left: -10%;
     top: 10%;
-    background: #4863E6;
     transform: rotate(-49.84deg);
 }
 .corpo1 {
     position: absolute;
-    background-color: #34189C;
     height: 700px;
     width: 300px;
     transform: rotate(-45deg);

@@ -589,7 +589,7 @@ function fineTutorial(){
 // PDF preview
 function previewLayer(filePath){
     PDFpreview.src = (filePath)
-    
+
     if (iframeAperto == false){
         contenitoreIframe.style.display = "block"
         console.log("aperto")

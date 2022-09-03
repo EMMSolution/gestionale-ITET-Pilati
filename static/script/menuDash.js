@@ -222,7 +222,6 @@ function sfondo(tema){
             sfondoDiv3.style.background = "#D3D3D3";
             sfondoDiv4.style.background = "#8F8F8F";
             localStorage.setItem("tema", "chiaro");
-
             break;
         case "scuro":
             titoloSezione.style.color = "#ffffff"

@@ -19,6 +19,7 @@ body {
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&family=Yantramanav:wght@100;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
     --widgetSpacing: 25px;
@@ -657,8 +658,7 @@ header {
     padding-top: 5px;
     height: calc(100% - var(--widgetSpacing)/2 - 15px);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -672,8 +672,7 @@ header {
     margin-left: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -692,8 +691,7 @@ header {
     padding-right: 10px;
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -726,8 +724,8 @@ header {
 .divElaboratiPreferiti .schedaPreferito {
     margin-right: 25px;
     position: relative;
-    min-width: 15%;
-    max-width: 15%;
+    min-width: 19%;
+    max-width: 19%;
     height: 90%;
     margin-top: 1.2%;
     border-radius: 20px;
@@ -736,7 +734,6 @@ header {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    background: #C27DFC;
 }
 .divElaboratiPreferiti .schedaPreferito div {
     background: red;
@@ -747,13 +744,22 @@ header {
     justify-content: center;
     align-items: center;
 }
-.divElaboratiPreferiti .schedaPreferito svg {
-    margin-bottom: 10%;
-}
 .divElaboratiPreferiti .schedaPreferito a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 110%;
-    color: #303030;
+    color: #000000;
+}
+.divElaboratiPreferiti .schedaPreferito:nth-child(3n + 1) {
+    background: linear-gradient(180deg, #FF8496 0%, #FFC7CF 100%);
+    box-shadow: 0px 0px 10px #FF8496;
+}
+.divElaboratiPreferiti .schedaPreferito:nth-child(3n + 2) {
+    background: linear-gradient(180deg, #1FC4DA 0%, #BDDFE3 100%);
+    box-shadow: 0px 0px 10px #1FC4DA;
+}
+.divElaboratiPreferiti .schedaPreferito:nth-child(3n + 3) {
+    background: linear-gradient(180deg, #C27DFC 0%, #E1BEFF 100%);
+    box-shadow: 0px 0px 10px #C27DFC;
 }
 
 /* statistiche (alto destra) */
@@ -999,8 +1005,7 @@ header {
 .divStatisticheGraficoLinee {
     height: 100%;
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     align-items: center;
@@ -1020,8 +1025,7 @@ header {
     margin-left: calc(var(--widgetSpacing)/2);
     height: 100%;
     width: calc(100% - var(--widgetSpacing)/2);
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSotto {
@@ -1040,8 +1044,7 @@ header {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSottoDestra {
@@ -1055,8 +1058,7 @@ header {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: var(--widgetBorderRadius);
     display: flex;
     align-items: center;
@@ -1069,8 +1071,7 @@ header {
 
 /* ELABORATI */
 .sezElaborati {
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     height:100%;
     width:100%;
     border-radius: var(--widgetBorderRadius);
@@ -1299,8 +1300,7 @@ header {
     display: flex;
     height: 100%;
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
     position: relative;
@@ -1374,8 +1374,7 @@ header {
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
     height: 100%;
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: 17px;
     margin-top: calc(var(--widgetSpacing)*2);
     display: flex;
@@ -1421,8 +1420,7 @@ header {
 .aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie{
     height: 100%;
     width: 100%;
-    background: #06000E;
-    opacity: 0.71;
+    background: rgb(6, 0, 14, 0.71);
     border-radius: 17px;
 }
 .aggiungiElaborati .destra .sezioneDestra .sotto{

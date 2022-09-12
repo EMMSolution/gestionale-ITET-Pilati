@@ -657,7 +657,8 @@ header {
     padding-top: 5px;
     height: calc(100% - var(--widgetSpacing)/2 - 15px);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -671,7 +672,8 @@ header {
     margin-left: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -690,7 +692,8 @@ header {
     padding-right: 10px;
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
     display: flex;
     flex-direction: column;
@@ -996,7 +999,8 @@ header {
 .divStatisticheGraficoLinee {
     height: 100%;
     width: 100%;
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
     display: flex;
     align-items: center;
@@ -1016,7 +1020,8 @@ header {
     margin-left: calc(var(--widgetSpacing)/2);
     height: 100%;
     width: calc(100% - var(--widgetSpacing)/2);
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSotto {
@@ -1035,7 +1040,8 @@ header {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: 100%;
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
 }
 .divStatisticheSottoDestra {
@@ -1049,7 +1055,8 @@ header {
     margin-top: calc(var(--widgetSpacing)/2);
     height: calc(100% - var(--widgetSpacing)/2);
     width: calc(100% - var(--widgetSpacing)/2);
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: var(--widgetBorderRadius);
     display: flex;
     align-items: center;
@@ -1062,7 +1069,8 @@ header {
 
 /* ELABORATI */
 .sezElaborati {
-    background-color: rgba(48 ,48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     height:100%;
     width:100%;
     border-radius: var(--widgetBorderRadius);
@@ -1291,7 +1299,8 @@ header {
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: 17px;
     margin-top: var(--widgetSpacing);
     position: relative;
@@ -1365,7 +1374,8 @@ header {
 .aggiungiElaborati .sinistra .sezioneSinistra .sotto .divDescrizione{
     height: 100%;
     width: 100%;
-    background-color: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: 17px;
     margin-top: calc(var(--widgetSpacing)*2);
     display: flex;
@@ -1411,7 +1421,8 @@ header {
 .aggiungiElaborati .destra .sezioneDestra .mezzo .divMaterie{
     height: 100%;
     width: 100%;
-    background: rgba(48, 48, 48, 0.9);
+    background: #06000E;
+    opacity: 0.71;
     border-radius: 17px;
 }
 .aggiungiElaborati .destra .sezioneDestra .sotto{

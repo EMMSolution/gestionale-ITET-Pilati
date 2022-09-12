@@ -21,8 +21,6 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap');
 
 :root {
-    --mainBackground: #4863e6;
-    --barraLateraleColore: #303030;
     --widgetSpacing: 25px;
     --widgetBorderRadius: 20px;
 }
@@ -203,33 +201,6 @@ body {
     z-index: -1;
     overflow: hidden;
 }
-.corpo3{
-    transition: 0.2s;
-    position: absolute;
-    width: 713px;
-    height: 1737px;
-    top: -30%;
-    left: 18%;
-    transform: rotate(-40deg);
-}
-.corpo2{
-    transition: 0.2s;
-    position: absolute;
-    width: 713px;
-    height: 1405px;
-    left: 0%;
-    top: 10%;
-    transform: rotate(-49.84deg);
-}
-.corpo1{
-    transition: 0.2s;
-    position: absolute;
-    height: 1000px;
-    width: 300px;
-    transform: rotate(110deg);
-    top: 48%;
-    left: 10%;
-}
 
 /* PREVIEW */
 .chiudiElaborato {
@@ -307,7 +278,6 @@ body {
 .menu {
     height: 100vh;
     width: 60px;
-    background: var(--barraLateraleColore);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -387,8 +357,8 @@ body {
     transition: 0.5s;
 }
 .lista button {
-    background: var(--barraLateraleColore);
     border: 0 solid;
+    background: transparent;
 }
 .MenuSezionesotto {
     height: 60px;
@@ -418,7 +388,6 @@ body {
     border-radius: 14px;
     width: 75%;
     margin-left: calc((100% - 75%) / 2);
-    background: #4863E6;
     transition: 0.2s height;
     display: flex;
     flex-direction: column;

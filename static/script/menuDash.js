@@ -6,11 +6,11 @@ window.addEventListener('load', () => {
 // PAGINA
 var contenitoreIframe;
 var PDFpreview;
-var sfondoDiv1, sfondoDiv2, sfondoDiv3, sfondoDiv4;
+var sfondoDiv1;
 var sezione;
 var elaboratiPersonali, elaboratiClasse;
 var userNameInfo, titoloSezione, homeTitolo, statTitolo, elabTitolo, caricElabTitolo;
-var indicatoreMenu, indicatoreMenuBefore, indicatoreMenuAfter, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
+var menuDiv, menuButton1, menuButton2, menuButton4, menuButton5, indicatoreMenu, indicatoreMenuBefore, indicatoreMenuAfter, menuHomeA, menuHomeImg, menuHomeSvgPath1, menuHomeSvgPath2, menuStatsA, menuStatsImg, menuStatsSvgPath1, menuStatsSvgPath2, menuFileA, menuFileImg, menuFileSvgPath1, menuFileSvgPath2, menuFileSvgPath3, fileMenuType, menuAggFileA, menuAggFileImg, menuAggFileSvgPath1, menuAggFileSvgPath2, menuAggFileSvgPath3, menuAggFileSvgPath4;
 var menuFileSottomenu, posizioneFileMenuSvg, fileMenuDiv, menuFileDivSopra, menuFileDivSotto, menuFileDivIcona11, menuFileDivIcona12, menuFileDivIcona13, menuFileDivIcona14, menuFileDivIcona21, menuFileDivIcona22, menuFileDivIcona23, menuFileDivIcona24, menuFileDivIcona25, menuFileDivIcona26;
 var imp, impAperto;
 var welcomePage;
@@ -27,9 +27,6 @@ window.onload = function(){
     welcomePage = document.querySelector('.welcomePage');
     // sfondo
     sfondoDiv1 = document.querySelector('.sfondo');
-    sfondoDiv2 = document.querySelector('.sfondo .corpo3');
-    sfondoDiv3 = document.querySelector('.sfondo .corpo2');
-    sfondoDiv4 = document.querySelector('.sfondo .corpo1');
     // titolo sezione
     titoloSezione = document.querySelector('.movingContainerTitoloSezione');
     homeTitolo = document.querySelector('.homeTitolo');
@@ -43,6 +40,11 @@ window.onload = function(){
     elaboratiPersonali = document.querySelector(".elaboratiPersonali");
     elaboratiClasse = document.querySelector(".elaboratiClasse");
     // menu
+    menuDiv = document.querySelector(".pagina .menu");
+    menuButton1 = document.querySelector(".menuButton1");
+    menuButton2 = document.querySelector(".menuButton2");
+    menuButton3 = document.querySelector(".menuButton3");
+    menuButton5 = document.querySelector(".menuButton5");
     indicatoreMenu = document.querySelector('.indicatore');
     indicatoreMenuBefore = document.querySelector('.indicatore .before');
     indicatoreMenuAfter = document.querySelector('.indicatore .after');
@@ -218,30 +220,24 @@ function sfondo(tema){
             titoloSezione.style.color = "#303030"
             menuFileSottomenu.style.color = "#303030";
             userNameInfo.style.color = "#303030";
-            indicatoreMenu.style.borderColor = "#D3D3D3"
-            indicatoreMenuBefore.style.borderRight = "5px #D3D3D3 solid";
-            indicatoreMenuBefore.style.borderBottom = "5px #D3D3D3 solid";
-            indicatoreMenuAfter.style.borderRight = "5px #D3D3D3 solid";
-            indicatoreMenuAfter.style.borderTop = "5px #D3D3D3 solid";
-            sfondoDiv1.style.background = "#FFFFFF";
-            sfondoDiv2.style.background = "#E3E3E3";
-            sfondoDiv3.style.background = "#D3D3D3";
-            sfondoDiv4.style.background = "#8F8F8F";
+            indicatoreMenu.style.borderColor = "white"
+            indicatoreMenuBefore.style.borderRight = "5px white solid";
+            indicatoreMenuBefore.style.borderBottom = "5px white solid";
+            indicatoreMenuAfter.style.borderRight = "5px white solid";
+            indicatoreMenuAfter.style.borderTop = "5px white solid";
+            sfondoDiv1.style.background = "white";
             localStorage.setItem("tema", "chiaro");
             break;
         case "scuro":
             titoloSezione.style.color = "#ffffff"
             menuFileSottomenu.style.color = "#ffffff";
             userNameInfo.style.color = "#ffffff";
-            indicatoreMenu.style.borderColor = "#171717"
-            indicatoreMenuBefore.style.borderRight = "5px #171717 solid";
-            indicatoreMenuBefore.style.borderBottom = "5px #171717 solid";
-            indicatoreMenuAfter.style.borderRight = "5px #171717 solid";
-            indicatoreMenuAfter.style.borderTop = "5px #171717 solid";
-            sfondoDiv1.style.background = "#545454";
-            sfondoDiv2.style.background = "#444444";
-            sfondoDiv3.style.background = "#171717";
-            sfondoDiv4.style.background = "#000000";
+            indicatoreMenu.style.borderColor = "black"
+            indicatoreMenuBefore.style.borderRight = "5px black solid";
+            indicatoreMenuBefore.style.borderBottom = "5px black solid";
+            indicatoreMenuAfter.style.borderRight = "5px black solid";
+            indicatoreMenuAfter.style.borderTop = "5px black solid";
+            sfondoDiv1.style.background = "black";
             localStorage.setItem("tema", "scuro");
             break;
         case "eggsolution":
@@ -249,29 +245,29 @@ function sfondo(tema){
             menuFileSottomenu.style.color = "#303030";
             userNameInfo.style.color = "#ffffff";
             indicatoreMenu.style.borderColor = "#A36B00"
-            indicatoreMenuBefore.style.borderRight = "5px #A36B00 solid";
-            indicatoreMenuBefore.style.borderBottom = "5px #A36B00 solid";
-            indicatoreMenuAfter.style.borderRight = "5px #A36B00 solid";
-            indicatoreMenuAfter.style.borderTop = "5px #A36B00 solid";
-            sfondoDiv1.style.background = "#3F3F3F";
-            sfondoDiv2.style.background = "#E2BE40";
-            sfondoDiv3.style.background = "#A36B00";
-            sfondoDiv4.style.background = "#4E4E4E";
+            indicatoreMenuBefore.style.borderRight = "5px yellow solid";
+            indicatoreMenuBefore.style.borderBottom = "5px yellow solid";
+            indicatoreMenuAfter.style.borderRight = "5px yellow solid";
+            indicatoreMenuAfter.style.borderTop = "5px yellow solid";
+            sfondoDiv1.style.background = "yellow";
             localStorage.setItem("tema", "eggsolution");
             break;
         case "blu":
-            titoloSezione.style.color = "#303030"
-            menuFileSottomenu.style.color = "#303030";
+            titoloSezione.style.color = "#ffffff"
+            menuFileSottomenu.style.color = "#ffffff";
             userNameInfo.style.color = "#ffffff";
-            indicatoreMenu.style.borderColor = "#4863E6"
-            indicatoreMenuBefore.style.borderRight = "5px #4863E6 solid";
-            indicatoreMenuBefore.style.borderBottom = "5px #4863E6 solid";
-            indicatoreMenuAfter.style.borderRight = "5px #4863E6 solid";
-            indicatoreMenuAfter.style.borderTop = "5px #4863E6 solid";
-            sfondoDiv1.style.background = "#364CB6";
-            sfondoDiv2.style.background = "#70C7EC";
-            sfondoDiv3.style.background = "#4863E6";
-            sfondoDiv4.style.background = "#34189C";
+            menuDiv.style.background = "#06001D";
+            menuButton1.style.background = "#06001D";
+            menuButton2.style.background = "#06001D";
+            menuButton3.style.background = "#06001D";
+            menuButton5.style.background = "#06001D";
+            indicatoreMenu.style.borderColor = "#243481"
+            indicatoreMenuBefore.style.borderRight = "5px #243481 solid";
+            indicatoreMenuBefore.style.borderBottom = "5px #243481 solid";
+            indicatoreMenuAfter.style.borderRight = "5px #243481 solid";
+            indicatoreMenuAfter.style.borderTop = "5px #243481 solid";
+            menuFileDiv.style.background = "linear-gradient(180deg, #3B22DA 0%, #8B00FF 100%)";
+            sfondoDiv1.style.background = "linear-gradient(250.99deg, #050B25 0%, #0E155B 34.9%, #152364 78.12%, #33459C 100%)";
             localStorage.setItem("tema", "blu");
             break;
 
@@ -302,8 +298,8 @@ function menu(sezioneFunc){
                 menuAggFileImg.style.transform = "translateX(0px)";
 
                 // colore icone menu
-                menuHomeSvgPath1.style.fill = "#303030";
-                menuHomeSvgPath2.style.fill = "#303030";
+                menuHomeSvgPath1.style.fill = "black";
+                menuHomeSvgPath2.style.fill = "black";
 
                 menuStatsSvgPath1.style.fill = "#ffffff";
                 menuStatsSvgPath2.style.fill = "#ffffff";
@@ -352,8 +348,8 @@ function menu(sezioneFunc){
                 menuHomeSvgPath1.style.fill = "#ffffff";
                 menuHomeSvgPath2.style.fill = "#ffffff";
 
-                menuStatsSvgPath1.style.fill = "#303030";
-                menuStatsSvgPath2.style.fill = "#303030";
+                menuStatsSvgPath1.style.fill = "black";
+                menuStatsSvgPath2.style.fill = "black";
 
                 menuFileSvgPath1.style.fill = "#ffffff";
                 menuFileSvgPath2.style.fill = "#ffffff";
@@ -407,15 +403,15 @@ function menu(sezioneFunc){
                 menuStatsSvgPath1.style.fill = "#ffffff";
                 menuStatsSvgPath2.style.fill = "#ffffff";
 
-                menuFileSvgPath1.style.fill = "#303030";
-                menuFileSvgPath2.style.fill = "#303030";
-                menuFileSvgPath3.style.fill = "#303030";
+                menuFileSvgPath1.style.fill = "black";
+                menuFileSvgPath2.style.fill = "black";
+                menuFileSvgPath3.style.fill = "black";
                 menuFileDiv.style.height = "90px";
 
-                menuFileDivIcona11.style.fill = "#303030";
-                menuFileDivIcona12.style.fill = "#303030";
-                menuFileDivIcona13.style.fill = "#303030";
-                menuFileDivIcona14.style.fill = "#303030";
+                menuFileDivIcona11.style.fill = "#ADADAD";
+                menuFileDivIcona12.style.fill = "#ADADAD";
+                menuFileDivIcona13.style.fill = "#ADADAD";
+                menuFileDivIcona14.style.fill = "#ADADAD";
                 menuFileDivIcona21.style.fill = "#ffffff";
                 menuFileDivIcona22.style.fill = "#ffffff";
                 menuFileDivIcona23.style.fill = "#ffffff";
@@ -426,7 +422,7 @@ function menu(sezioneFunc){
                 menuAggFileSvgPath1.style.fill = "#ffffff";
                 menuAggFileSvgPath2.style.fill = "#ffffff";
                 menuAggFileSvgPath3.style.fill = "#ffffff";
-                menuAggFileSvgPath4. style.fill = "#303030";
+                menuAggFileSvgPath4. style.fill = "#ADADAD";
 
                 sezioneAttuale = 3;
                 posizioneFileMenuSvg = 0;
@@ -467,26 +463,26 @@ function menu(sezioneFunc){
                 menuStatsSvgPath1.style.fill = "#ffffff";
                 menuStatsSvgPath2.style.fill = "#ffffff";
 
-                menuFileSvgPath1.style.fill = "#303030";
-                menuFileSvgPath2.style.fill = "#303030";
-                menuFileSvgPath3.style.fill = "#303030";
+                menuFileSvgPath1.style.fill = "black";
+                menuFileSvgPath2.style.fill = "black";
+                menuFileSvgPath3.style.fill = "black";
                 menuFileDiv.style.height = "90px";
 
                 menuFileDivIcona11.style.fill = "#ffffff";
                 menuFileDivIcona12.style.fill = "#ffffff";
                 menuFileDivIcona13.style.fill = "#ffffff";
                 menuFileDivIcona14.style.fill = "#ffffff";
-                menuFileDivIcona21.style.fill = "#303030";
-                menuFileDivIcona22.style.fill = "#303030";
-                menuFileDivIcona23.style.fill = "#303030";
-                menuFileDivIcona24.style.fill = "#303030";
-                menuFileDivIcona25.style.fill = "#303030";
-                menuFileDivIcona26.style.fill = "#303030";
+                menuFileDivIcona21.style.fill = "#ADADAD";
+                menuFileDivIcona22.style.fill = "#ADADAD";
+                menuFileDivIcona23.style.fill = "#ADADAD";
+                menuFileDivIcona24.style.fill = "#ADADAD";
+                menuFileDivIcona25.style.fill = "#ADADAD";
+                menuFileDivIcona26.style.fill = "#ADADAD";
 
                 menuAggFileSvgPath1.style.fill = "#ffffff";
                 menuAggFileSvgPath2.style.fill = "#ffffff";
                 menuAggFileSvgPath3.style.fill = "#ffffff";
-                menuAggFileSvgPath4.style.fill = "#303030";
+                menuAggFileSvgPath4.style.fill = "#ADADAD";
 
                 sezioneAttuale = 4;
                 posizioneFileMenuSvg = 1;
@@ -532,9 +528,9 @@ function menu(sezioneFunc){
                 menuFileSvgPath3.style.fill = "#ffffff";
                 menuFileDiv.style.height = "0";
 
-                menuAggFileSvgPath1.style.fill = "#303030";
-                menuAggFileSvgPath2.style.fill = "#303030";
-                menuAggFileSvgPath3.style.fill = "#303030";
+                menuAggFileSvgPath1.style.fill = "black";
+                menuAggFileSvgPath2.style.fill = "black";
+                menuAggFileSvgPath3.style.fill = "black";
                 menuAggFileSvgPath4. style.fill = "#ffffff";
 
                 sezioneAttuale = 5;

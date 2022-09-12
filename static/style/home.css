@@ -19,30 +19,7 @@ body {
     flex-direction: column-reverse;
     z-index: 0;
     overflow: hidden;
-}
-.corpo3 {
-    position: absolute;
-    width: 713px;
-    height: 1737px;
-    top: -13%;
-    left: 1%;
-    transform: rotate(-40deg);
-}
-.corpo2 {
-    position: absolute;
-    width: 713px;
-    height: 1405px;
-    left: -10%;
-    top: 10%;
-    transform: rotate(-49.84deg);
-}
-.corpo1 {
-    position: absolute;
-    height: 700px;
-    width: 300px;
-    transform: rotate(-45deg);
-    top: 50%;
-    left: -2%;
+    background: linear-gradient(250.99deg, #050B25 0%, #0E155B 34.9%, #152364 78.12%, #33459C 100%);
 }
 
 /* PAGINA */
@@ -67,11 +44,11 @@ body {
 /* MAIN */
 .main {
     overflow: hidden;
-    background: #303030;
+    background: #06000E;
     height: 320px;
     width: 500px;
     position: relative;
-    opacity: 0.9;
+    opacity: 0.71;
     border-radius: 44px;
     padding: 0;
     display: flex;

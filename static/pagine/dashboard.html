@@ -428,7 +428,11 @@
                                     <div class="containerGrafico">
                                         <graph-js
                                             graphType="lineGraph"
-                                            data="[[0,40], [10,20], [20,100], [30,60],[40,85]]"
+                                            data="[[0, 10], [10, 30], [20, 20], [30, 50],[40, 70]]"
+                                            pointBorderRadius="0px"
+                                            pointBackground="#ff0000"
+                                            lineHeight="2px"
+                                            lineColor="#ffffff"
                                             axysBackground="#ffffff"
                                         ></graph-js>
                                     </div>
@@ -451,14 +455,15 @@
                                     <div class="containerGrafico">
                                         <graph-js
                                             graphType="barGraph"
-                                            data="[120, [140, 100], 140, 100, 160, 220, 180]"
-                                            barWidth="60px"
-                                            barMargin="4px"
-                                            barBorderRadius="10px"
-                                            barBackground="#d019d3"
-                                            barLabelColor="#FF8496"
+                                            data="[300, 150, 100, 140, 250, 150, 400, 150, 10, 400]"
+                                            yLabelThreshold="50"
+                                            barBorderRadius="12px"
+                                            barBackground="#1FC4DA"
+                                            barWidth="83px"
+                                            barMargin="16px"
                                             groupMargin="8px"
-                                            axysBackground="#ffffff"
+                                            axysBackground="#2219d3"
+                                            axysWidth="0px"
                                         ></graph-js>
                                     </div>
                                 </div>

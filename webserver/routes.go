@@ -132,8 +132,8 @@ func home(w http.ResponseWriter, r *http.Request){
 
 func dashboard(w http.ResponseWriter, r *http.Request){
 	// prendo le configurazioni necessarie (debugMode) dal file config
-	projectPath, _ := os.Getwd()
-	configFile, err := os.Open(projectPath + "\\imp\\server.con")
+	//projectPath, _ := os.Getwd()
+	configFile, err := os.Open("/Users/marcobertagnolli/Desktop/programmazione/gestionale-ITET-Pilati/" + "/imp/server.txt")
 	if err != nil {
 		fmt.Println(err)
 	}

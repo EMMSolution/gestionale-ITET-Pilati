@@ -14,8 +14,8 @@ import (
 
 
 func Webserver(infoDB string) {
-	projectPath, _ := os.Getwd()
-	configFile, err := os.Open(projectPath + "\\imp\\server.txt")
+	//projectPath, _ := os.Getwd()
+	configFile, err := os.Open("/Users/marcobertagnolli/Desktop/programmazione/gestionale-ITET-Pilati/" + "/imp/server.txt")
 	if err != nil {
 		fmt.Println("Attenzione: file di configurazione assente o non agibile!")
 		return
